@@ -1,5 +1,5 @@
 /*
- * $Id: z_actor_dlftbls.decl,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $
+ * $Id: z_actor_dlftbls.decl,v 1.1 2003/03/10 22:42:56 tong Exp $
  *
  * Actorクラス登録テーブル
  *
@@ -20,8 +20,8 @@
  *   spec_ovl.dat に登録すること
  * 
  * $Log: z_actor_dlftbls.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:56  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:56  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 20:45:49+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

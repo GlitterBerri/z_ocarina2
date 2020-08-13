@@ -9,7 +9,6 @@ for dfile in `cut -d" " -f1 rom.map`; do
     echo $dfile
     szsfile=`basename $dfile .d`.szs
     ddfile=`basename $dfile .d`.dd
-    gzfile=`basename $dfile .d`.gz
     case ${dfile} in
     makerom.d | boot.d | dmadata.d | Audiobank.d | Audioseq.d | Audiotable.d )
 	rm -f $szsfile
@@ -31,26 +30,23 @@ for dfile in `cut -d" " -f1 rom.map`; do
     icon_item_field_static.d | icon_item_dungeon_static.d | icon_item_jpn_static.d | icon_item_nes_static.d | \
     nintendo_rogo_static.d | \
     code.d | z_select_static.d | ovl_*.d )
-        gzip -c -9 -n $dfile > $gzfile 
-	dd bs=10 skip=1 if=$gzfile of=$szsfile
+	../sliutil -c -i $dfile > $szsfile
 	$ROOT/usr/sbin/romalign $szsfile 16
 	;;
       * )
-        gzip -c -9 -n $dfile > $gzfile 
-	dd bs=10 skip=1 if=$gzfile of=$szsfile
+	../sliutil -c -i $dfile > $szsfile
 	$ROOT/usr/sbin/romalign $szsfile 16
         ;;
     esac
     if [ -f $szsfile ]; then
         #echo "check $szsfile"
-        gunzip -c -S "" $gzfile > ${ddfile}
+	../sliutil -d -i $szsfile > ${ddfile}
 	cmp ${dfile} ${ddfile}
 	if [ $? != 0 ]; then 
 	    echo "bad decompression: $szsfile"
 	    rm -f $szsfile
 	fi
 	rm -f ${ddfile}
-	rm -f $gzfile
     fi
 done
 
@@ -71,6 +67,5 @@ for file in `cut -d" " -f1 rom.map`; do
 done >> romP
 
 # pad out rom
-#$ROOT/usr/sbin/romfill romP romPP 33554432
-cp romP romPP
+$ROOT/usr/sbin/romfill romP romPP 33554432
 ls -l rom romP romPP

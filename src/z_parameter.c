@@ -3013,16 +3013,6 @@ button_background_rectangle_all( Game_play *game_play )
 	    gDPSetPrimColor( NEXT_OVERLAY_DISP, 0, 0, 255, 255, 255, pt );
 	    gDPSetEnvColor( NEXT_OVERLAY_DISP,  0, 0, 0, 0 );
 	    gDPSetCombineMode( NEXT_OVERLAY_DISP, G_CC_INT9, G_CC_INT9 );
-#ifdef CHINA
-	    gDPLoadTextureBlock_4b ( NEXT_OVERLAY_DISP,
-				     navi_txt[J_N], G_IM_FMT_IA, 48, 16, 0,
-				     G_TX_NOMIRROR, G_TX_NOMIRROR,
-				     G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD );
-	    gSPTextureRectangle( NEXT_OVERLAY_DISP,
-				 (YREG(88)-8) << 2, (YREG(89)-4) << 2,
-				 (YREG(88)+48-8) << 2, (YREG(89)+16-4) << 2,
-				 G_TX_RENDERTILE, 0, 0, 1 << 10, 1 << 10 );
-#else
 	    gDPLoadTextureBlock_4b ( NEXT_OVERLAY_DISP,
 				     navi_txt[J_N], G_IM_FMT_IA, 32, 8, 0,
 				     G_TX_NOMIRROR, G_TX_NOMIRROR,
@@ -3031,7 +3021,6 @@ button_background_rectangle_all( Game_play *game_play )
 				 YREG(88) << 2, YREG(89) << 2,
 				 (YREG(88)+32) << 2, (YREG(89)+8) << 2,
 				 G_TX_RENDERTILE, 0, 0, 1 << 10, 1 << 10 );
-#endif
 	}
 	if ( !(--navi_ct) ) {
 	    navi_pt ^= 1;

@@ -1,11 +1,11 @@
 /*
- * $Id: z_n64dd_function.decl,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $
+ * $Id: z_n64dd_function.decl,v 1.1 2003/03/10 22:42:53 tong Exp $
  *
  * n64dd用オプション関数定義
  *
  * $Log: z_n64dd_function.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:53  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:53  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 21:17:25+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

@@ -1,7 +1,7 @@
 /*
- * $Id: z_en_part.h,v 2.1 1998/10/22 12:13:45 zelda Exp $
+ * $Id: z_en_part.h,v 2.1 1998-10-22 21:13:45+09 zelda Exp $
  * $Log: z_en_part.h,v $
- * Revision 2.1  1998/10/22  12:13:45  zelda
+ * Revision 2.1  1998-10-22 21:13:45+09  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *
  * Revision 1.19  1998/09/26 07:02:39  tarukado

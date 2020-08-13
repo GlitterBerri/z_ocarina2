@@ -8,8 +8,8 @@
  * オーバーレイの場合はspecに登録すること
  * 
  * $Log: z_game_dlftbls.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:45  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:45  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 21:17:25+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

@@ -1,12 +1,9 @@
 #
-# $Id: gSRDdefs.mk,v 1.2 2003/09/11 22:08:00 wheeler Exp $
+# $Id: gSRDdefs.mk,v 1.1 2003/03/14 03:27:04 tong Exp $
 # 
 # FORCE_CPPが定義されている場合は .c のファイルのコンパイルを c++で行う
 #
 # $Log: gSRDdefs.mk,v $
-# Revision 1.2  2003/09/11 22:08:00  wheeler
-# Add makerel_linux tool
-#
 # Revision 1.1  2003/03/14 03:27:04  tong
 # copied SRD dir from old tree to new tree.
 #
@@ -58,7 +55,7 @@ PATCH_LIBDIR = 	$(PATCH_DIR)
 #SHELL = /bin/sh
 RGB2CFLAGS =
 HW_FLAGS = -D_HW_VERSION_2
-MAKEREL = $(COMMON_DIR)/makerel_linux
+MAKEREL = $(COMMON_DIR)/makerel
 MAKERELOPT =
 #if !(defined(GCC) || defined(__GCC__))
 ifndef __GCC__

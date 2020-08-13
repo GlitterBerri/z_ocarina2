@@ -1,8 +1,5 @@
-/* $Id: z_effect_SE.h,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $ */	
+/* $Id: z_effect_SE.h,v 2.1 1998/10/22 12:13:45 zelda Exp $ */	
 /* $Log: z_effect_SE.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:53  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.1  1998/10/22  12:13:45  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

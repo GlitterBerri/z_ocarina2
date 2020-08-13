@@ -1,5 +1,5 @@
 /*
- * $Id: z_effect_soft_sprite_dlftbls.decl,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $
+ * $Id: z_effect_soft_sprite_dlftbls.decl,v 1.1 2003/03/10 22:42:56 tong Exp $
  *
  * エフェクトＳＳ登録テーブル
  *
@@ -12,8 +12,8 @@
  *   spec_ovl.dat に登録すること
  *
  * $Log: z_effect_soft_sprite_dlftbls.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:56  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:56  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 21:13:45+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

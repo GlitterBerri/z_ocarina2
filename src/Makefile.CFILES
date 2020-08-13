@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.CFILES,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $
+# $Id: Makefile.CFILES,v 1.1 2003/03/10 22:42:53 tong Exp $
 #
 # 新規登録するソースファイルはチェックインしましたか？
 # 先にやっておきましょう。帰ってしまう前に。
@@ -9,8 +9,8 @@
 # CFILES マクロを定義します
 #  
 # $Log: Makefile.CFILES,v $
-# Revision 1.1.1.1  2003/03/10 22:42:53  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:42:53  tong
+# Initial revision
 #
 # Revision 2.5  1999-01-12 14:32:28+09  soejima
 # ＰＡＬ版 ＧＡＴＥＷＡＹ仕様

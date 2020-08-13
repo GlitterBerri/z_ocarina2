@@ -1,8 +1,5 @@
-/* $Id: z_player_macro.h,v 1.1.1.1 2003/03/10 22:42:47 tong Exp $ */	
+/* $Id: z_player_macro.h,v 2.2 1998-10-28 14:03:18+09 iwawaki Exp $ */	
 /* $Log: z_player_macro.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:47  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.2  1998-10-28 14:03:18+09  iwawaki
  * *** empty log message ***
  *

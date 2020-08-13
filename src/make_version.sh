@@ -1,7 +1,7 @@
 #!/bin/sh
 # $Log: make_version.sh,v $
-# Revision 1.1.1.1  2003/03/10 22:42:53  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:42:53  tong
+# Initial revision
 #
 # Revision 2.1  1998-10-22 20:41:56+09  zelda
 # ＲＯＭ出しバージョン(NTSC)

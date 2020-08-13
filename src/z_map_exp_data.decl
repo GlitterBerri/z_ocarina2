@@ -1,13 +1,13 @@
 /*
- * $Id: z_map_exp_data.decl,v 1.1.1.1 2003/03/10 22:42:51 tong Exp $
+ * $Id: z_map_exp_data.decl,v 1.1 2003/03/10 22:42:51 tong Exp $
  *
  * マップマークデータ
  *
  * z_map_mark_data.[ch] から include されます 
  *
  * $Log: z_map_exp_data.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:51  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:51  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 21:17:25+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

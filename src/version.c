@@ -1,12 +1,9 @@
 /*
- * $Id: version.c,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $
+ * $Id: version.c,v 2.2 1998/11/09 02:55:51 hayakawa Exp $
  *
  * バージョン文字列
  *
  * $Log: version.c,v $
- * Revision 1.1.1.1  2003/03/10 22:42:55  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.2  1998/11/09  02:55:51  hayakawa
  * ソースコメント追加
  *
@@ -36,6 +33,6 @@
 #include "version_data.h"
 #endif
 
-char __Creator__[] = __CREATOR__;
-char __DateTime__[] = __DATETIME__;
-char __MakeOption__[] = __MAKEOPTION__;
+extern char __Creator__[] = __CREATOR__;
+extern char __DateTime__[] = __DATETIME__;
+extern char __MakeOption__[] = __MAKEOPTION__;

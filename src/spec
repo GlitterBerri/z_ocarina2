@@ -1,5 +1,5 @@
 /*
- * $Id: spec,v 1.5 2003/10/09 00:58:04 wheeler Exp $
+ * $Id: spec,v 1.1 2003/03/10 22:42:45 tong Exp $
  *
  *
  * ¥¼¥ë¥À£¶£´ ¥¹¥Ú¥Ã¥¯ ¥Õ¥¡¥¤¥ë
@@ -9,20 +9,8 @@
  * (spec_ovl.dat ¢ª spec_seg_ovl.inc, spec_inc_ovl.inc)
  *
  * $Log: spec,v $
- * Revision 1.5  2003/10/09 00:58:04  wheeler
- * Override icon_item.o, not gi_soldout.o
- *
- * Revision 1.4  2003/09/17 23:38:05  wheeler
- * if LOCALE==CHINA then use chinese credits
- *
- * Revision 1.3  2003/05/13 03:07:09  tong
- * added chinese font and msg segment
- *
- * Revision 1.2  2003/04/30 18:09:14  tong
- * added LOCALE==CHINA
- *
- * Revision 1.1.1.1  2003/03/10 22:42:45  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:45  tong
+ * Initial revision
  *
  * Revision 2.8  2001-05-10 13:48:47+09  zelda
  * USE_NEW_DUNGEON$BBP1~(B?
@@ -957,38 +945,21 @@ DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/
 DefSegX("icon_item_ger_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/pal_icon_item_ger.o")
 DefSegX("icon_item_fra_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/pal_icon_item_fra.o")
 # else
-#ifdef CHINA
-DefSegX("icon_item_static", 		ICON_ITEM_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item.zh.o")
-#else
 DefSegX("icon_item_static", 		ICON_ITEM_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item.o")
-#endif
 DefSegX("icon_item_24_static", 		ICON_ITEM_24_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_24.o")
 DefSegX("icon_item_field_static",	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_field.o")
 DefSegX("icon_item_dungeon_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_dungeon.o")
-#ifdef CHINA
-DefSegX("icon_item_gameover_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_gameover.zh.o")
-#else
 DefSegX("icon_item_gameover_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_gameover.o")
-#endif
 DefSegX("icon_item_jpn_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_jpn.o")
-#ifdef CHINA
-DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_nes.zh.o")
-#else
 DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_nes.o")
-#endif
 # endif
 #ifndef ROM_X
 #if defined(PAL_VERSION)
 DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_item_name.o")
 DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/pal_map_name.o")
 # else
-#ifdef CHINA
-DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/item_name.zh.o")
-DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_name.zh.o")
-#else
 DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/item_name.o")
 DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_name.o")
-#endif
 #endif
 #endif
 
@@ -998,11 +969,7 @@ DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_name.o")
 # if defined(PAL_VERSION)
 DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_do_action_idx.o")
 # else
-#ifdef CHINA
-DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/do_action_idx.zh.o")
-#else
 DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/do_action_idx.o")
-#endif
 # endif
 
 /* 
@@ -1017,19 +984,10 @@ DefSegX("ger_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_
 DefSegX("fra_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_fra_c.o")
 DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_staff_c.o")
 # else
-#ifdef CHINA
-DefSegX("nes_font_static",		KANROM_SEGMENT, 	 "$(ZELDA_ROOT)/data/font_zh.o")
-#else
 DefSegX("nes_font_static",		KANROM_SEGMENT, 	 "$(ZELDA_ROOT)/data/font_e.o")
-#endif
 DefSegX("message_data_static", 		MESSAGE1_SEGMENT, 	 "$(ZELDA_ROOT)/data/message.o")
-#ifdef CHINA
-DefSegX("nes_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/nes_c_zh.o")
-DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/staff_c_zh.o")
-#else
 DefSegX("nes_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/nes_c.o")
 DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/staff_c.o")
-#endif
 # endif
 
 /* 

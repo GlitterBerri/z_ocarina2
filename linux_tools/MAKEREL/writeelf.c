@@ -63,7 +63,7 @@ WriteString(char *string, FILE *file)
 
 	stringLength += (strlen(string) + 1);
 
-	while ((code = *string++)) {
+	while (code = *string++) {
 		fputc(code, file);
 	}
 	fputc(code, file);
@@ -74,7 +74,7 @@ WriteString(char *string, FILE *file)
 /*	Create section name list.													*/
 /*																				*/
 /********************************************************************************/
-static void
+static int
 WriteSymbolTable(FILE *file, int size)
 {
 	Elf32_Sym symbol;
@@ -88,15 +88,15 @@ WriteSymbolTable(FILE *file, int size)
 	symbol.st_size	= 0;
 	symbol.st_info	= ELF32_ST_INFO(STB_LOCAL, STT_NOTYPE);
 	symbol.st_other	= 0;
-	symbol.st_shndx	= htons(SHN_UNDEF);
+	symbol.st_shndx	= SHN_UNDEF;
 	fwrite((char *)&symbol, sizeof(Elf32_Sym), 1, file);
 
-	symbol.st_name	= htonl(1);
+	symbol.st_name	= 1;
 	symbol.st_value	= 0;
-	symbol.st_size	= htonl(size);
+	symbol.st_size	= size;
 	symbol.st_info	= ELF32_ST_INFO(STB_LOCAL, STT_SECTION);
 	symbol.st_other	= 0;
-	symbol.st_shndx	= htons(1);
+	symbol.st_shndx	= 1;
 	fwrite((char *)&symbol, sizeof(Elf32_Sym), 1, file);
 }
 /********************************************************************************/
@@ -104,7 +104,7 @@ WriteSymbolTable(FILE *file, int size)
 /*	Write symbol name.															*/
 /*																				*/
 /********************************************************************************/
-static void
+static int
 WriteSymbolName(FILE *file)
 {
 	stringTableOffset = ftell(file);
@@ -120,7 +120,7 @@ WriteSymbolName(FILE *file)
 /*	Create section name.														*/
 /*																				*/
 /********************************************************************************/
-static void
+static int
 WriteSectionName(FILE *file)
 {
 	shnameTableOffset = ftell(file);
@@ -151,12 +151,12 @@ WriteSectionHeader(FILE *file)
 	/* section 0 */
 
 	header.sh_name		= 0;
-	header.sh_type		= htonl(SHT_NULL);
+	header.sh_type		= SHT_NULL;
 	header.sh_flags		= 0;
 	header.sh_addr		= 0;
 	header.sh_offset	= 0;
 	header.sh_size		= 0;
-	header.sh_link		= htonl(SHN_UNDEF);
+	header.sh_link		= SHN_UNDEF;
 	header.sh_info		= 0;
 	header.sh_addralign	= 0;
 	header.sh_entsize	= 0;
@@ -165,61 +165,61 @@ WriteSectionHeader(FILE *file)
 
 	/* symbol table section */
 
-	header.sh_name		= htonl(nameSymtab);
-	header.sh_type		= htonl(SHT_SYMTAB);
+	header.sh_name		= nameSymtab;
+	header.sh_type		= SHT_SYMTAB;
 	header.sh_flags		= 0;
 	header.sh_addr		= 0;
-	header.sh_offset	= htonl(symbolTableOffset);
-	header.sh_size		= htonl(symbolTableSize);
-	header.sh_link		= htonl(3);
-	header.sh_info		= htonl(2);
-	header.sh_addralign = htonl(4);
-	header.sh_entsize	= htonl(sizeof(Elf32_Sym));
+	header.sh_offset	= symbolTableOffset;
+	header.sh_size		= symbolTableSize;
+	header.sh_link		= 3;
+	header.sh_info		= 2;
+	header.sh_addralign = 4;
+	header.sh_entsize	= sizeof(Elf32_Sym);
 	fwrite((char *)&header, sizeof(Elf32_Shdr), 1, file);
 
 
 	/* section header string table section */
 
-	header.sh_name		= htonl(nameShstrtab);
-	header.sh_type		= htonl(SHT_STRTAB);
+	header.sh_name		= nameShstrtab;
+	header.sh_type		= SHT_STRTAB;
 	header.sh_flags		= 0;
 	header.sh_addr		= 0;
-	header.sh_offset	= htonl(shnameTableOffset);
-	header.sh_size		= htonl(shnameTableSize);
-	header.sh_link		= htonl(SHN_UNDEF);
+	header.sh_offset	= shnameTableOffset;
+	header.sh_size		= shnameTableSize;
+	header.sh_link		= SHN_UNDEF;
 	header.sh_info		= 0;
-	header.sh_addralign = htonl(1);
-	header.sh_entsize	= htonl(1);
+	header.sh_addralign = 1;
+	header.sh_entsize	= 1;
 	fwrite((char *)&header, sizeof(Elf32_Shdr), 1, file);
 
 
 	/* string table section */
 
-	header.sh_name		= htonl(nameStrtab);
-	header.sh_type		= htonl(SHT_STRTAB);
+	header.sh_name		= nameStrtab;
+	header.sh_type		= SHT_STRTAB;
 	header.sh_flags		= 0;
 	header.sh_addr		= 0;
-	header.sh_offset	= htonl(stringTableOffset);
-	header.sh_size		= htonl(stringTableSize);
-	header.sh_link		= htonl(SHN_UNDEF);
+	header.sh_offset	= stringTableOffset;
+	header.sh_size		= stringTableSize;
+	header.sh_link		= SHN_UNDEF;
 	header.sh_info		= 0;
-	header.sh_addralign = htonl(1);
-	header.sh_entsize	= htonl(1);
+	header.sh_addralign = 1;
+	header.sh_entsize	= 1;
 	fwrite((char *)&header, sizeof(Elf32_Shdr), 1, file);
 
 
 	/* data section */
 
-	header.sh_name		= htonl(nameRodata);
-	header.sh_type		= htonl(SHT_PROGBITS);
-	header.sh_flags		= htonl(SHF_ALLOC);
+	header.sh_name		= nameRodata;
+	header.sh_type		= SHT_PROGBITS;
+	header.sh_flags		= SHF_ALLOC;
 	header.sh_addr		=  0;
-	header.sh_offset	= htonl(rodataSectionOffset);
-	header.sh_size		= htonl(rodataSectionSize);
-	header.sh_link		= htonl(SHN_UNDEF);
+	header.sh_offset	= rodataSectionOffset;
+	header.sh_size		= rodataSectionSize;
+	header.sh_link		= SHN_UNDEF;
 	header.sh_info		= 0;
-	header.sh_addralign = htonl(16);
-	header.sh_entsize	= htonl(1);
+	header.sh_addralign = 16;
+	header.sh_entsize	= 1;
 	fwrite((char *)&header, sizeof(Elf32_Shdr), 1, file);
 }
 /********************************************************************************/
@@ -245,18 +245,18 @@ WriteELFHeader(FILE *file)
 	header.e_ident[6]	= 1;			/* version	*/
 
 	header.e_phoff		= 0;
-	header.e_type		= htons(ET_REL);
+	header.e_type		= ET_REL;
 	header.e_phnum		= 0;
 	header.e_phentsize	= 0;
-	header.e_shnum		= htons(5);
-	header.e_machine	= htons(EM_MIPS);
-	header.e_version	= htonl(EV_CURRENT);
+	header.e_shnum		= 5;
+	header.e_machine	= EM_MIPS;
+	header.e_version	= EV_CURRENT;
 	header.e_entry		= 0;
 	header.e_shoff		= 0;						/* fix up later		*/
-	header.e_flags		= htonl(0x10000000);				/* MIPS-2			*/
-	header.e_ehsize		= htons(sizeof(Elf32_Ehdr));
-	header.e_shentsize	= htons(sizeof(Elf32_Shdr));
-	header.e_shstrndx	= htons(2);
+	header.e_flags		= 0x10000000;				/* MIPS-2			*/
+	header.e_ehsize		= sizeof(Elf32_Ehdr);
+	header.e_shentsize	= sizeof(Elf32_Shdr);
+	header.e_shstrndx	= 2;
 	fwrite((char *)&header, sizeof(Elf32_Ehdr), 1, file);
 }
 /********************************************************************************/
@@ -268,7 +268,6 @@ static void
 WriteData(FILE *file, char *data, int nbytes)
 {
 	ulong alignOffset;
-	int i;
 
 	rodataSectionOffset = ftell(file);
 	rodataSectionSize	= nbytes;
@@ -278,13 +277,7 @@ WriteData(FILE *file, char *data, int nbytes)
 		fputc(0xff, file);
 		rodataSectionOffset++;
 	}
-	for (i=0; i<nbytes/4; i++) {
-	    fwrite(data+3, sizeof(char), 1, file);
-	    fwrite(data+2, sizeof(char), 1, file);
-	    fwrite(data+1, sizeof(char), 1, file);
-	    fwrite(data, sizeof(char), 1, file);
-	    data += 4;
-	}
+	fwrite(data, sizeof(char), nbytes, file);
 }
 /********************************************************************************/
 /*																				*/
@@ -308,7 +301,6 @@ WriteELFFile(char *filename, char *data, int nbytes)
 	WriteSectionHeader(file);
 
 	fseek(file, 32L, SEEK_SET);
-	sectionTableOffset = htonl(sectionTableOffset);
 	fwrite((char *)&sectionTableOffset, sizeof(ulong), 1, file);
 
 	fclose(file);

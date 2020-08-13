@@ -1,11 +1,11 @@
 #!/usr/local/bin/bash
 #set -x
 #
-# $Id: obj_make,v 1.1.1.1 2003/03/10 22:59:36 tong Exp $
+# $Id: obj_make,v 1.1 2003/03/10 22:59:36 tong Exp $
 #
 # $Log: obj_make,v $
-# Revision 1.1.1.1  2003/03/10 22:59:36  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:59:36  tong
+# Initial revision
 #
 # Revision 2.7  2002/05/30  04:13:59  zelda
 # *** empty log message ***

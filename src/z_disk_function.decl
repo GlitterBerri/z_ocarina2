@@ -1,11 +1,11 @@
 /*
- * $Id: z_disk_function.decl,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $
+ * $Id: z_disk_function.decl,v 1.1 2003/03/10 22:42:45 tong Exp $
  *
  * n64dd用オプション関数定義
  *
  * $Log: z_disk_function.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:45  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:45  tong
+ * Initial revision
  *
  * Revision 2.2  1998-10-27 21:24:41+09  soejima
  * ＰＡＬ仕様

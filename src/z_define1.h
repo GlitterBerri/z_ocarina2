@@ -1,8 +1,5 @@
-/* $Id: z_define1.h,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */	
+/* $Id: z_define1.h,v 2.2 2000-05-26 13:45:59+09 zelda Exp $ */	
 /* $Log: z_define1.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:45  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.2  2000-05-26 13:45:59+09  zelda
  * メイクエラー対策（マクロ定義）
  *

@@ -1,13 +1,13 @@
 /*
- * $Id: n64dd_disk.spec,v 1.1.1.1 2003/03/10 22:42:54 tong Exp $ 
+ * $Id: n64dd_disk.spec,v 1.1 2003/03/10 22:42:54 tong Exp $ 
  *
  * ６４ＤＤ用スペックファイルその２（ＤＩＳＫイメージ）
  *
  * ＲＯＭイメージをＲＡＷデータとして LBA 2 から展開している
  *
  * $Log: n64dd_disk.spec,v $
- * Revision 1.1.1.1  2003/03/10 22:42:54  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:54  tong
+ * Initial revision
  *
  * Revision 2.1  1998-10-22 20:41:56+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

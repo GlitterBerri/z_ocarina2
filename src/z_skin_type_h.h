@@ -11,8 +11,6 @@
  * Initial revision
  *
  */
-#ifndef _Z_SKIN_TYPE_H_H_
-#define _Z_SKIN_TYPE_H_H_
 #ifdef _LANGUAGE_C_PLUS_PLUS
 extern "C" {
 #endif
@@ -22,5 +20,3 @@ typedef struct skin_info2 Skin_Info2;
 #ifdef _LANGUAGE_C_PLUS_PLUS
 } /* extern "C" */
 #endif
-
-#endif /* _Z_SKIN_TYPE_H_H_ */

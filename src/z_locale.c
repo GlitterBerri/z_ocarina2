@@ -1,12 +1,9 @@
 /*
- * $Id: z_locale.c,v 1.1.1.1 2003/03/10 22:42:46 tong Exp $
+ * $Id: z_locale.c,v 2.9 2001/06/06 05:28:53 zelda Exp $
  *
  * ロケールクラス
  *
  * $Log: z_locale.c,v $
- * Revision 1.1.1.1  2003/03/10 22:42:46  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.9  2001/06/06  05:28:53  zelda
  * *** empty log message ***
  *
@@ -103,7 +100,6 @@ z_locale_init(void)
     
     osEPiReadIo(carthandle, ROM_ENTRY_LOCAL_DATA_ADDR, (u32 *)&locale_data);
     dump(&locale_data, sizeof(locale_data));
-#if 0
     switch (locale_data.u8[2]) {
 #if defined(GATEWAY_VERSION)
     case 'G':			/* GATEWAY NTSC */
@@ -129,8 +125,6 @@ z_locale_init(void)
 	HungUp();
 	COLOR_NORMAL();
     }
-#endif
-    z_locale_mode = Z_LOCALE_MODE_USA;
 #ifndef ROM_F
     PRINTF("z_locale_init:日本用かアメリカ用か３コンで判断させる\n");
 #endif

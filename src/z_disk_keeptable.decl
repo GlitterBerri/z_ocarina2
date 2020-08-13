@@ -1,10 +1,10 @@
 /*
- * $Id: z_disk_keeptable.decl,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $
+ * $Id: z_disk_keeptable.decl,v 1.1 2003/03/10 22:42:55 tong Exp $
  *
  *
  * $Log: z_disk_keeptable.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:55  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:55  tong
+ * Initial revision
  *
  * Revision 1.1  2000-06-12 16:27:47+09  hayakawa
  * Initial revision

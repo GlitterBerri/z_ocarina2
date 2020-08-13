@@ -60,7 +60,11 @@ void make_color_tbl(void)
     }
     color_p += 1;
 
-    while(rtf_buffer[color_p] == '\\') {
+    while((rtf_buffer[color_p] == '\\')||(rtf_buffer[color_p] == '\n')) {
+	if( rtf_buffer[color_p] == '\n' ) {
+          color_p++;
+	  continue;
+	}
 	sscanf(&rtf_buffer[color_p], "\\red%d\\green%d\\blue%d;", &r, &g, &b);
 	while(rtf_buffer[color_p] != ';') {
 	    color_p += 1;
@@ -134,9 +138,10 @@ void make_txt(void)
 	return;
     }
     while(rtf_buffer_cnt > i) {
-	if(rtf_buffer[i] == 0xd && rtf_buffer[i + 1] == 0xa) {
-	    printf_txt("\n");
-	    i += 2;
+
+	//if(rtf_buffer[i] == 0xd && rtf_buffer[i + 1] == 0xa) {
+	if(rtf_buffer[i] == '\n') {
+	    i += 1;
 	} else if(STRNCMP(&rtf_buffer[i], "\\nooverflow")) {
 	    do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
 			     && rtf_buffer[i] != 0xd);
@@ -173,6 +178,7 @@ void make_txt(void)
 	    do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
 			     && rtf_buffer[i] != 0xd);
 	    if(rtf_buffer[i] == ' ') i += 1;
+	    printf_txt("\n");
 	} else if(STRNCMP(&rtf_buffer[i], "\\tab")) {
 	    do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
 			     && rtf_buffer[i] != 0xd);
@@ -180,6 +186,58 @@ void make_txt(void)
 	    printf_txt("\t");
 	} else if(STRNCMP(&rtf_buffer[i], "\\fs")) {
 	    do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+
+	    // check for color
+	    if(STRNCMP(&rtf_buffer[i], "\\cf")) {
+		sscanf(&rtf_buffer[i], "\\cf%d", &cc);
+	        do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	        if(rtf_buffer[i] == ' ') i += 1;
+	    } else {
+		cc = 0; // default color
+            }
+
+	    if(STRNCMP(&txt_buffer[txt_buffer_cnt - 4], "@#0")) {
+		txt_buffer_cnt -= 4;
+		txt_buffer[txt_buffer_cnt] = '\0';
+		c = color_tbl[cc];
+		sprintf(wb, "@#0%1d", c);
+		printf_txt(wb);
+	    } else {
+		if(c != color_tbl[cc]) {
+	   	    c = color_tbl[cc];
+		    sprintf(wb, "@#0%1d", c);
+		    printf_txt(wb);
+	        }
+	    }
+            if(c == 255) {
+		printf_txt("----ERROR----:COLOR");
+	    }
+	    // end default color check
+	} else if(STRNCMP(&rtf_buffer[i], "\\f")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+	} else if(STRNCMP(&rtf_buffer[i], "\\hich")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+	} else if(STRNCMP(&rtf_buffer[i], "\\kerning")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+	} else if(STRNCMP(&rtf_buffer[i], "\\loch")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+	} else if(STRNCMP(&rtf_buffer[i], "\\li0")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
+			     && rtf_buffer[i] != 0xd);
+	    if(rtf_buffer[i] == ' ') i += 1;
+	} else if(STRNCMP(&rtf_buffer[i], "\\q")) {
+	    do i += 1; while(rtf_buffer[i] != ' '
 			     && rtf_buffer[i] != 0xd);
 	    if(rtf_buffer[i] == ' ') i += 1;
 	} else if(STRNCMP(&rtf_buffer[i], "\\cf")) {
@@ -225,7 +283,7 @@ void make_txt(void)
 	    printf_txt("\\");
 	    i += strlen("\\\\");
 	} else if(STRNCMP(&rtf_buffer[i], "\\\'")) {
-	    sscanf(&rtf_buffer[i], "\\\'%02x;", &j);
+	    sscanf(&rtf_buffer[i], "\\\'%02x", &j);
 	    /*
 	    if(j >= 0x80) {
 		if(pal_chg_code[j - 0x80] == 0) {
@@ -255,18 +313,16 @@ void make_txt(void)
 				 && rtf_buffer[i] != 0xd);
 		if(rtf_buffer[i] == ' ') i += 1;
 	    }
+	    /*
 	    if(rtf_buffer[i] == 0xd && rtf_buffer[i + 1] == 0xa) {
 		printf_txt("\n");
 		i += 2;
 	    }
+	    */
 	    if(c != 0) {
 		sprintf(wb, "@#0%1d", c);
 		printf_txt(wb);
 	    }
-	} else if(STRNCMP(&rtf_buffer[i], "\\")) {
-	    do i += 1; while(rtf_buffer[i] != '\\' && rtf_buffer[i] != ' '
-			     && rtf_buffer[i] != 0xd);
-	    if(rtf_buffer[i] == ' ') i += 1;
 	} else {
 	    sprintf(wb, "%c", rtf_buffer[i]);
 	    printf_txt(wb);
@@ -559,7 +615,7 @@ void make_data3(
 			case 29:
 			case 30:
 			case 31:
-			    fprintf(fp, " 0xAA, 0x%02X,", 0x9f + (dt - 20));
+			    fprintf(fp, " 0x%02X,", 0x9f + (dt - 20));
 			    break;
 			default:
 			    break;

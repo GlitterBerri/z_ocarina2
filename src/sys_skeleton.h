@@ -1,8 +1,5 @@
-/* $Id: sys_skeleton.h,v 1.1.1.1 2003/03/10 22:42:46 tong Exp $ */	
+/* $Id: sys_skeleton.h,v 2.1 1998/10/22 11:41:56 zelda Exp $ */	
 /* $Log: sys_skeleton.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:46  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.1  1998/10/22  11:41:56  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

@@ -1,10 +1,10 @@
 /*
- * $Id: z_n64dd_keeptable.decl,v 1.1.1.1 2003/03/10 22:42:47 tong Exp $
+ * $Id: z_n64dd_keeptable.decl,v 1.1 2003/03/10 22:42:47 tong Exp $
  *
  *
  * $Log: z_n64dd_keeptable.decl,v $
- * Revision 1.1.1.1  2003/03/10 22:42:47  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:47  tong
+ * Initial revision
  *
  * Revision 2.3  2001-04-04 16:21:47+09  zelda
  * ドルフィンエミュレータ用仮ぐみ版 CICと64DD対応部分をはずしたバージョン

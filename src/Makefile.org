@@ -3,7 +3,7 @@
 # make clobber のあとや、co spec_ovl のあとに以下の make を実行してください
 # make genfiles
 #
-# $Id: Makefile.org,v 1.1.1.1 2003/03/10 22:42:54 tong Exp $
+# $Id: Makefile.org,v 1.1 2003/03/10 22:42:54 tong Exp $
 #
 # ６４ゼルダ用メイクファイル
 #
@@ -38,8 +38,8 @@
 # grep z_actor_h.h rom_d/Makedepend | cut -d: -f1
 #
 # $Log: Makefile.org,v $
-# Revision 1.1.1.1  2003/03/10 22:42:54  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:42:54  tong
+# Initial revision
 #
 # Revision 2.23  2002-05-31 18:48:30+09  zelda
 # *** empty log message ***

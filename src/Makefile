@@ -3,7 +3,7 @@
 # make clobber のあとや、co spec_ovl のあとに以下の make を実行してください
 # make genfiles
 #
-# $Id: Makefile,v 1.8 2003/07/31 18:23:11 wheeler Exp $
+# $Id: Makefile,v 1.1 2003/03/10 22:42:51 tong Exp $
 #
 # ６４ゼルダ用メイクファイル
 #
@@ -38,29 +38,8 @@
 # grep z_actor_h.h rom_d/Makedepend | cut -d: -f1
 #
 # $Log: Makefile,v $
-# Revision 1.8  2003/07/31 18:23:11  wheeler
-# Delete unneeded dependency.
-#
-# Revision 1.7  2003/05/06 21:42:47  tong
-# added z_kanfont.c
-#
-# Revision 1.6  2003/04/30 18:08:06  tong
-# added LOCALE==CHINA
-#
-# Revision 1.5  2003/03/14 23:19:20  tong
-# fix "arg list too long" problem for "make clean_f"
-#
-# Revision 1.4  2003/03/14 05:22:05  tong
-# cleaning up rom_f and "make clean_f"
-#
-# Revision 1.3  2003/03/14 02:53:56  tong
-# more source from Nintendo including cheat obj code.
-#
-# Revision 1.2  2003/03/13 22:33:15  tong
-# using Rob's gzip compression
-#
-# Revision 1.1.1.1  2003/03/10 22:42:51  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:42:51  tong
+# Initial revision
 #
 # Revision 2.23  2002-05-31 18:48:30+09  zelda
 # *** empty log message ***
@@ -1178,10 +1157,6 @@
 # 速度計に対応
 #
 
-#ifndef LOCALE
-LOCALE = CHINA
-#endif
-
 #ifndef PARALLEL
 .NOTPARALLEL:				# 並列動作を禁止
 #endif
@@ -1399,7 +1374,6 @@ LLDOPTS += \
 LCINCS += \
 -I$(COMMON_INCDIR) \
 -I$(ROOT)/usr/include/PR \
--I/usr/include \
 -I$(NUSTDINCDIR)
 LLDOPTS +=  \
 -L$(ZELDA_LIB)/audio \
@@ -1837,11 +1811,7 @@ SPECFILE  = spec
 SPEC_INCLUDE  = spec.segment spec.audio
 LMAKEROMOPT = -I$(ZELDA_ROOT)
 
-#if ($(LOCALE)=="CHINA")
-MAKEROMOPT = $(GMAKEROMOPT) $(LMAKEROMOPT) $(VMAKEROMOPT) -DCHINA 
-#else
 MAKEROMOPT = $(GMAKEROMOPT) $(LMAKEROMOPT) $(VMAKEROMOPT)
-#endif
 
 MAKEROMOBJECTS = $(OBJECTS) $(ZELDA_DATA)/*.o $(OVLOBJECTS) \
 	$(ZELDA_AUDIO)/ZeldaAudio_banks.o \
@@ -1889,7 +1859,6 @@ LMAKEOPTION += "SCENE_TOOL2=$(SCENE_TOOL2)"
 #endif
 MAKEOPTION_D = $(LMAKEOPTION) $(VMAKEOPTION) ROM_D= USE_COUNT= DEBUG_CAMERA= USE_DEBUG_MALLOC= ISVIEWER= RAM8M= VIDEO_AUTO=
 MAKEOPTION_X = $(LMAKEOPTION) $(VMAKEOPTION) ROM_X= USE_COUNT= DEBUG_CAMERA= USE_DEBUG_MALLOC= ISVIEWER= RAM8M= VIDEO_AUTO=
-
 MAKEOPTION_F = $(LMAKEOPTION) $(VMAKEOPTION) ROM_F= ROM_ROM= FINAL_ROM=
 MAKEOPTION_S = $(LMAKEOPTION) $(VMAKEOPTION) ROM_S= ROM_ROM= SHOW_VERSION=
 MAKEOPTION_C = $(MAKEOPTION_D) ROM_C= FORCE_CPP=
@@ -2382,7 +2351,7 @@ GCDEFS = $(HW_FLAGS) -F
 #endif
 
 ## 木村さんにロムを渡す
-#z_en_oA2.o:z_en_oA2_inWater.c
+z_en_oA2.o:z_en_oA2_inWater.c
 
 ikuiku_d:
 	cp rom_d/rom /auto/srd-server/home/mnt01/srd00/srd/GC-ZELDA/kimura/upload/rom_d
@@ -2394,9 +2363,6 @@ ikuiku_x:
 
 
 #HIRATSU Daiuske added below lines.
-#if ($(LOCALE)=="CHINA")
-CFLAGS +=  -DCHINA 
-#endif
 z_actor.o : z_actor.c
 	$(CC) $(CFLAGS) -c ../z_actor.c
 
@@ -2436,33 +2402,3 @@ z_parameter.o : z_parameter.c
 z_sram.o : z_sram.c
 	$(CC) $(CFLAGS) -c ../z_sram.c
 
-z_title.o : z_title.c
-	$(CC) $(CFLAGS) -c ../z_title.c
-
-z_opening.o : z_opening.c
-	$(CC) $(CFLAGS) -c ../z_opening.c
-
-z_file_copy_del.o : z_file_copy_del.c
-	$(CC) $(CFLAGS) -c ../z_file_copy_del.c
-
-z_file_choose_data.o : z_file_choose_data.c
-	$(CC) $(CFLAGS) -c ../z_file_choose_data.c
-
-z_std_dma_slid.o : z_std_dma_slid.c
-	$(CC) $(CFLAGS) -c ../z_std_dma_slid.c
-
-z_kanfont.o : z_kanfont.c
-	$(CC) $(CFLAGS) -c ../z_kanfont.c
-
-clean_f:
-	rm -f rom_f/zelda rom_f/rom rom_f/romP rom_f/romPP
-	rm -f rom_f/bootsegment.map rom_f/codesegment.map rom_f/dmadata.map rom_f/rom.map rom_f/z_file_choose_segment.map rom_f/z_kaleido_segment.map rom_f/z_vr_box_segment.map
-	find rom_f -name \*.rel -print |xargs rm -f 
-	find rom_f -name \*.d -print |xargs rm -f 
-	find rom_f -name \*.szs -print |xargs rm -f 
-#	rm -f rom_f/*.rel 
-#	rm -f rom_f/*.d 
-#	rm -f rom_f/*.szs
-	rm -f rom_f/*.stdout
-	rm -f rom_f/version.o rom_f/z_std_dma_slid.o rom_f/z_kaleido_segment.o rom_f/z_vr_box_segment.o rom_f/z_file_choose_segment.o rom_f/bootsegment.o rom_f/codesegment.o rom_f/z_file_choose_data.o rom_f/z_file_copy_del.o rom_f/z_title.o rom_f/z_opening.o rom_f/z_kanfont.o
-	rm -f rom_f/version_data.h

@@ -1,4 +1,4 @@
-/* $Id: z_pause.h,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */	
+/* $Id: z_pause.h,v 2.1 1998/10/22 11:51:48 zelda Exp $ */	
 /* $Log: z_pause.h,v $
  * Revision 2.1  1998/10/22  11:51:48  zelda
  * ＲＯＭ出しバージョン(NTSC)

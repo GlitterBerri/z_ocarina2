@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 #set -x
 #
-# $Id: pal_dma_make,v 1.1.1.1 2003/03/10 22:58:54 tong Exp $
+# $Id: pal_dma_make,v 1.1 2003/03/10 22:58:54 tong Exp $
 #
 
 cp2() {

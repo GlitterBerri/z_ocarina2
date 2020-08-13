@@ -1,0 +1,228 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.text                                  0            5bc0
+		.text                  0             140 boot.o
+		.text                140             290 idle.o
+		.text                3d0             150 sys_vimgr.o
+		.text                520             6c0 z_std_dma.o
+		.text                be0             340 z_std_dma_slid.o
+		.text                f20              a0 z_locale.o
+		.text                fc0              60 fakeprintf.o
+		.text               1020             1e0 /home/zelda/prj/PR/ZELDA1/lib/driverominit.o
+		.text               1200              b0 /home/zelda/prj/PR/ZELDA1/lib/slidV10.o
+		.text               12b0             250 /usr/local/srd/PR/libu64_rom.a(stackcheck.o)
+		.text               1500              60 /usr/local/srd/PR/libu64_rom.a(debug.o)
+		.text               1560              c0 /usr/lib/libultra_rom.a(piacs.o)
+		.text               1620             150 /usr/lib/libultra_rom.a(sendmesg.o)
+		.text               1770              c0 /usr/lib/libultra_rom.a(stopthread.o)
+		.text               1830              10 /usr/lib/libultra_rom.a(viextendvstart.o)
+		.text               1840             140 /usr/lib/libultra_rom.a(recvmesg.o)
+		.text               1980             350 /usr/lib/libultra_rom.a(initialize.o)
+		.text               1cd0             2c0 /usr/lib/libultra_rom.a(ll.o)
+		.text               1f90             930 /usr/lib/libultra_rom.a(exceptasm.o)
+		.text               28c0              40 /usr/lib/libultra_rom.a(thread.o)
+		.text               2900             110 /usr/lib/libultra_rom.a(destroythread.o)
+		.text               2a10              a0 /usr/lib/libultra_rom.a(bzero.o)
+		.text               2ab0              60 /usr/lib/libultra_rom.a(parameters.o)
+		.text               2b10             150 /usr/lib/libultra_rom.a(createthread.o)
+		.text               2c60              10 /usr/lib/libultra_rom.a(setsr.o)
+		.text               2c70              10 /usr/lib/libultra_rom.a(getsr.o)
+		.text               2c80              80 /usr/lib/libultra_rom.a(writebackdcache.o)
+		.text               2d00              40 /usr/lib/libultra_rom.a(vigetnextframebuf.o)
+		.text               2d40             170 /usr/lib/libultra_rom.a(pimgr.o)
+		.text               2ec0             410 /usr/lib/libultra_rom.a(devmgr.o)
+		.text               32d0              d0 /usr/lib/libultra_rom.a(pirawdma.o)
+		.text               33a0              80 /usr/lib/libultra_rom.a(virtualtophysical.o)
+		.text               3420              70 /usr/lib/libultra_rom.a(viblack.o)
+		.text               3490              50 /usr/lib/libultra_rom.a(sirawread.o)
+		.text               34e0              20 /usr/lib/libultra_rom.a(getthreadid.o)
+		.text               3500              a0 /usr/lib/libultra_rom.a(setintmask.o)
+		.text               35a0              60 /usr/lib/libultra_rom.a(visetmode.o)
+		.text               3600              c0 /usr/lib/libultra_rom.a(probetlb.o)
+		.text               36c0             120 /usr/lib/libultra_rom.a(getmemsize.o)
+		.text               37e0              c0 /usr/lib/libultra_rom.a(seteventmesg.o)
+		.text               38a0              50 /usr/lib/libultra_rom.a(unmaptlball.o)
+		.text               38f0              a0 /usr/lib/libultra_rom.a(epidma.o)
+		.text               3990              80 /usr/lib/libultra_rom.a(invalicache.o)
+		.text               3a10              30 /usr/lib/libultra_rom.a(createmesgqueue.o)
+		.text               3a40              b0 /usr/lib/libultra_rom.a(invaldcache.o)
+		.text               3af0              30 /usr/lib/libultra_rom.a(si.o)
+		.text               3b20             150 /usr/lib/libultra_rom.a(jammesg.o)
+		.text               3c70              e0 /usr/lib/libultra_rom.a(setthreadpri.o)
+		.text               3d50              20 /usr/lib/libultra_rom.a(getthreadpri.o)
+		.text               3d70             160 /usr/lib/libultra_rom.a(epirawread.o)
+		.text               3ed0              50 /usr/lib/libultra_rom.a(viswapbuf.o)
+		.text               3f20             1e0 /usr/lib/libultra_rom.a(epirawdma.o)
+		.text               4100             120 /usr/lib/libultra_rom.a(bcmp.o)
+		.text               4220              90 /usr/lib/libultra_rom.a(gettime.o)
+		.text               42b0             430 /usr/lib/libultra_rom.a(timerintr.o)
+		.text               46e0              10 /usr/lib/libultra_rom.a(getcount.o)
+		.text               46f0              50 /usr/lib/libultra_rom.a(setglobalintmask.o)
+		.text               4740              10 /usr/lib/libultra_rom.a(setcompare.o)
+		.text               4750             310 /usr/lib/libultra_rom.a(bcopy.o)
+		.text               4a60              60 /usr/lib/libultra_rom.a(resetglobalintmask.o)
+		.text               4ac0              90 /usr/lib/libultra_rom.a(interrupt.o)
+		.text               4b50             120 /usr/lib/libultra_rom.a(vi.o)
+		.text               4c70             300 /usr/lib/libultra_rom.a(viswapcontext.o)
+		.text               4f70              30 /usr/lib/libultra_rom.a(pigetcmdq.o)
+		.text               4fa0              50 /usr/lib/libultra_rom.a(epiread.o)
+		.text               4ff0             160 /usr/lib/libultra_rom.a(visetspecial.o)
+		.text               5150             160 /usr/lib/libultra_rom.a(cartrominit.o)
+		.text               52b0              10 /usr/lib/libultra_rom.a(setfpccsr.o)
+		.text               52c0              10 /usr/lib/libultra_rom.a(getfpccsr.o)
+		.text               52d0              60 /usr/lib/libultra_rom.a(maptlbrdb.o)
+		.text               5330              50 /usr/lib/libultra_rom.a(yieldthread.o)
+		.text               5380              10 /usr/lib/libultra_rom.a(getcause.o)
+		.text               5390             160 /usr/lib/libultra_rom.a(epirawwrite.o)
+		.text               54f0              50 /usr/lib/libultra_rom.a(sirawwrite.o)
+		.text               5540             310 /usr/lib/libultra_rom.a(vimgr.o)
+		.text               5850              10 /usr/lib/libultra_rom.a(vigetcurrcontext.o)
+		.text               5860             150 /usr/lib/libultra_rom.a(startthread.o)
+		.text               59b0              50 /usr/lib/libultra_rom.a(visetyscale.o)
+		.text               5a00             110 /usr/lib/libultra_rom.a(visetxscale.o)
+		.text               5b10              70 /usr/lib/libultra_rom.a(sethwinterrupt.o)
+		.text               5b80              30 /usr/lib/libultra_rom.a(gethwinterrupt.o)
+		.text               5bb0              10 /usr/lib/libultra_rom.a(setwatchlo.o)
+
+.rodata                                0             1c0
+		.rodata                0              10 boot.o
+		.rodata               10              10 idle.o
+		.rodata               20              80 z_std_dma.o
+		.rodata               a0              10 z_locale.o
+		.rodata               b0              10 /usr/local/srd/PR/libu64_rom.a(stackcheck.o)
+		.rodata               c0              10 /usr/local/srd/PR/libu64_rom.a(debug.o)
+		.rodata               d0              50 /usr/lib/libultra_rom.a(exceptasm.o)
+		.rodata              120              20 /usr/lib/libultra_rom.a(devmgr.o)
+		.rodata              140              80 /usr/lib/libultra_rom.a(setintmask.o)
+
+.data                                  0             2f0
+		.data                  0              20 idle.o
+		.data                 20              20 sys_vimgr.o
+		.data                 40              10 system.o
+		.data                 50              10 z_std_dma.o
+		.data                 60              10 z_locale.o
+		.data                 70              10 /home/zelda/prj/PR/ZELDA1/lib/driverominit.o
+		.data                 80              10 /usr/local/srd/PR/libu64_rom.a(stackcheck.o)
+		.data                 90              10 /usr/lib/libultra_rom.a(piacs.o)
+		.data                 a0              50 /usr/lib/libultra_rom.a(vimodepallan1.o)
+		.data                 f0              20 /usr/lib/libultra_rom.a(initialize.o)
+		.data                110              30 /usr/lib/libultra_rom.a(exceptasm.o)
+		.data                140              20 /usr/lib/libultra_rom.a(thread.o)
+		.data                160              30 /usr/lib/libultra_rom.a(pimgr.o)
+		.data                190              10 /usr/lib/libultra_rom.a(seteventmesg.o)
+		.data                1a0              10 /usr/lib/libultra_rom.a(timerintr.o)
+		.data                1b0              50 /usr/lib/libultra_rom.a(vimodentsclan1.o)
+		.data                200              50 /usr/lib/libultra_rom.a(vimodempallan1.o)
+		.data                250              70 /usr/lib/libultra_rom.a(vi.o)
+		.data                2c0              10 /usr/lib/libultra_rom.a(cartrominit.o)
+		.data                2d0              20 /usr/lib/libultra_rom.a(vimgr.o)
+
+.bss                                   0            4a00
+		.bss                   0             5f0 boot.o
+		.bss                 5f0             400 bootstack.o
+		.bss                 9f0             bb0 idle.o
+		.bss                15a0              60 sys_vimgr.o
+		.bss                1600             770 z_std_dma.o
+		.bss                1d70             410 z_std_dma_slid.o
+		.bss                2180              80 /home/zelda/prj/PR/ZELDA1/lib/driverominit.o
+		.bss                2200              20 /usr/lib/libultra_rom.a(piacs.o)
+		.bss                2220              10 /usr/lib/libultra_rom.a(initialize.o)
+		.bss                2230            12c0 /usr/lib/libultra_rom.a(pimgr.o)
+		.bss                34f0             1b0 /usr/lib/libultra_rom.a(kdebugserver.o)
+		.bss                36a0              80 /usr/lib/libultra_rom.a(seteventmesg.o)
+		.bss                3720              40 /usr/lib/libultra_rom.a(timerintr.o)
+		.bss                3760              80 /usr/lib/libultra_rom.a(cartrominit.o)
+		.bss                37e0            1220 /usr/lib/libultra_rom.a(vimgr.o)
+
+.strtab                                0             b33
+		.strtab                0             b33 *ld_internal*
+
+.symtab                                0             cb0
+		.symtab                0             cb0 *ld_internal*
+
+.mdebug                                0           2a960
+		.mdebug                0           2a960 *ld_internal*
+
+.rel.text                              0            1d98
+		.rel.text              0             170 boot.o
+		.rel.text            170             230 idle.o
+		.rel.text            3a0              d8 sys_vimgr.o
+		.rel.text            478             300 z_std_dma.o
+		.rel.text            778             1a0 z_std_dma_slid.o
+		.rel.text            918              70 z_locale.o
+		.rel.text            988              a0 /home/zelda/prj/PR/ZELDA1/lib/driverominit.o
+		.rel.text            a28              78 /usr/local/srd/PR/libu64_rom.a(stackcheck.o)
+		.rel.text            aa0              28 /usr/local/srd/PR/libu64_rom.a(debug.o)
+		.rel.text            ac8              98 /usr/lib/libultra_rom.a(piacs.o)
+		.rel.text            b60              40 /usr/lib/libultra_rom.a(sendmesg.o)
+		.rel.text            ba0              30 /usr/lib/libultra_rom.a(stopthread.o)
+		.rel.text            bd0              10 /usr/lib/libultra_rom.a(viextendvstart.o)
+		.rel.text            be0              40 /usr/lib/libultra_rom.a(recvmesg.o)
+		.rel.text            c20             220 /usr/lib/libultra_rom.a(initialize.o)
+		.rel.text            e40             260 /usr/lib/libultra_rom.a(exceptasm.o)
+		.rel.text           10a0              70 /usr/lib/libultra_rom.a(destroythread.o)
+		.rel.text           1110              40 /usr/lib/libultra_rom.a(createthread.o)
+		.rel.text           1150              20 /usr/lib/libultra_rom.a(vigetnextframebuf.o)
+		.rel.text           1170             128 /usr/lib/libultra_rom.a(pimgr.o)
+		.rel.text           1298              b8 /usr/lib/libultra_rom.a(devmgr.o)
+		.rel.text           1350              18 /usr/lib/libultra_rom.a(pirawdma.o)
+		.rel.text           1368               8 /usr/lib/libultra_rom.a(virtualtophysical.o)
+		.rel.text           1370              30 /usr/lib/libultra_rom.a(viblack.o)
+		.rel.text           13a0               8 /usr/lib/libultra_rom.a(sirawread.o)
+		.rel.text           13a8              10 /usr/lib/libultra_rom.a(getthreadid.o)
+		.rel.text           13b8              20 /usr/lib/libultra_rom.a(setintmask.o)
+		.rel.text           13d8              20 /usr/lib/libultra_rom.a(visetmode.o)
+		.rel.text           13f8              58 /usr/lib/libultra_rom.a(seteventmesg.o)
+		.rel.text           1450              30 /usr/lib/libultra_rom.a(epidma.o)
+		.rel.text           1480              20 /usr/lib/libultra_rom.a(createmesgqueue.o)
+		.rel.text           14a0              40 /usr/lib/libultra_rom.a(jammesg.o)
+		.rel.text           14e0              78 /usr/lib/libultra_rom.a(setthreadpri.o)
+		.rel.text           1558              10 /usr/lib/libultra_rom.a(getthreadpri.o)
+		.rel.text           1568              10 /usr/lib/libultra_rom.a(epirawread.o)
+		.rel.text           1578              20 /usr/lib/libultra_rom.a(viswapbuf.o)
+		.rel.text           1598              18 /usr/lib/libultra_rom.a(epirawdma.o)
+		.rel.text           15b0              48 /usr/lib/libultra_rom.a(gettime.o)
+		.rel.text           15f8             190 /usr/lib/libultra_rom.a(timerintr.o)
+		.rel.text           1788              30 /usr/lib/libultra_rom.a(setglobalintmask.o)
+		.rel.text           17b8              30 /usr/lib/libultra_rom.a(resetglobalintmask.o)
+		.rel.text           17e8              20 /usr/lib/libultra_rom.a(interrupt.o)
+		.rel.text           1808              a0 /usr/lib/libultra_rom.a(vi.o)
+		.rel.text           18a8              58 /usr/lib/libultra_rom.a(viswapcontext.o)
+		.rel.text           1900              10 /usr/lib/libultra_rom.a(pigetcmdq.o)
+		.rel.text           1910              18 /usr/lib/libultra_rom.a(epiread.o)
+		.rel.text           1928              30 /usr/lib/libultra_rom.a(visetspecial.o)
+		.rel.text           1958              90 /usr/lib/libultra_rom.a(cartrominit.o)
+		.rel.text           19e8              38 /usr/lib/libultra_rom.a(yieldthread.o)
+		.rel.text           1a20              10 /usr/lib/libultra_rom.a(epirawwrite.o)
+		.rel.text           1a30               8 /usr/lib/libultra_rom.a(sirawwrite.o)
+		.rel.text           1a38             1f8 /usr/lib/libultra_rom.a(vimgr.o)
+		.rel.text           1c30              10 /usr/lib/libultra_rom.a(vigetcurrcontext.o)
+		.rel.text           1c40              c8 /usr/lib/libultra_rom.a(startthread.o)
+		.rel.text           1d08              20 /usr/lib/libultra_rom.a(visetyscale.o)
+		.rel.text           1d28              20 /usr/lib/libultra_rom.a(visetxscale.o)
+		.rel.text           1d48              30 /usr/lib/libultra_rom.a(sethwinterrupt.o)
+		.rel.text           1d78              20 /usr/lib/libultra_rom.a(gethwinterrupt.o)
+
+.rel.rodata                            0              80
+		.rel.rodata            0              48 /usr/lib/libultra_rom.a(exceptasm.o)
+		.rel.rodata           48              38 /usr/lib/libultra_rom.a(devmgr.o)
+
+.rel.data                              0              78
+		.rel.data              0              40 idle.o
+		.rel.data             40              10 /usr/lib/libultra_rom.a(thread.o)
+		.rel.data             50              10 /usr/lib/libultra_rom.a(pimgr.o)
+		.rel.data             60               8 /usr/lib/libultra_rom.a(timerintr.o)
+		.rel.data             68              10 /usr/lib/libultra_rom.a(vi.o)
+
+.shstrtab                              0              73
+		.shstrtab              0              73 *ld_internal*

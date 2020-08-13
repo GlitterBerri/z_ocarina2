@@ -1,12 +1,12 @@
 #!smake
-# $Id: Makefile,v 1.1.1.1 2003/03/10 22:58:20 tong Exp $
+# $Id: Makefile,v 1.1 2003/03/10 22:58:20 tong Exp $
 #
 # ６４ゼルダ用メイクファイル
 # マップデータ作成用
 #
 # $Log: Makefile,v $
-# Revision 1.1.1.1  2003/03/10 22:58:20  tong
-# new OBJ tree for ocarina from Nintendo
+# Revision 1.1  2003/03/10 22:58:20  tong
+# Initial revision
 #
 # Revision 2.1  1998/10/22  12:42:44  hayakawa
 # ＲＯＭ出しバージョン(NTSC)

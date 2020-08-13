@@ -1,7 +1,7 @@
-/* $Id: z_actor_all.h.deleted,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */	
+/* $Id: z_actor_all.h.deleted,v 1.1 2003/03/10 22:42:45 tong Exp $ */	
 /* $Log: z_actor_all.h.deleted,v $
-/* Revision 1.1.1.1  2003/03/10 22:42:45  tong
-/* new OBJ tree for ocarina from Nintendo
+/* Revision 1.1  2003/03/10 22:42:45  tong
+/* Initial revision
 /*
  * Revision 2.1  1998-10-22 20:45:49+09  zelda
  * ＲＯＭ出しバージョン(NTSC)

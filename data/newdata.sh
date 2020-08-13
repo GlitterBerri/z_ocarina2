@@ -1,7 +1,7 @@
 #!/bin/sh
 set -x
 #
-# $Id: newdata.sh,v 1.1.1.1 2003/03/10 22:57:59 tong Exp $
+# $Id: newdata.sh,v 1.1 2003/03/10 22:57:59 tong Exp $
 #
 if [ -f $1 ]
  then

@@ -1,11 +1,11 @@
 /*
- * $Id: n64dd_rom.spec,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $ 
+ * $Id: n64dd_rom.spec,v 1.1 2003/03/10 22:42:55 tong Exp $ 
  *
  * ６４ＤＤ用スペックファイルその１（ＲＯＭイメージ）
  *
  * $Log: n64dd_rom.spec,v $
- * Revision 1.1.1.1  2003/03/10 22:42:55  tong
- * new OBJ tree for ocarina from Nintendo
+ * Revision 1.1  2003/03/10 22:42:55  tong
+ * Initial revision
  *
  * Revision 2.16  2000-06-19 11:39:08+09  zelda
  * *** empty log message ***

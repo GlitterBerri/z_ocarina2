@@ -1,8 +1,5 @@
-/* $Id: z_bgcheck_type.h,v 1.1.1.1 2003/03/10 22:42:52 tong Exp $ */
+/* $Id: z_bgcheck_type.h,v 2.1 1998/10/22 11:45:49 zelda Exp $ */
 /* $Log: z_bgcheck_type.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:52  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.1  1998/10/22  11:45:49  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

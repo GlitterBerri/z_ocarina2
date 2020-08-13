@@ -1,5 +1,5 @@
 #!/usr/freeware/bin/perl -w
-# $Id: make_disk_keeptable.pl,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $
+# $Id: make_disk_keeptable.pl,v 1.1 2003/03/10 22:42:45 tong Exp $
 #
 # z_disk_keeptable_*.dat を作成する
 # 使用例:

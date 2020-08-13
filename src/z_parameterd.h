@@ -1,8 +1,5 @@
-/* $Id: z_parameterd.h,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $ */	
+/* $Id: z_parameterd.h,v 2.2 1998-10-27 21:26:59+09 soejima Exp $ */	
 /* $Log: z_parameterd.h,v $
- * Revision 1.1.1.1  2003/03/10 22:42:55  tong
- * new OBJ tree for ocarina from Nintendo
- *
  * Revision 2.2  1998-10-27 21:26:59+09  soejima
  * £–£¡£Ãª≈ÕÕ
  *
