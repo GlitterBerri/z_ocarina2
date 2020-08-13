@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            72c0
+		.data                  0              90 bg_getup.o
+		.data                 90             690 bg_sleeping.o
+		.data                720            67a0 bg_sleeping_mdl.o
+		.data               6ec0             400 bg_wait.o
+
+.strtab                                0             1aa
+		.strtab                0             1aa *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0             9f8
+		.mdebug                0             9f8 *ld_internal*
+
+.rel.data                              0             338
+		.rel.data              0              10 bg_getup.o
+		.rel.data             10              10 bg_sleeping.o
+		.rel.data             20             308 bg_sleeping_mdl.o
+		.rel.data            328              10 bg_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

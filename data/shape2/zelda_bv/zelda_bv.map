@@ -1,0 +1,83 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1ddb0
+		.data                  0              40 bl2.o
+		.data                 40            3a40 bl2_mdl.o
+		.data               3a80             320 bv_arm_dmg.o
+		.data               3da0           10980 bv_arm_dmg_mdl.o
+		.data              14720             200 bva_bdmg1.o
+		.data              14920             200 bva_bdmg2.o
+		.data              14b20             3a0 bva_dmg1.o
+		.data              14ec0             200 bva_dmg2.o
+		.data              150c0             200 bva_wait.o
+		.data              152c0             df0 bva_wait_mdl.o
+		.data              160b0             200 bvb_break.o
+		.data              162b0             160 bvb_down.o
+		.data              16410             7d0 bvb_down_mdl.o
+		.data              16be0             180 bvc_break.o
+		.data              16d60             720 bvc_break_mdl.o
+		.data              17480             190 bve_bdmg.o
+		.data              17610              70 bve_dmg_a.o
+		.data              17680             120 bve_dmg_b.o
+		.data              177a0             190 bve_wait.o
+		.data              17930             c80 bve_wait_mdl.o
+		.data              185b0             b00 Bdoor/bdan_bdoor_0.o
+		.data              190b0             b00 Bdoor/bdan_bdoor_1.o
+		.data              19bb0             b00 Bdoor/bdan_bdoor_2.o
+		.data              1a6b0             b00 Bdoor/bdan_bdoor_3.o
+		.data              1b1b0             b00 Bdoor/bdan_bdoor_4.o
+		.data              1bcb0             b00 Bdoor/bdan_bdoor_5.o
+		.data              1c7b0             b00 Bdoor/bdan_bdoor_6.o
+		.data              1d2b0             b00 Bdoor/bdan_bdoor_7.o
+
+.strtab                                0             9b7
+		.strtab                0             9b7 *ld_internal*
+
+.symtab                                0             8d0
+		.symtab                0             8d0 *ld_internal*
+
+.mdebug                                0            4e3c
+		.mdebug                0            4e3c *ld_internal*
+
+.rel.data                              0             b10
+		.rel.data              0              10 bl2.o
+		.rel.data             10              78 bl2_mdl.o
+		.rel.data             88              10 bv_arm_dmg.o
+		.rel.data             98             510 bv_arm_dmg_mdl.o
+		.rel.data            5a8              10 bva_bdmg1.o
+		.rel.data            5b8              10 bva_bdmg2.o
+		.rel.data            5c8              10 bva_dmg1.o
+		.rel.data            5d8              10 bva_dmg2.o
+		.rel.data            5e8              10 bva_wait.o
+		.rel.data            5f8             148 bva_wait_mdl.o
+		.rel.data            740              10 bvb_break.o
+		.rel.data            750              10 bvb_down.o
+		.rel.data            760              e0 bvb_down_mdl.o
+		.rel.data            840              10 bvc_break.o
+		.rel.data            850              c8 bvc_break_mdl.o
+		.rel.data            918              10 bve_bdmg.o
+		.rel.data            928              10 bve_dmg_a.o
+		.rel.data            938              10 bve_dmg_b.o
+		.rel.data            948              10 bve_wait.o
+		.rel.data            958              f8 bve_wait_mdl.o
+		.rel.data            a50              18 Bdoor/bdan_bdoor_0.o
+		.rel.data            a68              18 Bdoor/bdan_bdoor_1.o
+		.rel.data            a80              18 Bdoor/bdan_bdoor_2.o
+		.rel.data            a98              18 Bdoor/bdan_bdoor_3.o
+		.rel.data            ab0              18 Bdoor/bdan_bdoor_4.o
+		.rel.data            ac8              18 Bdoor/bdan_bdoor_5.o
+		.rel.data            ae0              18 Bdoor/bdan_bdoor_6.o
+		.rel.data            af8              18 Bdoor/bdan_bdoor_7.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

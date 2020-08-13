@@ -1,0 +1,720 @@
+/* $Id: z_actor_all.h.deleted,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */	
+/* $Log: z_actor_all.h.deleted,v $
+/* Revision 1.1.1.1  2003/03/10 22:42:45  tong
+/* new OBJ tree for ocarina from Nintendo
+/*
+ * Revision 2.1  1998-10-22 20:45:49+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.1  1998/05/12 00:11:57  kuzuhara
+ * Initial revision
+ *
+ * Revision 1.144  1998-04-30 23:18:05+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.143  1998/04/27 13:49:13  umemiya
+ * ポウ用燭台追加
+ *
+ * Revision 1.142  1998-04-24 19:27:28+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.141  1998/04/24 04:29:14  nisiwaki
+ * eff_dust を 追加
+ *
+ * Revision 1.140  1998/04/23 04:07:40  kuzuhara
+ * 門シャッターの作成
+ *
+ * Revision 1.139  1998-04-20 22:24:57+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.138  1998/04/20 07:19:46  morita
+ * fishing
+ *
+ * Revision 1.137  1998/04/17 10:12:30  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.136  1998/04/17 07:35:01  umemiya
+ * 墓下ダンジョン・水面、門イベント関係追加
+ *
+ * Revision 1.135  1998-04-17 15:34:30+10  kuzuhara
+ * アヌビスタグ追加
+ *
+ * Revision 1.134  1998-04-17 13:16:57+09  nisiwaki
+ * Demo_6Kを追加
+ *
+ * Revision 1.133  1998/04/15 03:05:56  nisiwaki
+ * Magic_Light Magic_Dark Magic_Soul 追加
+ *
+ * Revision 1.132  1998/04/14 03:01:39  nisiwaki
+ * item_ocarina 追加
+ *
+ * Revision 1.131  1998/04/13 13:36:19  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.130  1998/04/10 05:25:30  nisiwaki
+ * たくさん 追加
+ *
+ * Revision 1.129  1998/04/10  01:07:48  yoshida
+ * マロン子供時代
+ *
+ * Revision 1.128  1998/04/09  11:14:29  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.127  1998/04/07  04:29:43  kuzuhara
+ * アヌビス＆炎
+ *
+ * Revision 1.126  1998/04/06  11:29:25  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.125  1998/04/06  09:47:51  kuzuhara
+ * 俺様大妖精削除
+ * 穴をほって、また埋める不毛な作業！
+ *
+ * Revision 1.124  1998/04/06  07:04:32  sumiyosi
+ * ライクライク＆妖精の像を追加。
+ *
+ * Revision 1.123  1998/04/06  03:13:08  morita
+ * boss_tw
+ *
+ * Revision 1.122  1998/04/03  10:48:39  komatu
+ * 新ゼルダ姫
+ *
+ * Revision 1.121  1998/04/02  05:21:56  matutani
+ * 自走ボム、馬ゲームアクター
+ *
+ * Revision 1.120  1998/03/30  08:04:09  sumiyosi
+ * ＮＰＣ３追加しました。
+ *
+ * Revision 1.119  1998/03/25  13:59:44  umemiya
+ * 氷の洞窟、SPOT06オブジェクトなど追加
+ *
+ * Revision 1.118  1998/03/25  11:46:35  sumiyosi
+ * デクの樹Ｊｒ．追加。
+ *
+ * Revision 1.117  1998/03/25  03:02:42  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.116  1998/03/23  09:28:55  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.115  1998/03/21  09:08:15  sumiyosi
+ * 村人しぇあーどばーてっくす版追加。
+ *
+ * Revision 1.114  1998/03/19  10:31:38  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.113  1998/03/19  05:34:32  nisiwaki
+ * 双子の老婆
+ *
+ * Revision 1.112  1998/03/18  13:48:00  yoshida
+ * インゴー追加
+ *
+ * Revision 1.111  1998/03/16  05:46:22  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.110  1998/03/13  04:08:14  umemiya
+ * ダイオクタ、カレババ、巨大魚オブジェクト追加
+ *
+ * Revision 1.109  1998/03/11  11:20:07  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.108  1998/03/10  12:56:47  morita
+ * mo
+ *
+ * Revision 1.107  1998/03/10  10:13:25  morita
+ * *** empty log message ***
+ *
+ * Revision 1.106  1998/03/10  04:59:26  komatu
+ * ナボール追加
+ *
+ * Revision 1.105  1998/03/09  09:18:04  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.104  1998/03/09  06:40:54  kuzuhara
+ * 射的場関連
+ *
+ * Revision 1.103  1998/03/09  06:15:53  sakakibara
+ * ｓｐｏｔ１７  噴煙 追加
+ *
+ * Revision 1.102  1998/03/09  04:10:38  umemiya
+ * 墓下ダンジョン・オブジェクト追加
+ *
+ * Revision 1.101  1998/03/06  06:32:38  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.100  1998/03/04  09:35:30  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.99  1998/03/04  02:05:14  nisiwaki
+ * ミラーシールド効果 追加
+ *
+ * Revision 1.98  1998/03/03  13:41:08  umemiya
+ * ブロッブ追加
+ *
+ * Revision 1.97  1998/03/03  04:43:24  kuzuhara
+ * 兵士２
+ * 火山弾発生エンカウント
+ * 火山弾
+ * 				の作成
+ *
+ * Revision 1.96  1998/03/02  04:39:40  umemiya
+ * 墓下ダンジョン・オブジェクト追加
+ *
+ * Revision 1.95  1998/02/27  13:55:12  morita
+ * *** empty log message ***
+ *
+ * Revision 1.94  1998/02/27  09:26:41  morita
+ * *** empty log message ***
+ *
+ * Revision 1.93  1998/02/26  13:09:29  sumiyosi
+ * フレイムウォーカー追加しました。
+ *
+ * Revision 1.92  1998/02/25  09:20:06  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.91  1998/02/24  07:53:19  kuzuhara
+ * 敵エンカウントテストの作成
+ *
+ * Revision 1.90  1998/02/24  04:23:27  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.89  1998/02/23  07:40:42  tarukado
+ * デッドハンド＆デッドアーム追加
+ *
+ * Revision 1.88  1998/02/21  10:49:30  sumiyosi
+ * フレイムダンサーの攻撃用炎追加。
+ *
+ * Revision 1.87  1998/02/21  07:54:37  morita
+ * fd2
+ *
+ * Revision 1.86  1998/02/20  10:05:07  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.85  1998/02/20  04:09:25  umemiya
+ * スポット０２オブジェクト、墓追加
+ *
+ * Revision 1.84  1998/02/19  13:54:13  iwawaki
+ * ,
+ *
+ * Revision 1.83  1998/02/16  09:04:19  sumiyosi
+ * フレイムダンサーを追加。
+ *
+ * Revision 1.82  1998/02/13  12:59:57  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.81  1998/02/13  03:04:52  nisiwaki
+ * z_en_du.hを追加
+ *
+ * Revision 1.80  1998/02/11  14:04:08  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.79  1998/02/10  05:46:22  morita
+ * boss_fd.h
+ *
+ * Revision 1.78  1998/02/09  13:57:16  sumiyosi
+ * スタルウォール追加。
+ *
+ * Revision 1.77  1998/02/09  08:33:50  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.76  1998/02/05  12:25:28  umemiya
+ * ポウ姉妹イベント用オブジェ追加
+ *
+ * Revision 1.75  1998/01/31  12:21:45  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.74  1998/01/30  03:01:33  umemiya
+ * ポウ四姉妹追加
+ *
+ * Revision 1.73  1998/01/29  11:39:49  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.72  1998/01/29  02:10:15  kuzuhara
+ * 城兵士１をつくりました！
+ *
+ * Revision 1.71  1998/01/23  04:07:28  umemiya
+ * フロアマスター、炎の神殿・炎の壁大追加
+ *
+ * Revision 1.70  1998/01/20  13:11:23  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.69  1998/01/20  10:28:14  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.68  1998/01/20  07:55:55  sumiyosi
+ * 墓守・タロン・シークを追加。
+ *
+ * Revision 1.67  1998/01/19  09:22:26  sakakibara
+ * 炎の神殿オブジェクト【ポンプフライヤ】追加
+ *
+ * Revision 1.66  1998/01/19  05:27:55  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.65  1998/01/14  05:47:53  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.64  1998/01/12  09:57:58  sakakibara
+ * 炎の神殿・ハンマーステップ追加
+ *
+ * Revision 1.63  1998/01/07  02:20:54  sakakibara
+ * 炎の神殿・格子追加
+ *
+ * Revision 1.62  1997/12/24  08:57:46  morita
+ * z_en_fhg_fire.h
+ *
+ * Revision 1.61  1997/12/24  05:07:58  umemiya
+ * トラップ床ビュン、時の間・マスターソード追加
+ *
+ * Revision 1.60  1997/12/18  08:24:49  umemiya
+ * 時の間・オブジェ追加
+ *
+ * Revision 1.59  1997/12/17  08:58:03  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.58  1997/12/17  04:58:43  umemiya
+ * 森の神殿・ひねり回廊部屋追加
+ *
+ * Revision 1.57  1997/12/15  10:02:21  matutani
+ * *** empty log message ***
+ *
+ * Revision 1.56  1997/12/05  05:24:57  umemiya
+ * 水の神殿・動く水面追加
+ *
+ * Revision 1.55  1997/12/04  09:40:44  umemiya
+ * 水の神殿・MOVEBGオブジェ追加
+ *
+ * Revision 1.54  1997/11/26  07:34:18  umemiya
+ * バリ追加
+ *
+ * Revision 1.53  1997/11/12  08:24:10  umemiya
+ * 面クリダンジョンオブジェクト追加
+ *
+ * Revision 1.52  1997/11/08  08:36:25  umemiya
+ * デクナッツ追加
+ *
+ * Revision 1.51  1997/11/05  14:40:28  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.50  1997/10/27  13:45:32  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.49  1997/10/21  09:11:46  matutani
+ * ゼルダ馬
+ *
+ * Revision 1.48  1997/10/19  12:31:23  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.47  1997/10/16  13:54:45  umemiya
+ * ドドンゴダンジョン・せりあがり追加
+ *
+ * Revision 1.46  1997/10/04  14:45:38  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.45  1997/10/02  13:52:08  umemiya
+ * デクババ追加
+ *
+ * Revision 1.44  1997/10/02  10:17:55  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.43  1997/10/02  07:55:29  sumiyosi
+ * ＮＰＣ追加
+ *
+ * Revision 1.42  1997/09/29  13:26:53  umemiya
+ * 妖精ダンジョンオブジェクト追加
+ *
+ * Revision 1.41  1997/09/29  10:57:05  sumiyosi
+ * コキリ族の女の子追加
+ *
+ * Revision 1.40  1997/09/27  14:00:47  umemiya
+ * 炎の神殿・フックショット付きリフト追加
+ *
+ * Revision 1.39  1997/09/26  04:28:03  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.38  1997/09/24  13:44:16  umemiya
+ * 炎の神殿・宝箱を守る炎を追加
+ *
+ * Revision 1.37  1997/09/19  10:33:13  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.36  1997/09/17  13:53:35  umemiya
+ * 跳ね橋、炎のカーテン、追加
+ *
+ * Revision 1.35  1997/09/17  04:40:15  sumiyosi
+ * シーカー族追加
+ *
+ * Revision 1.34  1997/09/16  08:48:08  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.33  1997/09/12  13:47:34  umemiya
+ * 火の神殿オブジェを分割
+ *
+ * Revision 1.32  1997/09/12  12:30:36  matutani
+ * ガノン馬追加
+ *
+ * Revision 1.31  1997/09/11  07:00:06  umemiya
+ * 火の神殿オブジェ追加
+ *
+ * Revision 1.30  1997/09/10  14:37:21  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.29  1997/09/05  09:16:36  sumiyosi
+ * デブ（その１）追加
+ *
+ * Revision 1.28  1997/09/05  08:01:15  matutani
+ * 汎用馬
+ *
+ * Revision 1.27  1997/09/02  12:03:24  umemiya
+ * 川音追加
+ *
+ * Revision 1.26  1997/09/02  06:05:14  umemiya
+ * エイヤー追加
+ *
+ * Revision 1.25  1997/09/01  07:30:09  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.24  1997/08/30  13:12:00  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.23  1997/08/26  01:11:36  sumiyosi
+ * スタルチュラ追加。
+ *
+ * Revision 1.22  1997/08/25  02:25:58  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.21  1997/08/19  10:48:41  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.20  1997/08/19  07:31:51  umemiya
+ * z_en_bili.h 追加
+ *
+ * Revision 1.19  1997/08/06  03:23:01  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.18  1997/08/04  01:34:57  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.17  1997/08/01  09:25:35  morita
+ * *** empty log message ***
+ *
+ * Revision 1.16  1997/07/30  01:14:13  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.15  1997/07/28  14:04:47  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.14  1997/07/22  05:52:23  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.13  1997/07/22  00:14:58  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.12  1997/07/17  13:42:36  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.11  1997/07/09  10:46:21  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.10  1997/07/08  01:41:05  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.9  1997/07/02  01:50:46  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.8  1997/06/27  09:12:43  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.7  1997/06/12  00:27:51  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.6  1997/06/06  00:48:48  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.5  1997/06/05  04:25:19  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.4  1997/06/04  07:21:17  morita
+ * *** empty log message ***
+ *
+ * Revision 1.3  1997/06/04  07:20:22  morita
+ * *** empty log message ***
+ *
+ * Revision 1.2  1997/06/04  07:17:08  morita
+ * *** empty log message ***
+ *
+ * Revision 1.1  1997/05/31  11:10:44  iwawaki
+ * Initial revision
+ *
+ * Revision 1.1  1997/05/26  00:13:36  iwawaki
+ * Initial revision
+ * */
+
+#ifdef _LANGUAGE_C_PLUS_PLUS
+extern "C" {
+#endif
+
+/************************************************************************
+ *
+ *	Ａｃｔｏｒヘッダーファイル
+ *
+ ************************************************************************/
+#include "z_player.h"
+
+#include "z_bg_breakwall.h"
+#include "z_bg_ddan_jd.h"
+#include "z_bg_ddan_kd.h"
+#include "z_bg_dodoago.h"
+#include "z_bg_haka.h"
+#include "z_bg_haka_huta.h"
+#include "z_bg_haka_kumo.h"
+#include "z_bg_haka_megane.h"
+#include "z_bg_haka_meganeBG.h"
+#include "z_bg_haka_sgami.h"
+#include "z_bg_haka_ship.h"
+#include "z_bg_haka_trap.h"
+#include "z_bg_haka_tubo.h"
+#include "z_bg_haka_zou.h"
+#include "z_bg_heavy_block.h"
+#include "z_bg_hidan_curtain.h"
+#include "z_bg_hidan_dalm.h"
+#include "z_bg_hidan_firewall.h"
+#include "z_bg_hidan_fslift.h"
+#include "z_bg_hidan_fwbig.h"
+#include "z_bg_hidan_hamstep.h"
+#include "z_bg_hidan_hrock.h"
+#include "z_bg_hidan_kousi.h"
+#include "z_bg_hidan_pompfly.h"
+#include "z_bg_hidan_rock.h"
+#include "z_bg_hidan_rsekizou.h"
+#include "z_bg_hidan_sekizou.h"
+#include "z_bg_hidan_sima.h"
+#include "z_bg_hidan_syoku.h"
+#include "z_bg_menkuri_eye.h"
+#include "z_bg_menkuri_kaiten.h"
+#include "z_bg_mizu_movebg.h"
+#include "z_bg_mizu_water.h"
+#include "z_bg_mori_bigst.h"
+#include "z_bg_mori_elevator.h"
+#include "z_bg_mori_hineri.h"
+#include "z_bg_mori_kaitenkabe.h"
+#include "z_bg_mori_rakkatenjo.h"
+#include "z_bg_po_event.h"
+#include "z_bg_pushbox.h"
+#include "z_bg_spot00_hanebasi.h"
+#include "z_bg_spot02_objects.h"
+#include "z_bg_toki_hikari.h"
+#include "z_bg_toki_swd.h"
+#include "z_bg_treemouth.h"
+#include "z_bg_vb_sima.h"
+#include "z_bg_ydan_hasi.h"
+#include "z_bg_ydan_maruta.h"
+#include "z_boss_dodongo.h"
+#include "z_boss_fd.h"
+#include "z_boss_fd2.h"
+#include "z_boss_ganondrof.h"
+#include "z_boss_goma.h"
+#include "z_demo_du.h"
+#include "z_demo_effect.h"
+#include "z_demo_go.h"
+#include "z_demo_im.h"
+#include "z_demo_kankyo.h"
+#include "z_demo_sa.h"
+#include "z_door_ana.h"
+#include "z_door_shutter.h"
+#include "z_door_warp1.h"
+#include "z_en_a_keep.h"
+#include "z_en_am.h"
+#include "z_en_anubice.h"
+#include "z_en_anubice_fire.h"
+#include "z_en_anubice_tag.h"
+#include "z_en_arow_trap.h"
+#include "z_en_arrow.h"
+#include "z_en_bb.h"
+#include "z_en_bdfire.h"
+#include "z_en_bee.h"
+#include "z_en_bili.h"
+#include "z_en_bird.h"
+#include "z_en_board.h"
+#include "z_en_bom.h"
+#include "z_en_bombf.h"
+#include "z_en_boom.h"
+#include "z_en_box.h"
+#include "z_en_brob.h"
+#include "z_en_bskel.h"
+#include "z_en_bubble.h"
+#include "z_en_bw.h"
+#include "z_en_d_keep.h"
+#include "z_en_dekubaba.h"
+#include "z_en_dekunuts.h"
+#include "z_en_dh.h"
+#include "z_en_dha.h"
+#include "z_en_dodojr.h"
+#include "z_en_dodongo.h"
+#include "z_en_door.h"
+#include "z_en_du.h"
+#include "z_en_eiyer.h"
+#include "z_en_elf.h"
+#include "z_en_encount1.h"
+#include "z_en_encount2.h"
+#include "z_en_f_keep.h"
+#include "z_en_fd.h"
+#include "z_en_fd_fire.h"
+#include "z_en_fhg.h"
+#include "z_en_fhg_fire.h"
+#include "z_en_fire_rock.h"
+#include "z_en_firefly.h"
+#include "z_en_float.h"
+#include "z_en_floormas.h"
+#include "z_en_fw.h"
+#include "z_en_girlA.h"
+#include "z_en_girlB.h"
+#include "z_en_goma.h"
+#include "z_en_hata.h"
+#include "z_en_heishi1.h"
+#include "z_en_heishi2.h"
+#include "z_en_holl.h"
+#include "z_en_horse.h"
+#include "z_en_horse_ganon.h"
+#include "z_en_horse_normal.h"
+#include "z_en_horse_zelda.h"
+#include "z_en_iron.h"
+#include "z_en_item00.h"
+#include "z_en_jj.h"
+#include "z_en_kabu02.h"
+#include "z_en_kui.h"
+#include "z_en_lbox.h"
+#include "z_en_light.h"
+#include "z_en_m_fire1.h"
+#include "z_en_m_thunder.h"
+#include "z_en_magic.h"
+#include "z_en_maruta.h"
+#include "z_en_mb.h"
+#include "z_en_nb.h"
+#include "z_en_niw.h"
+#include "z_en_npc.h"
+#include "z_en_oA1.h"
+#include "z_en_oA2.h"
+#include "z_en_oB1.h"
+#include "z_en_zl2.h"
+#include "z_en_oE2.h"
+#include "z_en_okuta.h"
+#include "z_en_okuta_rock.h"
+#include "z_en_part.h"
+#include "z_en_peehat.h"
+#include "z_en_po_sisters.h"
+#include "z_en_poh.h"
+#include "z_en_pubox.h"
+#include "z_en_rd.h"
+#include "z_en_reeba.h"
+#include "z_en_river_sound.h"
+#include "z_en_rl.h"
+#include "z_en_ru1.h"
+#include "z_en_ru2.h"
+#include "z_en_saku.h"
+#include "z_en_sb.h"
+#include "z_en_scene_change.h"
+#include "z_en_skeleton.h"
+#include "z_en_slime.h"
+#include "z_en_spia.h"
+#include "z_en_st.h"
+#include "z_en_stoneb.h"
+#include "z_en_stree.h"
+#include "z_en_sw.h"
+#include "z_en_syateki_itm.h"
+#include "z_en_syateki_man.h"
+#include "z_en_t_wood01.h"
+#include "z_en_ta.h"
+#include "z_en_tana.h"
+#include "z_en_test.h"
+#include "z_en_tite.h"
+#include "z_en_tk.h"
+#include "z_en_torch2.h"
+#include "z_en_tp.h"
+#include "z_en_trap.h"
+#include "z_en_vali.h"
+#include "z_en_vase.h"
+#include "z_en_vb_ball.h"
+#include "z_en_viewer.h"
+#include "z_en_vm.h"
+#include "z_en_wallmas.h"
+#include "z_en_wood02.h"
+#include "z_en_yukabyun.h"
+#include "z_bg_dy_yoseizo.h"
+#include "z_en_zf.h"
+#include "z_item_b_heart.h"
+#include "z_mir_ray.h"
+#include "z_obj_mure.h"
+#include "z_obj_syokudai.h"
+#include "z_object_kankyo.h"
+#include "z_bg_spot09_obj.h"
+#include "z_bg_spot18_obj.h"
+#include "z_boss_va.h"
+#include "z_bg_spot17_funen.h"
+#include "z_boss_mo.h"
+#include "z_boss_tw.h"
+#include "z_en_bigokuta.h"
+#include "z_en_karebaba.h"
+#include "z_bg_bdan_objects.h"
+#include "z_en_in.h"
+#include "z_en_tr.h"
+#include "z_bg_spot16_bombstone.h"
+#include "z_en_sakana.h"
+#include "z_en_mushi.h"
+#include "z_en_choo.h"
+#include "z_en_npc2.h"
+#include "z_bg_hidan_kowarerukabe.h"
+#include "z_bg_bombwall.h"
+#include "z_item_sakana.h"
+#include "z_obj_dekujr.h"
+#include "z_bg_mizu_uzu.h"
+#include "z_bg_spot06_objects.h"
+#include "z_bg_ice_objects.h"
+#include "z_en_npc3.h"
+#include "z_en_bom_chu.h"
+#include "z_en_horse_game_check.h"
+#include "z_en_rr.h"
+#include "z_en_ba.h"
+#include "z_en_bx.h"
+#include "z_bg_mori_hashigo.h"
+#include "z_bg_mori_hashira4.h"
+#include "z_bg_mori_idomizu.h"
+#include "z_bg_spot16_doughnut.h"
+#include "z_bg_bdan_switch.h"
+#include "z_en_ma1.h"
+#include "z_en_ma2.h"
+#include "z_boss_ganon.h"
+#include "z_boss_sst.h"
+#include "z_boss_goma2.h"
+#include "z_en_stk.h"
+#include "z_en_ny.h"
+#include "z_en_fr.h"
+#include "z_demo_nb.h"
+#include "z_item_shield.h"
+#include "z_bg_ice_shelter.h"
+#include "z_en_ice_hono.h"
+#include "z_item_ocarina.h"
+#include "z_magic_light.h"
+#include "z_magic_soul.h"
+#include "z_magic_dark.h"
+#include "z_demo_6k.h"
+#incldue "z_bg_haka_water.h"
+#include "z_bg_haka_gate.h"
+#include "z_bg_spot15_saku.h"
+#include "z_bg_jya_goroiwa.h"
+#include "z_bg_jya_zurerukabe.h"
+#include "z_bg_jya_sutarukage.h"
+#include "z_bg_jya_cobra.h"
+#include "z_bg_jya_kanaami.h"
+#include "z_fishing.h"
+#include "z_obj_oshihiki.h"
+#include "z_bg_gate_shutter.h"
+#include "z_eff_dust.h"
+#include "z_bg_spot01_fusya.h"
+#include "z_bg_spot01_idohashira.h"
+#include "z_bg_spot01_idomizu.h"
+#include "z_bg_po_syokudai.h"
+#include "z_bg_ganon_otyuka.h"
+    
+#ifdef _LANGUAGE_C_PLUS_PLUS
+} /* extern "C" */
+#endif

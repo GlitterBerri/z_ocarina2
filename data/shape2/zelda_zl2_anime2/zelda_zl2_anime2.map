@@ -1,0 +1,99 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            aae0
+		.data                  0             1f0 Z_bibibi.o
+		.data                1f0             320 Z_f_wait.o
+		.data                510             c10 Z_fuuu.o
+		.data               1120             3d0 Z_gaku_wait.o
+		.data               14f0             8b0 Z_gakuu.o
+		.data               1da0             380 Z_k_wait.o
+		.data               2120             240 Z_kenjya.o
+		.data               2360             3c0 Z_syu_wait.o
+		.data               2720             750 Z_syupen.o
+		.data               2e70             3d0 demo_aruki_cp.o
+		.data               3240             690 demo_banzai_cp.o
+		.data               38d0             460 demo_banzai_wait_cp.o
+		.data               3d30             2e0 demo_uemuki_wait_cp.o
+		.data               4010             410 ze_a_wait.o
+		.data               4420             590 ze_awaseru.o
+		.data               49b0             8b0 ze_ha_m.o
+		.data               5260             290 ze_otituku.o
+		.data               54f0             530 ze_s_wait.o
+		.data               5a20             7c0 ze_u_wait.o
+		.data               61e0             340 ze_ue_miru.o
+		.data               6520             5a0 zel_b_odoroku.o
+		.data               6ac0             460 zel_f_wait.o
+		.data               6f20             760 zel_kao_kakusu.o
+		.data               7680             410 zel_kururi.o
+		.data               7a90             210 zel_mousaigo.o
+		.data               7ca0             3c0 zel_odo_wait.o
+		.data               8060             2b0 zel_t_awasuM.o
+		.data               8310             390 zel_t_orosu.o
+		.data               86a0             440 zl2_demo_look_hand.o
+		.data               8ae0             710 zl2_g_miru.o
+		.data               91f0             7c0 zl2_g_miru_wait.o
+		.data               99b0             250 zl2_game_run_cp.o
+		.data               9c00             3d0 zl2_matsu_cp.o
+		.data               9fd0             380 zl2_to_wait.o
+		.data               a350             260 zl2_ue_miru.o
+		.data               a5b0             530 zl2_ue_miru_wait.o
+
+.strtab                                0             46c
+		.strtab                0             46c *ld_internal*
+
+.symtab                                0             260
+		.symtab                0             260 *ld_internal*
+
+.mdebug                                0            2988
+		.mdebug                0            2988 *ld_internal*
+
+.rel.data                              0             240
+		.rel.data              0              10 Z_bibibi.o
+		.rel.data             10              10 Z_f_wait.o
+		.rel.data             20              10 Z_fuuu.o
+		.rel.data             30              10 Z_gaku_wait.o
+		.rel.data             40              10 Z_gakuu.o
+		.rel.data             50              10 Z_k_wait.o
+		.rel.data             60              10 Z_kenjya.o
+		.rel.data             70              10 Z_syu_wait.o
+		.rel.data             80              10 Z_syupen.o
+		.rel.data             90              10 demo_aruki_cp.o
+		.rel.data             a0              10 demo_banzai_cp.o
+		.rel.data             b0              10 demo_banzai_wait_cp.o
+		.rel.data             c0              10 demo_uemuki_wait_cp.o
+		.rel.data             d0              10 ze_a_wait.o
+		.rel.data             e0              10 ze_awaseru.o
+		.rel.data             f0              10 ze_ha_m.o
+		.rel.data            100              10 ze_otituku.o
+		.rel.data            110              10 ze_s_wait.o
+		.rel.data            120              10 ze_u_wait.o
+		.rel.data            130              10 ze_ue_miru.o
+		.rel.data            140              10 zel_b_odoroku.o
+		.rel.data            150              10 zel_f_wait.o
+		.rel.data            160              10 zel_kao_kakusu.o
+		.rel.data            170              10 zel_kururi.o
+		.rel.data            180              10 zel_mousaigo.o
+		.rel.data            190              10 zel_odo_wait.o
+		.rel.data            1a0              10 zel_t_awasuM.o
+		.rel.data            1b0              10 zel_t_orosu.o
+		.rel.data            1c0              10 zl2_demo_look_hand.o
+		.rel.data            1d0              10 zl2_g_miru.o
+		.rel.data            1e0              10 zl2_g_miru_wait.o
+		.rel.data            1f0              10 zl2_game_run_cp.o
+		.rel.data            200              10 zl2_matsu_cp.o
+		.rel.data            210              10 zl2_to_wait.o
+		.rel.data            220              10 zl2_ue_miru.o
+		.rel.data            230              10 zl2_ue_miru_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,1417 @@
+/*
+ * $Id: z_actor_dlftbls.decl,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $
+ *
+ * Actorクラス登録テーブル
+ *
+ * *** 警告 ***
+ * 追加／削除するときは順番が変わらないようにしてください。
+ * 順番が変わると、全メイクはもちろん、sceneccall も必要になります。
+ *
+ * decl0:数合わせ用（ダミー）
+ * decl1:オーバーレイ（解放しない）
+ * decl2:オーバーレイ（解放する）
+ * decl3:非オーバーレイ（常駐）
+ * decl4:オーバーレイ（魔法）
+ * decl5:予備：オーバーレイ（解放しない）
+ * 
+ * オーバーレイの場合は
+ *
+ *   Makefile.CFILES の OVLFILES に ソースファイルを登録すること
+ *   spec_ovl.dat に登録すること
+ * 
+ * $Log: z_actor_dlftbls.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:56  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 20:45:49+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.301  1998/10/14 05:24:18  matutani
+ * EN_SKELETON,WARP_BOX消しました。
+ *
+ * Revision 1.300  1998-10-14 10:07:03+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.299  1998-10-13 22:17:23+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.298  1998-10-10 20:47:50+09  sakakibara
+ * Obj_Warp2block 追加
+ *
+ * Revision 1.297  1998-09-30 21:27:45+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.296  1998-09-24 17:02:11+09  sakakibara
+ * z_bg_jya_block.c 追加
+ *
+ * Revision 1.295  1998-09-23 14:39:11+09  nisiwaki
+ * マラソンマン
+ *
+ * Revision 1.294  1998-09-23 00:44:42+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.293  1998-09-18 14:26:59+09  sakakibara
+ * ハンマで壊す石、 時の歌で現れ消えるブロック追加
+ *
+ * Revision 1.292  1998-09-16 21:07:11+09  nisiwaki
+ * ゲルド３
+ *
+ * Revision 1.291  1998-09-11 17:04:22+09  sakakibara
+ * 金のスタルチュラ発生敵追加
+ *
+ * Revision 1.290  1998-09-11 00:58:14+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.289  1998-09-09 13:32:22+09  nisiwaki
+ * めんくり用偽壁
+ *
+ * Revision 1.288  1998-09-08 11:52:05+09  komatu
+ * eg追加
+ *
+ * Revision 1.287  1998-09-08 11:40:30+09  nisiwaki
+ * カカシの歌追加
+ *
+ * Revision 1.286  1998-09-07 17:57:46+09  kuzuhara
+ * 案山子の別バージョン２、３
+ * 作成
+ *
+ * Revision 1.285  1998-09-07 11:55:05+09  umemiya
+ * 氷の洞窟つらら、シャッター追加
+ *
+ * Revision 1.284  1998-09-05 14:32:49+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.283  1998-09-04 20:08:42+09  umemiya
+ * ダルニアシャッター追加
+ *
+ * Revision 1.282  1998-09-04 16:29:15+09  sakakibara
+ * オアシスの水 変化壷の蓋 追加
+ *
+ * Revision 1.281  1998-09-04 13:28:24+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.280  1998-09-03 20:18:38+09  umemiya
+ * 砂漠導きポウ、怪鳥グエー追加
+ *
+ * Revision 1.279  1998-09-03 10:14:42+09  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.278  1998-09-02 11:34:21+09  kuzuhara
+ * ボーリング壁等作成
+ *
+ * Revision 1.277  1998-09-01 00:48:23+09  yoshida
+ * ゴシップストーン
+ * 水の神殿オブジェ３分割
+ * カカリコ村大工の弟子
+ * 追加
+ *
+ * Revision 1.276  1998-08-29 16:31:27+09  nisiwaki
+ * 魔法 魔法の矢 一部削除
+ *
+ * Revision 1.275  1998-08-29 10:30:00+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.274  1998-08-29 00:19:33+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.273  1998-08-28 16:04:02+09  umemiya
+ * オクタ岩削除、蜘蛛の巣追加
+ *
+ * Revision 1.272  1998-08-28 11:38:53+09  nisiwaki
+ * BG_GND_SOULMEIRO BG_GND_NISEKABE BG_GND_ICEBLOCK 追加
+ *
+ * Revision 1.271  1998-08-27 11:43:14+09  nisiwaki
+ * Bg_Gnd_Firemeiro Bg_Gnd_Darkmeiro 追加
+ *
+ * Revision 1.270  1998-08-26 12:12:56+09  komatu
+ * Gj Geffの追加
+ *
+ * Revision 1.269  1998-08-26 00:31:27+09  sumiyosi
+ * 敵(群、カップル、ベビースタル、ワーウルフ)を追加。
+ *
+ * Revision 1.268  1998-08-22 19:25:43+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.267  1998-08-22 17:49:10+09  sakakibara
+ * 水の神殿スイッチと、監視敵３を追加
+ *
+ * Revision 1.266  1998-08-21 13:17:50+09  sakakibara
+ * Spot08,Spot17 爆弾壁 追加
+ *
+ * Revision 1.265  1998-08-21 09:35:48+09  zelda
+ * DUMMY_PLAYERをとりあえず復活
+ *
+ * Revision 1.264  1998-08-20 22:48:27+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.263  1998-08-20 15:58:00+09  nisiwaki
+ * EN_HS2 DEMO_KEKKAI 追加
+ *
+ * Revision 1.262  1998-08-20 11:41:40+09  kuzuhara
+ * ボムチュウ屋見えない壁
+ *
+ * Revision 1.261  1998-08-20 09:59:58+09  kuzuhara
+ * 削除
+ *
+ * Revision 1.260  1998-08-18 11:40:13+09  kuzuhara
+ * デグナッツのお面品評会
+ *
+ * Revision 1.259  1998-08-17 21:09:01+09  sakakibara
+ * 蜂の巣、Spot11爆弾壁、据置の木箱 追加
+ *
+ * Revision 1.258  1998-08-17 18:34:47+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.257  1998-08-14 22:06:45+09  kuzuhara
+ * "黄金の魂"追加。
+ *
+ * Revision 1.256  1998-08-11 12:55:55+09  kuzuhara
+ * 犬やら小娘やら
+ *
+ * Revision 1.255  1998-08-10 12:16:23+09  nisiwaki
+ * Oceff_Wipe2 Oceff_Wipe3 追加
+ *
+ * Revision 1.254  1998-08-08 21:44:04+09  kuzuhara
+ * ゲルドＢだすえ
+ *
+ * Revision 1.253  1998-08-08 19:58:53+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.252  1998-08-07 18:49:56+09  umemiya
+ * 売りナッツ追加
+ *
+ * Revision 1.251  1998-08-07 14:35:58+09  umemiya
+ * ヒントナッツ、デクナッツの弾、SPOT00・こわれた橋追加
+ *
+ * Revision 1.250  1998-08-06 17:25:41+09  sakakibara
+ * 邪神像 & Ｓｐｏｔ１２ オブジェクト 追加
+ *
+ * Revision 1.249  1998-08-06 11:45:54+09  umemiya
+ * 水中エイヤー、SPOT05オブジェ追加
+ *
+ * Revision 1.248  1998-08-06 10:44:22+09  nisiwaki
+ * Oceff_Storm 追加
+ *
+ * Revision 1.247  1998-08-04 21:54:10+09  umemiya
+ * 墓下蜘蛛はずした
+ *
+ * Revision 1.246  1998-08-03 16:21:07+09  nisiwaki
+ * たくさん増やした
+ *
+ * Revision 1.245  1998-08-03 10:39:23+09  umemiya
+ * 部屋管理タイマー追加
+ *
+ * Revision 1.244  1998-08-01 14:52:15+09  nisiwaki
+ * ゲルド見張り
+ *
+ * Revision 1.243  1998-07-31 16:56:52+09  kuzuhara
+ * 透明メッセージ君作成
+ *
+ * Revision 1.242  1998-07-31 10:19:53+09  kuzuhara
+ * 大妖精効果作成
+ *
+ * Revision 1.241  1998-07-30 18:00:39+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.240  1998-07-29 13:28:15+09  komatu
+ * Demo_Ecの追加
+ *
+ * Revision 1.239  1998-07-29 11:40:42+09  nisiwaki
+ * mother touch 追加
+ *
+ * Revision 1.238  1998-07-28 11:32:07+09  nisiwaki
+ * END_TITLE 追加
+ *
+ * Revision 1.237  1998-07-28 10:36:55+09  nisiwaki
+ * z_oceff_spot 追加
+ *
+ * Revision 1.236  1998-07-23 22:52:22+09  sakakibara
+ * 押引ブロック監視敵追加、 d_keep f_keep 削除
+ *
+ * Revision 1.235  1998-07-23 17:20:40+09  kuzuhara
+ * 宝箱屋作成
+ *
+ * Revision 1.234  1998-07-23 13:04:06+09  kuzuhara
+ * 案山子
+ *
+ * Revision 1.233  1998-07-21 16:14:56+09  kuzuhara
+ * ガノン２作成
+ *
+ * Revision 1.232  1998-07-21 14:21:05+09  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.231  1998-07-21 11:03:23+09  kuzuhara
+ * 通常メッセージ兵士分離
+ *
+ * Revision 1.230  1998-07-20 15:05:27+09  komatu
+ *  ゼルダゲートの追加
+ *
+ * Revision 1.229  1998-07-18 15:33:04+09  nisiwaki
+ * efc_erupc 追加
+ *
+ * Revision 1.228  1998-07-17 15:37:20+09  umemiya
+ * フィールドポウ追加
+ *
+ * Revision 1.227  1998-07-17 13:53:55+09  komatu
+ * gtの追加
+ *
+ * Revision 1.226  1998-07-17 10:26:44+09  nisiwaki
+ * Elf_Msg2 追加
+ *
+ * Revision 1.225  1998-07-16 22:01:12+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.224  1998-07-16 11:26:53+09  kuzuhara
+ * おかりな効果作成
+ *
+ * Revision 1.223  1998-07-15 13:41:39+09  yoshida
+ * いろいろ追加
+ *
+ * Revision 1.222  1998-07-14 19:58:16+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.221  1998-07-14 11:27:19+09  sakakibara
+ * 邪神像ダンジョン 壊される柱＆椅子 追加
+ *
+ * Revision 1.220  1998-07-14 10:18:45+09  kuzuhara
+ * 多用途アイテム作成
+ *
+ * Revision 1.219  1998-07-10 10:22:48+09  nisiwaki
+ * ani 追加
+ *
+ * Revision 1.218  1998-07-09 18:45:28+09  umemiya
+ * シェイドストーカー戦の床追加
+ *
+ * Revision 1.217  1998-07-09 15:33:54+09  kuzuhara
+ * お天気透明タグ作成
+ *
+ * Revision 1.216  1998-07-08 23:18:10+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.215  1998-07-08 17:01:56+09  yoshida
+ * 吸い込み渦 潮吹 脱出ゼルダ 追加
+ *
+ * Revision 1.214  1998-07-08 12:49:52+09  kuzuhara
+ * ガノンのオルガン
+ *
+ * Revision 1.213  1998-07-08 10:36:46+09  matutani
+ * ワープ宝箱
+ *
+ * Revision 1.212  1998-07-07 21:31:11+09  sakakibara
+ * 邪神像ダンジョンＯｂｊ、Ｓｐｏｔ１８Ｏｂｊ 追加
+ *
+ * Revision 1.211  1998-07-07 10:24:12+09  kuzuhara
+ * チェンジャー作成
+ *
+ * Revision 1.210  1998-07-03 13:08:56+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.209  1998-07-02 15:46:41+09  nisiwaki
+ * Fu 風車小屋の男
+ *
+ * Revision 1.208  1998-07-01 22:20:37+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.207  1998-07-01 17:22:24+10  sakakibara
+ * 光スイッチ、フィールド常駐Ｏｂｊ 追加
+ *
+ * Revision 1.206  1998-07-01 11:48:53+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.205  1998-07-01 10:03:20+09  kuzuhara
+ * ボムチュウ！
+ *
+ * Revision 1.204  1998-06-30 17:54:29+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.203  1998-06-29 20:39:54+09  umemiya
+ * ガノン城・オブジェ追加
+ *
+ * Revision 1.202  1998-06-29 18:42:06+09  kuzuhara
+ * 透明会話タグ作成
+ *
+ * Revision 1.201  1998-06-29 17:55:42+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.200  1998-06-29 14:11:12+10  nisiwaki
+ * m_thunder と m_fire1 を オーバーレイに
+ *
+ * Revision 1.199  1998-06-26 22:31:33+09  hayakawa
+ * HAYAKAWA_TESTdecl正式採用により削除
+ *
+ * Revision 1.198  1998-06-26 17:11:30+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.197  1998-06-26 14:45:48+09  kuzuhara
+ * 各種鶏プログラム分離
+ *
+ * Revision 1.196  1998-06-25 21:16:14+09  kuzuhara
+ * 城兵士３作成
+ *
+ * Revision 1.195  1998-06-25 19:19:07+09  kuzuhara
+ * 爆破看板作成
+ *
+ * Revision 1.194  1998-06-25 17:37:49+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.193  1998-06-22 16:25:00+09  sumiyosi
+ * インゴーとめ柵追加。
+ *
+ * Revision 1.192  1998-06-22 15:07:00+10  hayakawa
+ * 警告追加
+ *
+ * Revision 1.191  1998-06-22 13:04:03+09  hayakawa
+ * Bg_Ingate一時的に無効にした
+ *
+ * Revision 1.190  1998-06-22 11:39:38+09  hayakawa
+ * 樽角君、困るな-
+ *
+ * Revision 1.189  1998-06-22 11:35:08+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.188  1998-06-21 00:19:48+10  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.187  1998-06-20 16:52:11+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.186  1998-06-19 15:59:50+09  kuzuhara
+ * 鶏ねーちゃん作成
+ *
+ * Revision 1.185  1998-06-18 10:37:03+09  kuzuhara
+ * なーんか敵ばっか登録している
+ * 気がするが、、、これもシゴトだ。
+ * しかたないっす
+ *
+ * Revision 1.184  1998-06-17 11:14:21+09  kuzuhara
+ * 実験どーも作成
+ *
+ * Revision 1.183  1998-06-16 18:35:17+09  umemiya
+ * 汎用ブロック停止位置
+ *
+ * Revision 1.182  1998-06-16 12:05:50+09  nisiwaki
+ * たくさん増やした
+ *
+ * Revision 1.181  1998-06-16 11:12:12+09  kuzuhara
+ * 汎用ルピー作成
+ *
+ * Revision 1.180  1998-06-15 19:23:55+09  hayakawa
+ * HAYAKAWA_TESTdeclの処理だけにしてテスト
+ *
+ * Revision 1.179  1998-06-15 14:13:53+09  sakakibara
+ * 汎用 ごろ岩 追加
+ *
+ * Revision 1.178  1998-06-12 23:09:15+09  hayakawa
+ * コメント強化とか
+ *
+ * Revision 1.177  1998-06-12 12:43:27+09  kuzuhara
+ * オカリナ透明タグ及びヤブサメ透明タグ設定
+ *
+ * Revision 1.176  1998-06-11 17:12:17+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.175  1998-06-08 20:16:11+09  sakakibara
+ * 草と豆を追加
+ *
+ * Revision 1.174  1998-06-05 14:09:32+09  kuzuhara
+ * 素もぐりゲーム作成
+ *
+ * Revision 1.173  1998-06-04 14:19:58+09  umemiya
+ * 墓下リレー関係追加
+ *
+ * Revision 1.172  1998-06-04 14:04:03+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.171  1998-06-04 13:53:24+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.170  1998-06-03 16:02:52+09  umemiya
+ * 常駐氷ポリゴン追加
+ *
+ * Revision 1.169  1998-06-01 18:29:44+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.168  1998-06-01 16:43:16+09  sakakibara
+ * Ｓｐｏｔ０８ 専用オブジェクト 流氷追加
+ *
+ * Revision 1.167  1998-06-01 12:07:31+09  kuzuhara
+ * 壷トラップ作成
+ *
+ * Revision 1.166  1998-05-30 20:00:54+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.165  1998-05-29 09:54:40+09  nisiwaki
+ * Elf_Msg 追加
+ *
+ * Revision 1.164  1998-05-28 16:14:06+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.163  1998-05-28 13:44:05+09  hayakawa
+ * z_actor_list.hに順番を合わせていたらあかんようなので元の順番に戻した
+ *
+ * Revision 1.162  1998-05-27 15:39:30+09  hayakawa
+ * 順番補正
+ *
+ * Revision 1.161  1998-05-27 12:04:50+09  nisiwaki
+ * decl2(Demo_Shd, DEMO_SHD) 追加
+ *
+ * Revision 1.160  1998-05-26 21:13:53+09  hayakawa
+ * En_Bdfire追加
+ *
+ * Revision 1.159  1998-05-26 21:09:36+09  hayakawa
+ * En_Goma追加
+ *
+ * Revision 1.158  1998-05-26 11:56:40+09  komatu
+ * Demo_Extの追加
+ *
+ * Revision 1.157  1998-05-18 13:37:54+09  kuzuhara
+ * 便利スイッチ作成
+ *
+ * Revision 1.156  1998-05-13 18:47:24+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.155  1998-05-13 15:47:02+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.154  1998-05-13 10:22:44+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.153  1998-05-12 21:53:36+09  zelda
+ * 注意コメント
+ *
+ * Revision 1.152  1998-05-12 19:13:44+09  zelda
+ * z_actor_dlftbls.decl 統合化
+ *
+ * Revision 1.151  1998-05-12 19:00:51+09  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.150  1998-05-12 13:13:02+09  kuzuhara
+ * 不思議なアイテム作成
+ *
+ * Revision 1.149  1998-05-08 20:37:16+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.148  1998/05/08 09:02:50  nisiwaki
+ * arrow_dark 等を追加
+ *
+ * Revision 1.147  1998/05/07 10:40:59  nisiwaki
+ * item_etcetera 追加
+ *
+ * Revision 1.146  1998/05/06 08:39:43  umemiya
+ * 馬ジャンプ柵追加
+ *
+ * Revision 1.145  1998-05-01 16:07:33+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.144  1998/04/30 14:18:37  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.143  1998/04/27 13:48:54  umemiya
+ * ポウ用燭台追加
+ *
+ * Revision 1.142  1998-04-24 19:27:03+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.141  1998/04/24 04:28:09  nisiwaki
+ * eff_dust を 追加
+ *
+ * Revision 1.140  1998/04/23 04:07:50  kuzuhara
+ * 門シャッターの作成
+ *
+ * Revision 1.139  1998-04-21 18:39:03+09  hayakawa
+ * z_actor_dlftbls.declにz_actor_list.hを統合準備
+ *
+ * Revision 1.138  1998-04-20 22:24:50+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.137  1998/04/20 07:18:23  morita
+ * *** empty log message ***
+ *
+ * Revision 1.136  1998/04/17 10:12:39  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.135  1998/04/17 07:35:20  umemiya
+ * 墓下ダンジョン・水面、門イベント関係追加
+ *
+ * Revision 1.134  1998-04-17 15:34:16+10  kuzuhara
+ * アヌビスタグ追加
+ *
+ * Revision 1.133  1998-04-17 13:15:35+09  nisiwaki
+ * Demo_6Kを追加
+ *
+ * Revision 1.132  1998/04/16 06:29:18  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.131  1998/04/16 04:20:37  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.130  1998/04/15 03:05:38  nisiwaki
+ * Magic_Light Magic_Dark Magic_Soul 追加
+ *
+ * Revision 1.129  1998/04/14 08:31:24  hayakawa
+ * 魔法入れ替えテスト
+ *
+ * Revision 1.128  1998-04-14 12:01:26+09  nisiwaki
+ * item_ocarina 追加
+ *
+ * Revision 1.127  1998/04/13 13:36:11  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.126  1998/04/10 05:24:05  nisiwaki
+ * たくさん 追加
+ *
+# Revision 1.125  1998/04/10  01:09:01  yoshida
+# マロン子供時代追加
+#
+# Revision 1.124  1998/04/09  11:14:23  sakakibara
+# *** empty log message ***
+#
+# Revision 1.123  1998/04/07  04:30:12  kuzuhara
+# アヌビス＆炎
+#
+# Revision 1.122  1998/04/06  11:29:06  tarukado
+# *** empty log message ***
+#
+# Revision 1.121  1998/04/06  09:48:28  kuzuhara
+# 俺様大妖精削除
+# 穴をほって、また埋める不毛な作業！
+#
+# Revision 1.120  1998/04/06  07:04:12  sumiyosi
+# ライクライク＆妖精の像を追加。
+#
+# Revision 1.119  1998/04/06  03:14:06  morita
+# boss_tw
+#
+# Revision 1.118  1998/04/03  10:48:30  komatu
+# 新ゼルダ姫
+#
+# Revision 1.117  1998/04/02  05:15:32  matutani
+# *** empty log message ***
+#
+# Revision 1.116  1998/03/31  12:57:54  hayakawa
+# actor取った
+#
+# Revision 1.115  1998/03/31  12:24:51  yoshida
+# マロン大人追加
+#
+# Revision 1.114  1998/03/30  08:04:30  sumiyosi
+# ＮＰＣ３追加しました。
+#
+# Revision 1.113  1998/03/25  13:59:30  umemiya
+# 氷の洞窟、SPOT06オブジェクトなど追加
+#
+# Revision 1.112  1998/03/25  11:46:29  sumiyosi
+# デクの樹Ｊｒ．追加。
+#
+# Revision 1.111  1998/03/25  03:02:48  komatu
+# *** empty log message ***
+#
+# Revision 1.110  1998/03/23  09:28:47  sakakibara
+# *** empty log message ***
+#
+# Revision 1.109  1998/03/21  09:08:36  sumiyosi
+# 村人しぇあーどばーてっくす版追加。
+#
+# Revision 1.108  1998/03/19  10:31:34  sakakibara
+# *** empty log message ***
+#
+# Revision 1.107  1998/03/19  05:35:40  nisiwaki
+# 双子の老婆
+#
+# Revision 1.106  1998/03/18  13:47:16  yoshida
+# インゴー追加
+#
+# Revision 1.105  1998/03/16  05:46:55  komatu
+# *** empty log message ***
+#
+# Revision 1.104  1998/03/13  04:07:42  umemiya
+# ダイオクタ、カレババ、巨大魚オブジェクト追加
+#
+# Revision 1.103  1998/03/11  11:19:59  takahata
+# *** empty log message ***
+#
+# Revision 1.102  1998/03/10  12:55:45  morita
+# Boss_Mo
+#
+# Revision 1.101  1998/03/10  04:58:55  komatu
+# ナボール追加
+#
+# Revision 1.100  1998/03/09  09:18:21  takahata
+# *** empty log message ***
+#
+# Revision 1.99  1998/03/09  06:40:26  kuzuhara
+# 射的場関連
+#
+# Revision 1.98  1998/03/09  06:16:26  sakakibara
+# ｓｐｏｔ１７  噴煙 追加
+#
+# Revision 1.97  1998/03/09  04:10:26  umemiya
+# 墓下ダンジョン・オブジェクト追加
+#
+# Revision 1.96  1998/03/06  06:33:25  tarukado
+# *** empty log message ***
+#
+# Revision 1.95  1998/03/04  09:35:25  sakakibara
+# *** empty log message ***
+#
+# Revision 1.94  1998/03/04  02:04:53  nisiwaki
+# ミラーシールド効果
+#
+# Revision 1.93  1998/03/03  13:40:15  umemiya
+# ブロッブ追加
+#
+# Revision 1.92  1998/03/03  04:43:09  kuzuhara
+# 兵士２
+# 火山弾発生エンカウント
+# 火山弾
+# 				の作成
+#
+# Revision 1.91  1998/03/02  04:41:46  umemiya
+# 墓下ダンジョン・オブジェクト追加
+#
+# Revision 1.90  1998/02/27  13:54:37  morita
+# *** empty log message ***
+#
+# Revision 1.89  1998/02/27  11:25:26  sakakibara
+# ダンジョン常駐オーバーレイ化
+#
+# Revision 1.88  1998/02/27  09:26:51  morita
+# *** empty log message ***
+#
+# Revision 1.87  1998/02/26  13:09:45  sumiyosi
+# フレイムウォーカー追加しました。
+#
+# Revision 1.86  1998/02/25  13:39:48  matutani
+# *** empty log message ***
+#
+# Revision 1.85  1998/02/25  09:19:05  komatu
+# *** empty log message ***
+#
+# Revision 1.84  1998/02/24  07:53:26  kuzuhara
+# 敵エンカウントテストの作成
+#
+# Revision 1.83  1998/02/24  04:23:50  nisiwaki
+# *** empty log message ***
+#
+# Revision 1.82  1998/02/23  07:39:42  tarukado
+# デッドハンド＆デッドアーム追加
+#
+# Revision 1.81  1998/02/21  10:50:03  sumiyosi
+# フレイムダンサーの攻撃用炎追加。
+#
+# Revision 1.80  1998/02/21  08:04:14  morita
+# *** empty log message ***
+#
+# Revision 1.79  1998/02/20  10:05:49  nisiwaki
+# *** empty log message ***
+#
+# Revision 1.78  1998/02/20  07:49:00  matutani
+# 魔法（炎、風、氷）
+#
+# Revision 1.77  1998/02/20  04:09:05  umemiya
+# スポット０２オブジェクト、墓追加
+#
+# Revision 1.76  1998/02/19  13:54:13  iwawaki
+# ,
+#
+# Revision 1.75  1998/02/18  02:45:38  matutani
+# 子馬追加
+#
+# Revision 1.74  1998/02/16  09:06:06  sumiyosi
+# フレイムダンサーを追加。
+#
+# Revision 1.73  1998/02/13  03:04:25  nisiwaki
+# En_Duを追加
+#
+# Revision 1.72  1998/02/12  10:18:28  hayakawa
+# 本当は２個所も登録しなくてよかったのですが
+#
+# Revision 1.71  1998/02/11  14:04:08  iwawaki
+# *** empty log message ***
+#
+# Revision 1.70  1998/02/11  12:51:50  morita
+# 出すでー   ３。。５。。
+#
+# Revision 1.69  1998/02/09  13:56:29  sumiyosi
+# スタルウォール追加。
+#
+# Revision 1.68  1998/02/09  08:33:45  sakakibara
+# *** empty log message ***
+#
+# Revision 1.67  1998/02/05  12:22:41  umemiya
+# ポウ姉妹イベント用オブジェ追加
+#
+# Revision 1.66  1998/01/31  12:21:45  iwawaki
+# *** empty log message ***
+#
+# Revision 1.65  1998/01/30  03:00:18  umemiya
+# ポウ四姉妹追加
+#
+# Revision 1.64  1998/01/29  11:40:33  tarukado
+# *** empty log message ***
+#
+# Revision 1.63  1998/01/29  02:11:00  kuzuhara
+# 城兵士１をつくりました！
+#
+# Revision 1.62  1998/01/23  04:08:03  umemiya
+# フロアマスター、炎の神殿・炎の壁大追加
+#
+# Revision 1.61  1998/01/22  13:43:53  nisiwaki
+# *** empty log message ***
+#
+# Revision 1.60  1998/01/20  13:11:10  tarukado
+# *** empty log message ***
+#
+# Revision 1.59  1998/01/20  10:27:54  sakakibara
+# *** empty log message ***
+#
+# Revision 1.58  1998/01/20  07:56:08  sumiyosi
+# 墓守・タロン・シークを追加。
+#
+# Revision 1.57  1998/01/19  09:21:40  sakakibara
+# 炎の神殿オブジェクト【ポンプフライヤ】追加
+#
+# Revision 1.56  1998/01/19  05:27:48  tarukado
+# *** empty log message ***
+#
+# Revision 1.55  1998/01/14  05:45:27  tarukado
+# *** empty log message ***
+#
+# Revision 1.54  1998/01/12  09:58:08  sakakibara
+# 炎の神殿・ハンマーステップ追加
+#
+# Revision 1.53  1998/01/09  13:37:15  iwawaki
+# *** empty log message ***
+#
+# Revision 1.52  1998/01/07  02:20:49  sakakibara
+# 炎の神殿・格子追加
+#
+# Revision 1.51  1998/01/05  12:13:23  iwawaki
+# *** empty log message ***
+#
+# Revision 1.50  1997/12/26  08:13:20  morita
+# *** empty log message ***
+#
+# Revision 1.49  1997/12/24  06:35:14  sumiyosi
+# 大ゼルダ追加
+#
+# Revision 1.48  1997/12/24  05:07:29  umemiya
+# トラップ床ビュン、時の間・マスターソード追加
+#
+# Revision 1.47  1997/12/18  08:23:55  umemiya
+# 時の間・オブジェ追加
+#
+# Revision 1.46  1997/12/17  08:58:31  tarukado
+# *** empty log message ***
+#
+# Revision 1.45  1997/12/17  04:58:02  umemiya
+# 森の神殿・ひねり回廊部屋追加
+#
+# Revision 1.44  1997/12/16  08:33:15  takahata
+# *** empty log message ***
+#
+# Revision 1.43  1997/12/15  10:12:10  matutani
+# ファントムガノン馬
+#
+# Revision 1.42  1997/12/11  09:50:00  iwawaki
+# *** empty log message ***
+#
+# Revision 1.41  1997/12/05  05:24:30  umemiya
+# 水の神殿・動く水面追加
+#
+# Revision 1.40  1997/12/04  09:42:14  umemiya
+# 水の神殿・MOVEBGオブジェ追加
+#
+# Revision 1.39  1997/11/26  07:32:52  umemiya
+# バリ追加
+#
+# Revision 1.38  1997/11/12  08:22:01  umemiya
+# 面クリダンジョンオブジェクト追加
+#
+# Revision 1.37  1997/11/08  08:37:40  umemiya
+# デクナッツ追加
+#
+# Revision 1.36  1997/11/05  14:40:28  iwawaki
+# *** empty log message ***
+#
+# Revision 1.35  1997/10/27  13:46:55  tarukado
+# *** empty log message ***
+#
+# Revision 1.34  1997/10/21  09:14:47  matutani
+# ゼルダ馬
+#
+# Revision 1.33  1997/10/19  12:31:23  iwawaki
+# *** empty log message ***
+#
+# Revision 1.32  1997/10/16  13:51:36  umemiya
+# ドドンゴダンジョン・せりあがり追加
+#
+# Revision 1.31  1997/10/16  08:42:19  sumiyosi
+# En_GirlB→子ゼルダに変更。
+#
+# Revision 1.30  1997/10/04  14:45:38  iwawaki
+# *** empty log message ***
+#
+# Revision 1.29  1997/10/02  13:51:33  umemiya
+# デクババ追加
+#
+# Revision 1.28  1997/10/02  10:19:19  tarukado
+# *** empty log message ***
+#
+# Revision 1.27  1997/10/02  07:55:04  sumiyosi
+# ＮＰＣ追加
+#
+# Revision 1.26  1997/10/01  02:37:53  umemiya
+# *** empty log message ***
+#
+# Revision 1.25  1997/09/29  13:27:02  umemiya
+# 妖精ダンジョンオブジェクト追加
+#
+# Revision 1.24  1997/09/29  11:47:10  sumiyosi
+# コキリ族女の子追加
+#
+# Revision 1.23  1997/09/27  13:59:43  umemiya
+# 炎の神殿・フックショット付きリフト追加
+#
+# Revision 1.22  1997/09/27  13:35:57  sumiyosi
+# *** empty log message ***
+#
+# Revision 1.21  1997/09/24  13:44:27  umemiya
+# ザコ兵を一つに統一、炎の神殿・宝箱を守る炎を追加
+#
+# Revision 1.20  1997/09/20  05:08:37  iwawaki
+# *** empty log message ***
+#
+# Revision 1.19  1997/09/19  10:33:46  tarukado
+# *** empty log message ***
+#
+# Revision 1.18  1997/09/17  13:50:33  umemiya
+# 跳ね橋、炎のカーテン、追加
+#
+# Revision 1.17  1997/09/17  11:39:53  sumiyosi
+# *** empty log message ***
+#
+# Revision 1.16  1997/09/16  08:43:24  sumiyosi
+# *** empty log message ***
+#
+# Revision 1.15  1997/09/12  13:49:01  umemiya
+# 火の神殿オブジェを分割
+#
+# Revision 1.14  1997/09/12  12:28:28  matutani
+# ガノン馬追加
+#
+# Revision 1.13  1997/09/11  06:59:10  umemiya
+# 火の神殿オブジェ追加
+#
+# Revision 1.12  1997/09/10  14:37:21  iwawaki
+# *** empty log message ***
+#
+# Revision 1.11  1997/09/10  11:06:02  hayakawa
+# *** empty log message ***
+#
+# Revision 1.10  1997/09/06  14:28:17  iwawaki
+# *** empty log message ***
+#
+# Revision 1.9  1997/09/06  02:03:43  morita
+# _actor 消したった
+#
+# Revision 1.8  1997/09/05  08:01:42  matutani
+# 汎用馬
+#
+# Revision 1.7  1997/09/02  12:03:07  umemiya
+# 川音追加
+#
+# Revision 1.6  1997/09/02  08:36:56  umemiya
+# エイヤー追加
+#
+# Revision 1.5  1997/09/01  07:29:36  tarukado
+# *** empty log message ***
+#
+# Revision 1.4  1997/08/30  13:10:37  tarukado
+# *** empty log message ***
+#
+# Revision 1.3  1997/08/26  04:22:17  hayakawa
+# *** empty log message ***
+#
+# Revision 1.2  1997/08/25  13:55:08  hayakawa
+# *** empty log message ***
+#
+# Revision 1.1  1997/08/25  07:04:12  hayakawa
+# Initial revision
+#
+ */
+
+    decl3(Player, PLAYER)
+    decl0(En_Skeleton, EN_SKELETON)
+    decl2(En_Test, EN_TEST)
+    decl0(En_Iron, EN_IRON)
+    decl2(En_GirlA, EN_GIRLA)
+    decl0(En_Slim, EN_SLIM)
+    decl0(En_Bskel, EN_BSKEL)
+    decl2(En_Part, EN_PART)
+    decl2(En_Light, EN_LIGHT)
+    decl1(En_Door, EN_DOOR)
+    decl2(En_Box, EN_BOX)
+    decl2(Bg_Dy_Yoseizo, BG_DY_YOSEIZO)
+    decl2(Bg_Hidan_Firewall, BG_HIDAN_FIREWALL)
+    decl2(En_Poh, EN_POH)
+    decl2(En_Okuta, EN_OKUTA)
+    decl2(Bg_Ydan_Sp, BG_YDAN_SP)
+    decl1(En_Bom, EN_BOM)
+    decl2(En_Wallmas, EN_WALLMAS)
+    decl2(En_Dodongo, EN_DODONGO)
+    decl2(En_Firefly, EN_FIREFLY)
+    decl2(En_Horse, EN_HORSE)
+    decl3(En_Item00, EN_ITEM00)
+    decl1(En_Arrow, EN_ARROW)
+    decl0(Dummy_player, DUMMY_PLAYER) /* ### */
+    decl2(En_Elf, EN_ELF)
+    decl2(En_Niw, EN_NIW)
+    decl0(En_Bee, EN_BEE)
+    decl2(En_Tite, EN_TITE)
+    decl2(En_Reeba, EN_REEBA)
+    decl2(En_Peehat, EN_PEEHAT)
+    decl2(En_Butte, EN_BUTTE)
+    decl0(En_F_Obj, EN_F_OBJ)
+    decl2(En_Insect, EN_INSECT)
+    decl2(En_Fish, EN_FISH)
+    decl0(En_D_Obj, EN_D_OBJ)
+    decl1(En_Holl, EN_HOLL)
+    decl2(En_Scene_Change, EN_SCENE_CHANGE)
+    decl2(En_Zf, EN_ZF)
+    decl2(En_Hata, EN_HATA)
+    decl2(Boss_Dodongo, BOSS_DODONGO)
+    decl2(Boss_Goma, BOSS_GOMA)
+    decl2(En_Zl1, EN_ZL1)
+    decl2(En_Viewer, EN_VIEWER)
+    decl2(En_Goma, EN_GOMA)/**/
+    decl2(Bg_Pushbox, BG_PUSHBOX)
+    decl2(En_Bubble, EN_BUBBLE)
+    decl1(Door_Shutter, DOOR_SHUTTER)
+    decl2(En_Dodojr, EN_DDJR)
+    decl2(En_Bdfire, EN_BDFIRE)/**/
+    decl0(Magic, MAGIC)
+    decl1(En_Boom, EN_BOOM)
+    decl2(En_Torch2, EN_TORCH2)
+    decl2(En_Bili, EN_BILI)
+    decl2(En_Tp, EN_TP)
+    decl0(En_OA1, EN_OA1)
+    decl2(En_St, EN_ST)
+    decl2(En_Bw, EN_BW)
+    decl3(En_A_Obj, EN_A_OBJ)
+    decl2(En_Eiyer, EN_EIYER)
+    decl2(En_River_Sound, EN_RIVER_SOUND)
+    decl2(En_Horse_Normal, EN_HORSE_NORMAL)
+    decl2(En_Ossan, EN_OSSAN)
+    decl2(Bg_Treemouth, BG_TREE_MOUTH)
+    decl2(Bg_Dodoago, BG_DODO_AGO)
+    decl2(Bg_Hidan_Dalm, BG_HIDAN_DALM)
+    decl2(Bg_Hidan_Hrock, BG_HIDAN_HROCK)
+    decl2(En_Horse_Ganon, EN_HORSE_GANON)
+    decl2(Bg_Hidan_Rock, BG_HIDAN_ROCK)
+    decl2(Bg_Hidan_Rsekizou, BG_HIDAN_RSEKIZOU)
+    decl2(Bg_Hidan_Sekizou, BG_HIDAN_SEKIZOU)
+    decl2(Bg_Hidan_Sima, BG_HIDAN_SIMA)
+    decl2(Bg_Hidan_Syoku, BG_HIDAN_SYOKU)
+    decl2(En_Xc, EN_XC)
+    decl2(Bg_Hidan_Curtain, BG_HIDAN_CURTAIN)
+    decl2(Bg_Spot00_Hanebasi, BG_SPOT00_HANEBASI)
+    decl2(En_Mb, EN_MB)
+    decl2(En_Bombf, EN_BOMBF)
+    decl2(En_Zl2, EN_ZL2)
+    decl2(Bg_Hidan_Fslift, BG_HIDAN_FSLIFT)
+    decl2(En_OE2, EN_OE2)
+    decl2(Bg_Ydan_Hasi, BG_YDAN_HASI)
+    decl2(Bg_Ydan_Maruta, BG_YDAN_MARUTA)
+    decl2(Boss_Ganondrof, BOSS_GANONDROF)
+    decl0(En_Npc, EN_NPC)
+    decl2(En_Am, EN_AM)
+    decl2(En_Dekubaba, EN_DEKUBABA)
+    decl1(En_M_Fire1, EN_M_FIRE1)
+    decl1(En_M_Thunder, EN_M_THUNDER)
+    decl2(Bg_Ddan_Jd, BG_DDAN_JD)
+    decl2(Bg_Breakwall, BG_BREAK_WALL)
+    decl2(En_Jj, EN_JJ)
+    decl2(En_Horse_Zelda, EN_HORSE_ZELDA)
+    decl2(Bg_Ddan_Kd, BG_DDAN_KD)
+    decl2(Door_Warp1, DOOR_WARP1)
+    decl2(Obj_Syokudai, OBJ_SYOKUDAI)
+    decl2(Item_B_Heart, ITEM_B_HEART)
+    decl2(En_Dekunuts, EN_DEKUNUTS)
+    decl2(Bg_Menkuri_Kaiten, BG_MENKURI_KAITEN)
+    decl2(Bg_Menkuri_Eye, BG_MENKURI_EYE)
+    decl2(En_Vali, EN_VALI)
+    decl2(Bg_Mizu_Movebg, BG_MIZU_MOVEBG)
+    decl2(Bg_Mizu_Water, BG_MIZU_WATER)
+    decl1(Arms_Hook, ARMS_HOOK)
+    decl2(En_fHG, EN_FANTOM_HG) /* */
+    decl2(Bg_Mori_Hineri, BG_MORI_HINERI)
+    decl2(En_Bb, EN_BB)
+    decl2(Bg_Toki_Hikari, BG_TOKI_HIKARI)
+    decl2(En_Yukabyun, EN_YUKABYUN)
+    decl2(Bg_Toki_Swd, BG_TOKI_SWD)
+    decl2(En_Fhg_Fire, EN_FHG_FIRE)
+    decl2(Bg_Mjin, BG_MJIN)
+    decl2(Bg_Hidan_Kousi, BG_HIDAN_KOUSI)
+    decl2(Door_Toki, DOOR_TOKI)
+    decl2(Bg_Hidan_Hamstep, BG_HIDAN_HAMSTEP)
+    decl2(En_Bird, EN_BIRD)
+    decl0(En_Stree, EN_STREE)
+    decl0(En_Kui, EN_KUI)
+    decl0(En_Maruta, EN_MARUTA)
+    decl0(En_Saku, EN_SAKU)
+    decl2(En_Wood02, EN_WOOD02)
+    decl0(En_Twood01, EN_T_WOOD01)
+    decl0(En_Kabu02, EN_KABU02)
+    decl0(En_Board, EN_BOARD)
+    decl0(En_Floater, EN_FLOATER)
+    decl2(En_Lightbox, EN_LIGHTBOX)
+    decl2(En_Pu_box, EN_PUBOX)
+    decl0(En_Spia, EN_SPIA)
+    decl0(En_Stoneb, EN_STONEBRIDGE)
+    decl2(En_Trap, EN_TRAP)
+    decl2(En_Arow_Trap, EN_AROW_TRAP)
+    decl2(En_Vase, EN_VASE)
+    decl0(Bg_Hidan_Pompfly, BG_HIDAN_POMPFLY)
+    decl2(En_Ta, EN_TA)
+    decl2(En_Tk, EN_TK)
+    decl2(Bg_Mori_Bigst, BG_MORI_BIGST)
+    decl2(Bg_Mori_Elevator, BG_MORI_ELEVATOR)
+    decl2(Bg_Mori_Kaitenkabe, BG_MORI_KAITENKABE)
+    decl2(Bg_Mori_Rakkatenjo, BG_MORI_RAKKATENJO)
+    decl2(En_Vm, EN_VM)
+    decl2(Demo_Effect, DEMO_EFFECT)
+    decl2(Demo_Kankyo, DEMO_KANKYO)
+    decl2(Bg_Hidan_Fwbig, BG_HIDAN_FWBIG)
+    decl2(En_Floormas, EN_FLOORMAS)
+    decl2(En_Heishi1, EN_HEISHI1)
+    decl2(En_Rd, EN_RD)
+    decl2(En_Po_Sisters, EN_PO_SISTERS)
+    decl2(Bg_Heavy_Block, BG_HEAVY_BLOCK)
+    decl2(Bg_Po_Event, BG_PO_EVENT)
+    decl2(Obj_Mure, OBJ_MURE)
+    decl2(En_Sw, EN_SW)
+    decl2(Boss_Fd, BOSS_FD)
+    decl2(Object_Kankyo, OBJECT_KANKYO)
+    decl2(En_Du, EN_DU)
+    decl2(En_Fd, EN_FD)
+    decl2(En_Horse_Link_Child, EN_HORSE_LINK_CHILD)
+    decl2(Door_Ana, DOOR_ANA)
+    decl2(Bg_Spot02_Objects, BG_SPOT02_OBJECTS)
+    decl2(Bg_Haka, BG_HAKA)
+    decl4(Magic_Wind, MAGIC_WIND)
+    decl4(Magic_Fire, MAGIC_FIRE)
+    decl0(Magic_Ice, MAGIC_ICE)
+    decl2(En_Ru1, EN_RU1)
+    decl2(Boss_Fd2, BOSS_FD2)
+    decl2(En_Fd_Fire, EN_FD_FIRE)
+    decl2(En_Dh, EN_DH)
+    decl2(En_Dha, EN_DHA)
+    decl2(En_Rl, EN_RL)
+    decl2(En_Encount1, EN_ENCOUNT1)
+    decl2(Demo_Du, DEMO_DU)
+    decl2(Demo_Im, DEMO_IM)
+    decl2(Demo_Tre_Lgt, DEMO_TRE_LGT)
+    decl2(En_Fw, EN_FW)
+    decl2(Bg_Vb_Sima, BG_VB_SIMA)
+    decl2(En_Vb_Ball, EN_VB_BALL)
+    decl2(Bg_Haka_Megane, BG_HAKA_MEGANE)
+    decl2(Bg_Haka_MeganeBG, BG_HAKA_MEGANEBG)
+    decl2(Bg_Haka_Ship, BG_HAKA_SHIP)
+    decl2(Bg_Haka_Sgami, BG_HAKA_SGAMI)
+    decl0(Bg_Haka_Kumo, BG_HAKA_KUMO)
+    decl2(En_Heishi2, EN_HEISHI2)
+    decl2(En_Encount2, EN_ENCOUNT2)
+    decl2(En_Fire_Rock, EN_FIRE_ROCK)
+    decl2(En_Brob, EN_BROB)
+    decl2(Mir_Ray, MIR_RAY)
+    decl2(Bg_Spot09_Obj, BG_SPOT09_OBJ)
+    decl2(Bg_Spot18_Obj, BG_SPOT18_OBJ)
+    decl2(Boss_Va, BOSS_VA)
+    decl2(Bg_Haka_Tubo, BG_HAKA_TUBO)
+    decl2(Bg_Haka_Trap, BG_HAKA_TRAP)
+    decl2(Bg_Haka_Huta, BG_HAKA_HUTA)
+    decl2(Bg_Haka_Zou, BG_HAKA_ZOU)
+    decl2(Bg_Spot17_Funen, BG_SPOT17_FUNEN)
+    decl2(En_Syateki_Itm, EN_SYATEKI_ITM)
+    decl2(En_Syateki_Man, EN_SYATEKI_MAN)
+    decl2(En_Tana, EN_TANA)
+    decl2(En_Nb, EN_NB)
+    decl2(Boss_Mo, BOSS_MO)
+    decl2(En_Sb, EN_SB)
+    decl2(En_Bigokuta, EN_BIGOKUTA)
+    decl2(En_Karebaba, EN_KAREBABA)
+    decl2(Bg_Bdan_Objects, BG_BDAN_OBJECTS)
+    decl2(Demo_Sa, DEMO_SA)
+    decl2(Demo_Go, DEMO_GO)
+    decl2(En_In, EN_IN)
+    decl2(En_Tr, EN_TR)
+    decl2(Bg_Spot16_Bombstone, BG_SPOT16_BOMBSTONE)
+    decl0(En_Npc2, EN_NPC2)
+    decl2(Bg_Hidan_Kowarerukabe, BG_HIDAN_KOWARERUKABE)
+    decl2(Bg_Bombwall, BG_BOMBWALL)
+    decl2(Bg_Spot08_Iceblock, BG_SPOT08_ICEBLOCK)
+    decl2(En_Ru2, EN_RU2)
+    decl2(Obj_Dekujr, OBJ_DEKUJR)
+    decl2(Bg_Mizu_Uzu, BG_MIZU_UZU)
+    decl2(Bg_Spot06_Objects, BG_SPOT06_OBJECTS)
+    decl2(Bg_Ice_Objects, BG_ICE_OBJECTS)
+    decl2(Bg_Haka_Water, BG_HAKA_WATER)
+    decl0(En_Npc3, EN_NPC3)
+    decl2(En_Ma2, EN_MA2)
+    decl2(En_Bom_Chu, EN_BOM_CHU)
+    decl2(En_Horse_Game_Check, EN_HORSE_GAME_CHECK)
+    decl2(Boss_Tw, BOSS_TW)
+    decl2(En_Rr, EN_RR)
+    decl2(En_Ba, EN_BA)
+    decl2(En_Bx, EN_BX)
+    decl2(En_Anubice, EN_ANUBICE)
+    decl2(En_Anubice_Fire, EN_ANUBICE_FIRE)
+    decl2(Bg_Mori_Hashigo, BG_MORI_HASHIGO)
+    decl2(Bg_Mori_Hashira4, BG_MORI_HASHIRA4)
+    decl2(Bg_Mori_Idomizu, BG_MORI_IDOMIZU)
+    decl2(Bg_Spot16_Doughnut, BG_SPOT16_DOUGHNUT)
+    decl2(Bg_Bdan_Switch, BG_BDAN_SWITCH)
+    decl2(En_Ma1, EN_MA1)
+    decl2(Boss_Ganon, BOSS_GANON)
+    decl2(Boss_Sst, BOSS_SST)
+    decl0(Boss_Goma2, BOSS_GOMA2)
+    decl0(En_Stk, EN_STK)
+    decl2(En_Ny, EN_NY)
+    decl2(En_Fr, EN_FR)
+    decl2(Item_Shield, ITEM_SHIELD)
+    decl2(Bg_Ice_Shelter, BG_ICE_SHELTER)
+    decl2(En_Ice_Hono, EN_ICE_HONO)
+    decl2(Item_Ocarina, ITEM_OCARINA)
+    decl0(Magic_Light, MAGIC_LIGHT)
+    decl0(Magic_Soul, MAGIC_SOUL)
+    decl4(Magic_Dark, MAGIC_DARK)
+    decl2(Demo_6K, DEMO_6K)
+    decl2(En_Anubice_Tag, EN_ANUBICE_TAG)
+    decl2(Bg_Haka_Gate, BG_HAKA_GATE)
+    decl2(Bg_Spot15_Saku, BG_SPOT15_SAKU)
+    decl2(Bg_Jya_Goroiwa, BG_JYA_GOROIWA)
+    decl2(Bg_Jya_Zurerukabe, BG_JYA_ZURERUKABE)
+    decl0(Bg_Jya_Sutarukage, BG_JYA_SUTARUKAGE)
+    decl2(Bg_Jya_Cobra, BG_JYA_COBRA)
+    decl2(Bg_Jya_Kanaami, BG_JYA_KANAAMI)
+    decl2(Fishing, FISHING)
+    decl2(Obj_Oshihiki, OBJ_OSHIHIKI)
+    decl2(Bg_Gate_Shutter, BG_GATE_SHUTTER)/**/
+    decl2(Eff_Dust, EFF_DUST)
+    decl2(Bg_Spot01_Fusya, BG_SPOT01_FUSYA)
+    decl2(Bg_Spot01_Idohashira, BG_SPOT01_IDOHASHIRA)
+    decl2(Bg_Spot01_Idomizu, BG_SPOT01_IDOMIZU)
+    decl2(Bg_Po_Syokudai, BG_PO_SYOKUDAI)
+    decl2(Bg_Ganon_Otyuka, BG_GANON_OTYUKA)
+    decl2(Bg_Spot15_Rrbox, BG_SPOT15_RRBOX)
+    decl2(Bg_Umajump, BG_UMAJUMP)
+    decl0(Arrow_Dark, ARROW_DARK)
+    decl4(Arrow_Fire, ARROW_FIRE)
+    decl4(Arrow_Ice, ARROW_ICE)
+    decl4(Arrow_Light, ARROW_LIGHT)
+    decl0(Arrow_Soul, ARROW_SOUL)
+    decl0(Arrow_Wind, ARROW_WIND)
+    decl2(Item_Etcetera, ITEM_ETCETERA)
+    decl2(Obj_Kibako, OBJ_KIBAKO)
+    decl2(Obj_Tsubo, OBJ_TSUBO)
+    decl2(En_Wonder_Item, EN_WONDER_ITEM)
+    decl2(En_Ik, EN_IK)
+    decl2(Demo_Ik, DEMO_IK)
+    decl2(En_Skj, EN_SKJ)
+    decl2(En_Skjneedle, EN_SKJNEEDLE)
+    decl2(En_G_Switch,  EN_G_SWITCH)
+    decl2(Demo_Ext,  DEMO_EXT)
+    decl2(Demo_Shd, DEMO_SHD)
+    decl2(En_Dns, EN_DNS)
+    decl2(Elf_Msg, ELF_MSG)
+    decl2(En_Honotrap, EN_HONOTRAP)
+    decl2(En_Tubo_Trap, EN_TUBO_TRAP)
+    decl2(Obj_Ice_Poly,	OBJ_ICE_POLY)
+    decl2(Bg_Spot03_Taki, BG_SPOT03_TAKI)
+    decl2(Bg_Spot07_Taki, BG_SPOT07_TAKI)
+    decl2(En_Fz, EN_FZ)
+    decl2(En_Po_Relay, EN_PO_RELAY)
+    decl2(Bg_Relay_Objects, BG_RELAY_OBJECTS)
+    decl2(En_Diving_Game, EN_DIVING_GAME)
+    decl2(En_Kusa, EN_KUSA)
+    decl2(Obj_Bean, OBJ_BEAN)
+    decl2(Obj_Bombiwa, OBJ_BOMBIWA)
+    decl0(Obj_Breakbox, OBJ_BREAKBOX)
+    decl0(Obj_Hahen, OBJ_HAHEN)
+    decl2(Obj_Switch, OBJ_SWITCH)
+    decl2(Obj_Elevator, OBJ_ELEVATOR)
+    decl2(Obj_Lift, OBJ_LIFT)
+    decl2(Obj_Hsblock, OBJ_HSBLOCK)
+    decl2(En_Okarina_Tag, EN_OKARINA_TAG)
+    decl2(En_Yabusame_Mark, EN_YABUSAME_MARK)
+    decl2(En_Goroiwa, EN_GOROIWA)
+    decl2(En_Ex_Ruppy, EN_EX_RUPPY)
+    decl2(En_Toryo, EN_TORYO)
+    decl2(En_Daiku, EN_DAIKU)
+    decl0(En_Stopge, EN_STOPGE)
+    decl2(En_Nwc, EN_NWC)
+    decl2(En_Blkobj, EN_BLKOBJ)
+    decl2(Item_Inbox, ITEM_INBOX)
+    decl2(En_Ge1, EN_GE1)
+    decl2(Obj_Blockstop, OBJ_BLOCKSTOP)
+    decl2(En_Sda, EN_SDA)
+    decl2(En_Clear_Tag, EN_CLEAR_TAG)
+    decl2(En_Niw_Lady,  EN_NIW_LADY)
+    decl2(En_Gm,  EN_GM)
+    decl2(En_Ms,  EN_MS)
+    decl2(En_Hs,  EN_HS)
+    decl2(Bg_Ingate, BG_INGATE)
+    decl2(En_Kanban,  EN_KANBAN)
+    decl2(En_Heishi3, EN_HEISHI3)
+    decl2(En_Syateki_Niw, EN_SYATEKI_NIW)
+    decl2(En_Attack_Niw, EN_ATTACK_NIW)
+    decl2(Bg_Spot01_Idosoko, BG_SPOT01_IDOSOKO)
+    decl2(En_Sa, EN_SA)
+    decl2(En_Wonder_Talk, EN_WONDER_TALK)
+    decl2(Bg_Gjyo_Bridge, BG_GJYO_BRIDGE)
+    decl2(En_Ds, EN_DS)
+    decl2(En_Mk, EN_MK)
+    decl2(En_Bom_Bowl_Man, EN_BOM_BOWL_MAN)
+    decl2(En_Bom_Bowl_Pit, EN_BOM_BOWL_PIT)
+    decl2(En_Owl, EN_OWL)
+    decl2(En_Ishi, EN_ISHI)
+    decl2(Obj_Hana, OBJ_HANA)
+    decl2(Obj_Lightswitch, OBJ_LIGHTSWITCH)
+    decl2(Obj_Mure2, OBJ_MURE2)
+    decl2(En_Go, EN_GO)
+    decl2(En_Fu, EN_FU)
+    decl0(En_Nc,  EN_NC)
+    decl2(En_Changer,  EN_CHANGER)
+    decl2(Bg_Jya_Megami, BG_JYA_MEGAMI)
+    decl2(Bg_Jya_Lift, BG_JYA_LIFT)
+    decl2(Bg_Jya_Bigmirror, BG_JYA_BIGMIRROR)
+    decl2(Bg_Jya_Bombchuiwa, BG_JYA_BOMBCHUIWA)
+    decl2(Bg_Jya_Amishutter, BG_JYA_AMISHUTTER)
+    decl2(Bg_Jya_Bombiwa, BG_JYA_BOMBIWA)
+    decl2(Bg_Spot18_Basket, BG_SPOT18_BASKET)
+    decl0(En_Warp_Box, EN_WARP_BOX)
+    decl2(En_Ganon_Organ, EN_GANON_ORGAN)
+    decl2(En_Siofuki, EN_SIOFUKI)
+    decl2(En_Stream, EN_STREAM)
+    decl0(En_Zl22, EN_ZL22)
+    decl2(En_Mm, EN_MM)
+    decl2(En_Ko, EN_KO)
+    decl2(En_Kz, EN_KZ)
+    decl2(En_Weather_Tag, EN_WEATHER_TAG)
+    decl2(Bg_Sst_Floor, BG_SST_FLOOR)
+    decl2(En_Ani, EN_ANI)
+    decl2(En_Ex_Item, EN_EX_ITEM)
+    decl2(Bg_Jya_Ironobj, BG_JYA_IRONOBJ)
+    decl2(En_Js, EN_JS)
+    decl2(En_Jsjutan, EN_JSJUTAN)
+    decl2(En_Cs, EN_CS)
+    decl2(En_Md, EN_MD)
+    decl2(En_Hy, EN_HY)
+    decl2(En_Ganon_Mant, EN_GANON_MANT)
+    decl2(En_Okarina_Effect, EN_OKARINA_EFFECT)
+    decl2(En_Mag, EN_MAG)
+    decl2(Door_Gerudo, DOOR_GERUDO)
+    decl2(Elf_Msg2,ELF_MSG2)
+    decl2(Demo_Gt, DEMO_GT)
+    decl2(En_Po_Field, EN_PO_FIELD)
+    decl2(Efc_Erupc, EFC_ERUPC)
+    decl2(Bg_Zg, BG_ZG)
+    decl2(En_Heishi4, EN_HEISHI4)
+    decl2(En_Zl3, EN_ZL3)
+    decl2(Boss_Ganon2, BOSS_GANON2)
+    decl2(En_Kakasi, EN_KAKASI)
+    decl2(En_Takara_Man, EN_TAKARA_MAN)
+    decl2(Obj_Makeoshihiki, OBJ_MAKEOSHIHIKI)
+    decl4(Oceff_Spot, OCEFF_SPOT)
+    decl2(End_Title, END_TITLE)
+    decl0(En_Mother, EN_MOTHER)
+    decl2(En_Torch, EN_TORCH)
+    decl2(Demo_Ec, DEMO_EC)
+    decl2(Shot_Sun,SHOT_SUN)
+    decl2(En_Dy_Extra, EN_DY_EXTRA)
+    decl2(En_Wonder_Talk2, EN_WONDER_TALK2)
+    decl2(En_Ge2, EN_GE2)
+    decl2(Obj_Roomtimer, OBJ_ROOMTIMER)
+    decl2(En_Ssh, EN_SSH)
+    decl2(En_Sth, EN_STH)
+    decl4(Oceff_Wipe, OCEFF_WIPE)
+    decl4(Oceff_Storm, OCEFF_STORM)
+    decl2(En_Weiyer, EN_WEIYER)
+    decl2(Bg_Spot05_Soko, BG_SPOT05_SOKO)
+    decl2(Bg_Jya_1flift, BG_JYA_1FLIFT)
+    decl2(Bg_Jya_Haheniron, BG_JYA_HAHENIRON)
+    decl2(Bg_Spot12_Gate, BG_SPOT12_GATE)
+    decl2(Bg_Spot12_Saku, BG_SPOT12_SAKU)
+    decl2(En_Hintnuts, EN_HINTNUTS)
+    decl2(En_Nutsball, EN_NUTSBALL)
+    decl2(Bg_Spot00_Break, BG_SPOT00_BREAK)
+    decl2(En_Shopnuts, EN_SHOPNUTS)
+    decl2(En_It, EN_IT)
+    decl2(En_GeldB, EN_GELDB)
+    decl4(Oceff_Wipe2, OCEFF_WIPE2)
+    decl4(Oceff_Wipe3, OCEFF_WIPE3)
+    decl2(En_Niw_Girl, EN_NIW_GIRL)
+    decl2(En_Dog, EN_DOG)
+    decl2(En_Si, EN_SI)
+    decl2(Bg_Spot01_Objects2, BG_SPOT01_OBJECTS2)
+    decl2(Obj_Comb, OBJ_COMB)
+    decl2(Bg_Spot11_Bakudankabe, BG_SPOT11_BAKUDANKABE)
+    decl2(Obj_Kibako2, OBJ_KIBAKO2)
+    decl2(En_Dnt_Demo, EN_DNT_DEMO)
+    decl2(En_Dnt_Jiji, EN_DNT_JIJI)
+    decl2(En_Dnt_Nomal, EN_DNT_NOMAL)
+    decl2(En_Guest, EN_GUEST)
+    decl2(Bg_Bom_Guard, BG_BOM_GUARD)
+    decl2(En_Hs2, EN_HS2)
+    decl2(Demo_Kekkai,DEMO_KEKKAI)
+    decl2(Bg_Spot08_Bakudankabe, BG_SPOT08_BAKUDANKABE)
+    decl2(Bg_Spot17_Bakudankabe, BG_SPOT17_BAKUDANKABE)
+    decl0(Bg_Mizu_Switch, BG_MIZU_SWITCH)
+    decl2(Obj_Mure3, OBJ_MURE3)
+    decl2(En_Tg, EN_TG)
+    decl2(En_Mu, EN_MU)
+    decl2(En_Go2, EN_GO2)
+    decl2(En_Wf, EN_WF)
+    decl2(En_Skb, EN_SKB)
+    decl2(Demo_Gj, DEMO_GJ)
+    decl2(Demo_Geff, DEMO_GEFF)
+    decl2(Bg_Gnd_Firemeiro, BG_GND_FIREMEIRO)
+    decl2(Bg_Gnd_Darkmeiro, BG_GND_DARKMEIRO)
+    decl2(Bg_Gnd_Soulmeiro, BG_GND_SOULMEIRO)
+    decl2(Bg_Gnd_Nisekabe, BG_GND_NISEKABE)
+    decl2(Bg_Gnd_Iceblock, BG_GND_ICEBLOCK)
+    decl2(En_Gb, EN_GB)
+    decl2(En_Gs, EN_GS)
+    decl2(Bg_Mizu_Bwall, BG_MIZU_BWALL)
+    decl2(Bg_Mizu_Shutter, BG_MIZU_SHUTTER)
+    decl2(En_Daiku_Kakariko, EN_DAIKU_KAKARIKO)
+    decl2(Bg_Bowl_Wall, BG_BOWL_WALL)
+    decl2(En_Wall_Tubo, EN_WALL_TUBO)
+    decl2(En_Po_Desert, EN_PO_DESERT)
+    decl2(En_Crow, EN_CROW)
+    decl2(Door_Killer, DOOR_KILLER)
+    decl2(Bg_Spot11_Oasis, BG_SPOT11_OASIS)
+    decl2(Bg_Spot18_Futa, BG_SPOT18_FUTA)
+    decl2(Bg_Spot18_Shutter, BG_SPOT18_SHUTTER)
+    decl2(En_Ma3, EN_MA3)
+    decl2(En_Cow, EN_COW)
+    decl2(Bg_Ice_Turara, BG_ICE_TURARA)
+    decl2(Bg_Ice_Shutter, BG_ICE_SHUTTER)
+    decl2(En_Kakasi2, EN_KAKASI2)
+    decl2(En_Kakasi3, EN_KAKASI3)
+    decl4(Oceff_Wipe4, OCEFF_WIPE4)
+    decl2(En_Eg, EN_EG)
+    decl2(Bg_Menkuri_Nisekabe, BG_MENKURI_NISEKABE)
+    decl2(En_Zo, EN_ZO)
+    decl2(Obj_Makekinsuta, OBJ_MAKEKINSUTA)
+    decl2(En_Ge3, EN_GE3)
+    decl2(Obj_Timeblock, OBJ_TIMEBLOCK)
+    decl2(Obj_Hamishi, OBJ_HAMISHI)
+    decl2(En_Zl4, EN_ZL4)
+    decl2(En_Mm2, EN_MM2)
+    decl2(Bg_Jya_Block, BG_JYA_BLOCK)
+    decl2(Obj_Warp2block, OBJ_WARP2BLOCK)
+/*
+ * * 現在HAYAKAWA_TESTdecl が有効になっています。（前半部分）
+ */

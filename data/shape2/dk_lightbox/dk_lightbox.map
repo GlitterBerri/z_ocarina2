@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1f40
+		.data                  0             2a0 lightbox1.o
+		.data                2a0             130 lightbox1_bgc.o
+		.data                3d0             2a0 lightbox2.o
+		.data                670             130 lightbox2_bgc.o
+		.data                7a0             2a0 lightbox3.o
+		.data                a40             130 lightbox3_bgc.o
+		.data                b70            12a0 lightbox4.o
+		.data               1e10             130 lightbox4_bgc.o
+
+.strtab                                0              e7
+		.strtab                0              e7 *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             9e4
+		.mdebug                0             9e4 *ld_internal*
+
+.rel.data                              0             100
+		.rel.data              0              20 lightbox1.o
+		.rel.data             20              20 lightbox1_bgc.o
+		.rel.data             40              20 lightbox2.o
+		.rel.data             60              20 lightbox2_bgc.o
+		.rel.data             80              20 lightbox3.o
+		.rel.data             a0              20 lightbox3_bgc.o
+		.rel.data             c0              20 lightbox4.o
+		.rel.data             e0              20 lightbox4_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

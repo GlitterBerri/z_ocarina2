@@ -1,0 +1,163 @@
+#!less
+#$Log: SREG.doc,v $
+#Revision 2.1  1998-10-22 20:41:56+09  zelda
+#ＲＯＭ出しバージョン(NTSC)
+#
+#Revision 1.14  1998/10/21 09:36:37  hayakawa
+#*** empty log message ***
+#
+#Revision 1.13  1998-08-26 22:47:23+09  hayakawa
+#*** empty log message ***
+#
+#Revision 1.12  1998-07-02 22:09:44+09  hayakawa
+#*** empty log message ***
+#
+#Revision 1.11  1998-06-22 22:16:36+09  hayakawa
+#*** empty log message ***
+#
+#Revision 1.10  1998-03-31 22:39:40+09  hayakawa
+#*** empty log message ***
+#
+# Revision 1.9  1997/10/01  14:20:21  hayakawa
+# 更新
+#
+# Revision 1.8  1997/07/10  13:03:23  hayakawa
+# *** empty log message ***
+#
+# Revision 1.7  1997/03/21  01:18:33  hayakawa
+# 内容更新
+#
+# Revision 1.6  1997/02/05  02:17:53  soejima
+# SREGからYREGに変更しました。
+#
+# Revision 1.5  1996/12/02  05:54:54  soejima
+# SREG整理
+#
+# Revision 1.4  1996/11/19  01:08:13  hayakawa
+# z_map.c		地形のレンダーモード変更 を追加
+#
+# Revision 1.3  1996/11/05  08:58:03  hayakawa
+# ビデオモード追加
+#
+# Revision 1.2  1996/11/04  10:06:58  hayakawa
+# *** empty log message ***
+#
+#
+# SREG割り当て表
+#
+# Revision 1.1  1996/11/02  00:39:45  hayakawa
+# Initial revision
+#
+
+SREG割り当て表(姉妹品HREGもよろしく)
+
+番号  ソース            説明
+ 0    game.c 		速度メータの表示 <0 ハイラルチェック
+      speed_meter.c     2>=:ヒープの表示
+      z_play.c 		<0:zelda_DisplayArena（デバック用）
+      z_debug.c		!0:デバッグ文字列出力
+      z_kankyo.c	!0:ZELDATIME出力
+ 2    z_play.c          >=10 マイクロコード選択
+20    audioMgr.c audioMgr.h 2:強制ディセーブル
+
+24-27 z_room.c		プリレンダー表示モードの切り替え
+24			別バージョン表示（無ければ飛ぶ）
+25			&1:プリレンダー表示 &2:OPA表示 &4:XLU表示
+			&8:オブジェ表示 &32:遠景表示
+VREG(94) 部屋非表示
+26			プリレンダ 0:Copy !0:1Cyc
+
+30    game.h sched.c graph.c他 	最低ビデオフレーム数／ゲームフレーム数
+33    graph.h           スワップバッファの抑制
+36    game.c            1:オーディオプリント有効
+			2:上下８ドットカット
+HREG37    z_play.c		ハイラルサイズ増減（ＫＢ）
+
+48-57 z_vimode.c	ビデオモードテスト
+
+80-83 game.c		カバレッジ可視化パラメータ
+84-87 game.c            カバレッジ可視化パラメータ2
+88    game.c		フィルタの実行位置
+
+91    z_play.c          最新のカメラＩＤ
+92    z_play.c		7000ポリゴンモード
+94    z_play.c game.c	プリレンダー（カレイドスコープモード）
+      z_kaleido_scope.c                  0:なし 1:取込 2:変換 3:表示 4:完了
+
+HREG
+1-14 z_select.c テスト用
+62 game.c : ダンプ zelda_malloc_verbose
+63 z_debug_watch.h(I_AM_HERE)
+61 game.c : ダンプ malloc_verbose
+60 game.c   dma_verbose
+59 graph.c graph_alloc verbose
+
+64-79
+80-95
+HREG(80)
+5:lookat_test
+6:guLookAtHiliteのパラメータチェック view.eye
+7:ディスプレイリスト解析モード
+8:ダンプじゃー
+10:描画抑制
+ 81:Game_play_move
+ 82:Game_play_draw
+ 83:遠景表示/リアルタイムプリレンダ表示/マーケット用VR-BOX
+ 84:部屋表示/フィルター	
+ 85:Ａｃｔｏｒ表示
+ 86:環境太陽変化ライト 設定
+ 87:カラーフィルター表示
+ 88:砂嵐表示
+ 89:オーバーレイ表示（モノクロフィルタ以外）
+ 90:&2太陽さん と お月さん &1VR_BOX FOG隠し用関数 &4エレクトリックサンダー &8地形用ライト設定 
+ 91:
+ 92:モノクロフィルタ/fbdemo_fade
+ 93:デバッグシェイプ表示処理
+
+11:画角カメラテスト z_view.c
+12:パッド状態
+13:sched.c ビデオモードテスト
+14:speed_meter
+15:DIVOTフィルタテスト(81)
+16:shrink関係 (81,82,83-86)
+17:アニメモデル禁止テスト
+18:z_demo_effect.c
+19:
+
+    if (HREG(80) == 13 && HREG(95) != 13) {
+	SETHREG(81, 0);
+	SETHREG(82, 0);
+	SETHREG(83, 1);
+	SETHREG(84, 0);
+	SETHREG(85, 1);
+	SETHREG(86, 0);
+	SETHREG(87, 0);
+	SETHREG(88, 0);
+	SETHREG(89, 0);
+	SETHREG(90, 0);
+	SETHREG(91, 0);
+	SETHREG(92, 0);
+	SETHREG(93, 0);
+	SETHREG(94, 0);
+	SETHREG(95, 13);
+    }
+
+
+JPEG展開
+ＶＲボックス表示
+プリレンダ
+プリレンダ（カレイドスコープ）
+アンチエイリアスフィルタ
+ディボットフィルタ
+アクター
+プレイヤー
+不透明
+半透明
+サウンド
+オーディオプリント有効
+上下８ドットカット
+各コントローラ
+振動パック
+ＳＲＡＭ
+ルアーがナガカリしてはまった
+＞森田さん

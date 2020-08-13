@@ -1,0 +1,87 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           13000
+		.data                  0             920 gnf_Ddamage.o
+		.data                920             480 gnf_Dfurafura.o
+		.data                da0             3c0 gnf_Dhenshin.o
+		.data               1160             750 gnf_Dmogaki.o
+		.data               18b0             110 gnf_Dnormal.o
+		.data               19c0             100 gnf_Dsaigo.o
+		.data               1ac0             be0 gnf_Dstand.o
+		.data               26a0             9f0 gnf_atack.o
+		.data               3090             7e0 gnf_damage.o
+		.data               3870             450 gnf_fastrun.o
+		.data               3cc0            8a60 gnf_fastrun_mdl.o
+		.data               c720             580 gnf_ikaku.o
+		.data               cca0             710 gnf_jump.o
+		.data               d3b0             600 gnf_jump01.o
+		.data               d9b0             5e0 gnf_jump02.o
+		.data               df90             d20 gnf_lonlyATACK.o
+		.data               ecb0             7f0 gnf_lonlyATACK02.o
+		.data               f4a0             640 gnf_lonlyDAMAGE.o
+		.data               fae0             590 gnf_lonlyFLY.o
+		.data              10070             2f0 gnf_lonlyGUARD.o
+		.data              10360             590 gnf_lonlyHIT.o
+		.data              108f0             700 gnf_lonlyKAESHI.o
+		.data              10ff0             820 gnf_lonlyKAESHI02.o
+		.data              11810             3d0 gnf_lonlyMAHI.o
+		.data              11be0             380 gnf_lonlyTSUKI.o
+		.data              11f60             3d0 gnf_lonlyTSUKI01.o
+		.data              12330             360 gnf_lonlyTSUKI02.o
+		.data              12690             360 gnf_lonlyTSUKIwait.o
+		.data              129f0             560 l_bosssaku.o
+		.data              12f50              b0 l_bosssaku_bgc.o
+
+.strtab                                0             8ee
+		.strtab                0             8ee *ld_internal*
+
+.symtab                                0             6a0
+		.symtab                0             6a0 *ld_internal*
+
+.mdebug                                0            2e2c
+		.mdebug                0            2e2c *ld_internal*
+
+.rel.data                              0             8e8
+		.rel.data              0              10 gnf_Ddamage.o
+		.rel.data             10              10 gnf_Dfurafura.o
+		.rel.data             20              10 gnf_Dhenshin.o
+		.rel.data             30              10 gnf_Dmogaki.o
+		.rel.data             40              10 gnf_Dnormal.o
+		.rel.data             50              10 gnf_Dsaigo.o
+		.rel.data             60              10 gnf_Dstand.o
+		.rel.data             70              10 gnf_atack.o
+		.rel.data             80              10 gnf_damage.o
+		.rel.data             90              10 gnf_fastrun.o
+		.rel.data             a0             708 gnf_fastrun_mdl.o
+		.rel.data            7a8              10 gnf_ikaku.o
+		.rel.data            7b8              10 gnf_jump.o
+		.rel.data            7c8              10 gnf_jump01.o
+		.rel.data            7d8              10 gnf_jump02.o
+		.rel.data            7e8              10 gnf_lonlyATACK.o
+		.rel.data            7f8              10 gnf_lonlyATACK02.o
+		.rel.data            808              10 gnf_lonlyDAMAGE.o
+		.rel.data            818              10 gnf_lonlyFLY.o
+		.rel.data            828              10 gnf_lonlyGUARD.o
+		.rel.data            838              10 gnf_lonlyHIT.o
+		.rel.data            848              10 gnf_lonlyKAESHI.o
+		.rel.data            858              10 gnf_lonlyKAESHI02.o
+		.rel.data            868              10 gnf_lonlyMAHI.o
+		.rel.data            878              10 gnf_lonlyTSUKI.o
+		.rel.data            888              10 gnf_lonlyTSUKI01.o
+		.rel.data            898              10 gnf_lonlyTSUKI02.o
+		.rel.data            8a8              10 gnf_lonlyTSUKIwait.o
+		.rel.data            8b8              10 l_bosssaku.o
+		.rel.data            8c8              20 l_bosssaku_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

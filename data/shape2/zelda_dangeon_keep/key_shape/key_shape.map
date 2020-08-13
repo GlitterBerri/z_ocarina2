@@ -1,0 +1,36 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2700
+		.data                  0             1f0 doorkagi.o
+		.data                1f0             370 doorkagiboss.o
+		.data                560              d0 doorkusari.o
+		.data                630              d0 doorkusariboss.o
+		.data                700            2000 tex.o
+
+.strtab                                0              ac
+		.strtab                0              ac *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             530
+		.mdebug                0             530 *ld_internal*
+
+.rel.data                              0              48
+		.rel.data              0              10 doorkagi.o
+		.rel.data             10              18 doorkagiboss.o
+		.rel.data             28              10 doorkusari.o
+		.rel.data             38              10 doorkusariboss.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

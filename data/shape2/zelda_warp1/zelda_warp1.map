@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2cb0
+		.data                  0            12c0 Type1/warp_2.o
+		.data               12c0              d0 Type2/crystal_anim.o
+		.data               1390            1920 Type2/crystal_anim_mdl.o
+
+.strtab                                0             115
+		.strtab                0             115 *ld_internal*
+
+.symtab                                0             150
+		.symtab                0             150 *ld_internal*
+
+.mdebug                                0             984
+		.mdebug                0             984 *ld_internal*
+
+.rel.data                              0             1a8
+		.rel.data              0              38 Type1/warp_2.o
+		.rel.data             38              10 Type2/crystal_anim.o
+		.rel.data             48             160 Type2/crystal_anim_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

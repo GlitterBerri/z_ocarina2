@@ -1,0 +1,55 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            93c0
+		.data                  0             4d0 wallmaster_b_jump.o
+		.data                4d0             5e0 wallmaster_damage.o
+		.data                ab0             950 wallmaster_damage_wait.o
+		.data               1400             b50 wallmaster_f_jump.o
+		.data               1f50             7c0 wallmaster_l_turn.o
+		.data               2710             880 wallmaster_link_hangup.o
+		.data               2f90             7c0 wallmaster_miss.o
+		.data               3750             8d0 wallmaster_motionA.o
+		.data               4020             880 wallmaster_move.o
+		.data               48a0             2d0 wallmaster_move_wait.o
+		.data               4b70             310 wallmaster_success.o
+		.data               4e80             8d0 wallmaster_wait.o
+		.data               5750            3990 wallmaster_wait_mdl.o
+		.data               90e0             2e0 wallmaster_wait_move.o
+
+.strtab                                0             7be
+		.strtab                0             7be *ld_internal*
+
+.symtab                                0             690
+		.symtab                0             690 *ld_internal*
+
+.mdebug                                0            2cfc
+		.mdebug                0            2cfc *ld_internal*
+
+.rel.data                              0             598
+		.rel.data              0              10 wallmaster_b_jump.o
+		.rel.data             10              10 wallmaster_damage.o
+		.rel.data             20              10 wallmaster_damage_wait.o
+		.rel.data             30              10 wallmaster_f_jump.o
+		.rel.data             40              10 wallmaster_l_turn.o
+		.rel.data             50              10 wallmaster_link_hangup.o
+		.rel.data             60              10 wallmaster_miss.o
+		.rel.data             70              10 wallmaster_motionA.o
+		.rel.data             80              10 wallmaster_move.o
+		.rel.data             90              10 wallmaster_move_wait.o
+		.rel.data             a0              10 wallmaster_success.o
+		.rel.data             b0              10 wallmaster_wait.o
+		.rel.data             c0             4c8 wallmaster_wait_mdl.o
+		.rel.data            588              10 wallmaster_wait_move.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

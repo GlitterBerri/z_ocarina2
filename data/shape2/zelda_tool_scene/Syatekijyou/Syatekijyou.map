@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           4ac50
+		.data                  0           40000 main_info.o
+		.data              40000             1f0 syatekijyou_demo00.o
+		.data              401f0             1f0 syatekijyou_demo01.o
+		.data              403e0             1f0 syatekijyou_demo02.o
+		.data              405d0            a680 syatekijyou_texture.o
+
+.bss                                   0              30
+		.bss                   0              10 syatekijyou_demo00.o
+		.bss                  10              10 syatekijyou_demo01.o
+		.bss                  20              10 syatekijyou_demo02.o
+
+.strtab                                0             274
+		.strtab                0             274 *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0             858
+		.mdebug                0             858 *ld_internal*
+
+.shstrtab                              0              45
+		.shstrtab              0              45 *ld_internal*

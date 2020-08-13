@@ -1,0 +1,71 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           347f0
+		.data                  0            3b30 Last_hit_motion1.o
+		.data               3b30            3770 Last_hit_motion2.o
+		.data               72a0            1c30 Last_mogaki.o
+		.data               8ed0             7a0 gn2_K_to_walk.o
+		.data               9670            1770 gn2_Katack01L.o
+		.data               ade0            1d30 gn2_Katack01R.o
+		.data               cb10            14f0 gn2_Kdamage.o
+		.data               e000             900 gn2_Kfrontwalk.o
+		.data               e900             8e0 gn2_Ksidewalk.o
+		.data               f1e0             e20 gn2_Kwait.o
+		.data              10000           14580 gn2_Kwait_mdl.o
+		.data              24580             ba0 gn2_Lhit.o
+		.data              25120             5f0 gn2_Lmahi.o
+		.data              25710             d30 gn2_Lmahi_to_K.o
+		.data              26440            3020 gn2_downDEMO.o
+		.data              29460             ce0 gn2_hMAHI_to_walk.o
+		.data              2a140             ba0 gn2_hikariHIT.o
+		.data              2ace0             5f0 gn2_hikariMAHI.o
+		.data              2b2d0            6e40 gn2_hukkiDEMO.o
+		.data              32110             d80 gn2_mahiDEMO.o
+		.data              32e90            1140 gn2_walk.o
+		.data              33fd0             820 gn2_walk_to_K.o
+
+.strtab                                0             823
+		.strtab                0             823 *ld_internal*
+
+.symtab                                0             6f0
+		.symtab                0             6f0 *ld_internal*
+
+.mdebug                                0            2efc
+		.mdebug                0            2efc *ld_internal*
+
+.rel.data                              0            10f8
+		.rel.data              0              10 Last_hit_motion1.o
+		.rel.data             10              10 Last_hit_motion2.o
+		.rel.data             20              10 Last_mogaki.o
+		.rel.data             30              10 gn2_K_to_walk.o
+		.rel.data             40              10 gn2_Katack01L.o
+		.rel.data             50              10 gn2_Katack01R.o
+		.rel.data             60              10 gn2_Kdamage.o
+		.rel.data             70              10 gn2_Kfrontwalk.o
+		.rel.data             80              10 gn2_Ksidewalk.o
+		.rel.data             90              10 gn2_Kwait.o
+		.rel.data             a0             fa8 gn2_Kwait_mdl.o
+		.rel.data           1048              10 gn2_Lhit.o
+		.rel.data           1058              10 gn2_Lmahi.o
+		.rel.data           1068              10 gn2_Lmahi_to_K.o
+		.rel.data           1078              10 gn2_downDEMO.o
+		.rel.data           1088              10 gn2_hMAHI_to_walk.o
+		.rel.data           1098              10 gn2_hikariHIT.o
+		.rel.data           10a8              10 gn2_hikariMAHI.o
+		.rel.data           10b8              10 gn2_hukkiDEMO.o
+		.rel.data           10c8              10 gn2_mahiDEMO.o
+		.rel.data           10d8              10 gn2_walk.o
+		.rel.data           10e8              10 gn2_walk_to_K.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

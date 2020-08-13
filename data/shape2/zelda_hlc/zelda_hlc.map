@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            8b20
+		.data                  0            2990 hlc_ALLparts.o
+		.data               2990             620 hlc_anim_fastrun.o
+		.data               2fb0             670 hlc_anim_slowrun.o
+		.data               3620             de0 hlc_anim_wait.o
+		.data               4400             720 hlc_anim_wait02.o
+		.data               4b20             8e0 hlc_anim_walk.o
+		.data               5400            2730 hlc_default_mdl.o
+		.data               7b30             ff0 hlc_skin.o
+
+.strtab                                0             2fa
+		.strtab                0             2fa *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0            3914
+		.mdebug                0            3914 *ld_internal*
+
+.rel.data                              0             be0
+		.rel.data              0             128 hlc_ALLparts.o
+		.rel.data            128              10 hlc_anim_fastrun.o
+		.rel.data            138              10 hlc_anim_slowrun.o
+		.rel.data            148              10 hlc_anim_wait.o
+		.rel.data            158              10 hlc_anim_wait02.o
+		.rel.data            168              10 hlc_anim_walk.o
+		.rel.data            178             9c8 hlc_default_mdl.o
+		.rel.data            b40              a0 hlc_skin.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

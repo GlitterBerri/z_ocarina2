@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            29b0
+		.data                  0              b0 fish_swim.o
+		.data                 b0            2900 fish_swim_mdl.o
+
+.strtab                                0              fa
+		.strtab                0              fa *ld_internal*
+
+.symtab                                0             110
+		.symtab                0             110 *ld_internal*
+
+.mdebug                                0             6b8
+		.mdebug                0             6b8 *ld_internal*
+
+.rel.data                              0              c0
+		.rel.data              0              10 fish_swim.o
+		.rel.data             10              b0 fish_swim_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

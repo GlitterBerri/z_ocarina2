@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a150
+		.data                  0             2e0 md_matsu_kani.o
+		.data                2e0            7cf0 md_matsu_kani_mdl.o
+		.data               7fd0             550 mido_are_to_okoru_a.o
+		.data               8520             230 mido_are_to_okoru_b.o
+		.data               8750             750 mido_are_wait.o
+		.data               8ea0             130 mido_kihon_to_okoru.o
+		.data               8fd0             1c0 mido_kihon_to_stop.o
+		.data               9190             130 mido_kihon_to_walk.o
+		.data               92c0             310 mido_okoru_to_stop.o
+		.data               95d0             230 mido_okoru_wait.o
+		.data               9800             330 mido_stop_to_are.o
+		.data               9b30             350 mido_stop_wait.o
+		.data               9e80             2d0 mido_walk_loop.o
+
+.strtab                                0             3fe
+		.strtab                0             3fe *ld_internal*
+
+.symtab                                0             340
+		.symtab                0             340 *ld_internal*
+
+.mdebug                                0            1a8c
+		.mdebug                0            1a8c *ld_internal*
+
+.rel.data                              0             7c0
+		.rel.data              0              10 md_matsu_kani.o
+		.rel.data             10             700 md_matsu_kani_mdl.o
+		.rel.data            710              10 mido_are_to_okoru_a.o
+		.rel.data            720              10 mido_are_to_okoru_b.o
+		.rel.data            730              10 mido_are_wait.o
+		.rel.data            740              10 mido_kihon_to_okoru.o
+		.rel.data            750              10 mido_kihon_to_stop.o
+		.rel.data            760              10 mido_kihon_to_walk.o
+		.rel.data            770              10 mido_okoru_to_stop.o
+		.rel.data            780              10 mido_okoru_wait.o
+		.rel.data            790              10 mido_stop_to_are.o
+		.rel.data            7a0              10 mido_stop_wait.o
+		.rel.data            7b0              10 mido_walk_loop.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

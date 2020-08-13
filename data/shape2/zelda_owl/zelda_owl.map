@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           100c0
+		.data                  0            1180 hovering.o
+		.data               1180             460 owl_fly.o
+		.data               15e0            ab20 owl_fly_mdl.o
+		.data               c100              e0 owl_kakku.o
+		.data               c1e0             4c0 owl_openwing.o
+		.data               c6a0             210 owl_wait.o
+		.data               c8b0            3810 owl_wait_mdl.o
+
+.strtab                                0             453
+		.strtab                0             453 *ld_internal*
+
+.symtab                                0             3c0
+		.symtab                0             3c0 *ld_internal*
+
+.mdebug                                0            17c8
+		.mdebug                0            17c8 *ld_internal*
+
+.rel.data                              0             8e8
+		.rel.data              0              10 hovering.o
+		.rel.data             10              10 owl_fly.o
+		.rel.data             20             588 owl_fly_mdl.o
+		.rel.data            5a8              10 owl_kakku.o
+		.rel.data            5b8              10 owl_openwing.o
+		.rel.data            5c8              10 owl_wait.o
+		.rel.data            5d8             310 owl_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

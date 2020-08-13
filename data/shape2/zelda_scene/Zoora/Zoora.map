@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             390
+		.data                  0              90 zoora_main_info.o
+		.data                 90             300 zoora_bgc.o
+
+.strtab                                0              5b
+		.strtab                0              5b *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             388
+		.mdebug                0             388 *ld_internal*
+
+.rel.data                              0              70
+		.rel.data              0              40 zoora_main_info.o
+		.rel.data             40              30 zoora_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

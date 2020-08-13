@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            e3f0
+		.data                  0            1800 ta_inemuri.o
+		.data               1800             4b0 ta_matsu.o
+		.data               1cb0            9b20 ta_matsu_mdl.o
+		.data               b7d0             780 ta_nageru.o
+		.data               bf50             550 ta_okiru.o
+		.data               c4a0             3d0 taron_run.o
+		.data               c870             4f0 taron_sleep_wait.o
+		.data               cd60             1e0 taron_wait_run.o
+		.data               cf40            14b0 taron_wakeup.o
+
+.strtab                                0             366
+		.strtab                0             366 *ld_internal*
+
+.symtab                                0             330
+		.symtab                0             330 *ld_internal*
+
+.mdebug                                0            1440
+		.mdebug                0            1440 *ld_internal*
+
+.rel.data                              0             a18
+		.rel.data              0              10 ta_inemuri.o
+		.rel.data             10              10 ta_matsu.o
+		.rel.data             20             998 ta_matsu_mdl.o
+		.rel.data            9b8              10 ta_nageru.o
+		.rel.data            9c8              10 ta_okiru.o
+		.rel.data            9d8              10 taron_run.o
+		.rel.data            9e8              10 taron_sleep_wait.o
+		.rel.data            9f8              10 taron_wait_run.o
+		.rel.data            a08              10 taron_wakeup.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

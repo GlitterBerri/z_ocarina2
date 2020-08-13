@@ -1,0 +1,52 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           116a0
+		.data                  0             200 spot08_main_info.o
+		.data                200            2b10 spot08_bgc.o
+		.data               2d10             f70 spot08_demo00.o
+		.data               3c80             570 spot08_demo01.o
+		.data               41f0             180 spot08_demo02.o
+		.data               4370             1e0 spot08_main_info_ad.o
+		.data               4550             1e0 spot08_main_info_cn.o
+		.data               4730              e0 spot08_main_info_d0.o
+		.data               4810             180 spot08_main_info_d1.o
+		.data               4990              f0 spot08_main_info_d2.o
+		.data               4a80             240 spot08_show.o
+		.data               4cc0            c9e0 spot08_texture.o
+
+.bss                                   0              40
+		.bss                   0              10 spot08_demo00.o
+		.bss                  10              10 spot08_demo01.o
+		.bss                  20              10 spot08_demo02.o
+		.bss                  30              10 spot08_show.o
+
+.strtab                                0             387
+		.strtab                0             387 *ld_internal*
+
+.symtab                                0             2b0
+		.symtab                0             2b0 *ld_internal*
+
+.mdebug                                0            12fc
+		.mdebug                0            12fc *ld_internal*
+
+.rel.data                              0             1f0
+		.rel.data              0              70 spot08_main_info.o
+		.rel.data             70              28 spot08_bgc.o
+		.rel.data             98              40 spot08_main_info_ad.o
+		.rel.data             d8              40 spot08_main_info_cn.o
+		.rel.data            118              48 spot08_main_info_d0.o
+		.rel.data            160              48 spot08_main_info_d1.o
+		.rel.data            1a8              48 spot08_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

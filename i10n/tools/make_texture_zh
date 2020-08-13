@@ -1,0 +1,14 @@
+#!/bin/csh -f
+
+./zelda_scene_name2
+./replace_boss.pl
+./replace_doaction.pl
+./replace_gameover.pl
+./replace_item.pl
+./replace_mag.pl
+./replace_map.pl
+./replace_title.pl
+./replace_icon.pl
+./replace_parameter.pl
+./replace_soldout.pl
+./zelda_end

@@ -1,0 +1,78 @@
+##############################################################################
+#
+# AREG ドキュメント
+#
+#$Log: AREG.doc,v $
+#Revision 2.1  1998-10-22 20:41:56+09  zelda
+#ＲＯＭ出しバージョン(NTSC)
+#
+#Revision 1.9  1998/10/21 09:12:09  matutani
+#*** empty log message ***
+#
+#Revision 1.8  1998-04-23 22:33:53+09  matutani
+#*** empty log message ***
+#
+#Revision 1.7  1998-04-13 12:42:47+10  matutani
+#*** empty log message ***
+#
+#Revision 1.6  1998-03-10 15:51:24+09  matutani
+#*** empty log message ***
+#
+# Revision 1.5  1998/02/19  12:40:47  matutani
+# *** empty log message ***
+#
+# Revision 1.4  1998/02/06  04:37:52  matutani
+# *** empty log message ***
+#
+# Revision 1.3  1997/11/10  01:38:37  matutani
+# デバッグ表示
+#
+# Revision 1.2  1997/11/03  10:13:27  matutani
+# *** empty log message ***
+#
+# Revision 1.1  1997/11/03  04:51:05  matutani
+# Initial revision
+#
+#
+##############################################################################
+
+0: （松谷）
+1:
+2:
+z_en_horse.c ride_pos(騎乗位置）
+
+3:
+4:
+AREG(5) （岩脇）
+AREG(6)
+7:
+8:
+9:
+10:
+11:
+12:
+13:
+
+15:z_collision_check.c DebugDisp
+16:z_en_horse.c this->muti_counterの表示
+17:z_en_horse.c this->muti_recover_timerの表示
+18:z_en_horse.c 現在のモード
+19:z_en_horse.c フレーム
+20:z_en_horse.c スピード
+
+AREG(21) (松谷） z_collision_check.c DebugDispAT
+AREG(22)                             DebugDispAC
+AREG(23)                             DebugDispOC
+
+AREG(24)：（松谷） moveBGポリゴン表示(AREG(15) != 0の時のみ）
+AREG(25)：背景BGチェック当たり表示
+
+26:テクスチャブラーテスト
+27:ブラ─
+
+28:
+29:
+30:
+31:
+32:
+33:

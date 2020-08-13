@@ -1,0 +1,10 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.rdata  			      00	      00
+
+.data   			      00	     460
+		.data   	      00	     460 soldier_r_slide.o

@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            10d0
+		.data                  0             100 df_flygue.o
+		.data                100             fd0 df_flygue_mdl.o
+
+.strtab                                0              fb
+		.strtab                0              fb *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             670
+		.mdebug                0             670 *ld_internal*
+
+.rel.data                              0             178
+		.rel.data              0              10 df_flygue.o
+		.rel.data             10             168 df_flygue_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

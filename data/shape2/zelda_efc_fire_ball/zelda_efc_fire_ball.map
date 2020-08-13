@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             d00
+		.data                  0             d00 efc_fire_ball.o
+
+.strtab                                0              5a
+		.strtab                0              5a *ld_internal*
+
+.symtab                                0              70
+		.symtab                0              70 *ld_internal*
+
+.mdebug                                0             1cc
+		.mdebug                0             1cc *ld_internal*
+
+.rel.data                              0              20
+		.rel.data              0              20 efc_fire_ball.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

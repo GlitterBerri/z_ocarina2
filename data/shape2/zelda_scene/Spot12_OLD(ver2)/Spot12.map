@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            fe90
+		.data                  0             310 spot12_main_info.o
+		.data                310            4d50 spot12_bgc.o
+		.data               5060             3f0 spot12_demo00.o
+		.data               5450             180 spot12_demo01.o
+		.data               55d0             3f0 spot12_demo02.o
+		.data               59c0             300 spot12_main_info_ad.o
+		.data               5cc0             300 spot12_main_info_an.o
+		.data               5fc0             220 spot12_main_info_d0.o
+		.data               61e0              f0 spot12_main_info_d1.o
+		.data               62d0             1d0 spot12_main_info_d2.o
+		.data               64a0             1c0 spot12_show.o
+		.data               6660            9830 spot12_texture.o
+
+.bss                                   0              30
+		.bss                   0              10 spot12_demo00.o
+		.bss                  10              10 spot12_demo02.o
+		.bss                  20              10 spot12_show.o
+
+.strtab                                0             27c
+		.strtab                0             27c *ld_internal*
+
+.symtab                                0             200
+		.symtab                0             200 *ld_internal*
+
+.mdebug                                0            11dc
+		.mdebug                0            11dc *ld_internal*
+
+.rel.data                              0             2e8
+		.rel.data              0              88 spot12_main_info.o
+		.rel.data             88              88 spot12_bgc.o
+		.rel.data            110              58 spot12_main_info_ad.o
+		.rel.data            168              58 spot12_main_info_an.o
+		.rel.data            1c0              60 spot12_main_info_d0.o
+		.rel.data            220              68 spot12_main_info_d1.o
+		.rel.data            288              60 spot12_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

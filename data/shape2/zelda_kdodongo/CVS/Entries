@@ -1,0 +1,26 @@
+/kd_bombwait.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_damage.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/kd_die_a.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_die_b.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_down.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_explode.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/kd_fire.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_fire_damage.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/kd_fire_standby.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_getup.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_hinoko.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_roll_standby.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/kd_rolling.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_success.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_wait.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_wait_mdl.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/kd_walk.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_walk_end.o/1.1.1.1/Mon Mar 10 23:05:41 2003/-kb/
+/kd_walk_start.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/zelda_kdodongo.map/1.1.1.1/Mon Mar 10 23:05:40 2003//
+/zelda_kdodongo.o/1.1.1.1/Mon Mar 10 23:05:40 2003/-kb/
+/zelda_kdodongo.oo/1.1.1.1/Mon Mar 10 23:05:40 2003//
+D/g_ddg2_fire////
+D/g_ddg_smoke////
+D/g_magma2////
+D/obj////

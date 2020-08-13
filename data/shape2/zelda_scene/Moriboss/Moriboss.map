@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1900
+		.data                  0              f0 moribossroom_main_info.o
+		.data                 f0             a60 moribossroom_bgc.o
+		.data                b50             db0 moribossroom_texture.o
+
+.strtab                                0             118
+		.strtab                0             118 *ld_internal*
+
+.symtab                                0              b0
+		.symtab                0              b0 *ld_internal*
+
+.mdebug                                0             594
+		.mdebug                0             594 *ld_internal*
+
+.rel.data                              0              80
+		.rel.data              0              58 moribossroom_main_info.o
+		.rel.data             58              28 moribossroom_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

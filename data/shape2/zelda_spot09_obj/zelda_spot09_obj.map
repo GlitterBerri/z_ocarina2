@@ -1,0 +1,46 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           18890
+		.data                  0             280 obj_096.o
+		.data                280            1c00 obj_097.o
+		.data               1e80             9f0 obj_097_bgc.o
+		.data               2870            2120 obj_098.o
+		.data               4990             bc0 obj_098_bgc.o
+		.data               5550            18d0 obj_099.o
+		.data               6e20             790 obj_099_bgc.o
+		.data               75b0             b70 obj_tento.o
+		.data               8120             370 obj_tento_bgc.o
+		.data               8490           10400 tex.o
+
+.strtab                                0             1e9
+		.strtab                0             1e9 *ld_internal*
+
+.symtab                                0             210
+		.symtab                0             210 *ld_internal*
+
+.mdebug                                0             d94
+		.mdebug                0             d94 *ld_internal*
+
+.rel.data                              0             868
+		.rel.data              0              40 obj_096.o
+		.rel.data             40             250 obj_097.o
+		.rel.data            290              20 obj_097_bgc.o
+		.rel.data            2b0             2d8 obj_098.o
+		.rel.data            588              20 obj_098_bgc.o
+		.rel.data            5a8             210 obj_099.o
+		.rel.data            7b8              20 obj_099_bgc.o
+		.rel.data            7d8              70 obj_tento.o
+		.rel.data            848              20 obj_tento_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

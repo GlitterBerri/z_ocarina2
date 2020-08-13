@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3420
+		.data                  0             2a0 ei_die.o
+		.data                2a0             240 ei_dmg.o
+		.data                4e0             240 ei_rot.o
+		.data                720             8b0 ei_swim.o
+		.data                fd0             2f0 ei_wait.o
+		.data               12c0            2160 ei_wait_mdl.o
+
+.strtab                                0             1b4
+		.strtab                0             1b4 *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0             cc8
+		.mdebug                0             cc8 *ld_internal*
+
+.rel.data                              0             388
+		.rel.data              0              10 ei_die.o
+		.rel.data             10              10 ei_dmg.o
+		.rel.data             20              10 ei_rot.o
+		.rel.data             30              10 ei_swim.o
+		.rel.data             40              10 ei_wait.o
+		.rel.data             50             338 ei_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

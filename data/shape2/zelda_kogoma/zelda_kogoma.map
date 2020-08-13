@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4220
+		.data                  0             190 gol_after_atack.o
+		.data                190             1c0 gol_after_down.o
+		.data                350             210 gol_atack.o
+		.data                560             2f0 gol_damage.o
+		.data                850             340 gol_down.o
+		.data                b90             2d0 gol_pre_atack.o
+		.data                e60             370 gol_sidewalk.o
+		.data               11d0             390 gol_wait.o
+		.data               1560            25f0 gol_wait_mdl.o
+		.data               3b50             240 gol_walk.o
+		.data               3d90             270 gol_wk_to_wt.o
+		.data               4000             220 gol_wt_to_wk.o
+
+.strtab                                0             3cc
+		.strtab                0             3cc *ld_internal*
+
+.symtab                                0             340
+		.symtab                0             340 *ld_internal*
+
+.mdebug                                0            1de4
+		.mdebug                0            1de4 *ld_internal*
+
+.rel.data                              0             2d0
+		.rel.data              0              10 gol_after_atack.o
+		.rel.data             10              10 gol_after_down.o
+		.rel.data             20              10 gol_atack.o
+		.rel.data             30              10 gol_damage.o
+		.rel.data             40              10 gol_down.o
+		.rel.data             50              10 gol_pre_atack.o
+		.rel.data             60              10 gol_sidewalk.o
+		.rel.data             70              10 gol_wait.o
+		.rel.data             80             220 gol_wait_mdl.o
+		.rel.data            2a0              10 gol_walk.o
+		.rel.data            2b0              10 gol_wk_to_wt.o
+		.rel.data            2c0              10 gol_wt_to_wk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

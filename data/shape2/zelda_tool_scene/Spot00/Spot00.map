@@ -1,0 +1,55 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           5f950
+		.data                  0           40000 main_info.o
+		.data              40000            1cf0 spot00_demo01.o
+		.data              41cf0             8d0 spot00_demo02.o
+		.data              425c0             4e0 spot00_demo03.o
+		.data              42aa0             610 spot00_demo04.o
+		.data              430b0             5b0 spot00_demo05.o
+		.data              43660             2b0 spot00_demo06.o
+		.data              43910            1280 spot00_demo07.o
+		.data              44b90            1280 spot00_demo08.o
+		.data              45e10            1280 spot00_demo09.o
+		.data              47090             520 spot00_demouma00.o
+		.data              475b0             650 spot00_demouma01.o
+		.data              47c00            15d0 spot00_opening.o
+		.data              491d0             2d0 spot00_show.o
+		.data              494a0           164b0 spot00_texture.o
+
+.bss                                   0              d0
+		.bss                   0              10 spot00_demo01.o
+		.bss                  10              10 spot00_demo02.o
+		.bss                  20              10 spot00_demo03.o
+		.bss                  30              10 spot00_demo04.o
+		.bss                  40              10 spot00_demo05.o
+		.bss                  50              10 spot00_demo06.o
+		.bss                  60              10 spot00_demo07.o
+		.bss                  70              10 spot00_demo08.o
+		.bss                  80              10 spot00_demo09.o
+		.bss                  90              10 spot00_demouma00.o
+		.bss                  a0              10 spot00_demouma01.o
+		.bss                  b0              10 spot00_opening.o
+		.bss                  c0              10 spot00_show.o
+
+.strtab                                0             5d1
+		.strtab                0             5d1 *ld_internal*
+
+.symtab                                0             440
+		.symtab                0             440 *ld_internal*
+
+.mdebug                                0            15c4
+		.mdebug                0            15c4 *ld_internal*
+
+.shstrtab                              0              45
+		.shstrtab              0              45 *ld_internal*

@@ -1,0 +1,77 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            bc40
+		.data                  0             550 gn1_BAatack01.o
+		.data                550             ab0 gn1_BAatack02.o
+		.data               1000             450 gn1_BAhukki.o
+		.data               1450             6d0 gn1_BAjunbi.o
+		.data               1b20             4f0 gn1_BAtame.o
+		.data               2010             d30 gn1_Patack.o
+		.data               2d40             710 gn1_Phukki.o
+		.data               3450             900 gn1_YAdown.o
+		.data               3d50             b50 gn1_YAhit01.o
+		.data               48a0             520 gn1_YAhit02.o
+		.data               4dc0             b20 gn1_YAhukki01.o
+		.data               58e0             760 gn1_YAhukki02.o
+		.data               6040             3a0 gn1_YAlanding.o
+		.data               63e0             5d0 gn1_YAmahi.o
+		.data               69b0             9f0 gn1_atack.o
+		.data               73a0             da0 gn1_ballhit.o
+		.data               8140             960 gn1_ballhukki.o
+		.data               8aa0             4c0 gn1_ballmahi.o
+		.data               8f60             760 gn1_damage.o
+		.data               96c0             370 gn1_fly.o
+		.data               9a30             340 gn1_guard01.o
+		.data               9d70             840 gn1_guard02.o
+		.data               a5b0             490 gn1_preatack.o
+		.data               aa40             a80 gn1_resieve01.o
+		.data               b4c0             780 gn1_resieve02.o
+
+.strtab                                0             314
+		.strtab                0             314 *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0            1d14
+		.mdebug                0            1d14 *ld_internal*
+
+.rel.data                              0             190
+		.rel.data              0              10 gn1_BAatack01.o
+		.rel.data             10              10 gn1_BAatack02.o
+		.rel.data             20              10 gn1_BAhukki.o
+		.rel.data             30              10 gn1_BAjunbi.o
+		.rel.data             40              10 gn1_BAtame.o
+		.rel.data             50              10 gn1_Patack.o
+		.rel.data             60              10 gn1_Phukki.o
+		.rel.data             70              10 gn1_YAdown.o
+		.rel.data             80              10 gn1_YAhit01.o
+		.rel.data             90              10 gn1_YAhit02.o
+		.rel.data             a0              10 gn1_YAhukki01.o
+		.rel.data             b0              10 gn1_YAhukki02.o
+		.rel.data             c0              10 gn1_YAlanding.o
+		.rel.data             d0              10 gn1_YAmahi.o
+		.rel.data             e0              10 gn1_atack.o
+		.rel.data             f0              10 gn1_ballhit.o
+		.rel.data            100              10 gn1_ballhukki.o
+		.rel.data            110              10 gn1_ballmahi.o
+		.rel.data            120              10 gn1_damage.o
+		.rel.data            130              10 gn1_fly.o
+		.rel.data            140              10 gn1_guard01.o
+		.rel.data            150              10 gn1_guard02.o
+		.rel.data            160              10 gn1_preatack.o
+		.rel.data            170              10 gn1_resieve01.o
+		.rel.data            180              10 gn1_resieve02.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5fd0
+		.data                  0             180 Z2_DD_IKE_main_info.o
+		.data                180            3cb0 Z2_DD_IKE_bgc.o
+		.data               3e30            2000 Z2_DD_IKE_texture.o
+		.data               5e30             1a0 dd_ydan_show.o
+
+.strtab                                0             259
+		.strtab                0             259 *ld_internal*
+
+.symtab                                0             170
+		.symtab                0             170 *ld_internal*
+
+.mdebug                                0             82c
+		.mdebug                0             82c *ld_internal*
+
+.rel.data                              0              c0
+		.rel.data              0              98 Z2_DD_IKE_main_info.o
+		.rel.data             98              28 Z2_DD_IKE_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,95 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           2f8e0
+		.data                  0             6a0 kd_bombwait.o
+		.data                6a0             9f0 kd_damage.o
+		.data               1090            1c90 kd_die_a.o
+		.data               2d20             ff0 kd_die_b.o
+		.data               3d10             5b0 kd_down.o
+		.data               42c0             b60 kd_explode.o
+		.data               4e20            13d0 kd_fire.o
+		.data               61f0             750 kd_fire_damage.o
+		.data               6940            25c0 kd_fire_standby.o
+		.data               8f00             e20 kd_getup.o
+		.data               9d20             1d0 kd_hinoko.o
+		.data               9ef0             bc0 kd_roll_standby.o
+		.data               aab0            34a0 kd_rolling.o
+		.data               df50             910 kd_success.o
+		.data               e860             890 kd_wait.o
+		.data               f0f0            ae30 kd_wait_mdl.o
+		.data              19f20            17d0 kd_walk.o
+		.data              1b6f0             740 kd_walk_end.o
+		.data              1be30             720 kd_walk_start.o
+		.data              1c550              a0 g_ddg2_fire/g_ddg2_fire.o
+		.data              1c5f0            80a0 g_ddg_smoke/g_ddg_smoke.o
+		.data              24690              a0 g_magma2/g_magma2.o
+		.data              24730              60 obj/ddanh_bhuta_bgc.o
+		.data              24790             8d0 obj/ddanh_bomy.o
+		.data              25060              80 obj/ddanh_bomy_bgc.o
+		.data              250e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire0.o
+		.data              260e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire1.o
+		.data              270e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire2.o
+		.data              280e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire3.o
+		.data              290e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire4.o
+		.data              2a0e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire5.o
+		.data              2b0e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire6.o
+		.data              2c0e0            1000 g_ddg2_fire/ANIME_TEXTURE/g_ddg2_fire7.o
+		.data              2d0e0             400 g_magma2/ANIME_TEXTURE/g_magma2_0.o
+		.data              2d4e0             400 g_magma2/ANIME_TEXTURE/g_magma2_1.o
+		.data              2d8e0             400 g_magma2/ANIME_TEXTURE/g_magma2_2.o
+		.data              2dce0             400 g_magma2/ANIME_TEXTURE/g_magma2_3.o
+		.data              2e0e0             400 g_magma2/ANIME_TEXTURE/g_magma2_4.o
+		.data              2e4e0             400 g_magma2/ANIME_TEXTURE/g_magma2_5.o
+		.data              2e8e0             400 g_magma2/ANIME_TEXTURE/g_magma2_6.o
+		.data              2ece0             400 g_magma2/ANIME_TEXTURE/g_magma2_7.o
+		.data              2f0e0             400 g_magma2/ANIME_TEXTURE/g_magma2_8.o
+		.data              2f4e0             400 g_magma2/ANIME_TEXTURE/g_magma2_9.o
+
+.strtab                                0             917
+		.strtab                0             917 *ld_internal*
+
+.symtab                                0             860
+		.symtab                0             860 *ld_internal*
+
+.mdebug                                0            58b8
+		.mdebug                0            58b8 *ld_internal*
+
+.rel.data                              0             800
+		.rel.data              0              10 kd_bombwait.o
+		.rel.data             10              10 kd_damage.o
+		.rel.data             20              10 kd_die_a.o
+		.rel.data             30              10 kd_die_b.o
+		.rel.data             40              10 kd_down.o
+		.rel.data             50              10 kd_explode.o
+		.rel.data             60              10 kd_fire.o
+		.rel.data             70              10 kd_fire_damage.o
+		.rel.data             80              10 kd_fire_standby.o
+		.rel.data             90              10 kd_getup.o
+		.rel.data             a0              10 kd_hinoko.o
+		.rel.data             b0              10 kd_roll_standby.o
+		.rel.data             c0              10 kd_rolling.o
+		.rel.data             d0              10 kd_success.o
+		.rel.data             e0              10 kd_wait.o
+		.rel.data             f0             658 kd_wait_mdl.o
+		.rel.data            748              10 kd_walk.o
+		.rel.data            758              10 kd_walk_end.o
+		.rel.data            768              10 kd_walk_start.o
+		.rel.data            778              10 g_ddg2_fire/g_ddg2_fire.o
+		.rel.data            788              10 g_ddg_smoke/g_ddg_smoke.o
+		.rel.data            798              18 g_magma2/g_magma2.o
+		.rel.data            7b0              20 obj/ddanh_bhuta_bgc.o
+		.rel.data            7d0              10 obj/ddanh_bomy.o
+		.rel.data            7e0              20 obj/ddanh_bomy_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

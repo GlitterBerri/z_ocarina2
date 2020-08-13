@@ -1,0 +1,46 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            cda0
+		.data                  0             160 yousei_izumi_yoko_main_info.o
+		.data                160             ec0 Yousei_izumi_yoko_demo00.o
+		.data               1020             f20 Yousei_izumi_yoko_demo01.o
+		.data               1f40             e80 Yousei_izumi_yoko_demo02.o
+		.data               2dc0             c20 yousei_izumi_yoko_bgc.o
+		.data               39e0             140 yousei_izumi_yoko_main_info_d0.o
+		.data               3b20             140 yousei_izumi_yoko_main_info_d1.o
+		.data               3c60             140 yousei_izumi_yoko_main_info_d2.o
+		.data               3da0            9000 yousei_izumi_yoko_texture.o
+
+.bss                                   0              30
+		.bss                   0              10 Yousei_izumi_yoko_demo00.o
+		.bss                  10              10 Yousei_izumi_yoko_demo01.o
+		.bss                  20              10 Yousei_izumi_yoko_demo02.o
+
+.strtab                                0             2d9
+		.strtab                0             2d9 *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0             e7c
+		.mdebug                0             e7c *ld_internal*
+
+.rel.data                              0             158
+		.rel.data              0              60 yousei_izumi_yoko_main_info.o
+		.rel.data             60              20 yousei_izumi_yoko_bgc.o
+		.rel.data             80              48 yousei_izumi_yoko_main_info_d0.o
+		.rel.data             c8              48 yousei_izumi_yoko_main_info_d1.o
+		.rel.data            110              48 yousei_izumi_yoko_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

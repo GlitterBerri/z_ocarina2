@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7c70
+		.data                  0             1b0 mo_bubble.o
+		.data                1b0             cd0 mo_core.o
+		.data                e80              a0 mo_line.o
+		.data                f20              f0 mo_mizu.o
+		.data               1010            2800 mo_name_tex.o
+		.data               3810             110 mo_surf.o
+		.data               3920            3b50 morpha.o
+		.data               7470             800 tex.o
+
+.strtab                                0             325
+		.strtab                0             325 *ld_internal*
+
+.symtab                                0             440
+		.symtab                0             440 *ld_internal*
+
+.mdebug                                0            1018
+		.mdebug                0            1018 *ld_internal*
+
+.rel.data                              0             368
+		.rel.data              0              10 mo_bubble.o
+		.rel.data             10              18 mo_core.o
+		.rel.data             28               8 mo_line.o
+		.rel.data             30              18 mo_mizu.o
+		.rel.data             48              20 mo_surf.o
+		.rel.data             68             300 morpha.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

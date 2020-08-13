@@ -1,0 +1,99 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           17d20
+		.data                  0            c9d0 FIRE_OB.o
+		.data               c9d0              a0 OB_07_curtain.o
+		.data               ca70             140 m_FGiwa_bgc.o
+		.data               cbb0             110 m_FMyaku_bgc.o
+		.data               ccc0             110 m_FOdosi_bgc.o
+		.data               cdd0             2b0 m_FOtiBFhead_bgc.o
+		.data               d080             140 m_FOtiMINI_bgc.o
+		.data               d1c0             430 m_FRound_bgc.o
+		.data               d5f0             240 m_Fbmfl_bgc.o
+		.data               d830              80 m_Fbmwall1_bgc.o
+		.data               d8b0              80 m_Fbmwall2_bgc.o
+		.data               d930             110 m_Fdalm_bgc.o
+		.data               da40              a0 m_Ffirewall.o
+		.data               dae0             110 m_FfirewallBIG.o
+		.data               dbf0              b0 m_Fflame.o
+		.data               dca0              b0 m_FhamSTEP_1_bgc.o
+		.data               dd50             120 m_FhamSTEP_bgc.o
+		.data               de70             140 m_Fhane_bgc.o
+		.data               dfb0             270 m_Fhocklift_bgc.o
+		.data               e220              e0 m_Fkousi1_bgc.o
+		.data               e300              b0 m_Fkousi2_bgc.o
+		.data               e3b0              b0 m_Fkousi3_bgc.o
+		.data               e460             140 m_Fmboss_bgc.o
+		.data               e5a0            1460 m_Fnormaldoor.o
+		.data               fa00             120 m_Fpinpon_bgc.o
+		.data               fb20            1270 m_Fshutter1.o
+		.data              10d90            1270 m_Fshutter2.o
+		.data              12000             120 m_Fsizumi_bgc.o
+		.data              12120             780 TEXTURE/g_curtain_f1.o
+		.data              128a0             780 TEXTURE/g_curtain_f2.o
+		.data              13020             780 TEXTURE/g_curtain_f3.o
+		.data              137a0             780 TEXTURE/g_curtain_f4.o
+		.data              13f20             780 TEXTURE/g_curtain_f5.o
+		.data              146a0             780 TEXTURE/g_curtain_f6.o
+		.data              14e20             780 TEXTURE/g_curtain_f7.o
+		.data              155a0             780 TEXTURE/g_curtain_f8.o
+		.data              15d20             400 TEXTURE/g_flame1_1.o
+		.data              16120             400 TEXTURE/g_flame1_2.o
+		.data              16520             400 TEXTURE/g_flame1_3.o
+		.data              16920             400 TEXTURE/g_flame1_4.o
+		.data              16d20             400 TEXTURE/g_flame1_5.o
+		.data              17120             400 TEXTURE/g_flame1_6.o
+		.data              17520             400 TEXTURE/g_flame1_7.o
+		.data              17920             400 TEXTURE/g_flame1_8.o
+
+.strtab                                0             5e4
+		.strtab                0             5e4 *ld_internal*
+
+.symtab                                0             590
+		.symtab                0             590 *ld_internal*
+
+.mdebug                                0            368c
+		.mdebug                0            368c *ld_internal*
+
+.rel.data                              0             8e0
+		.rel.data              0             598 FIRE_OB.o
+		.rel.data            598              10 OB_07_curtain.o
+		.rel.data            5a8              20 m_FGiwa_bgc.o
+		.rel.data            5c8              20 m_FMyaku_bgc.o
+		.rel.data            5e8              20 m_FOdosi_bgc.o
+		.rel.data            608              20 m_FOtiBFhead_bgc.o
+		.rel.data            628              20 m_FOtiMINI_bgc.o
+		.rel.data            648              20 m_FRound_bgc.o
+		.rel.data            668              20 m_Fbmfl_bgc.o
+		.rel.data            688              20 m_Fbmwall1_bgc.o
+		.rel.data            6a8              20 m_Fbmwall2_bgc.o
+		.rel.data            6c8              20 m_Fdalm_bgc.o
+		.rel.data            6e8              10 m_Ffirewall.o
+		.rel.data            6f8              20 m_FfirewallBIG.o
+		.rel.data            718              18 m_Fflame.o
+		.rel.data            730              20 m_FhamSTEP_1_bgc.o
+		.rel.data            750              20 m_FhamSTEP_bgc.o
+		.rel.data            770              20 m_Fhane_bgc.o
+		.rel.data            790              20 m_Fhocklift_bgc.o
+		.rel.data            7b0              20 m_Fkousi1_bgc.o
+		.rel.data            7d0              20 m_Fkousi2_bgc.o
+		.rel.data            7f0              20 m_Fkousi3_bgc.o
+		.rel.data            810              20 m_Fmboss_bgc.o
+		.rel.data            830              30 m_Fnormaldoor.o
+		.rel.data            860              20 m_Fpinpon_bgc.o
+		.rel.data            880              20 m_Fshutter1.o
+		.rel.data            8a0              20 m_Fshutter2.o
+		.rel.data            8c0              20 m_Fsizumi_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

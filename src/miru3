@@ -1,0 +1,197 @@
+/*===============================================================
+  =	   IA¡¦¥Æ¥¯¥¹¥Á¥ã¨¡É½¼¨					=
+ ===============================================================*/
+static void
+texture_IA8( Graph *graph, void *timg, short size, short xpos, short ypos )
+{
+    OPEN_DISP( graph );
+
+    gDPLoadTextureBlock( NEXT_OVERLAY_DISP,
+			 timg, G_IM_FMT_IA, G_IM_SIZ_8b,
+			 size, size, 0, G_TX_NOMIRROR, G_TX_NOMIRROR,
+			 G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD );
+    gSPTextureRectangle( NEXT_OVERLAY_DISP,
+			 xpos << 2, ypos << 2,
+			 (xpos + size) << 2, (ypos + size) << 2,
+			 G_TX_RENDERTILE, 0, 0, 1 <<10, 1 << 10 );
+
+    CLOSE_DISP( graph );
+}
+/********************************************************
+ *	¥é¥¤¥Õ¥á¡¼¥¿¡¼ Áý¸º½èÍý				*
+ ********************************************************/
+extern char
+life_meter_play( Game_play *game_play, short count )
+{
+    Parameter		*parameter = (Parameter *)&game_play->parameter;
+
+    unshort	i, j;
+
+    PRINTF("¡ö¡ö¡ö¡ö¡ö  Áý¸º=%d (now=%d, max=%d)  ¡ö¡ö¡ö",count,S_Private.now_life,S_Private.max_life);
+    if ( count > 0 ) Na_StartSystemSe( NA_SE_SY_HP_RECOVER ) ;
+    S_Private.now_life += count;
+    if ( S_Private.now_life > S_Private.max_life )
+	S_Private.now_life = S_Private.max_life;
+    /* ¥É¥­¥É¥­¥Ï¡¼¥È¥Æ¥¯¥¹¥Á¥ã£Ä£Í£Á */
+    i = j = (unshort)(S_Private.now_life % LIFE_CT);
+    if ( j != 0 ) {
+	if ( j >= 11 ) i = 3;
+	else {
+	    if ( j >= 6 ) i =2;
+	    else i = 1;
+	}
+    }
+    PRINTF("  ¥é¥¤¥Õ=%d  ¡ö¡ö¡ö  %d  ¡ö¡ö¡ö¡ö¡ö¡ö\n",S_Private.now_life, i );
+    osCreateMesgQueue(&parameter->mq, &parameter->m, 1);
+    dmacopy_bg( &parameter->dma,
+		parameter->dokidokiheartSegment,
+		(u32)( _dokidoki_heart_staticSegmentRomStart + (size_t)(DK_H_PT*i) ),
+		DK_H_PT,
+		NULL,
+		&parameter->mq,
+		NULL );
+    osRecvMesg( &parameter->mq, NULL, OS_MESG_BLOCK );
+
+
+    if ( S_Private.now_life <= 0 ) {
+	S_Private.now_life = 0;
+	return(0);	/* ¥×¥ì¥¤¥ä¡¼»àË´ */
+    } else return(1);	/* ¥×¥ì¥¤¥ä¡¼·òºß */
+}
+
+
+
+/*¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á £Ä£Ò£Á£× ¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á*/
+    /*
+     * £Ì£é£æ£å £Í£å£ô£å£ò
+     */
+    overlay_rectangle_a_prim(game_play->g.graph);
+    gDPSetCombineMode( NEXT_OVERLAY_DISP, G_CC_INT9, G_CC_INT9 );
+#define HT_XP	22
+#define HT_YP	18
+    ht_xp = HT_XP;
+    ht_yp = HT_YP;	/* ¥ì¥¯¥¿¥ó¥°¥ëÉ½¼¨°ÌÃÖ */
+    i = j = 0;
+    h_max = S_Private.max_life;
+    gDPSetPrimColor( NEXT_OVERLAY_DISP, 0, 0, 255, 70, 50, parameter->heart_alpha );
+    gDPSetEnvColor( NEXT_OVERLAY_DISP, 50, 40, 60, 255 );
+    
+    if ( !(player_condition_check( game_play )) ) {
+	h_now = S_Private.now_life;
+    } else {
+	h_now = parameter->dokidoki_max;
+    }
+    if ( h_now >= LIFE_CT ) {
+	h_now -= LIFE_CT;
+	do {
+	    /* Max¥Ï¡¼¥È ¥»¥Ã¥È */
+	    texture_IA8( game_play->g.graph, heart4_txt, 16, ht_xp, ht_yp );
+	    j++;
+	    ht_xp += 10;
+	    if ( (i += LIFE_CT) == LIFE_CT*10 ) {
+		ht_xp = 22;
+		ht_yp += 10;
+	    }
+	} while ( i < h_now );
+
+	/* ¸½ºß¥Ï¡¼¥È°ÌÃÖ ¥»¥Ã¥È */
+	now_p = j;
+	ht_xp += 10;
+	i += LIFE_CT;
+	if ( i == LIFE_CT*10 ) {
+	    ht_xp = 22;
+	    ht_yp += 10;
+	}
+
+	if ( i != h_max ) {
+	    do {
+		/* Empty¥Ï¡¼¥È ¥»¥Ã¥È */
+		texture_IA8( game_play->g.graph, heart0_txt, 16, ht_xp, ht_yp );
+		ht_xp += 10.0f;
+		i += LIFE_CT;
+		if ( i == LIFE_CT*10 ) {
+		    ht_xp = 22;
+		    ht_yp += 10;
+		}
+	    } while ( i < h_max );
+	}
+    } else {
+	/* ¸½ºß¥Ï¡¼¥È°ÌÃÖ ¥»¥Ã¥È */
+	now_p = j;
+	ht_xp += 10;
+	i += LIFE_CT;
+	
+	do {
+	    /* Empty¥Ï¡¼¥È ¥»¥Ã¥È */
+	    texture_IA8( game_play->g.graph, heart0_txt, 16, ht_xp, ht_yp );
+	    ht_xp += 10;
+	    i += LIFE_CT;
+	    if ( i == LIFE_CT*10 ) {
+		ht_xp = 22;
+		ht_yp += 10;
+	    }
+	} while ( i < h_max );
+    }
+
+    if ( gover->gover_mode ) {
+	/* ¥²¡¼¥à¥ª¡¼¥Ð¡¼ */
+	texture_IA8( game_play->g.graph, heart0_txt, 16, HT_XP, HT_YP );
+    } else {
+	/* ¥É¥­¥É¥­¥Ï¡¼¥ÈÉ½¼¨ */
+	overlay_kaleido_scope_prim( game_play->g.graph );
+	gDPSetCombineMode( NEXT_OVERLAY_DISP, G_CC_INT9, G_CC_INT9 );
+	Matrix_translate( (float)XREG(10)/100.0f, (float)XREG(11)/100.0f, 0.0f, SET_MTX );
+	Matrix_scale( (float)XREG(12)/100.0f, (float)XREG(12)/100.0f, (float)XREG(12)/100.0f, MULT_MTX );
+	gSPMatrix( NEXT_OVERLAY_DISP, Matrix_to_Mtx_new(game_play->g.graph), G_MTX_MODELVIEW | G_MTX_LOAD | G_MTX_NOPUSH );
+	gDPSetPrimColor( NEXT_OVERLAY_DISP, 0, 0, parameter->dokidoki_prim[0], parameter->dokidoki_prim[1], parameter->dokidoki_prim[2], parameter->heart_alpha );
+	gDPSetEnvColor( NEXT_OVERLAY_DISP, parameter->dokidoki_env[0], parameter->dokidoki_env[1],  parameter->dokidoki_env[2],255 );
+	gSPVertex( NEXT_OVERLAY_DISP, &(parameter->heartVtx[0]), 4, 0 );
+	parameter_back_set( game_play->g.graph, parameter->dokidokiheartSegment, 16, 16, 0 );
+    }
+
+
+
+
+/*¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á £Í£Ï£Ö£Å ¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á*/
+    /*
+     * ¥É¥­¥É¥­¥Ï¡¼¥È
+     */
+    /* ¸½ºß°ÌÃÖ¸¡º÷ */
+    j = 0;
+    if ( !(player_condition_check( game_play )) ) {
+	h_now = S_Private.now_life;
+    } else {
+	h_now = parameter->dokidoki_max;
+    }
+    if ( h_now >= LIFE_CT ) {
+	h_now -= LIFE_CT;
+	do {
+	    j++;
+	    i += LIFE_CT;
+	} while ( i < h_now );
+	/* ¸½ºß°ÌÃÖ ¥»¥Ã¥È */
+	now_p = j;
+    } else {
+	/* ¸½ºß°ÌÃÖ ¥»¥Ã¥È */
+	now_p = j;
+    }
+    XREG(10) = (short)(-13000 + (1000*(now_p%10)));
+    if ( now_p < 10 ) XREG(11) = 9450;
+    else              XREG(11) = 8450;
+    XREG(12) = 68;
+    parameter->dokidoki_frame += XREG(14); ///?????
+    if ( parameter->dokidoki_frame > XREG(13)*2 ) parameter->dokidoki_frame = 0;
+    if ( parameter->dokidoki_frame <= XREG(13) ) l0 = parameter->dokidoki_frame;
+    else                                    	 l0 = (short)((XREG(13)*2) - parameter->dokidoki_frame);
+    XREG(10) -= ((l0*10)/XREG(46));
+    XREG(11) += ((l0*10)/XREG(47));
+    XREG(12) += l0;
+    /* ¥×¥ì¥¤¥ä¡¼¿åÃæÈ½Äê : [¡ª¡á £°] ¤Î»þ¿åÃæ */
+    GREG(55) = player_condition_check( game_play );
+    LifeMeterColorAnimation( game_play );
+    if ( GREG(55) ) {
+	LifeRestChange( game_play );
+    } else {
+	initial_LifeRestChange( game_play );
+    }
+

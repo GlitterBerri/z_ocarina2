@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             da0
+		.data                  0             8e0 nwc_body.o
+		.data                8e0             430 nwc_face.o
+		.data                d10              90 nwc_shadow.o
+
+.strtab                                0              f1
+		.strtab                0              f1 *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             478
+		.mdebug                0             478 *ld_internal*
+
+.rel.data                              0              48
+		.rel.data              0              18 nwc_body.o
+		.rel.data             18              20 nwc_face.o
+		.rel.data             38              10 nwc_shadow.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,54 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           11160
+		.data                  0             230 spot09_main_info.o
+		.data                230             1c0 spot09_2ndjump.o
+		.data                3f0            1d70 spot09_bgc.o
+		.data               2160             2b0 spot09_demo00.o
+		.data               2410             4d0 spot09_demo01.o
+		.data               28e0             1e0 spot09_demo02.o
+		.data               2ac0             1c0 spot09_jump.o
+		.data               2c80             2f0 spot09_main_info_ad.o
+		.data               2f70              f0 spot09_main_info_d0.o
+		.data               3060              e0 spot09_main_info_d1.o
+		.data               3140              a0 spot09_main_info_d2.o
+		.data               31e0             260 spot09_show.o
+		.data               3440            dd20 spot09_texture.o
+
+.bss                                   0              60
+		.bss                   0              10 spot09_2ndjump.o
+		.bss                  10              10 spot09_demo00.o
+		.bss                  20              10 spot09_demo01.o
+		.bss                  30              10 spot09_demo02.o
+		.bss                  40              10 spot09_jump.o
+		.bss                  50              10 spot09_show.o
+
+.strtab                                0             2e0
+		.strtab                0             2e0 *ld_internal*
+
+.symtab                                0             260
+		.symtab                0             260 *ld_internal*
+
+.mdebug                                0            134c
+		.mdebug                0            134c *ld_internal*
+
+.rel.data                              0             1f8
+		.rel.data              0              78 spot09_main_info.o
+		.rel.data             78              28 spot09_bgc.o
+		.rel.data             a0              60 spot09_main_info_ad.o
+		.rel.data            100              58 spot09_main_info_d0.o
+		.rel.data            158              58 spot09_main_info_d1.o
+		.rel.data            1b0              48 spot09_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

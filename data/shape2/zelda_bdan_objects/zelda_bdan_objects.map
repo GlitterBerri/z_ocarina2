@@ -1,0 +1,66 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            cd10
+		.data                  0             660 a_by_door0.o
+		.data                660             660 a_by_door1.o
+		.data                cc0             660 a_by_door2.o
+		.data               1320             660 a_by_door3.o
+		.data               1980             660 a_by_door4.o
+		.data               1fe0             660 a_by_door5.o
+		.data               2640             660 a_by_door6.o
+		.data               2ca0             660 a_by_door7.o
+		.data               3300             6b0 bdan_bmizu.o
+		.data               39b0            1440 bdan_ere.o
+		.data               4df0             290 bdan_ere_bgc.o
+		.data               5080             2d0 bdan_fdai.o
+		.data               5350             260 bdan_fdai_bgc.o
+		.data               55b0             630 bdan_switch_b.o
+		.data               5be0             150 bdan_switch_b_bgc.o
+		.data               5d30             630 bdan_switch_y.o
+		.data               6360             1e0 bdan_tdoor_yari.o
+		.data               6540            24a0 bdan_toge.o
+		.data               89e0             330 bdan_toge_bgc.o
+		.data               8d10            4000 tex.o
+
+.strtab                                0             1bb
+		.strtab                0             1bb *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0            183c
+		.mdebug                0            183c *ld_internal*
+
+.rel.data                              0             260
+		.rel.data              0              18 a_by_door0.o
+		.rel.data             18              18 a_by_door1.o
+		.rel.data             30              18 a_by_door2.o
+		.rel.data             48              18 a_by_door3.o
+		.rel.data             60              18 a_by_door4.o
+		.rel.data             78              18 a_by_door5.o
+		.rel.data             90              18 a_by_door6.o
+		.rel.data             a8              18 a_by_door7.o
+		.rel.data             c0              18 bdan_bmizu.o
+		.rel.data             d8              30 bdan_ere.o
+		.rel.data            108              20 bdan_ere_bgc.o
+		.rel.data            128              20 bdan_fdai.o
+		.rel.data            148              20 bdan_fdai_bgc.o
+		.rel.data            168              28 bdan_switch_b.o
+		.rel.data            190              20 bdan_switch_b_bgc.o
+		.rel.data            1b0              28 bdan_switch_y.o
+		.rel.data            1d8              10 bdan_tdoor_yari.o
+		.rel.data            1e8              58 bdan_toge.o
+		.rel.data            240              20 bdan_toge_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            75d0
+		.data                  0              c0 hylia_labo_0_info.o
+		.data                 c0             140 hylia_labo_0_shape.o
+		.data                200            4a00 hylia_labo_grp_g76.o
+		.data               4c00            29d0 hylia_labo_grp_g76T.o
+
+.strtab                                0             569
+		.strtab                0             569 *ld_internal*
+
+.symtab                                0             3d0
+		.symtab                0             3d0 *ld_internal*
+
+.mdebug                                0            2698
+		.mdebug                0            2698 *ld_internal*
+
+.rel.data                              0             620
+		.rel.data              0              18 hylia_labo_0_info.o
+		.rel.data             18              b8 hylia_labo_0_shape.o
+		.rel.data             d0             3c8 hylia_labo_grp_g76.o
+		.rel.data            498             188 hylia_labo_grp_g76T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

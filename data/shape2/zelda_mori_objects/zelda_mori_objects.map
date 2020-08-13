@@ -1,0 +1,59 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            8a10
+		.data                  0            1630 l_4hasira.o
+		.data               1630             500 l_4hasira_bgc.o
+		.data               1b30             470 l_bigst.o
+		.data               1fa0             2b0 l_bigst_bgc.o
+		.data               2250             b40 l_elevator.o
+		.data               2d90             8a0 l_elevator_bgc.o
+		.data               3630             120 l_hasigo.o
+		.data               3750              c0 l_hasigo_bgc.o
+		.data               3810            1180 l_hasigotome.o
+		.data               4990              f0 l_idomizu.o
+		.data               4a80             f50 l_kaiten.o
+		.data               59d0             a20 l_kaiten_bgc.o
+		.data               63f0            1730 l_tenjyou.o
+		.data               7b20             cc0 l_tenjyou_bgc.o
+		.data               87e0             100 l_tikaori.o
+		.data               88e0             130 l_tikaori_bgc.o
+
+.strtab                                0             1e8
+		.strtab                0             1e8 *ld_internal*
+
+.symtab                                0             1f0
+		.symtab                0             1f0 *ld_internal*
+
+.mdebug                                0            142c
+		.mdebug                0            142c *ld_internal*
+
+.rel.data                              0             2e0
+		.rel.data              0              58 l_4hasira.o
+		.rel.data             58              20 l_4hasira_bgc.o
+		.rel.data             78              20 l_bigst.o
+		.rel.data             98              20 l_bigst_bgc.o
+		.rel.data             b8              48 l_elevator.o
+		.rel.data            100              20 l_elevator_bgc.o
+		.rel.data            120              10 l_hasigo.o
+		.rel.data            130              20 l_hasigo_bgc.o
+		.rel.data            150              40 l_hasigotome.o
+		.rel.data            190              18 l_idomizu.o
+		.rel.data            1a8              60 l_kaiten.o
+		.rel.data            208              20 l_kaiten_bgc.o
+		.rel.data            228              68 l_tenjyou.o
+		.rel.data            290              20 l_tenjyou_bgc.o
+		.rel.data            2b0              10 l_tikaori.o
+		.rel.data            2c0              20 l_tikaori_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

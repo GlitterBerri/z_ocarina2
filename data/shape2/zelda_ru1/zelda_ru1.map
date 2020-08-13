@@ -1,0 +1,73 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           13a80
+		.data                  0             6a0 cyu_matsu.o
+		.data                6a0             7d0 demo_okori_wait.o
+		.data                e70             630 demo_suwari.o
+		.data               14a0             bd0 demo_suwari_wait.o
+		.data               2070             930 demo_warp.o
+		.data               29a0             530 koruto_banzai_modoru.o
+		.data               2ed0             750 koruto_banzai_wait.o
+		.data               3620             180 koruto_drop_2.o
+		.data               37a0             8f0 koruto_furimuki.o
+		.data               4090             2d0 koruto_jitabata.o
+		.data               4360             300 koruto_mitsuketa.o
+		.data               4660             5a0 koruto_ottotto.o
+		.data               4c00            1810 koruto_run_banzai.o
+		.data               6410             7a0 koruto_shagami_wait.o
+		.data               6bb0             9a0 koruto_shagamu.o
+		.data               7550             3b0 koruto_walk_2.o
+		.data               7900             810 korutoteisi.o
+		.data               8110             9b0 mog.o
+		.data               8ac0             5b0 puhaaruto.o
+		.data               9070             760 ru1_matsu.o
+		.data               97d0            8f40 ru1_matsu_mdl.o
+		.data              12710             7a0 seoyogi.o
+		.data              12eb0             bd0 tatioyogu.o
+
+.strtab                                0             53e
+		.strtab                0             53e *ld_internal*
+
+.symtab                                0             3d0
+		.symtab                0             3d0 *ld_internal*
+
+.mdebug                                0            240c
+		.mdebug                0            240c *ld_internal*
+
+.rel.data                              0             750
+		.rel.data              0              10 cyu_matsu.o
+		.rel.data             10              10 demo_okori_wait.o
+		.rel.data             20              10 demo_suwari.o
+		.rel.data             30              10 demo_suwari_wait.o
+		.rel.data             40              10 demo_warp.o
+		.rel.data             50              10 koruto_banzai_modoru.o
+		.rel.data             60              10 koruto_banzai_wait.o
+		.rel.data             70              10 koruto_drop_2.o
+		.rel.data             80              10 koruto_furimuki.o
+		.rel.data             90              10 koruto_jitabata.o
+		.rel.data             a0              10 koruto_mitsuketa.o
+		.rel.data             b0              10 koruto_ottotto.o
+		.rel.data             c0              10 koruto_run_banzai.o
+		.rel.data             d0              10 koruto_shagami_wait.o
+		.rel.data             e0              10 koruto_shagamu.o
+		.rel.data             f0              10 koruto_walk_2.o
+		.rel.data            100              10 korutoteisi.o
+		.rel.data            110              10 mog.o
+		.rel.data            120              10 puhaaruto.o
+		.rel.data            130              10 ru1_matsu.o
+		.rel.data            140             5f0 ru1_matsu_mdl.o
+		.rel.data            730              10 seoyogi.o
+		.rel.data            740              10 tatioyogu.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

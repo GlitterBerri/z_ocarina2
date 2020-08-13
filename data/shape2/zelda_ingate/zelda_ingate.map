@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            11f0
+		.data                  0            10d0 c_s20tobira.o
+		.data               10d0             120 c_s20tobira_bgc.o
+
+.strtab                                0              46
+		.strtab                0              46 *ld_internal*
+
+.symtab                                0              50
+		.symtab                0              50 *ld_internal*
+
+.mdebug                                0             2f8
+		.mdebug                0             2f8 *ld_internal*
+
+.rel.data                              0              30
+		.rel.data              0              10 c_s20tobira.o
+		.rel.data             10              20 c_s20tobira_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

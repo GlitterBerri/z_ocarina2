@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            72f0
+		.data                  0              a0 sutaru_0_info.o
+		.data                 a0              20 sutaru_0_shape.o
+		.data                 c0            7230 sutaru2_grp_sta1_00.o
+
+.strtab                                0              46
+		.strtab                0              46 *ld_internal*
+
+.symtab                                0              50
+		.symtab                0              50 *ld_internal*
+
+.mdebug                                0             48c
+		.mdebug                0             48c *ld_internal*
+
+.rel.data                              0              e0
+		.rel.data              0              18 sutaru_0_info.o
+		.rel.data             18              18 sutaru_0_shape.o
+		.rel.data             30              b0 sutaru2_grp_sta1_00.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

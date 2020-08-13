@@ -1,0 +1,61 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           10de0
+		.data                  0            4e20 hgf_ALLparts.o
+		.data               4e20             a00 hgf_damage.o
+		.data               5820             180 hgf_default.o
+		.data               59a0            4300 hgf_default_mdl.o
+		.data               9ca0             440 hgf_fastrun.o
+		.data               a0e0             500 hgf_fly.o
+		.data               a5e0             7b0 hgf_jump.o
+		.data               ad90             4e0 hgf_jump01.o
+		.data               b270             4c0 hgf_jump02.o
+		.data               b730             730 hgf_skin.o
+		.data               be60             b70 hgf_stand.o
+		.data               c9d0             ae0 hgf_wait.o
+		.data               d4b0            1310 EFFECT/f_ganon_efc.o
+		.data               e7c0             9e0 EFFECT/gnf_bakuhatsu.o
+		.data               f1a0             6c0 EFFECT/gnf_inazuma.o
+		.data               f860             4c0 EFFECT/gnf_inazumaMINI.o
+		.data               fd20            10c0 EFFECT/gnf_lightball.o
+
+.strtab                                0             543
+		.strtab                0             543 *ld_internal*
+
+.symtab                                0             4a0
+		.symtab                0             4a0 *ld_internal*
+
+.mdebug                                0            3b58
+		.mdebug                0            3b58 *ld_internal*
+
+.rel.data                              0             bc8
+		.rel.data              0             268 hgf_ALLparts.o
+		.rel.data            268              10 hgf_damage.o
+		.rel.data            278              10 hgf_default.o
+		.rel.data            288             7c8 hgf_default_mdl.o
+		.rel.data            a50              10 hgf_fastrun.o
+		.rel.data            a60              10 hgf_fly.o
+		.rel.data            a70              10 hgf_jump.o
+		.rel.data            a80              10 hgf_jump01.o
+		.rel.data            a90              10 hgf_jump02.o
+		.rel.data            aa0              98 hgf_skin.o
+		.rel.data            b38              10 hgf_stand.o
+		.rel.data            b48              10 hgf_wait.o
+		.rel.data            b58              20 EFFECT/f_ganon_efc.o
+		.rel.data            b78              20 EFFECT/gnf_bakuhatsu.o
+		.rel.data            b98              10 EFFECT/gnf_inazuma.o
+		.rel.data            ba8              10 EFFECT/gnf_inazumaMINI.o
+		.rel.data            bb8              10 EFFECT/gnf_lightball.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

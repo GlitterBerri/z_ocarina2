@@ -1,0 +1,40 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5600
+		.data                  0            1550 obj_bigice.o
+		.data               1550             3e0 obj_bigice_bgc.o
+		.data               1930            14e0 obj_iceblock.o
+		.data               2e10             200 obj_iceblock_bgc.o
+		.data               3010             950 obj_s08wall.o
+		.data               3960              a0 obj_s08wall_bgc.o
+		.data               3a00            1c00 tex.o
+
+.strtab                                0              b8
+		.strtab                0              b8 *ld_internal*
+
+.symtab                                0              c0
+		.symtab                0              c0 *ld_internal*
+
+.mdebug                                0             99c
+		.mdebug                0             99c *ld_internal*
+
+.rel.data                              0             208
+		.rel.data              0             140 obj_bigice.o
+		.rel.data            140              20 obj_bigice_bgc.o
+		.rel.data            160              50 obj_iceblock.o
+		.rel.data            1b0              20 obj_iceblock_bgc.o
+		.rel.data            1d0              18 obj_s08wall.o
+		.rel.data            1e8              20 obj_s08wall_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

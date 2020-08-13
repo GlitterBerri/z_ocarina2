@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3ba0
+		.data                  0            10d0 demo_6k_hole.o
+		.data               10d0            1510 demo_6k_light.o
+		.data               25e0            15c0 demo_6k_smoke.o
+
+.strtab                                0              72
+		.strtab                0              72 *ld_internal*
+
+.symtab                                0              80
+		.symtab                0              80 *ld_internal*
+
+.mdebug                                0             3e4
+		.mdebug                0             3e4 *ld_internal*
+
+.rel.data                              0              78
+		.rel.data              0              10 demo_6k_hole.o
+		.rel.data             10              48 demo_6k_light.o
+		.rel.data             58              20 demo_6k_smoke.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

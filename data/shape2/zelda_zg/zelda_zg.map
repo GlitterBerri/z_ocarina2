@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1200
+		.data                  0            1000 tex.o
+		.data               1000             160 zeldoor.o
+		.data               1160              a0 zeldoor_bgc.o
+
+.strtab                                0              4b
+		.strtab                0              4b *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             398
+		.mdebug                0             398 *ld_internal*
+
+.rel.data                              0              40
+		.rel.data              0              20 zeldoor.o
+		.rel.data             20              20 zeldoor_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

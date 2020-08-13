@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7160
+		.data                  0            6b40 hz_default_mdl.o
+		.data               6b40             620 hz_fastrun.o
+
+.strtab                                0             11b
+		.strtab                0             11b *ld_internal*
+
+.symtab                                0             120
+		.symtab                0             120 *ld_internal*
+
+.mdebug                                0            361c
+		.mdebug                0            361c *ld_internal*
+
+.rel.data                              0             c90
+		.rel.data              0             c80 hz_default_mdl.o
+		.rel.data            c80              10 hz_fastrun.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

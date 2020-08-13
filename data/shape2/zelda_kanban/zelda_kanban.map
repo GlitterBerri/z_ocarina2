@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            17b0
+		.data                  0            1600 kanban1_cut.o
+		.data               1600             1b0 kanban_eff.o
+
+.strtab                                0             16b
+		.strtab                0             16b *ld_internal*
+
+.symtab                                0             140
+		.symtab                0             140 *ld_internal*
+
+.mdebug                                0             474
+		.mdebug                0             474 *ld_internal*
+
+.rel.data                              0             1b8
+		.rel.data              0             1a8 kanban1_cut.o
+		.rel.data            1a8              10 kanban_eff.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

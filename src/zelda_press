@@ -1,0 +1,244 @@
+#!/usr/bin/bash
+
+ZELDA_TOOL_BIN=$ZELDA_ROOT/tool/bin
+
+ROMFILL=$ZELDA_TOOL_BIN/romfill
+ROMADDRESS=$ZELDA_TOOL_BIN/romaddress
+ROMALIGN=$ZELDA_TOOL_BIN/romalign
+ROMDIVIDE=$ZELDA_TOOL_BIN/romdivide
+ROMMAP=$ZELDA_TOOL_BIN/rommap_new
+MAKEMASK=/usr/sbin/makemask
+
+echo -n "Tool checking ..."
+for tool in $ROMADDRESS $ROMALIGN $ROMDIVIDE $ROMMAP $SLICNV $SLIENC $SLIDEC $ROMFILL
+do
+  echo -n "`basename $tool` "
+  if [ ! -x $tool ]; then
+    echo $tool not exist
+    exit 1
+  fi
+done
+echo "ok"
+
+clearline() {
+  echo -n -e "\r\033[K" >&2
+}
+
+segmentcat() {
+  for dfile in $*
+  do
+    szsfile=${dfile%.d}.szs
+    clearline
+    if [ -f $szsfile ]; then
+      echo -n "$szsfile" >&2
+      cat $szsfile
+    else
+      echo -n "$dfile" >&2
+      cat $dfile
+    fi
+  done
+  echo >&2
+}
+
+echodecl() {
+  for segment in $*
+  do
+    echo "_DECL_(${segment%.d})"
+  done
+}
+
+d2gz() {
+  dfile=$1
+  szsfile=${dfile%.d}.szs
+  if [ ! -f $dfile ]; then
+    echo " $dfile は存在しません" >&2
+    return 1;
+  fi
+  gzip -c -9 -n $dfile | dd bs=10 skip=1 of=$szsfile
+  $ROMALIGN 16 $szsfile
+}
+  
+
+rmv() {
+  for file in $*
+  do
+    if [ -f $file ]; then
+      echo " $file を削除します " >&2
+      rm -f $file
+    fi
+  done
+}
+
+sli() {
+  no=1
+  for dfile in $*
+  do
+    clearline
+    echo -n "$no/$#:$dfile" >& 2
+    szsfile=${dfile%.d}.szs
+    szpfile=${dfile%.d}.szp
+    ddfile=${dfile%.d}.dd
+    case ${dfile} in
+      makerom.d | boot.d | dmadata.d | Audiobank.d | Audioseq.d | Audiotable.d )
+        echo " 圧縮しません（対象外） " >&2
+        rmv $szpfile $szsfile
+        ;;
+      kanji.d | link_animetion.d | icon_item_static.d | icon_item_24_static.d | item_name_static.d | map_name_static.d | do_action_static.d | message_static.d | message_data_static.d | message_texture_static.d | nes_font_static.d | nes_message_data_static.d | ger_message_data_static.d | fra_message_data_static.d | staff_message_data_static.d | map_grand_static.d | map_i_static.d | map_48x85_static.d  )
+        echo " 圧縮しません（分割ＤＭＡ） " >&2
+        rmv $szpfile $szsfile
+        ;;
+      test01_*.d )
+        echo " 圧縮しません（ツールテスト用） " >&2
+        rmv $szpfile $szsfile
+        ;;
+      vr_*_pal_static.d)
+        echo " 圧縮しません（非効率） " >&2
+        rmv $szpfile $szsfile
+        ;;
+      n64dd.d )
+        if [ $pflag = 2 ]; then
+          d2gz $dfile
+        else
+          echo " 圧縮しません（高速化） " >&2
+          rmv $szpfile $szsfile
+        fi
+        ;;
+      parameter_static.d | vr_*_static.d | title_static.d | \
+      *_scene.d | *_room_*.d | object_*.d | g_pn_*.d | gameplay_*.d | \
+      icon_item_field_static.d | icon_item_dungeon_static.d | icon_item_jpn_static.d | icon_item_nes_static.d | \
+      nintendo_rogo_static.d | \
+      code.d | z_select_static.d | ovl_*.d )
+        if [ $pflag = 2 -o $pflag = 1 ]; then
+          d2gz $dfile
+        else
+          echo " 圧縮しません（高速化） " >&2
+          rmv $szpfile $szsfile
+        fi
+        ;;
+      * )
+        if [ $pflag = 2 ]; then
+          d2gz $dfile
+        else
+          echo " 圧縮しません（高速化） " >&2
+          rmv $szpfile $szsfile
+        fi
+        ;;
+    esac
+    no=$((no+1))
+  done
+  echo >&2
+}
+
+#
+# ファイルのチェック
+#
+read_check() {
+  for file in $*
+  do
+    if [ ! -f $file ]; then
+      echo $file がありません
+      exit 1
+    elif [ ! -r $file ]; then
+      echo $file が読めません
+      exit 1
+    fi
+  done
+}
+
+#
+# オプション解析
+#
+optana() {
+  pflag=0 # 動作モード
+  cflag=0 # 1:圧縮キャッシュの整合性をチェックしない
+  bflag=1 # 1:ベリファイしない
+  while getopts ":p:c:b:" opt; do
+    case $opt in
+      p ) pflag=$OPTARG ;;
+      c ) cflag=$OPTARG ;;
+      b ) bflag=$OPTARG ;;
+      \? ) echo 'usage: zelda_press [-p #] [-c #] [-b #]'
+           echo '-p0 : *圧縮せずにテーブルだけをつくる'
+           echo '-p1 : 高速に圧縮する'
+           echo '-p2 : 完全に圧縮する'
+           echo '-p3 : 分割だけを行う'
+           echo '-c1 : 圧縮キャッシュの整合性をチェックしない'
+           echo '-c0 : *圧縮キャッシュの整合性をチェックする'
+           echo '-b1 : *ベリファイしない'
+           echo '-b0 : ベリファイする'
+           return 1 ;;
+    esac
+  done
+}
+
+optana $* || exit 1
+
+ZELDA_INFO=zelda_makerom.stdout
+ROMIMG=rom
+ROMPAK=romP
+ROMPAK32=romPP
+
+echo `date` "7 $ZELDA_INFO を解析し、rom.map を作成"
+read_check $ZELDA_INFO
+work=$(grep "Creating segment symbol source file in" $ZELDA_INFO)
+work=${work#"Creating segment symbol source file in "}
+read_check $work
+$ROMMAP $work > rom.map
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
+
+SEGDCL=z_segment.decl
+SEGBAK=z_segment.decl.bak
+SEGTMP=z_segment.decl.tmp
+echo `date` "6 rom.map を解析し $SEGDCL を作成"
+dfiles=`tail +2 rom.map|cut -d" " -f1`
+#(echo "/* Don't check in this file!! */"; echodecl $dfiles) > $SEGTMP
+echodecl $dfiles > $SEGTMP
+
+if ! cmp $SEGDCL $SEGTMP
+then
+  echo 
+  echo "＊圧縮に必要なテーブルを更新しました"
+  echo "＊圧縮ROMをつくるためにはこのテーブルを組み込む必要があります"
+  echo "＊もう一度 make し直してください＊"
+  echo 
+  mv $SEGDCL $SEGBAK
+  mv $SEGTMP $SEGDCL
+  exit 1
+fi
+
+if [ $pflag = 0 ]; then exit 0; fi
+
+echo `date` '5 $ROMIMG を分割し、*.d を作成'
+read_check $ROMIMG
+$ROMDIVIDE rom.map $ROMIMG
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
+
+if [ $pflag = 3 ]; then exit 0; fi
+
+echo `date` '4 *.d を圧縮し、 *.szp を作成'
+sli *.d
+
+echo `date` '3 *.d *.szp のサイズを調べ、dmadata.d を作成'
+read_check dmadata.d
+cp dmadata.d dmadata.d.bak
+echo "dmadata のマップ情報は dmadata.map に出力されます"
+$ROMADDRESS rom.map dmadata.d > dmadata.map
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
+#ls -l dmadata.d dmadata.d.bak
+
+echo `date` '2 *.d *.szp を連結して 圧縮 $ROMIMG を作成'
+read_check makerom.d
+segmentcat makerom.d $dfiles > $ROMPAK
+
+echo " makemaskは省略します "
+##echo " makemaskするとgloadできなくなる "
+##$MAKEMASK $ROMPAK
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
+
+echo `date` "1 ロムサイズ調整＆結果表示 (32M=33554432)"
+#$ROMFILL $ROMPAK $ROMPAK32 33554432
+cp $ROMPAK $ROMPAK32
+ls -l $ROMIMG $ROMPAK $ROMPAK32
+
+echo `date` "0 後始末"
+#\rm $ROMPAK *.d *.dd *.szp

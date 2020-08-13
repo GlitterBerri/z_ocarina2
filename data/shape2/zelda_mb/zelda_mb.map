@@ -1,0 +1,77 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           141a0
+		.data                  0             6c0 mbV_b_die.o
+		.data                6c0             2b0 mbV_b_dmg.o
+		.data                970             6a0 mbV_bjump.o
+		.data               1010             6c0 mbV_f_die.o
+		.data               16d0             290 mbV_f_dmg.o
+		.data               1960             f90 mbV_n_wait.o
+		.data               28f0             330 mbV_pose.o
+		.data               2c20             300 mbV_run.o
+		.data               2f20            12a0 mbV_s_wait.o
+		.data               41c0            4d90 mbV_s_wait_mdl.o
+		.data               8f50             340 mbV_stop.o
+		.data               9290             1d0 mbV_turn.o
+		.data               9460             b70 mbV_walk.o
+		.data               9fd0             450 mbV_walk_end.o
+		.data               a420             400 mbV_walk_start.o
+		.data               a820             3d0 mn_attack.o
+		.data               abf0             8e0 mn_brandish.o
+		.data               b4d0             9a0 mn_die.o
+		.data               be70             5f0 mn_dmg.o
+		.data               c460             ad0 mn_lift.o
+		.data               cf30             460 mn_sit.o
+		.data               d390             260 mn_sitdmg.o
+		.data               d5f0             bb0 mn_standup.o
+		.data               e1a0             a60 mn_wait.o
+		.data               ec00            55a0 mn_wait_mdl.o
+
+.strtab                                0             5a3
+		.strtab                0             5a3 *ld_internal*
+
+.symtab                                0             4b0
+		.symtab                0             4b0 *ld_internal*
+
+.mdebug                                0            2c70
+		.mdebug                0            2c70 *ld_internal*
+
+.rel.data                              0             ac0
+		.rel.data              0              10 mbV_b_die.o
+		.rel.data             10              10 mbV_b_dmg.o
+		.rel.data             20              10 mbV_bjump.o
+		.rel.data             30              10 mbV_f_die.o
+		.rel.data             40              10 mbV_f_dmg.o
+		.rel.data             50              10 mbV_n_wait.o
+		.rel.data             60              10 mbV_pose.o
+		.rel.data             70              10 mbV_run.o
+		.rel.data             80              10 mbV_s_wait.o
+		.rel.data             90             498 mbV_s_wait_mdl.o
+		.rel.data            528              10 mbV_stop.o
+		.rel.data            538              10 mbV_turn.o
+		.rel.data            548              10 mbV_walk.o
+		.rel.data            558              10 mbV_walk_end.o
+		.rel.data            568              10 mbV_walk_start.o
+		.rel.data            578              10 mn_attack.o
+		.rel.data            588              10 mn_brandish.o
+		.rel.data            598              10 mn_die.o
+		.rel.data            5a8              10 mn_dmg.o
+		.rel.data            5b8              10 mn_lift.o
+		.rel.data            5c8              10 mn_sit.o
+		.rel.data            5d8              10 mn_sitdmg.o
+		.rel.data            5e8              10 mn_standup.o
+		.rel.data            5f8              10 mn_wait.o
+		.rel.data            608             4b8 mn_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

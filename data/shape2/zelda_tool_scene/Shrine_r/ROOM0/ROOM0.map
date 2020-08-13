@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           54a50
+		.data                  0            2000 room_info.o
+		.data               2000              50 shrine_r_0_shape.o
+		.data               2050            7a00 shrine_r.o
+		.data               9a50           25800 shrine_r1_txt.o
+		.data              2f250           25800 shrine_r2_txt.o
+
+.strtab                                0             1df
+		.strtab                0             1df *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0             72c
+		.mdebug                0             72c *ld_internal*
+
+.rel.data                              0             2f8
+		.rel.data              0              28 shrine_r_0_shape.o
+		.rel.data             28             2d0 shrine_r.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

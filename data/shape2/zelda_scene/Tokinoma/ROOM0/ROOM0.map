@@ -1,0 +1,55 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           171e0
+		.data                  0             100 tokinoma_0_info.o
+		.data                100              20 tokinoma_0_shape.o
+		.data                120              c0 tokinoma_0_info_d0.o
+		.data                1e0              90 tokinoma_0_info_d1.o
+		.data                270              80 tokinoma_0_info_d10.o
+		.data                2f0              c0 tokinoma_0_info_d2.o
+		.data                3b0              80 tokinoma_0_info_d3.o
+		.data                430              80 tokinoma_0_info_d4.o
+		.data                4b0              80 tokinoma_0_info_d5.o
+		.data                530              80 tokinoma_0_info_d6.o
+		.data                5b0              60 tokinoma_0_info_d7.o
+		.data                610              80 tokinoma_0_info_d8.o
+		.data                690              80 tokinoma_0_info_d9.o
+		.data                710           16ad0 tokinoma_grp_kyr00_00.o
+
+.strtab                                0             47e
+		.strtab                0             47e *ld_internal*
+
+.symtab                                0             330
+		.symtab                0             330 *ld_internal*
+
+.mdebug                                0            33a4
+		.mdebug                0            33a4 *ld_internal*
+
+.rel.data                              0             720
+		.rel.data              0              78 tokinoma_0_info.o
+		.rel.data             78              18 tokinoma_0_shape.o
+		.rel.data             90              18 tokinoma_0_info_d0.o
+		.rel.data             a8              18 tokinoma_0_info_d1.o
+		.rel.data             c0              18 tokinoma_0_info_d10.o
+		.rel.data             d8              18 tokinoma_0_info_d2.o
+		.rel.data             f0              18 tokinoma_0_info_d3.o
+		.rel.data            108              18 tokinoma_0_info_d4.o
+		.rel.data            120              18 tokinoma_0_info_d5.o
+		.rel.data            138              18 tokinoma_0_info_d6.o
+		.rel.data            150              18 tokinoma_0_info_d7.o
+		.rel.data            168              18 tokinoma_0_info_d8.o
+		.rel.data            180              18 tokinoma_0_info_d9.o
+		.rel.data            198             588 tokinoma_grp_kyr00_00.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,36 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1c10
+		.data                  0             1a0 hanebashi01_chain.o
+		.data                1a0             110 hanebashi01_chain_bgc.o
+		.data                2b0             230 hanebashi01_ita.o
+		.data                4e0             130 hanebashi01_ita_bgc.o
+		.data                610            1600 tex.o
+
+.strtab                                0              c1
+		.strtab                0              c1 *ld_internal*
+
+.symtab                                0              b0
+		.symtab                0              b0 *ld_internal*
+
+.mdebug                                0             694
+		.mdebug                0             694 *ld_internal*
+
+.rel.data                              0              70
+		.rel.data              0              20 hanebashi01_chain.o
+		.rel.data             20              20 hanebashi01_chain_bgc.o
+		.rel.data             40              10 hanebashi01_ita.o
+		.rel.data             50              20 hanebashi01_ita_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

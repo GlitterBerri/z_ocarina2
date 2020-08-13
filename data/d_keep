@@ -1,0 +1,17 @@
+#!/bin/sh
+set -x
+#
+# $Id: d_keep,v 1.1.1.1 2003/03/10 22:59:36 tong Exp $
+#
+# $Log: d_keep,v $
+# Revision 1.1.1.1  2003/03/10 22:59:36  tong
+# new OBJ tree for ocarina from Nintendo
+#
+# Revision 2.1  1998/10/22  12:42:44  hayakawa
+# ＲＯＭ出しバージョン(NTSC)
+#
+# Revision 1.1  1997-04-18 19:45:48+09  iwawaki
+# Initial revision
+#
+#
+ld -r -o d_keep.o -objectlist d_keep.objs -m > d_keep.map

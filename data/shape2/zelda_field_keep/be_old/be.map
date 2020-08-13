@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1e30
+		.data                  0              b0 bee_hovering.o
+		.data                 b0            1d80 bee_hovering_mdl.o
+
+.strtab                                0             1c5
+		.strtab                0             1c5 *ld_internal*
+
+.symtab                                0             1e0
+		.symtab                0             1e0 *ld_internal*
+
+.mdebug                                0             ba8
+		.mdebug                0             ba8 *ld_internal*
+
+.rel.data                              0             148
+		.rel.data              0              10 bee_hovering.o
+		.rel.data             10             138 bee_hovering_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

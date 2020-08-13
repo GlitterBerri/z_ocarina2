@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a5e0
+		.data                  0             660 testgirl2_furimukiwait.o
+		.data                660             330 testgirl2_furimuku.o
+		.data                990             450 testgirl2_hello.o
+		.data                de0             b30 testgirl2_kyorokyoro.o
+		.data               1910             210 testgirl2_syoumen.o
+		.data               1b20             310 testgirl2_tereend.o
+		.data               1e30             770 testgirl2_tereru.o
+		.data               25a0             580 testgirl2_terewait.o
+		.data               2b20             560 testgirl2_wait.o
+		.data               3080            6780 testgirl2_wait_mdl.o
+		.data               9800             7b0 testgirl2_walk.o
+		.data               9fb0             2f0 testgirl2_walk_end.o
+		.data               a2a0             340 testgirl2_walk_start.o
+
+.strtab                                0             889
+		.strtab                0             889 *ld_internal*
+
+.symtab                                0             780
+		.symtab                0             780 *ld_internal*
+
+.mdebug                                0            2ffc
+		.mdebug                0            2ffc *ld_internal*
+
+.rel.data                              0             580
+		.rel.data              0              10 testgirl2_furimukiwait.o
+		.rel.data             10              10 testgirl2_furimuku.o
+		.rel.data             20              10 testgirl2_hello.o
+		.rel.data             30              10 testgirl2_kyorokyoro.o
+		.rel.data             40              10 testgirl2_syoumen.o
+		.rel.data             50              10 testgirl2_tereend.o
+		.rel.data             60              10 testgirl2_tereru.o
+		.rel.data             70              10 testgirl2_terewait.o
+		.rel.data             80              10 testgirl2_wait.o
+		.rel.data             90             4c0 testgirl2_wait_mdl.o
+		.rel.data            550              10 testgirl2_walk.o
+		.rel.data            560              10 testgirl2_walk_end.o
+		.rel.data            570              10 testgirl2_walk_start.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

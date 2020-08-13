@@ -1,0 +1,10 @@
+zelda_bv/g_boss_e_name3.inta         Bv.o            0x7c    0x2630    5120
+zelda_fantomHG/g_boss_e_name4.inta   FantomHG.o      0x7c    0x6da0    5120 
+zelda_fd/g_boss_e_name5.inta         fd.o            0x7c    0xeb00    5120
+zelda_ganon2/g_boss_e_name10.inta    B_ganon2.o      0x7c    0x22e90   5120
+zelda_ganon/g_boss_e_name9.inta      B_ganon.o       0x7c    0xe300    5120
+zelda_goma/g_boss_e_name1.inta       Go.o            0x7c    0x1afa8   5120
+zelda_kdodongo/g_boss_e_name2.inta   Kdodongo.o      0x7c    0x18810   5120
+zelda_mo/g_boss_e_name6.inta         mo.o            0x7c    0x2410    5120
+zelda_sst/g_boss_e_name8.inta        Sst.o           0x7c    0x15180   5120
+zelda_tw/g_boss_e_name7.inta         tw.o            0x7c    0x2f570   5120

@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           10270
+		.data                  0             c80 m_FBRsizumi.o
+		.data                c80             120 m_FBRsizumi_bgc.o
+		.data                da0            53c0 vb_ALLparts.o
+		.data               6160              90 vb_FWDtest.o
+		.data               61f0            9e40 vb_FWDtest_mdl.o
+		.data              10030              50 vb_LarmONLY.o
+		.data              10080              70 vb_LarmONLY_mdl.o
+		.data              100f0              50 vb_RarmONLY.o
+		.data              10140              70 vb_RarmONLY_mdl.o
+		.data              101b0              50 vb_headONLY.o
+		.data              10200              70 vb_headONLY_mdl.o
+
+.strtab                                0             79a
+		.strtab                0             79a *ld_internal*
+
+.symtab                                0             6e0
+		.symtab                0             6e0 *ld_internal*
+
+.mdebug                                0            2cc0
+		.mdebug                0            2cc0 *ld_internal*
+
+.rel.data                              0             910
+		.rel.data              0              48 m_FBRsizumi.o
+		.rel.data             48              20 m_FBRsizumi_bgc.o
+		.rel.data             68             2e0 vb_ALLparts.o
+		.rel.data            348              10 vb_FWDtest.o
+		.rel.data            358             458 vb_FWDtest_mdl.o
+		.rel.data            7b0              10 vb_LarmONLY.o
+		.rel.data            7c0              68 vb_LarmONLY_mdl.o
+		.rel.data            828              10 vb_RarmONLY.o
+		.rel.data            838              68 vb_RarmONLY_mdl.o
+		.rel.data            8a0              10 vb_headONLY.o
+		.rel.data            8b0              60 vb_headONLY_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

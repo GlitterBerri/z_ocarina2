@@ -1,0 +1,10 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.rdata  			      00	      00
+
+.data   			      00	     930
+		.data   	      00	     930 skelton_walk.o

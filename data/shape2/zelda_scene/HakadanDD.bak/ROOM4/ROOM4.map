@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1d30
+		.data                  0              d0 HAKAdanDD_4_info.o
+		.data                 d0              d0 HAKAdan_4_info.o
+		.data                1a0              40 HAKAdanDD_4_shape.o
+		.data                1e0            1b50 HAKAdan_grp_Haka04.o
+
+.strtab                                0             10f
+		.strtab                0             10f *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             8d8
+		.mdebug                0             8d8 *ld_internal*
+
+.rel.data                              0              f8
+		.rel.data              0              18 HAKAdanDD_4_info.o
+		.rel.data             18              18 HAKAdan_4_info.o
+		.rel.data             30              28 HAKAdanDD_4_shape.o
+		.rel.data             58              a0 HAKAdan_grp_Haka04.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

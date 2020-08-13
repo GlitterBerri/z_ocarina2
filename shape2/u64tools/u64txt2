@@ -1,0 +1,14 @@
+#!/bin/csh
+
+if ($#argv != 3) then
+        echo 'u64txt [RGBA, YUV, CI, IA, I, A] [4, 8, 16, 32] [File Name]'
+else
+        set names = ($argv[3])
+        foreach name ($names)
+                rgb2c -F -f $argv[1] -s $argv[2] "$name" > $name:r.c
+                chg static '\/\/' $name:r.c
+                chg gsSP '\/\/' $name:r.c
+                chg texture $name:r_txt $name:r.c
+                chg '\.' _ $name:r.c
+        end
+endif

@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5370
+		.data                  0            1000 gi_medal_1.o
+		.data               1000             c10 gi_medal_2.o
+		.data               1c10             d90 gi_medal_3.o
+		.data               29a0             dd0 gi_medal_4.o
+		.data               3770             cf0 gi_medal_5.o
+		.data               4460             f10 gi_medal_6.o
+
+.strtab                                0              a1
+		.strtab                0              a1 *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             63c
+		.mdebug                0             63c *ld_internal*
+
+.rel.data                              0             100
+		.rel.data              0              60 gi_medal_1.o
+		.rel.data             60              18 gi_medal_2.o
+		.rel.data             78              20 gi_medal_3.o
+		.rel.data             98              20 gi_medal_4.o
+		.rel.data             b8              20 gi_medal_5.o
+		.rel.data             d8              28 gi_medal_6.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

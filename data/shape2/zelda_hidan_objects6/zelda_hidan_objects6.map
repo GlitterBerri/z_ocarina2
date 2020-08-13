@@ -1,0 +1,37 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             ee0
+		.data                  0             370 m_Fbmfl.o
+		.data                370             130 m_Fbmwall1.o
+		.data                4a0             100 m_Fbmwall2.o
+		.data                5a0             700 m_Fhocklift.o
+		.data                ca0             240 m_Fhocklift_bgc.o
+
+.strtab                                0             117
+		.strtab                0             117 *ld_internal*
+
+.symtab                                0             110
+		.symtab                0             110 *ld_internal*
+
+.mdebug                                0             6dc
+		.mdebug                0             6dc *ld_internal*
+
+.rel.data                              0              e8
+		.rel.data              0              38 m_Fbmfl.o
+		.rel.data             38              18 m_Fbmwall1.o
+		.rel.data             50              18 m_Fbmwall2.o
+		.rel.data             68              60 m_Fhocklift.o
+		.rel.data             c8              20 m_Fhocklift_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

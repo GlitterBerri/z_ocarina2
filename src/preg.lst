@@ -1,0 +1,39 @@
+/*
+####
+###  ゼルダカメラ デバッグ用レジスタ設定リスト
+####
+###
+##   作成者 : hiratsu@crucian
+##   作成日 : 103年2月26日(水) 9時26分
+###
+####
+*/
+
+PR00	 -20		| CTRH                           
+PR01	 200		| MIND                           
+PR02	 300		| MAXD                           
+PR03	  10		| ANGV                           
+PR04	  12		| CUSH                           
+PR05	  10		| CUSC                           
+PR06	  35		| SPRH                           
+PR07	  60		| FOVY                           
+PR08	  60		| SHFT                           
+PR09	   3		| FLAG                           
+PR10	   0		| ANGH                           
+PR11	 -40		| CTRU                           
+PR12	  20		| SHFU                           
+PR13	  25		| NARC                           
+PR14	  45		| FARC                           
+PR15	  -5		| NARV                           
+PR16	  15		| FARV                           
+PR17	  15		| ADJV                           
+PR18	  20		| MARD                           
+PR19	   0		| ADJX                           
+PR20	   0		| ADJY                           
+PR21	   0		| ADJZ                           
+PR22	   6		| TIME                           
+PR23	  60		| MAXH                           
+PR24	  30		| ADJF                           
+PR25	   0		| CTRR                           
+PR26	   5		| CUSL                           
+

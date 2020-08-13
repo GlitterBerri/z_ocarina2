@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             d10
+		.data                  0             310 m_FOtiAF.o
+		.data                310             110 m_FOtiAF_bgc.o
+		.data                420             480 m_FOtiBFhead.o
+		.data                8a0             110 m_FOtiBFhead_bgc.o
+		.data                9b0             250 m_FOtiBFtail.o
+		.data                c00             110 m_FOtiBFtail_bgc.o
+
+.strtab                                0              c4
+		.strtab                0              c4 *ld_internal*
+
+.symtab                                0              c0
+		.symtab                0              c0 *ld_internal*
+
+.mdebug                                0             800
+		.mdebug                0             800 *ld_internal*
+
+.rel.data                              0              f0
+		.rel.data              0              30 m_FOtiAF.o
+		.rel.data             30              20 m_FOtiAF_bgc.o
+		.rel.data             50              38 m_FOtiBFhead.o
+		.rel.data             88              20 m_FOtiBFhead_bgc.o
+		.rel.data             a8              28 m_FOtiBFtail.o
+		.rel.data             d0              20 m_FOtiBFtail_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

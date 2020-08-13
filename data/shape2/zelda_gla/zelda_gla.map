@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            9ef0
+		.data                  0             340 geldA_attack.o
+		.data                340             450 geldA_attack_end.o
+		.data                790             a80 geldA_down.o
+		.data               1210             3d0 geldA_find.o
+		.data               15e0             570 geldA_find_wait.o
+		.data               1b50            6e30 geldA_find_wait_mdl.o
+		.data               8980             3f0 geldA_run.o
+		.data               8d70             b50 geldA_wait.o
+		.data               98c0             630 geldA_walk.o
+
+.strtab                                0             343
+		.strtab                0             343 *ld_internal*
+
+.symtab                                0             2c0
+		.symtab                0             2c0 *ld_internal*
+
+.mdebug                                0            14ac
+		.mdebug                0            14ac *ld_internal*
+
+.rel.data                              0             628
+		.rel.data              0              10 geldA_attack.o
+		.rel.data             10              10 geldA_attack_end.o
+		.rel.data             20              10 geldA_down.o
+		.rel.data             30              10 geldA_find.o
+		.rel.data             40              10 geldA_find_wait.o
+		.rel.data             50             5a8 geldA_find_wait_mdl.o
+		.rel.data            5f8              10 geldA_run.o
+		.rel.data            608              10 geldA_wait.o
+		.rel.data            618              10 geldA_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

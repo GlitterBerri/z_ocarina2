@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4450
+		.data                  0              90 hakasitarelay_5_info.o
+		.data                 90              20 hakasitarelay_5_shape.o
+		.data                 b0            43a0 hakasitarelay_grp_rel06_00.o
+
+.strtab                                0             103
+		.strtab                0             103 *ld_internal*
+
+.symtab                                0              b0
+		.symtab                0              b0 *ld_internal*
+
+.mdebug                                0             8d4
+		.mdebug                0             8d4 *ld_internal*
+
+.rel.data                              0             1b8
+		.rel.data              0              18 hakasitarelay_5_info.o
+		.rel.data             18              18 hakasitarelay_5_shape.o
+		.rel.data             30             188 hakasitarelay_grp_rel06_00.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

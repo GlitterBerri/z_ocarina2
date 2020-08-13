@@ -1,0 +1,33 @@
+------------------------------------------------------------------------
+  F3DZEX2 (Zelda64 用) マイクロコード説明書
+------------------------------------------------------------------------
+
+  F3DZEX2 マイクロコードは F3DZEX マイクロコードの F3DEX2 対応版です.
+F3DEX2 と F3DZEX2 の違いは g*SPBranchLessZ の代りに, g*SPBranchLessZraw
+が使用できることです. F3DZEX シリーズでは, g*SPBranchLessZraw をお使い
+下さい. 
+
+    gSPBranchLessZraw(pkt, dl, vtx, zval)
+    gsSPBranchLessZraw(dl, vtx, zval)
+
+    Gfx             *dl     分岐先の DL
+    unsigned int    vtx     比較対象になる頂点の番号 (zval 以下なら分岐)
+    unsigned short  zval    比較する Depth 値
+
+  先に対応するバージョンの F3DEX2 をインストールしてください.
+その後 ucode_z.h を /usr/include/PR へ gspF3DZEX2.*.o を /usr/lib/PR へ
+コピーしてください. その他制限事項は F3DEX2 を参考にしてください.
+
+  バージョン 2.02B 以降で S2DEX2 との自己ロードが出来るようになりました.
+
+● 変更履歴
+
+  Mar-31-98  Release 2.01A
+	最初のバージョン
+
+  Apr-21-98  Release 2.02B
+	S2DEX2 とロードが可能になった.
+	その他のバグ修正についての情報は F3DEX2 の README.jp を参考.
+	rspboot0 から起動しないと動作しないようにした.
+
+------------------------------------------------------------------------

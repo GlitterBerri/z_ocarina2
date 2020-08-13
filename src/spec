@@ -1,0 +1,1307 @@
+/*
+ * $Id: spec,v 1.5 2003/10/09 00:58:04 wheeler Exp $
+ *
+ *
+ * ¥¼¥ë¥À£¶£´ ¥¹¥Ú¥Ã¥¯ ¥Õ¥¡¥¤¥ë
+ *
+ * ¤½¤ÎÂ¾¤Î¥»¥°¥á¥ó¥È¤Ï spec.segment ¤ËÅÐÏ¿¤¹¤ë
+ * ¥ª¡¼¥Ð¡¼¥ì¥¤¤Ï spec_ovl.dat ¤ËÅÐÏ¿¤¹¤ë
+ * (spec_ovl.dat ¢ª spec_seg_ovl.inc, spec_inc_ovl.inc)
+ *
+ * $Log: spec,v $
+ * Revision 1.5  2003/10/09 00:58:04  wheeler
+ * Override icon_item.o, not gi_soldout.o
+ *
+ * Revision 1.4  2003/09/17 23:38:05  wheeler
+ * if LOCALE==CHINA then use chinese credits
+ *
+ * Revision 1.3  2003/05/13 03:07:09  tong
+ * added chinese font and msg segment
+ *
+ * Revision 1.2  2003/04/30 18:09:14  tong
+ * added LOCALE==CHINA
+ *
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.8  2001-05-10 13:48:47+09  zelda
+ * USE_NEW_DUNGEON$BBP1~(B?
+ *
+ * Revision 2.7  2001-04-04 16:55:27+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 2.6  2001-04-04 16:21:47+09  zelda
+ * ¥É¥ë¥Õ¥£¥ó¥¨¥ß¥å¥ì¡¼¥¿ÍÑ²¾¤°¤ßÈÇ CIC¤È64DDÂÐ±þÉôÊ¬¤ò¤Ï¤º¤·¤¿¥Ð¡¼¥¸¥ç¥ó
+ *
+ * Revision 2.5  1998-10-29 09:50:31+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 2.4  1998-10-29 09:49:10+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 2.3  1998-10-28 19:15:23+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 2.2  1998-10-27 21:23:51+09  soejima
+ * £Ð£Á£Ì»ÅÍÍ
+ *
+ * Revision 2.1  1998-10-22 20:41:56+09  zelda
+ * £Ò£Ï£Í½Ð¤·¥Ð¡¼¥¸¥ç¥ó(NTSC)
+ *
+ * Revision 1.317  1998/10/15 08:29:19  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.316  1998-10-15 17:27:52+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.315  1998-10-14 18:33:58+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.314  1998-10-14 14:19:37+09  matutani
+ * ÀèÆ¬¤¬en_skeleton¤«¤éen_test¤ËÊÑ¤Ã¤¿¤¿¤á¡¢ÊÑ¹¹¤·¤Þ¤·¤¿¡£
+ *
+ * Revision 1.313  1998-10-06 23:12:53+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.312  1998-10-02 21:39:08+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.311  1998-10-02 21:12:32+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.310  1998-09-29 20:24:29+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.309  1998-09-29 09:25:27+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.308  1998-09-28 23:15:00+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.307  1998-09-24 23:05:00+09  hayakawa
+ * CIC¥Æ¥¹¥È
+ *
+ * Revision 1.306  1998-09-18 14:14:59+09  hayakawa
+ * new rspboot0
+ *
+ * Revision 1.305  1998-09-15 13:37:53+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.304  1998-09-15 13:24:16+09  zelda
+ * SCENE_TOOL¤Î¤È¤­nullsegment¤ò¤Ä¤¯¤é¤Ê¤¤¤è¤¦¤Ë¤·¤¿
+ *
+ * Revision 1.303  1998-09-15 13:17:27+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.302  1998-09-15 12:05:17+09  hayakawa
+ * null ¢ª nullsegment
+ *
+ * Revision 1.301  1998-09-14 14:50:32+09  zelda
+ * null ¥»¥°¥á¥ó¥È¡ª¡©
+ *
+ * Revision 1.300  1998-09-11 22:31:17+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.299  1998-09-09 14:33:01+09  zelda
+ * rspboot0.test
+ *
+ * Revision 1.298  1998-09-05 17:52:39+09  hayakawa
+ * ÉÔÍ×¤Ê½èÍý¤ò¤Ï¤º¤·¤Æ¤Á¤ç¤Ã¤È¤Ç¤â¥á¥â¥ê¤ò¸º¤é¤½¤¦
+ *
+ * Revision 1.297  1998-09-03 23:12:16+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.296  1998-09-02 20:23:22+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.295  1998-08-29 21:03:29+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.294  1998-08-29 15:25:42+09  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.293  1998-08-28 22:25:20+09  zelda
+ * ROM_X¤Çmap_name_static¤ò£Ò£Ï£Í¤Î¸å¤í¤ÎÊý¤Ë»ý¤Ã¤Æ¤¤¤Ã¤Æ
+ * £³£²£Í¥ª¡¼¥Ð¡¼¤Ç¤â¤È¤ê¤¢¤¨¤ºÆ°¤¯¤è¤¦¤Ë¤·¤Æ¤ß¤¿
+ *
+ * Revision 1.292  1998-08-13 16:11:20+09  zelda
+ * elif
+ *
+ * Revision 1.291  1998-08-12 22:45:52+09  hayakawa
+ * rspboot0¤òÆÉ¤Þ¤Ê¤¤¤è¤¦¤Ë¤·¤¿
+ *
+ * Revision 1.290  1998-07-31 22:17:17+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.289  1998-07-30 19:26:45+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.288  1998-07-30 17:00:32+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.287  1998-07-30 16:37:56+09  hayakawa
+ * ¥Þ¥¤¥¯¥í¥³¡¼¥É¥Ð¡¼¥¸¥ç¥ó¥¢¥Ã¥×
+ * romalign ÂÐºö¥Æ¥¹¥È
+ *
+ * Revision 1.286  1998-07-28 20:11:29+09  zelda
+ * romalign ¥Æ¥¹¥È
+ *
+ * Revision 1.285  1998-07-24 22:18:56+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.284  1998-06-18 21:07:59+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.283  1998-06-17 13:44:08+09  hayakawa
+ * RGBA16JPEG ÂÐ±þ
+ *
+ * Revision 1.282  1998-06-15 15:29:27+09  hayakawa
+ * ¥Þ¥¤¥¯¥í¥³¡¼¥É¥Ð¡¼¥¸¥ç¥ó¥¢¥Ã¥×F3DZEX2_2.05G
+ *
+ * Revision 1.281  1998-06-11 22:16:12+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.280  1998-06-11 16:12:11+09  hayakawa
+ * S2DEX 1.07 ¥Æ¥¹¥È
+ *
+ * Revision 1.279  1998-06-10 19:20:14+09  zelda
+ * 2.NoN¤ÈÈó2.NoN¤Î¥Æ¥¹¥È
+ *
+ * Revision 1.278  1998-06-10 13:54:23+09  zelda
+ * F3DZEX2 test
+ *
+ * Revision 1.277  1998-06-10 12:02:29+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.276  1998-06-08 22:39:12+09  zelda
+ * ucode test
+ *
+ * Revision 1.275  1998-06-03 13:49:27+09  hayakawa
+ * SREG(31)¤ò£²¤Ë¤¹¤ë¤ÈÉ¸½à¥Þ¥¤¥¯¥í¥³¡¼¥É¤Î¥Æ¥¹¥È
+ *
+ * Revision 1.274  1998-06-02 19:01:56+09  zelda
+ * *** empty log message ***
+ *
+ * Revision 1.273  1998-05-27 15:08:13+09  hayakawa
+ * ¥³¥á¥ó¥È·Á¼°ÊÑ¹¹
+ * ¾ò·ï¥³¥ó¥Ñ¥¤¥ëÀ°Íý
+ *
+ * Revision 1.272  1998-05-27 14:04:00+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.271  1998-05-18 13:20:31+09  hayakawa
+ *
+ * Revision 1.270  1998-05-11 17:45:54+09  soejima
+ * map_BMORI_static
+ *
+ * Revision 1.269  1998-05-08 20:22:18+09  hayakawa
+ * gspS2DEX2.fifo
+ *
+ * Revision 1.268  1998-04-30 20:56:12+09  hayakawa
+ * Æ°Åª¥¢¥É¥ì¥¹£Ã£Æ£Â
+ *
+ * Revision 1.267  1998-04-30 10:24:41+09  hayakawa
+ * 64DD¾ò·ï¥³¥ó¥Ñ¥¤¥ë
+ *
+ * Revision 1.266  1998-04-28 21:40:28+09  hayakawa
+ * 64DD¾ò·ï¥³¥ó¥Ñ¥¤¥ë
+ *
+ * Revision 1.265  1998-04-28 19:31:32+09  soejima
+ * icon_item_field_static, icon_item_dungeon_static
+ *
+ * Revision 1.264  1998-04-27 21:48:48+09  hayakawa
+ * ¿··¿¥Þ¥¤¥¯¥í¥³¡¼¥ÉÂÐ±þ½àÈ÷
+ *
+ * Revision 1.263  1998-04-24 17:54:10+09  hayakawa
+ * Revision 1.262  1998-04-10 22:38:04+09  soejima
+ * map_DDAN  map_YDAN
+ * 
+ * Revision 1.261  1998-04-10 12:25:37+10  hayakawa
+ * ¤¸¤ç¤¦¤±¤ó¤Ï¤º¤·
+ * 
+ * Revision 1.260  1998-04-09 17:40:33+09  hayakawa
+ * z_select_segment²½
+ * 
+ * Revision 1.259  1998/04/03  13:15:45  hayakawa
+ * jpeg¥Æ¥¹¥È
+ *
+ * Revision 1.258  1998/04/01  13:14:17  hayakawa
+ * ¤µ¤è¤¦¤Ê¤é onetri ·¯¤Î¤³¤È¤ÏËº¤ì¤Ê¤¤
+ *
+ * Revision 1.257  1998/03/26  10:39:12  hayakawa
+ * ¥»¥°¥á¥ó¥È½çÈÖ¤òÂÐ±þ¤µ¤»¤ë¤¿¤á¤¤¤¯¤Ä¤«¤Î¥»¥°¥á¥ó¥È¤ò°ÜÆ°
+ *
+ * Revision 1.256  1998/03/24  14:10:04  hayakawa
+ * ¥Þ¥¤¥¯¥í¥³¡¼¥É¤Î°ÌÃÖ¤òÊÑ¤¨¤¿
+ *
+ * Revision 1.255  1998/03/23  09:48:15  hayakawa
+ * CIC¤Î¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤¬ÀèÆ¬£±£Í¤·¤«¸«¤Ê¤¤¤Î¤Çrspboot.o¤ò¥Ö¡¼¥È¥»¥°¥á¥ó¥È¤Ë´Þ¤á¤¿
+ *
+ * Revision 1.254  1998/03/19  13:49:07  soejima
+ * icon_item_24_static
+ *
+ * Revision 1.253  1998/03/19  13:01:18  hayakawa
+ * CIC6105ÂÐ±þ
+ *
+ * Revision 1.252  1998/03/18  02:42:21  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.251  1998/03/17  10:11:59  hayakawa
+ * °µ½Ì¤·¤Æ¤¤¤Ê¤¤¥»¥°¥á¥ó¥È(spec.segment)¤òÁ°¤ÎÊý¤Ë»ý¤Ã¤Æ¤¤¤Ã¤¿
+ *
+ * Revision 1.250  1998/03/12  11:10:03  hayakawa
+ * ¥ª¡¼¥Ð¡¼¥ì¥¤¤ÎÅÐÏ¿¤ò spec_ovl.dat ¤Ë°Ü¤·¤¿¡£
+ * º£¸å¥ª¡¼¥Ð¡¼¥ì¥¤¤Î¤Ï spec_ovl.dat ¤Ë¹Ô¤Ã¤Æ¤¯¤À¤µ¤¤¡£
+ *
+ * Revision 1.249  1998/03/11  11:20:21  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.248  1998/03/10  12:56:04  morita
+ * z_boss_mo
+ *
+ * Revision 1.247  1998/03/10  04:57:46  komatu
+ * ¥Ê¥Ü¡¼¥ëÄÉ²Ã
+ *
+ * Revision 1.246  1998/03/09  09:17:39  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.245  1998/03/09  06:41:01  kuzuhara
+ * ¼ÍÅª¾ì´ØÏ¢
+ *
+ * Revision 1.244  1998/03/09  06:15:45  sakakibara
+ * £ó£ð£ï£ô£±£·  Ê®±ì ÄÉ²Ã
+ *
+ * Revision 1.243  1998/03/09  04:10:33  umemiya
+ * Êè²¼¥À¥ó¥¸¥ç¥ó¡¦¥ª¥Ö¥¸¥§¥¯¥ÈÄÉ²Ã
+ *
+ * Revision 1.242  1998/03/06  06:32:16  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.241  1998/03/06  04:58:51  hayakawa
+ * ¥«¥ì¥¤¥É¥¹¥³¡¼¥×ÎÎ°èÆþ¤ìÂØ¤¨ÂèÆóÃÆ¤Î½àÈ÷
+ *
+ * Revision 1.240  1998/03/04  09:35:20  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.239  1998/03/04  02:05:26  nisiwaki
+ * ¥ß¥é¡¼¥·¡¼¥ë¥É¸ú²Ì ÄÉ²Ã
+ *
+ * Revision 1.238  1998/03/03  13:40:29  umemiya
+ * ¥Ö¥í¥Ã¥ÖÄÉ²Ã
+ *
+ * Revision 1.237  1998/03/03  04:43:02  kuzuhara
+ * Ê¼»Î£²
+ * ²Ð»³ÃÆÈ¯À¸¥¨¥ó¥«¥¦¥ó¥È
+ * ²Ð»³ÃÆ
+ * 				¤ÎºîÀ®
+ *
+ * Revision 1.236  1998/03/02  04:39:22  umemiya
+ * Êè²¼¥À¥ó¥¸¥ç¥ó¡¦¥ª¥Ö¥¸¥§¥¯¥ÈÄÉ²Ã
+ *
+ * Revision 1.235  1998/02/27  13:54:26  morita
+ * *** empty log message ***
+ *
+ * Revision 1.234  1998/02/27  11:25:41  sakakibara
+ * ¥À¥ó¥¸¥ç¥ó¾ïÃó¥ª¡¼¥Ð¡¼¥ì¥¤²½
+ *
+ * Revision 1.233  1998/02/27  09:25:38  morita
+ * *** empty log message ***
+ *
+ * Revision 1.232  1998/02/26  13:09:15  sumiyosi
+ * ¥Õ¥ì¥¤¥à¥¦¥©¡¼¥«¡¼ÄÉ²Ã¤·¤Þ¤·¤¿¡£
+ *
+ * Revision 1.231  1998/02/26  00:59:18  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.230  1998/02/25  13:39:01  matutani
+ * ÊõÈ¢¤Î¸÷
+ *
+ * Revision 1.229  1998/02/25  09:20:29  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.228  1998/02/24  07:53:05  kuzuhara
+ * Å¨¥¨¥ó¥«¥¦¥ó¥È¥Æ¥¹¥È¤ÎºîÀ®
+ *
+ * Revision 1.227  1998/02/24  04:24:00  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.226  1998/02/23  07:39:22  tarukado
+ * ¥Ç¥Ã¥É¥Ï¥ó¥É¡õ¥Ç¥Ã¥É¥¢¡¼¥àÄÉ²Ã
+ *
+ * Revision 1.225  1998/02/21  11:00:03  sumiyosi
+ * ¥Õ¥ì¥¤¥à¥À¥ó¥µ¡¼¤Î¹¶·âÍÑ±ê¤òÄÉ²Ã¡£
+ *
+ * Revision 1.224  1998/02/21  07:53:59  morita
+ * boss_fd2
+ *
+ * Revision 1.223  1998/02/20  10:05:34  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.222  1998/02/20  07:48:14  matutani
+ * ËâË¡¡Ê±ê¡¢É÷¡¢É¹¡Ë
+ *
+ * Revision 1.221  1998/02/20  04:09:10  umemiya
+ * ¥¹¥Ý¥Ã¥È£°£²¥ª¥Ö¥¸¥§¥¯¥È¡¢ÊèÄÉ²Ã
+ *
+ * Revision 1.220  1998/02/19  13:56:11  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.219  1998/02/18  02:46:09  matutani
+ * »ÒÇÏÄÉ²Ã
+ *
+ * Revision 1.218  1998/02/16  08:45:35  sumiyosi
+ * ¥Õ¥ì¥¤¥à¥À¥ó¥µ¡¼¤òÄÉ²Ã
+ *
+ * Revision 1.217  1998/02/13  13:00:12  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.216  1998/02/13  07:33:47  soejima
+ * KALEIDOSEGMENT = z_kaleido_segment.o
+ *
+ * Revision 1.215  1998/02/13  06:01:18  hayakawa
+ *
+ * Revision 1.214  1998/02/13  03:03:04  nisiwaki
+ * ovl_En_Du¤òÄÉ²Ã
+ *
+ * Revision 1.213  1998/02/12  12:57:55  hayakawa
+ * ovl_kaleido_scope¤Î¥Æ¥¹¥È½àÈ÷
+ *
+ * Revision 1.212  1998/02/11  14:04:08  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.211  1998/02/10  05:59:22  morita
+ * Boss_Fd
+ *
+ * Revision 1.210  1998/02/10  05:45:33  morita
+ * Boss_FdÄÉ²Ã
+ *
+ * Revision 1.209  1998/02/09  13:54:29  sumiyosi
+ * ¥¹¥¿¥ë¥¦¥©¡¼¥ëÄÉ²Ã¡£
+ *
+ * Revision 1.208  1998/02/09  08:33:40  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.207  1998/02/05  12:22:57  umemiya
+ * ¥Ý¥¦»ÐËå¥¤¥Ù¥ó¥ÈÍÑ¥ª¥Ö¥¸¥§ÄÉ²Ã
+ *
+ * Revision 1.206  1998/02/02  00:21:02  umemiya
+ * ovl_Bg_Heavy_BlockÅÐÏ¿
+ *
+ * Revision 1.205  1998/01/30  03:00:30  umemiya
+ * ¥Ý¥¦»Í»ÐËåÄÉ²Ã
+ *
+ * Revision 1.204  1998/01/29  11:40:46  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.203  1998/01/29  02:11:39  kuzuhara
+ * ¾ëÊ¼»Î£±¤ò¤Ä¤¯¤ê¤Þ¤·¤¿¡ª
+ *
+ * Revision 1.202  1998/01/23  04:07:52  umemiya
+ * ¥Õ¥í¥¢¥Þ¥¹¥¿¡¼¡¢±ê¤Î¿ÀÅÂ¡¦±ê¤ÎÊÉÂçÄÉ²Ã
+ *
+ * Revision 1.201  1998/01/23  00:18:52  okajima
+ * Ë¿iwa¤µ¤ó¤Î¥ß¥¹½¤Àµ
+ *
+ * Revision 1.200  1998/01/22  13:43:53  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.199  1998/01/20  13:11:46  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.198  1998/01/20  10:27:39  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.197  1998/01/20  07:54:25  sumiyosi
+ * Êè¼é¡¦¥¿¥í¥ó¡¦¥·¡¼¥¯¤òÄÉ²Ã¡£
+ *
+ * Revision 1.196  1998/01/19  09:21:31  sakakibara
+ * ±ê¤Î¿ÀÅÂ¥ª¥Ö¥¸¥§¥¯¥È¡Ú¥Ý¥ó¥×¥Õ¥é¥¤¥ä¡ÛÄÉ²Ã
+ *
+ * Revision 1.195  1998/01/19  05:28:19  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.194  1998/01/14  05:48:08  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.193  1998/01/12  09:57:41  sakakibara
+ * ±ê¤Î¿ÀÅÂ¡¦¥Ï¥ó¥Þ¡¼¥¹¥Æ¥Ã¥×ÄÉ²Ã
+ *
+ * Revision 1.192  1998/01/09  13:37:15  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.191  1998/01/07  02:21:00  sakakibara
+ * ±ê¤Î¿ÀÅÂ¡¦³Ê»ÒÄÉ²Ã
+ *
+ * Revision 1.190  1998/01/05  12:13:23  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.189  1997/12/26  08:13:06  morita
+ * *** empty log message ***
+ *
+ * Revision 1.188  1997/12/24  06:34:44  sumiyosi
+ * Âç¥¼¥ë¥ÀÄÉ²Ã
+ *
+ * Revision 1.187  1997/12/24  05:07:41  umemiya
+ * ¥È¥é¥Ã¥×¾²¥Ó¥å¥ó¡¢»þ¤Î´Ö¡¦¥Þ¥¹¥¿¡¼¥½¡¼¥ÉÄÉ²Ã
+ *
+ * Revision 1.186  1997/12/18  08:24:06  umemiya
+ * »þ¤Î´Ö¡¦¥ª¥Ö¥¸¥§ÄÉ²Ã
+ *
+ * Revision 1.185  1997/12/17  08:58:24  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.184  1997/12/17  04:57:53  umemiya
+ * ¿¹¤Î¿ÀÅÂ¡¦¤Ò¤Í¤ê²óÏ­Éô²°ÄÉ²Ã
+ *
+ * Revision 1.183  1997/12/16  08:33:27  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.182  1997/12/15  10:02:49  matutani
+ * ¥Õ¥¡¥ó¥È¥à¥¬¥Î¥óÇÏ
+ *
+ * Revision 1.181  1997/12/11  09:50:00  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.180  1997/12/05  05:24:40  umemiya
+ * ¿å¤Î¿ÀÅÂ¡¦Æ°¤¯¿åÌÌÄÉ²Ã
+ *
+ * Revision 1.179  1997/12/04  09:42:01  umemiya
+ * ¿å¤Î¿ÀÅÂ¡¦MOVEBG¥ª¥Ö¥¸¥§ÄÉ²Ã
+ *
+ * Revision 1.178  1997/11/26  07:33:07  umemiya
+ * ¥Ð¥êÄÉ²Ã
+ *
+ * Revision 1.177  1997/11/15  11:33:40  hayakawa
+ * ¥í¥°¥³¥á¥ó¥È°ìÉôºï½ü
+ *
+ * Revision 1.176  1997/11/12  08:22:37  umemiya
+ * ÌÌ¥¯¥ê¥À¥ó¥¸¥ç¥ó¥ª¥Ö¥¸¥§¥¯¥ÈÄÉ²Ã
+ *
+ * Revision 1.175  1997/11/08  08:37:24  umemiya
+ * ¥Ç¥¯¥Ê¥Ã¥ÄÄÉ²Ã
+ *
+ * Revision 1.174  1997/11/06  00:52:40  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.173  1997/11/05  04:10:47  ogawa
+ * *** empty log message ***
+ *
+ * Revision 1.172  1997/11/05  03:00:53  hayakawa
+ * ??
+ *
+ * Revision 1.171  1997/10/27  13:47:02  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.170  1997/10/21  09:14:02  matutani
+ * ¥¼¥ë¥ÀÇÏ
+ *
+ * Revision 1.169  1997/10/19  12:31:23  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.168  1997/10/16  13:52:52  umemiya
+ * ¥É¥É¥ó¥´¥À¥ó¥¸¥ç¥ó¡¦¤»¤ê¤¢¤¬¤êÄÉ²Ã
+ *
+ * Revision 1.167  1997/10/16  08:41:23  sumiyosi
+ * En_GirlB¢ª»Ò¥¼¥ë¥À¤ËÊÑ¹¹¡£
+ *
+ * Revision 1.166  1997/10/08  14:16:43  hayakawa
+ * ¥Ò¡¼¥×¥µ¥¤¥º¤òÌ¤»ÈÍÑÎÎ°è¤«¤é¼è¤ë¤è¤¦¤Ë¤·¤¿
+ *
+ * Revision 1.165  1997/10/02  13:50:08  umemiya
+ * ¥Ç¥¯¥Ð¥ÐÄÉ²Ã
+ *
+ * Revision 1.164  1997/10/02  10:19:10  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.163  1997/10/02  07:54:38  sumiyosi
+ * £Î£Ð£ÃÄÉ²Ã
+ *
+ * Revision 1.162  1997/10/01  02:38:11  umemiya
+ * *** empty log message ***
+ *
+ * Revision 1.161  1997/09/29  13:26:45  umemiya
+ * ÍÅÀº¥À¥ó¥¸¥ç¥ó¥ª¥Ö¥¸¥§¥¯¥ÈÄÉ²Ã
+ *
+ * Revision 1.160  1997/09/29  10:55:16  sumiyosi
+ * ¥³¥­¥êÂ²¤Î½÷¤Î»ÒÄÉ²Ã
+ *
+ * Revision 1.159  1997/09/27  14:01:11  umemiya
+ * ±ê¤Î¿ÀÅÂ¡¦¥Õ¥Ã¥¯¥·¥ç¥Ã¥ÈÉÕ¤­¥ê¥Õ¥ÈÄÉ²Ã
+ *
+ * Revision 1.158  1997/09/26  04:28:03  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.157  1997/09/24  13:43:58  umemiya
+ * ¥¶¥³Ê¼¤ò°ì¤Ä¤ËÅý°ì¡¢±ê¤Î¿ÀÅÂ¡¦ÊõÈ¢¤ò¼é¤ë±ê¤òÄÉ²Ã
+ *
+ * Revision 1.156  1997/09/20  05:38:51  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.155  1997/09/20  05:15:13  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.154  1997/09/17  13:50:59  umemiya
+ * Ä·¤Í¶¶¡¢±ê¤Î¥«¡¼¥Æ¥ó¡¢ÄÉ²Ã
+ *
+ * Revision 1.153  1997/09/17  04:37:57  sumiyosi
+ * ¥·¡¼¥«¡¼Â²ÄÉ²Ã¡£
+ *
+ * Revision 1.152  1997/09/16  08:46:46  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.151  1997/09/12  13:48:35  umemiya
+ * ²Ð¤Î¿ÀÅÂ¥ª¥Ö¥¸¥§¤òÊ¬³ä
+ *
+ * Revision 1.150  1997/09/12  12:28:16  matutani
+ * ¥¬¥Î¥óÇÏÄÉ²Ã
+ *
+ * Revision 1.149  1997/09/11  06:59:18  umemiya
+ * ²Ð¤Î¿ÀÅÂ¥ª¥Ö¥¸¥§ÄÉ²Ã
+ *
+ * Revision 1.148  1997/09/10  14:37:21  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.147  1997/09/10  11:02:21  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.146  1997/09/06  14:28:17  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.145  1997/08/27  10:19:27  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.144  1997/08/27  09:33:18  hayakawa
+ * subdata/nullºï½ü
+ *
+ * Revision 1.143  1997/08/25  13:55:36  hayakawa
+ * ovl_En_Skeleton¤ò¥ª¡¼¥Ð¡¼¥ì¥¤¤Ë
+ *
+ * Revision 1.142  1997/08/19  09:40:41  hayakawa
+ * codesegment¤ò°µ½Ì¤¹¤ë¥Æ¥¹¥È
+ *
+ * Revision 1.141  1997/08/19  02:06:28  umemiya
+ * *** empty log message ***
+ *
+ * Revision 1.140  1997/08/19  01:58:49  hayakawa
+ * Revision 1.139  1997/08/09  08:16:38  hayakawa
+ * Revision 1.138  1997/08/05  08:44:18  hayakawa
+ * ¥Ç¡¼¥¿°µ½Ì¤ÎÉÛÀÐ
+ *
+ * Revision 1.137  1997/07/31  08:09:32  hayakawa
+ * play¤Î¥ª¡¼¥Ð¡¼¥ì¥¤¥Æ¥¹¥È
+ *
+ * Revision 1.136  1997/07/23  05:32:42  hayakawa
+ * ¥»¥°¥á¥ó¥È´Ø·¸¤ÎWave¤òspec.segment¤ÇÄêµÁ¤¹¤ë¤è¤¦¤Ë¤·¤¿
+ *
+ * Revision 1.135  1997/07/23  04:27:00  hayakawa
+ * ÉÔÍ×¤Ê¥Þ¥¤¥¯¥í¥³¡¼¥É¤ò¥µ¥Ý¡¼¥È¤«¤é³°¤·¤¿
+ *
+ * Revision 1.134  1997/07/22  10:56:13  hayakawa
+ * rcp_cfb,rcp_zbÄÉ²Ã
+ *
+ * Revision 1.133  1997/07/18  05:55:00  soejima
+ * ÌÂ¤¤¤Î¿¹
+ *
+ * Revision 1.132  1997/07/18  01:13:27  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.131  1997/07/17  10:00:50  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.130  1997/07/17  06:11:34  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.129  1997/07/17  03:02:32  hayakawa
+ * //
+ *
+ * Revision 1.128  1997/07/16  14:03:55  hayakawa
+ * include.hayakawa²ò½ü
+ *
+ * Revision 1.127  1997/07/16  05:39:47  hayakawa
+ *
+ * Revision 1.126  1997/07/15  05:38:50  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.125  1997/07/15  04:52:42  soejima
+ * Ì¤»ÈÍÑ£Ö£Ò¡¼£Â£Ï£Ø³°¤·¤¿¡£
+ *
+ * Revision 1.124  1997/07/15  04:51:14  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.123  1997/07/15  02:56:59  hayakawa
+ * audiotable.oºï½ü
+ *
+ * Revision 1.122  1997/07/15  02:56:08  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.121  1997/07/14  01:19:17  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.120  1997/07/12  13:06:58  umemiya
+ * *** empty log message ***
+ *
+ * Revision 1.119  1997/07/11  11:12:48  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.118  1997/07/09  07:22:14  iwawaki
+ * *** empty log message ***
+ *
+ * Revision 1.117  1997/07/08  05:40:23  soejima
+ * ÍÅÀº¤ÎÀô¡Ê£²£µ£¶x£²£µ£¶¡Ë¤È¾ë²¼Ä®¡Ê£²£µ£¶x£²£µ£¶¡ËÆþ²Ù
+ *
+ * Revision 1.116  1997/07/08  04:37:10  iwawaki
+ * Revision 1.115  1997/07/08  04:23:45  iwawaki
+ * Revision 1.114  1997/07/08  01:41:45  iwawaki
+ * Revision 1.113  1997/07/07  06:02:41  iwawaki
+ * Revision 1.112  1997/07/07  01:52:32  iwawaki
+ * Revision 1.111  1997/07/03  12:47:32  iwawaki
+ * Revision 1.110  1997/07/03  02:26:36  morita
+ * Revision 1.109  1997/07/03  02:24:33  morita
+ * Revision 1.108  1997/07/02  06:40:57  iwawaki
+ * Revision 1.107  1997/07/01  05:28:21  soejima
+ * £±£²£¸¥Ñ¥ì¥Ã¥È£Ö£Ò¡²£Â£Ï£Ø
+ * Revision 1.106  1997/07/01  05:09:51  iwawaki
+ * Revision 1.105  1997/06/27  09:13:52  tarukado
+ * Revision 1.104  1997/06/26  12:34:13  soejima
+ * item_name_static
+ * Revision 1.103  1997/06/25  08:23:29  iwawaki
+ * Revision 1.102  1997/06/25  03:48:38  soejima
+ * Revision 1.101  1997/06/20  12:48:05  soejima
+ * ½ñ¤­´¹¤¨¥Æ¥¯¥¹¥Á¥ã
+ * Revision 1.100  1997/06/20  05:54:08  iwawaki
+ * Revision 1.99  1997/06/20  04:38:06  soejima
+ * £Ö£Ò¡²£Â£Ï£Ø¡Ê£Â£ì£ï£ã£ë²½¤ËÈ¼¤¤À°Íý¡Ë
+ * Revision 1.98  1997/06/19  00:50:44  iwawaki
+ * Revision 1.97  1997/06/19  00:42:43  soejima
+ * £Ö£Ò¡²£Â£Ï£Ø¡Ê£²£µ£¶£Â£ì£ï£ã£ë¥Æ¥¯¥¹¥Á¥ã¡Ë
+ * Revision 1.96  1997/06/18  04:06:49  iwawaki
+ * Revision 1.95  1997/06/18  03:02:16  soejima
+ * £Ö£Ò¡²£Â£Ï£Ø¡Ê£Â£ì£ï£ã£ë¥Æ¥¯¥¹¥Á¥ã¡Ë
+ * Revision 1.94  1997/06/18  02:08:42  iwawaki
+ * Revision 1.93  1997/06/18  00:31:28  hayakawa
+ * depth_testÄÉ²Ã
+ * Revision 1.92  1997/06/13  07:04:59  iwawaki
+ * Revision 1.91  1997/06/10  02:06:56  soejima
+ * Revision 1.90  1997/06/09  12:09:29  soejima
+ * £´£µÅÙ³ÑÅÙ£Ö£Ò¡¼£Â£Ï£Ø
+ * Revision 1.89  1997/06/09  06:17:46  iwawaki
+ * Revision 1.88  1997/06/06  05:44:48  iwawaki
+ * Revision 1.87  1997/06/05  07:33:43  iwawaki
+ * Revision 1.86  1997/06/05  07:18:00  iwawaki
+ * Revision 1.85  1997/06/05  00:34:08  iwawaki
+ * Revision 1.84  1997/06/04  11:12:40  soejima
+ * ¥¢¥¤¥Æ¥à¡¦¥·¥ç¥Ã¥×£²£µ£¶
+ * Revision 1.83  1997/06/04  07:58:38  iwawaki
+ * Revision 1.82  1997/06/04  07:55:24  hayakawa
+ * gspS2DEXÄÉ²Ã
+ * Revision 1.81  1997/06/02  12:26:55  soejima
+ * ±Àvr_box
+ * Revision 1.80  1997/05/30  12:36:43  iwawaki
+ * Revision 1.79  1997/05/30  01:19:57  hayakawa
+ * ovl_opening¤Îafter¶ç¤¬´Ö°ã¤Ã¤Æ¤¤¤¿¤Î¤ò½¤Àµ
+ * Revision 1.78  1997/05/30  01:17:20  soejima
+ * Revision 1.77  1997/05/29  08:16:18  soejima
+ * opening_static¤ònintendo_rogo_static¤ËÊÑ¹¹
+ * Revision 1.76  1997/05/29  01:25:17  hayakawa
+ * Revision 1.75  1997/05/28  06:20:26  hayakawa
+ * F3DEX_GBI¤òÉ¸½à¤Ë¤·¤Æ³°¤·¤¿
+ * F3DLP_GBI¤òºï½ü¤·¤Æ³°¤·¤¿
+ * Revision 1.74  1997/05/28  02:43:12  sasaki
+ * TEST01 NO TUIKA
+ * Revision 1.73  1997/05/27  12:13:01  hayakawa
+ * include.hayakawa¤ÎÆâÍÆ¤òÈ¿±Ç
+ * Revision 1.72  1997/05/26  06:59:31  iwawaki
+ * Revision 1.71  1997/05/26  06:58:25  tarukado
+ * Revision 1.70  1997/05/24  09:14:49  hayakawa
+ * include.hayakawa»ÈÍÑ
+ * Revision 1.69  1997/05/24  07:17:59  iwawaki
+ * Revision 1.68  1997/05/22  09:50:03  hayakawa
+ * house_AÆþ²Ù
+ * Revision 1.67  1997/05/22  06:48:11  iwawaki
+ * Revision 1.66  1997/05/22  00:29:35  soejima
+ * fairy_vr_boxÆþ²Ù
+ * Revision 1.65  1997/05/21  09:43:53  hayakawa
+ * ¿··¿¥ª¡¼¥Ç¥£¥ªÂÐ±þ
+ * Revision 1.64  1997/05/21  04:47:40  hayakawa
+ * ¥¹¥¿¥Æ¥£¥Ã¥¯¥»¥°¥á¥ó¥È¤Î¥Ç¡¼¥¿¤ò£Ò£Ï£ÍÆÉ¤ß¹þ¤ß¤Ë¤·¤¿
+ * Revision 1.63  1997/05/20  12:12:12  iwawaki
+ * Revision 1.62  1997/05/13  09:05:41  hayakawa
+ * BOOT_TEST¤òÉ¸½à¤Ë¤·¤¿
+ * £´£Í£Ò£Á£Í¤Î¥á¥ó¥Ð¡¼¤¬Áý¤¨¤¿¤Î¤ÇÉ¸½à¤ò£´£Í¤Ë¤·¤¿
+ * Revision 1.61  1997/05/06  07:42:39  iwawaki
+ * new
+ * Revision 1.60  1997/04/18  10:43:17  iwawaki
+ * Revision 1.59  1997/04/18  09:30:26  iwawaki
+ * Revision 1.58  1997/04/16  11:45:13  hayakawa
+ * ¥Þ¥Ã¥×¤ÎÊÂ¤Ó¤òÈÖ¹æ½ç¤ËÌá¤·¤¿
+ * Revision 1.57  1997/04/09  12:00:18  soejima
+ * £Î£É£Î£Ô£Å£Î£Ä£Ï¥í¥´
+ * Revision 1.56  1997/04/03  13:07:04  hayakawa
+ * ¥³¡¼¥¹¥Þ¥Ã¥×¥Æ¥¹¥È
+ * Revision 1.55  1997/04/02  12:44:58  hayakawa
+ * ¥Õ¥£¡¼¥ë¥É¥Þ¥Ã¥×¥Æ¥¹¥È¤Î¤¤¤í¤¤¤í
+ * Revision 1.54  1997/04/02  10:26:10  soejima
+ * ¤Æ¤¹¤È£Ö£Ò¡²£Â£Ï£ØÆþ²Ù
+ * Revision 1.53  1997/04/01  04:55:54  hayakawa
+ * ¥³¥ó¥Ñ¥¤¥ë¥¨¥é¡¼ÂÐ½è
+ * Revision 1.52  1997/03/29  12:37:19  hayakawa
+ * map_010¤ò¤Ï¤º¤·¤¿
+ * map_017¤Î¥Æ¥¹¥È
+ * Revision 1.51  1997/03/26  02:15:05  hayakawa
+ * ¥Ç¡¼¥¿¤¬²õ¤ì¤ë¤Î¤òËÉ¤°¤¿¤á¡¢¿·¤·¤¤¥Þ¥Ã¥×¤ÎÄêµÁ¤ò¾å¤Ë»ý¤Ã¤Æ¤¤¤Ã¤¿¡£
+ * Revision 1.50  1997/03/25  06:08:31  hayakawa
+ * ¿·¤·¤¤¥Þ¥Ã¥×¡Ê¥Ç¥¹¥À¥ó¥¸¥ç¥ó¤È¥Õ¥£¡¼¥ë¥É¥Ç¥â£²¡Ë¤ÎÄÉ²Ã
+ * Revision 1.49  1997/03/19  13:46:11  hayakawa
+ * ¤Ç¤¹¥Þ¥¦¥ó¥Æ¥óÄÉ²Ã
+ * Revision 1.48  1997/03/19  09:16:55  hayakawa
+ * ¥×¥ê¥ì¥ó¥À¡¼¥â¡¼¥ÉÍÑ¥Þ¥Ã¥×ÄÉ²Ã
+ * Revision 1.47  1997/03/18  13:27:01  iwawaki
+ * Revision 1.46  1997/03/17  12:22:03  hayakawa
+ * ¥Ö¡¼¥È¥»¥°¥á¥ó¥ÈÂÐ±þ
+ * Revision 1.45  1997/03/17  00:48:34  hayakawa
+ * boot¥»¥°¥á¥ó¥È¤ÎÆÈÎ©¤ò¼è¤ê¤¢¤¨¤ºÌá¤·¤¿
+ * Revision 1.44  1997/03/15  08:25:13  hayakawa
+ * ¥Þ¥¯¥í¤ò»È¤Ã¤Æ´ÊÎ¬²½¤·¤¿
+ * ¥»¥°¥á¥ó¥ÈÀë¸À¤òÊÌ¥Õ¥¡¥¤¥ë¤Ë¤·¤¿
+ * spec.segment
+ * spec.audio
+ * Revision 1.43  1997/03/10  00:21:52  iwawaki
+ * Revision 1.42  1997/03/07  08:44:34  hayakawa
+ * ¥Ï¥¤¥é¥ëÁ´ÅÚ¥Þ¥Ã¥×¤ÎÄÉ²Ã
+ * Revision 1.41  1997/02/25  04:55:17  iwawaki
+ * Revision 1.40  1997/02/12  07:37:15  iwawaki
+ * Revision 1.39  1997/02/05  10:30:04  iwawaki
+ * Revision 1.38  1997/02/04  02:10:06  soejima
+ * ¥¢¥ó¥Á¥¨¥¤¥ê¥¢¥¹Ìµ kanrom2.o ³°¤·¤¿¡£
+ * Revision 1.37  1997/01/24  06:18:46  hayakawa
+ * ¼Âµ¡¤ÎRAM¥µ¥¤¥º¤ò¹ÍÎ¸¤¹¤ë¤è¤¦¤Ë¤·¤¿
+ * Revision 1.36  1997/01/14  09:05:39  iwawaki
+ * Revision 1.35  1997/01/09  11:49:29  iwawaki
+ * map_006ÄÉ²Ã
+ * Revision 1.34  1997/01/09  11:47:22  iwawaki
+ * Revision 1.33  1996/12/17  06:00:54  iwawaki
+ * £Ò£Ï£ÍÆÉ¤ß½Ð¤·ÄÉ²Ã¤È¥×¥ê¥ì¥ó¥À¥Æ¥¹¥ÈÄÉ²Ã
+ * Revision 1.32  1996/12/09  12:57:07  iwawaki
+ * map change
+ * Revision 1.31  1996/12/09  02:25:52  hayakawa
+ * Z¥Ð¡¼¥¸¥ç¥ó¤Î¥Þ¥¤¥¯¥í¥³¡¼¥É¤òÄÉ²Ã
+ * Revision 1.30  1996/11/18  09:49:54  iwawaki
+ * Revision 1.29  1996/11/18  01:08:14  iwawaki
+ * bump_texture_staticÄÉ²Ã
+ * Revision 1.28  1996/11/07  07:06:07  soejima
+ * ¥¢¥ó¥Á¥¨¥¤¥ê¥¢¥¹ÉÕ kanrom.o
+ * ¥¢¥ó¥Á¥¨¥¤¥ê¥¢¥¹Ìµ kanrom2.o
+ * Revision 1.27  1996/11/06  11:45:31  soejima
+ * Âè£±¿å½à¥Õ¥©¥ó¥È ¥»¥Ã¥È
+ * Revision 1.26  1996/11/06  11:34:21  soejima
+ * Revision 1.25  1996/11/06  08:50:52  iwawaki
+ * Revision 1.24  1996/11/01  10:57:14  hayakawa
+ * last¥»¥°¥á¥ó¥È¤ò£¸£Í¤ÎºÇ¸å¤ËÇÛÃÖ
+ * zbuffer¥»¥°¥á¥ó¥È¤òSystemDynamic¤ÎÄ¾¸å¤ËÇÛÃÖ
+ * Revision 1.23  1996/11/01  06:41:14  hayakawa
+ * ¥·¥¹¥Æ¥à¥Ò¡¼¥×ÎÎ°è¤ò³°Éô¤ËÀßÄê
+ * Revision 1.22  1996/10/31  03:26:46  iwawaki
+ * Revision 1.21  1996/10/30  04:32:45  iwawaki
+ * common_staticÄÉ²Ã
+ * Revision 1.20  1996/10/30  01:11:33  iwawaki
+ * common_texture¤òÊ¬¤±¤¿
+ * Revision 1.19  1996/10/28  09:08:58  hayakawa
+ * ¥Õ¥©¥Ã¥¯¥¹¥µ¥¦¥ó¥É¥Ç¡¼¥¿¤¬½Ð¤ë
+ * Revision 1.18  1996/10/25  13:38:30  hayakawa
+ * £³Éô¤Î¥Þ¥¤¥¯¥í¥³¡¼¥É¤òÀÚ¤êÂØ¤¨¤é¤ì¤ë¤è¤¦¤Ë¤·¤¿
+ * Revision 1.17  1996/10/24  12:52:12  soejima
+ * vr_boxÌëÊÑ¹¹
+ * Revision 1.16  1996/10/24  08:35:22  hayakawa
+ * ¥Ç¡¼¥¿¥Ç¥£¥ì¥¯¥È¥êÊÑ¹¹
+ * Revision 1.15  1996/10/24  07:51:35  hayakawa
+ * ¥·¥§¥¤¥×¥Ç¡¼¥¿¤Î¥Ç¥£¥ì¥¯¥È¥êÊÑ¹¹
+ * Revision 1.14  1996/10/24  06:27:19  hayakawa
+ * £Ñ¥Þ¥¤¥¯¥í¥³¡¼¥É¤Î¶¯À©»ÈÍÑ¤ò¤·¤Ê¤¤
+ * ¥á¥â¥ê¥Þ¥Ã¥×ÊÑ¹¹
+ * Revision 1.13  1996/10/23  12:08:28  soejima
+ * VR_BOX¥»¥°¥á¥ó¥ÈÀßÄê
+ * Revision 1.12  1996/10/16  06:18:26  hayakawa
+ * £Ú¥Ð¥Ã¥Õ¥¡¤Ë¥¢¥É¥ì¥¹¤ò¸å¤í¤Ë°ÜÆ°¤·¤¿
+ * Revision 1.11  1996/10/16  05:43:57  hayakawa
+ * ³ÈÄ¥¥Þ¥¤¥¯¥í¥³¡¼¥É¥Ç¥£¥ì¥¯¥È¥êÊÑ¹¹
+ * ¥³¡¼¥É¥µ¥¤¥ºÁý¤ä¤¹
+ * Revision 1.10  1996/10/12  08:23:44  hayakawa
+ * ¥í¥°¤¬¤ª¤«¤·¤¯¤Ê¤ë¤Î¤ò½¤Àµ
+ * ¥Õ¥©¥Ã¥¯¥¹¤Î¥ª¡¼¥Ç¥£¥ª¤Ë¤âÊÑ¤¨¤é¤ì¤ë¤è¤¦¤Ë¤·¤¿
+ * ¥ª¡¼¥Ç¥£¥ª¤Î¥Ç¥£¥ì¥¯¥È¥ê¤¬Àµ¤·¤¯¤Ê¤«¤Ã¤¿¤Î¤ò½¤Àµ
+ * Revision 1.9  1996/10/11  02:23:20  hayakawa
+ * ¥³¡¼¥É¤¬Âç¤­¤¯¤Ê¤Ã¤Æ°µÇ÷¤·¤Æ¤­¤¿¤Î¤Ç¥Þ¥Ã¥×¤ÎÇÛÃÖ¤òÊÑ¤¨¤¿
+ * Revision 1.8  1996/10/10  11:53:38  hayakawa
+ * ¥³¡¼¥É¤¬Âç¤­¤¯¤Ê¤Ã¤Æ°µÇ÷¤·¤Æ¤­¤¿¤Î¤Ç¥Þ¥Ã¥×¤ÎÇÛÃÖ¤òÊÑ¤¨¤¿
+ * Revision 1.7  1996/10/05  09:26:06  hayakawa
+ * £³Éô¥Þ¥¤¥¯¥í¥³¡¼¥ÉÂÐ±þÍ½Äê
+ * Revision 1.6  1996/10/02  01:46:26  iwawaki
+ * 9Mdummy delete
+ * Revision 1.5  1996/09/18  10:44:43  iwawaki
+ * shape¤òÊÑ¹¹
+ * Revision 1.4  1996/09/18  08:53:42  iwawaki
+ * LogÄÉ²Ã
+ *
+ */
+
+#include "boot.h" /* BOOT_STACK_SIZE, boot */
+#include "sys_segment.h" /* BOOT_STACK_SIZE, *_SEGMENT */
+
+#define DefSegObj(segname, segafter, segalign, seginclude) \
+beginseg 			\
+	name segname 		\
+	flags OBJECT 		\
+	after segafter 		\
+	align segalign 		\
+	include seginclude 	\
+endseg
+
+#define DefSegObj8(segname, segafter, seginclude) \
+        DefSegObj(segname, segafter, 16, seginclude)
+
+#define DefSegObj64(segname, segafter, seginclude) \
+        DefSegObj(segname, segafter, 64, seginclude)
+
+#define DefSegX(segname, segnumber, seginclude) \
+beginseg 			\
+	name    segname 	\
+	flags   OBJECT 		\
+	number  segnumber	\
+	include seginclude 	\
+	romalign 0x1000		\
+endseg
+
+#define DefSegAudio(segname, segnumber, seginclude) \
+beginseg 			\
+	name    segname 	\
+	flags   OBJECT 		\
+	number  segnumber	\
+	include seginclude 	\
+endseg
+
+/*
+ * £Ë£°¥¢¥É¥ì¥¹¶õ´Ö
+ * number ¤Î¤Ê¤¤¥»¥°¥á¥ó¥È
+ */
+beginseg
+	name "boot"
+	flags BOOT OBJECT
+	entry boot
+	stack bootStack + BOOT_STACK_SIZE
+	address 0x80000400 /* ¤³¤ì°Ê¾åÄã°Ì¤Ë¤ÏÃÖ¤±¤Ê¤¤ */
+	include "bootsegment.o"
+
+#if defined(USE_CIC6105_CHECK)
+
+#  if defined(ROM_F)
+	include "$(ZELDA_ROOT)/lib/CIC6105/final0930/rspboot0.o"
+#  else
+#    if defined(ROM_X)
+	include "$(ZELDA_ROOT)/lib/CIC6105/final0930/rspboot0.o"
+#    else /* ROM_D */
+	include "$(ZELDA_ROOT)/lib/CIC6105/981001/rspboot0.o"
+#    endif
+#  endif /* defined(ROM_F) */
+
+#else
+
+#  if defined(USE_CIC6105_NOCHECK)
+	include "$(ZELDA_ROOT)/lib/CIC6105/final0930/rspboot0.nocheck.o"
+#  else /* CIC6105¤Ï»È¤ï¤Ê¤¤ */
+	include "$(ROOT)/usr/lib/PR/rspboot.o"
+#  endif /* defined(USE_CIC6105_NOCHECK) */
+
+#endif /* USE_CIC6105_CHECK */
+
+	include "$(ZELDA_ROOT)/lib/CIC6105/test.o" /* ¤Ê¤Ë¤â¤·¤Ê¤¤ ucode */
+
+	/* ¥Ð¡¼¥¸¥ç¥ó¾ðÊó */
+	include "version.o"
+endseg
+
+
+DefSegObj8("dmadata",         "boot",            "z_std_dma_data.o")
+
+
+/*
+ * ¥ª¡¼¥Ç¥£¥ª¥Ç¡¼¥¿¡Ê°ÌÃÖ¸ÇÄê¡Ë
+ */
+DefSegAudio("Audiobank",  AUDIO_SEGMENT, "$(ZELDA_ROOT)/lib/audio/ZeldaAudio_banks.o")
+#if defined(PAL_VERSION)
+DefSegAudio("Audioseq",   AUDIO_SEGMENT, "$(ZELDA_ROOT)/lib/audio/ZeldaAudioPal_music.o")
+#else
+DefSegAudio("Audioseq",   AUDIO_SEGMENT, "$(ZELDA_ROOT)/lib/audio/ZeldaAudio_music.o")
+#endif
+DefSegAudio("Audiotable", AUDIO_SEGMENT, "$(ZELDA_ROOT)/lib/audio/ZeldaAudio_table.o")
+
+
+/********************************
+ * Ê¬³ä£Ä£Í£Á¡Ê¥ª¡¼¥Ç¥£¥ª°Ê³°¡Ë *
+ ********************************/
+#if !defined(PAL_VERSION)
+DefSegX("kanji", 		KANROM_SEGMENT, 	"kan.o")
+#endif
+
+DefSegX("link_animetion",       READ_ROM_DATA_SEGMENT,"$(ZELDA_ROOT)/data/Link_anime_data.o")
+
+/*
+ * ¥«¥ì¥¤¥É¡¦¥¹¥³¡¼¥×ÍÑ
+ */
+#if defined(PAL_VERSION)
+DefSegX("icon_item_static", 		ICON_ITEM_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_icon_item.o")
+DefSegX("icon_item_24_static", 		ICON_ITEM_24_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_icon_item_24.o")
+DefSegX("icon_item_field_static",	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_icon_item_field.o")
+DefSegX("icon_item_dungeon_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_icon_item_dungeon.o")
+DefSegX("icon_item_gameover_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_icon_item_gameover.o")
+DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/pal_icon_item_nes.o")
+DefSegX("icon_item_ger_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/pal_icon_item_ger.o")
+DefSegX("icon_item_fra_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/pal_icon_item_fra.o")
+# else
+#ifdef CHINA
+DefSegX("icon_item_static", 		ICON_ITEM_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item.zh.o")
+#else
+DefSegX("icon_item_static", 		ICON_ITEM_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item.o")
+#endif
+DefSegX("icon_item_24_static", 		ICON_ITEM_24_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_24.o")
+DefSegX("icon_item_field_static",	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_field.o")
+DefSegX("icon_item_dungeon_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_dungeon.o")
+#ifdef CHINA
+DefSegX("icon_item_gameover_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_gameover.zh.o")
+#else
+DefSegX("icon_item_gameover_static", 	ICON_ITEM_MAP_SEGMENT, 	 "$(ZELDA_ROOT)/data/icon_item_gameover.o")
+#endif
+DefSegX("icon_item_jpn_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_jpn.o")
+#ifdef CHINA
+DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_nes.zh.o")
+#else
+DefSegX("icon_item_nes_static", 	ICON_ITEM_JPN_NES_SEGMENT, "$(ZELDA_ROOT)/data/icon_item_nes.o")
+#endif
+# endif
+#ifndef ROM_X
+#if defined(PAL_VERSION)
+DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_item_name.o")
+DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/pal_map_name.o")
+# else
+#ifdef CHINA
+DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/item_name.zh.o")
+DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_name.zh.o")
+#else
+DefSegX("item_name_static", 		ITEM_NAME_SEGMENT, 	 "$(ZELDA_ROOT)/data/item_name.o")
+DefSegX("map_name_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_name.o")
+#endif
+#endif
+#endif
+
+/*
+ * ½ñ¤­´¹¤¨¥Æ¥¯¥¹¥Á¥ã¡Ê¥Ñ¥é¥á¡¼¥¿¡¼¡Ë
+ */
+# if defined(PAL_VERSION)
+DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_do_action_idx.o")
+# else
+#ifdef CHINA
+DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/do_action_idx.zh.o")
+#else
+DefSegX("do_action_static", 		PARAMETER0_SEGMENT, 	 "$(ZELDA_ROOT)/data/do_action_idx.o")
+#endif
+# endif
+
+/* 
+ * ¥á¥Ã¥»¡¼¥¸¿á¤­½Ð¤·¥Æ¥¯¥¹¥Á¥ã
+ */
+DefSegX("message_static", 		MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/fukidashi.o")
+DefSegX("message_texture_static",	MESSAGE2_SEGMENT, 	 "$(ZELDA_ROOT)/data/texture.o")
+# if defined(PAL_VERSION)
+DefSegX("nes_font_static",		KANROM_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_font_e.o")
+DefSegX("nes_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_nes_c.o")
+DefSegX("ger_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_ger_c.o")
+DefSegX("fra_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_fra_c.o")
+DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/pal_staff_c.o")
+# else
+#ifdef CHINA
+DefSegX("nes_font_static",		KANROM_SEGMENT, 	 "$(ZELDA_ROOT)/data/font_zh.o")
+#else
+DefSegX("nes_font_static",		KANROM_SEGMENT, 	 "$(ZELDA_ROOT)/data/font_e.o")
+#endif
+DefSegX("message_data_static", 		MESSAGE1_SEGMENT, 	 "$(ZELDA_ROOT)/data/message.o")
+#ifdef CHINA
+DefSegX("nes_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/nes_c_zh.o")
+DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/staff_c_zh.o")
+#else
+DefSegX("nes_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/nes_c.o")
+DefSegX("staff_message_data_static", 	MESSAGE0_SEGMENT, 	 "$(ZELDA_ROOT)/data/staff_c.o")
+#endif
+# endif
+
+/* 
+ * £Í£Á£Ð¥Æ¥¯¥¹¥Á¥ã
+ */
+DefSegX("map_grand_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_grand.o")
+# if 0
+DefSegX("map_YDAN_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_YDAN.o")
+DefSegX("map_DDAN_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_DDAN.o")
+DefSegX("map_BDAN_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_BDAN.o")
+DefSegX("map_BMORI_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_BMORI.o")
+DefSegX("map_HIDAN_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_HIDAN.o")
+# endif
+#if defined(USE_NEW_DUNGEON) && 0
+DefSegX("disk_map_48x85_static",        MAP_SEGMENT,             "$(ZELDA_DATA)/dd_map_48x85.o")
+DefSegX("disk_map_i_static",            MAP_SEGMENT,             "$(ZELDA_DATA)/dd_map_i.o")
+#else
+DefSegX("map_48x85_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_48x85.o")
+DefSegX("map_i_static", 		MAP_SEGMENT, 		 "$(ZELDA_ROOT)/data/map_i.o")
+#endif
+
+/****************************
+ * °Ê²¼¤Ï°µ½Ì²ÄÇ½¥»¥°¥á¥ó¥È *
+ ****************************/
+/*
+ * £Ë£°¥¢¥É¥ì¥¹¶õ´Ö
+ * number ¤Î¤Ê¤¤¥»¥°¥á¥ó¥È
+ * ¾ïÃó¥»¥°¥á¥ó¥È
+ */
+beginseg
+	name "code"
+	flags OBJECT
+	after "dmadata"
+
+	include "codesegment.o"
+	include "z_vr_box_segment.o"
+
+	/* ¥ª¡¼¥Ç¥£¥ªÍÑ¥Ç¡¼¥¿ */
+	include "$(ZELDA_ROOT)/lib/audio/audio_hb.o"
+	include "$(ZELDA_ROOT)/lib/audio/audio_hm.o"
+	include "$(ZELDA_ROOT)/lib/audio/audio_hs.o"
+	include "$(ZELDA_ROOT)/lib/audio/audio_hw.o"
+
+	/* ¥Þ¥¤¥¯¥í¥³¡¼¥É */
+	include "$(ZELDA_ROOT)/lib/audio/aspMain.o"
+#if defined(USE_CIC6105)
+	include "$(ZELDA_ROOT)/lib/ucode/F3DZEX2_2.06H/gspF3DZEX2.NoN.fifo.o"
+#else
+        include "$(ZELDA_ROOT)/lib/ucode/F3DZEX2_2.08J_PosLight_001109/gspF3DZEX2.NoN_PosLight.fifo.o"
+#endif
+#ifndef NOUSE_LINE_UCODE
+	include "$(ZELDA_ROOT)/lib/ucode/F3DZEX2_2.06H/gspL3DZEX2.fifo.o"
+#endif /* NOUSE_LINE_UCODE */
+	include "$(ZELDA_ROOT)/lib/ucode/usr.lib.PR.safe/gspS2DEX2.fifo.o"
+	include "$(ZELDA_ROOT)/lib/ucode/jpgDRGBA16.o" /* RGBA5551 */
+
+endseg
+
+DefSegObj64("zbuffer",        "code",           "sys_zb.o")
+DefSegObj8("fifobuffer",      "zbuffer",         "sys_fifo_buffer.o")
+DefSegObj8("yieldbuffer",     "fifobuffer",      "sys_yield_buffer.o")
+DefSegObj8("dramstackbuffer", "yieldbuffer",     "sys_dram_stack.o")
+DefSegObj8("SystemDynamic",   "dramstackbuffer", "sys_dynamic.o")
+DefSegObj8("Audioheap",       "SystemDynamic",   "$(ZELDA_ROOT)/lib/audio/audioheap.o")
+DefSegObj8("SystemHeap",      "Audioheap",       "sys_heap.o")
+
+#ifdef USE_N64DD
+DefSegObj8("n64dd",           "SystemHeap",       "n64ddsegment.o")
+#endif /* USE_N64DD */
+
+/*
+ * ¥ª¡¼¥Ð¡¼¥ì¥¤¥»¥°¥á¥ó¥È
+ */
+beginseg
+	name "ovl_title"
+	flags OBJECT
+	address 0x80800000
+	include "z_title.o"
+	include "z_title.rel"
+endseg
+
+beginseg
+	name "ovl_select"
+	flags OBJECT
+	after "ovl_title"
+	include "z_select_segment.o"
+	include "z_select_segment.rel"
+endseg
+
+beginseg
+	name "ovl_opening"
+	flags OBJECT
+	after "ovl_select"
+	include "z_opening.o"
+	include "z_opening.rel"
+endseg
+
+beginseg
+	after "ovl_opening" name "ovl_file_choose"
+#define LASTSEGMENT              "ovl_file_choose"
+	flags OBJECT
+	include "z_file_choose_segment.o"
+	include "z_file_choose_segment.rel"
+endseg
+
+beginseg
+	after LASTSEGMENT name "ovl_kaleido_scope"
+#undef        LASTSEGMENT
+#define       LASTSEGMENT      "ovl_kaleido_scope"
+	flags OBJECT
+	include "z_kaleido_segment.o"
+	include "z_kaleido_segment.rel"
+endseg
+
+beginseg
+	after LASTSEGMENT name "ovl_player_actor"
+#undef        LASTSEGMENT
+#define       LASTSEGMENT      "ovl_player_actor"
+	flags OBJECT
+	include "z_player.o"
+	include "z_player.rel"
+endseg
+
+beginseg
+	after LASTSEGMENT name "ovl_map_mark_data"
+#undef        LASTSEGMENT
+#define       LASTSEGMENT "ovl_map_mark_data"
+	flags OBJECT
+	include "z_map_mark_data.o"
+	include "z_map_mark_data.rel"
+endseg
+
+beginseg
+	after LASTSEGMENT name "ovl_En_Test"
+#undef        LASTSEGMENT
+#define       LASTSEGMENT      "ovl_En_Test"
+	flags OBJECT
+	include "z_en_test.o"
+	include "z_en_test.rel"
+endseg
+
+#include "spec_seg_ovl.inc" /* ÅÐÏ¿¤Ï spec_ovl.dat ¤Ë¹Ô¤Ã¤Æ¤¯¤À¤µ¤¤ */
+
+#define   SPEC_SEG
+#include "spec.segment"
+#undef    SPEC_SEG
+
+#if 0
+#if !SCENE_TOOL2
+/*
+ * NULL¥»¥°¥á¥ó¥È!?
+ */
+beginseg
+	name "nullsegment"
+	flags OBJECT
+	address 0x00000000
+	include "nullsegment.o"
+endseg
+#endif	/* !SCENE_TOOL2 */
+#endif
+
+/*
+ * ¥¦¥§¡¼¥Ö¤ÎÄêµÁ
+ */
+beginwave
+	name "zelda"
+	include "boot"
+	include "dmadata"
+
+/* ¥ª¡¼¥Ç¥£¥ª¥Ç¡¼¥¿¡Ê°ÌÃÖ¸ÇÄê¡Ë */
+	include "Audiobank"
+	include "Audioseq"
+	include "Audiotable"
+
+/* Ê¬³ä£Ä£Í£Á */
+	include "hilite"
+#if !defined(PAL_VERSION)
+	include "kanji"
+#endif
+	include "link_animetion"
+
+
+/* ¥«¥ì¥¤¥É¡¦¥¹¥³¡¼¥× */
+# if defined(PAL_VERSION)
+	include	"icon_item_static"
+	include	"icon_item_24_static"
+	include	"icon_item_field_static"
+	include	"icon_item_dungeon_static"
+	include	"icon_item_gameover_static"
+	include	"icon_item_nes_static"
+	include	"icon_item_ger_static"
+	include	"icon_item_fra_static"
+# else
+	include	"icon_item_static"
+	include	"icon_item_24_static"
+	include	"icon_item_field_static"
+	include	"icon_item_dungeon_static"
+	include	"icon_item_gameover_static"
+	include	"icon_item_jpn_static"
+	include	"icon_item_nes_static"
+# endif
+#ifndef ROM_X
+	include	"item_name_static"
+	include	"map_name_static"
+#endif
+
+/* ½ñ¤­´¹¤¨¥Æ¥¯¥¹¥Á¥ã */
+	include	"do_action_static"
+
+
+/* ¥á¥Ã¥»¡¼¥¸¿á¤­½Ð¤·¥Æ¥¯¥¹¥Á¥ã */
+	include	"message_static"
+	include	"message_texture_static"
+#if defined(PAL_VERSION)
+	include	"nes_font_static"
+	include	"nes_message_data_static"
+	include	"ger_message_data_static"
+	include	"fra_message_data_static"
+	include	"staff_message_data_static"
+#else
+	include	"nes_font_static"
+	include	"message_data_static"
+	include	"nes_message_data_static"
+	include	"staff_message_data_static"
+#endif
+
+
+/* £Í£Á£Ð¥Æ¥¯¥¹¥Á¥ã */
+	include	"map_grand_static"
+	include	"map_i_static"
+# if 0
+	include	"map_YDAN_static"
+	include	"map_DDAN_static"
+	include	"map_BDAN_static"
+	include	"map_BMORI_static"
+	include	"map_HIDAN_static"
+# endif
+	include	"map_48x85_static"
+
+/* °Ê²¼¤Ï°µ½Ì²ÄÇ½¥»¥°¥á¥ó¥È */
+	include "code"
+
+	include "zbuffer"
+	include "fifobuffer"
+	include "yieldbuffer"
+	include "dramstackbuffer"
+	include "SystemDynamic"
+	include "Audioheap"
+	include "SystemHeap"
+#ifdef USE_N64DD
+	include "n64dd"
+#endif /* USE_N64DD */
+
+	include "ovl_title"
+	include "ovl_select"
+	include "ovl_opening"
+	include "ovl_file_choose"
+	include "ovl_kaleido_scope"
+	include "ovl_player_actor"
+	include "ovl_map_mark_data"
+	include "ovl_En_Test"
+#include "spec_inc_ovl.inc" /* ÅÐÏ¿¤Ï spec_ovl.dat ¤Ë¹Ô¤Ã¤Æ¤¯¤À¤µ¤¤ */
+
+/*spec.segment*/
+#define   SPEC_WAVE
+#include "spec.segment"
+#undef    SPEC_WAVE
+
+#if 0
+#if !SCENE_TOOL2
+	include "nullsegment"
+#endif	/* !SCENE_TOOL2 */
+#endif
+
+endwave

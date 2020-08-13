@@ -1,0 +1,29 @@
+/ZeldaAudio_banks.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/ZeldaAudio_music.o/1.1.1.1/Mon Mar 10 22:42:33 2003/-kb/
+/ZeldaAudio_table.o/1.1.1.1/Mon Mar 10 22:42:33 2003/-kb/
+/aspMain.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/audio.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/audio_hb.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/audio_hm.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/audio_hs.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/audio_hw.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/audioheap.o/1.1.1.1/Mon Mar 10 22:42:26 2003/-kb/
+/audiotable.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/count.h/1.1.1.1/Mon Mar 10 22:42:25 2003//
+/count.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/debug_audio.o/1.1.1.1/Mon Mar 10 22:42:26 2003/-kb/
+/driverominit.o/1.2/Thu Jul 17 21:06:29 2003/-kb/
+/fault.h/1.1.1.1/Mon Mar 10 22:42:25 2003//
+/fault.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/faultprint.h/1.1.1.1/Mon Mar 10 22:42:25 2003//
+/faultprint.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/gfxprint.o/1.1.1.1/Mon Mar 10 22:42:25 2003/-kb/
+/romdebug.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/slidV10.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/slidec.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/volcull.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+/z_fault.o/1.1.1.1/Mon Mar 10 22:42:24 2003/-kb/
+D/CIC6105////
+D/NRDC////
+D/audio////
+D/ucode////

@@ -1,0 +1,558 @@
+#!/usr/sbin/perl
+###
+##  make camera files
+###
+##    ツール用のカメラタイプリスト,
+##    各カメラのパラメータの設定とそのデバッグ用レジスタの制御
+###
+#
+
+###
+##  初期化
+###
+$dbfile = "camera.zdb";
+$plfile = "preg.lst";
+$dataroot = "./TOOL";
+$quiet = 0;
+$tooldat_flag = 1;
+$header_flag = 1;
+$plist_flag = 0;
+foreach ( @ARGV ){
+    /-d(.+)/ && do {
+	$dataroot = $1;
+	next;
+    };
+    /-q/ && do {
+	$quiet = 1;
+	next;
+    };
+    /^-l/ && do {
+	$plist_flag = 1;
+	/-l(.+)/ && do {
+	    $plfile = $1;
+	};
+	next;
+    };
+    /-ch/ && do {
+	$header_flag = 0;
+	next;
+    };
+    /-td/ && do {
+	$tooldat_flag = 0;
+	next;
+    };
+    $dbfile = $_;
+}
+if($tooldat_flag == 1){
+    mkdir("$dataroot", 0777);
+    mkdir("$dataroot/OBJ_DATA", 0777);
+    mkdir("$dataroot/ROM_DATA", 0777);
+    mkdir("$dataroot/MAP_DATA", 0777);
+}
+$chfile = "camera_param_data.h";
+        # Ｃヘッダファイル
+$tefile = "$dataroot/ROM_DATA/camera_rom_name.dat";
+        # ツール用 enum設定ファイル
+$tofile = "$dataroot/OBJ_DATA/camera_obj_category.dat";
+	# ツール用 座標付きカメラ設定ファイル
+$tcfile = "$dataroot/MAP_DATA/poly_camera.dat";
+        # ツール用 座標なしカメラ設定ファイル
+
+
+open(DBF, $dbfile) || die "*** could not open database '$dbfile'\n    $!";
+$setflag = 0;
+$set = "";
+$setno = 0;
+$modeno = 0;
+$paramno = 0;
+$regno = 0;
+$errrno = 0;
+$warnno = 0;
+
+$user = "$ENV{'USER'}\@$ENV{'HOST'}";
+($sec, $min, $hour, $mday, $mon, $year, $wday) = localtime;
+@week = ('日', '月', '火', '水', '木', '金', '土');
+$mon = $mon + 1;
+$date = "$year年$mon月$mday日($week[$wday]) $hour時$min分";
+$titlehead = <<____ENDOFTITLEHEAD;
+/*
+####
+###  ゼルダカメラ XXXX
+####
+###
+##   作成者 : $user
+##   作成日 : $date
+###
+####
+*/
+____ENDOFTITLEHEAD
+
+###
+##  データベース解析
+###
+SET: while(<DBF>){
+    next if /^!/;
+    $_ =~ s/^[ \t\n]+//;
+    @words = split;
+    foreach $w (@words){
+	next if $w =~ /^!/;
+	if($w eq "set")  {  $setflag = 1;  $setno++;}
+	if($setflag == 1){  $set .= $w;    }
+	if($w eq "}")    {  $setflag = 2;  }
+    }
+    if($setflag == 2){
+	($setname, $setenum, $statements) =
+	    $set =~ /^set(.*)\[(\w+)\]{(.*)}$/;
+	if($setname eq //){
+	    warn "*** syntax error in set def.\n   ";
+	    $errrno++;
+	    if($errrno > 100){
+	        goto toomanyerr;
+	    }
+	    next SET;
+	}else{
+	    if($quiet == 0){
+		print "set#$setno $setname\n";
+	    }
+	    if($SETLIST{$setenum} ne ""){
+		warn "*** warning duplicate set ID [$SETLIST{$setenum}].\n   ";
+		$warnno++;
+	    }else{
+		$SEQSETLIST{sprintf("%3d", $setno)} = $setenum;
+	    }
+	    $SETLIST{$setenum} = $setname;
+	}
+	STATE: while($statements ne ""){
+	    $statements =~ /^mode.*/ && do {
+		$statements =~ s/^(mode[^\)]+\))(.*)$/$2/;
+		$mode = $1;
+		($modename, $modeenum, $funcname, $funcenum, $params) =
+		    $mode =~ /^mode([^\[]+)\[(\w+)\]=func([^\[]+)\[(\w+)\]\((.*)\)$/;
+		if($modename eq ""){
+		    warn "*** syntax error in mode def.\n   ";
+		    $errrno++;
+		    if($errrno > 100){
+			goto toomanyerr;
+		    }
+		    next STATE;
+		}else{
+		    if($quiet == 0){
+			print " mode#$modeno $modename ";
+		    }
+		    if($MODELIST{$modeenum} eq ""){
+			$SEQMODELIST{sprintf("%3d", $modeno)} = $modeenum;
+			$modeno++;
+		    }
+		    $MODELIST{$modeenum} = $modename;
+		}
+		
+		$paramstr = "";
+		$regnostr = "";
+		$n = 0;
+	        PARAM: while($params ne ""){
+		    $params =~ s/^([^;]+);(.*)$/$2/;
+		    $param = $1;
+		    ($preequal, $postequal) =
+			$param =~/^([^=]+)=(.+)$/;
+		    if($preequal eq "same"){
+			$key = "$setenum:$modeenum";
+			($samekey) = $postequal =~/^\[([^\[]+)\]$/;
+			if($quiet == 0){
+			    print "=$PARAMLIST{$samekey} ok\n";
+			}
+			$PARAMLIST{$key} = $PARAMLIST{$samekey};
+			$FUNCLIST{$key} = $funcenum;
+			$pno = $PARAMLIST{$key};
+			$pstr = $SEQPARAMLIST{sprintf("%3d", $pno)};
+			$PUSELIST{$pstr} .= "** $setname($modename)\n";
+			next STATE;
+		    }else{
+			($paramname, $paramenum) =
+			    $preequal =~/^([^\[]+)\[(\w+)\]$/;
+			if($postequal =~ /0x([\da-fA-F]+)/){
+		            $postequal = hex($1);
+			    if($postequal >= 0x8000){
+				$postequal = -65536 + $postequal;
+			    }
+		        }
+			($paramvalue) =
+			    $postequal =~/([\-\d]+)$/;
+			if($paramname eq ""){
+			    if($quiet == 0){
+				print " abort!\n";
+			    }
+			    warn "*** syntax error in parameter def.\n   ";
+			    $errrno++;
+			    if($errrno > 100){
+				goto toomanyerr;
+			    }
+			    next STATE;
+			}else{
+                            # レジスタ番号
+			    $key = "$paramenum";
+			    if($REGLIST{$key} eq ""){
+				$REGNAMELIST{$key} = "$paramname";
+				$REGLIST{$key} = $paramvalue;
+				$REGDEFLIST{$key} = "CAM_PARAM_" . $paramenum;
+				$SEQREGLIST{sprintf("%3d", $regno)} = $key;
+				$regno++;
+			    }
+                            ## パラメータ値
+			    if($quiet == 0){
+				print ".";
+			    }
+			    $tmp = sprintf("\t{ %5d, %25s },\t/* %-20s */\n",
+				   $paramvalue, $REGDEFLIST{$key}, $paramname);
+			    $paramstr .= $tmp;
+			    $n++;
+			    next PARAM;
+			}
+		    }
+		}
+		$key = "$setenum:$modeenum";
+		if($PNUMLIST{$paramstr} eq ""){
+		    $PNUMLIST{$paramstr} = $paramno;
+		    $PNUMNUMLIST{$paramno} = $n;
+		    $SEQPARAMLIST{sprintf("%3d", $paramno)} = $paramstr;
+		    $REGNOSTRLIST{sprintf("%3d", $paramno)} = $regnostr;
+		    if($quiet == 0){
+			print "$paramno";
+		    }
+		    $paramno++;
+		}else{
+		    if($quiet == 0){
+			print "=$PNUMLIST{$paramstr}";
+		    }
+		}
+		$PUSELIST{$paramstr} .= "** $setname($modename)\n";
+		$PARAMLIST{$key} = $PNUMLIST{$paramstr};
+		$FUNCLIST{$key} = $funcenum;
+		if($quiet == 0){
+		    print " ok\n";
+		}
+		next STATE;
+	    };
+	    $statements =~ /^attribute.*/ && do {
+		$statements =~ s/^(attribute[^;]+;)(.*)$/$2/;
+		$attribute = $1;
+		($attributename, $attributetype) =
+		    $attribute =~/^attribute([^=]+)=([\w]+);$/;
+		$ATTRLIST{$setenum.":".$attributename} = $attributetype;
+		next STATE;
+	    };
+	}
+	$setflag = 0;
+	$set = "";
+	if($quiet == 0){
+	    print "set ok\n";
+	}
+    }
+}
+close(DBF);
+
+
+###
+##  出力
+###
+print "\n";
+if($warnno != 0){
+    print STDERR "!!! there're $warnno warning(s) !!!\n";
+}
+if($errrno == 0){
+    if($header_flag == 1){
+        ###
+        ##  Ｃヘッダファイル
+        ###
+        ##  セット用ENUM
+	open(HDR, ">$chfile")
+	    || die "*** could not open C header '$chfile'\n    $!";
+
+	$tmp = $titlehead;
+	$tmp =~ s/XXXX/Ｃヘッダファイル/;
+        print HDR "$tmp\n";
+	
+        print HDR <<____ENDOFSTRUCTDEF1;
+#ifndef __CAMERA_PARAM_DATA_H__
+#define __CAMERA_PARAM_DATA_H__
+
+struct zelda_camera_set_control;
+struct zelda_camera_mode_control;
+struct zelda_camera_parameter_control;
+
+typedef struct zelda_camera_set_control       CameraCtlList;
+typedef struct zelda_camera_mode_control      CameraMode;
+typedef struct zelda_camera_parameter_control CameraParam;
+
+____ENDOFSTRUCTDEF1
+
+        print HDR "/*\n## セット\n##\n*/\nenum camera_set {\n";
+        print HDR "\tCAM_SET_NONE,           /* 特定しない       */\n";
+        foreach $key (sort keys(%SEQSETLIST)){
+            $tmp = "CAM_SET_$SEQSETLIST{$key},";
+ 	    $tmp = sprintf("\t%-20s\t/* %-16s */\n", $tmp,
+		       $SETLIST{$SEQSETLIST{$key}});
+	    print HDR $tmp;
+        }
+        print HDR "\tCAM_SET_NUM\n";
+        print HDR "};\n\n";
+
+        ##  モード用ENUM
+        $nmode = 0;
+        print HDR "/*\n## モード\n##\n*/\nenum camera_mode {\n";
+        foreach $key (sort keys(%SEQMODELIST)){
+	    $tmp = "CAM_MODE_$SEQMODELIST{$key},";
+	    $tmp = sprintf("\t%-20s\t/* %-16s */\n", $tmp,
+		       $MODELIST{$SEQMODELIST{$key}});
+	    print HDR $tmp;
+	    $nmode++;
+        }
+        print HDR "\tCAM_MODE_NUM\n";
+        print HDR "};\n\n";
+
+        print HDR <<____ENDOFSTRUCTDEF2;
+/*
+###
+##  カメラセット制御オブジェクト
+###
+*/
+struct zelda_camera_set_control {
+    unsigned int      modemsk;               /* 有効モード識別用マスク*/
+    CameraMode        *modes;                /* モードテーブル        */
+};
+
+/*
+###
+##  カメラモード制御オブジェクト
+###
+*/
+struct zelda_camera_mode_control {
+    short             func;                  /* アルゴリズム          */
+    short             nparams;               /* パラメータ数          */
+    CameraParam       *params;               /* パラメータテーブル    */
+};
+
+/*
+###
+##  カメラパラメータ制御オブジェクト
+###
+*/
+struct zelda_camera_parameter_control {
+    short             value;                 /* 値                     */
+    short             regno;                 /* デバッグ用レジスタ番号 */
+};
+
+____ENDOFSTRUCTDEF2
+
+        ##  デバッグ用レジスタ
+        print HDR "/*\n## デバッグ用レジスタ\n##\n*/\n";
+        foreach $key (sort keys(%SEQREGLIST)){
+            $tmp = sprintf("#define %-25s %s\t/* %-30s */",
+                 $REGDEFLIST{$SEQREGLIST{$key}}, $key,
+		 "$REGNAMELIST{$SEQREGLIST{$key}} etc.");
+            print HDR "$tmp\n";
+        }
+        print HDR "\n";
+        print HDR "/* 以降 z_camera.c でしか見えない */\n#ifdef __CAMERA_C_\n\n";
+        print HDR "static short  p_reg_init_data[] = {\n";
+        $n = 0;
+        foreach $key (sort keys(%SEQREGLIST)){
+            $tmp = sprintf("\t%3d,\t/* %24s %-30s */", 
+                 $REGLIST{$SEQREGLIST{$key}}, $REGDEFLIST{$SEQREGLIST{$key}},
+		 "$REGNAMELIST{$SEQREGLIST{$key}} etc.");
+            print HDR "$tmp\n";
+            $n++;
+        }
+        print HDR "};\n";
+        print HDR "static short  n_p_reg_init_data = $n;\n\n";
+
+        ## デバッグ用文字列
+        print HDR "#ifdef CAM_DBG_MSG\n";
+        print HDR "/*\n## デバッグ用文字列（セット）\n##\n*/\n";
+        print HDR "static char _set_str[CAM_SET_NUM][12] = {\n";
+        print HDR "\t\"NONE      \",   /* 特定しない       */\n";
+        foreach $key (sort keys(%SEQSETLIST)){
+	    $tmp = "$SEQSETLIST{$key}";
+ 	    $tmp = sprintf("\t\"%-11s\",\t/* %-16s */\n", $SEQSETLIST{$key},
+		           $SETLIST{$SEQSETLIST{$key}});
+	    print HDR $tmp;
+        }
+        print HDR "};\n\n";
+        print HDR "/*\n## デバッグ用文字列（モード）\n##\n*/\n";
+        print HDR "static char _mode_str[CAM_MODE_NUM][12] = {\n";
+        foreach $key (sort keys(%SEQMODELIST)){
+	    $tmp = sprintf("\t\"%-11s\",\t/* %-16s */\n",  $SEQMODELIST{$key},
+		       $MODELIST{$SEQMODELIST{$key}});
+	    print HDR $tmp;
+        }
+        print HDR "};\n\n";
+        print HDR "#endif /* CAM_DBG_MSG */\n\n";
+
+        ##  パラメータ
+        print HDR "/*\n## パラメータ\n##\n*/\n\n";
+        foreach $key (sort keys(%SEQPARAMLIST)){
+            $tmp = "cam_param_list$PNUMLIST{$SEQPARAMLIST{$key}}";
+            print HDR "/*\n** パラメータリスト $PNUMLIST{$SEQPARAMLIST{$key}} \n**\n";
+	    print HDR $PUSELIST{$SEQPARAMLIST{$key}};
+            print HDR "*/\n";
+            if($SEQPARAMLIST{$key} eq ""){
+                print HDR "static CameraParam $tmp[] = { 0, 0 /* パラメータ無し */ };\n\n";
+            }else{
+	        print HDR "static CameraParam $tmp[] = {\n$SEQPARAMLIST{$key}};\n\n";
+            }
+        }
+
+        ##  セット
+        print HDR "/*\n## モードテーブル\n##\n*/\n\n";
+        foreach $kset (sort keys(%SEQSETLIST)){
+            $msk = 0;
+            $bit = 1;
+	    foreach $kmode (sort keys(%SEQMODELIST)){
+	        $key = "$SEQSETLIST{$kset}:$SEQMODELIST{$kmode}";
+                $func = "CAM_FUNC_$FUNCLIST{$key},";
+	        if($FUNCLIST{$key} ne ""){
+                    $msk |= $bit;
+                }
+                $bit <<= 1;
+	    }
+	    $val = $SEQSETLIST{$kset};
+	    $msk2 = 0;
+	    if($ATTRLIST{$val.":トリガー"} eq "TOOL"
+            || $ATTRLIST{$val.":位置データ"} eq "TOOL"){
+		$msk2 |= 0x80000000;
+	    }
+	    if($ATTRLIST{$val.":セーブモード"} eq "DONTPUSH"){
+		$msk2 |= 0x40000000;
+	    }
+	    if($ATTRLIST{$val.":優先順位"} ne ""){
+		$msk2 |= $ATTRLIST{$val.":優先順位"} << 24;
+	    }else{
+		$msk2 |= 0x05000000;
+		}
+            $m = sprintf("%#08.8x", $msk | $msk2);
+            $SETMASKLIST{$kset} = $m;
+            $bit = 0;
+            $n = sprintf("%d", $kset);
+            print HDR "/*\n** モードテーブル $n\n**\n** CAM_SET_$SEQSETLIST{$kset} ($SETLIST{$SEQSETLIST{$kset}})\n*/\n";
+            print HDR "static CameraMode  cam_mode_tbl$n[] = {\n";
+            while($msk){
+                $kmode = sprintf("%3d", $bit);
+	        $key = "$SEQSETLIST{$kset}:$SEQMODELIST{$kmode}";
+                $func = "CAM_FUNC_$FUNCLIST{$key},";
+	        if($FUNCLIST{$key} eq ""){  $func = "CAM_FUNC_NONE, ";  }
+	        $plist = sprintf("%-17s", "cam_param_list$PARAMLIST{$key}");
+                if($PARAMLIST{$key} eq ""){  $plist = "NULL             ";  }
+                $npl = sprintf("%2d", $PNUMNUMLIST{$PARAMLIST{$key}});
+	        if($npl eq ""){  $npl = " 0";  }
+	        if($npl eq "  "){  $npl = " 0";  }
+	        $tmp = sprintf("%-20s", "CAM_MODE_$SEQMODELIST{$kmode}");
+	        print HDR "    { $func $npl, $plist },\t/* $tmp */\n";
+                $msk >>= 1;
+                $bit += 1;
+            }
+	    print HDR "};\n\n";
+        }
+
+        ##  コントロールテーブル
+        print HDR "/*\n## コントロールテーブル\n##\n*/\n";
+        print HDR "static CameraCtlList cam_ctl_tbl_0[CAM_SET_NUM] = {\n";
+        print HDR "  { 0x00000000, NULL           }, /* CAM_SET_NONE        (ダミー)         */\n";
+        foreach $kset (sort keys(%SEQSETLIST)){
+            $n = sprintf("%-2d", $kset);
+            $tmp = sprintf("CAM_SET_%-12s%-16s",  $SEQSETLIST{$kset}, "(".$SETLIST{$SEQSETLIST{$kset}}.")");
+            print HDR "  { $SETMASKLIST{$kset}, cam_mode_tbl$n }, /* $tmp */\n";
+        }
+        print HDR "};\n\n";
+
+        print HDR "#endif  /* __CAMERA_C_ */\n\n";
+        print HDR "#endif  /* __CAMERA_PARAM_DATA_H__ */\n\n";
+    
+        close(HDR);
+    }    
+    if($tooldat_flag == 1){
+        ###
+        ##  ツール用 enum設定ファイル
+        ###
+        open(TEF, ">$tefile")
+	    || die "*** could not open enum list file for tool  '$tefile'\n    $!";
+        $tmp = $titlehead;
+        $tmp =~ s/XXXX/カメラタイプenum設定ファイル/;
+        print TEF "$tmp\n";
+        print TEF "CAM_SET_NONE            /* カメラなし       */\n";
+        foreach $key (sort keys(%SEQSETLIST)){
+	    $tmp = "CAM_SET_$SEQSETLIST{$key}";
+	    $tmp = sprintf("%-20s\t/* %-16s */\n", $tmp,
+		       $SETLIST{$SEQSETLIST{$key}});
+	    print TEF $tmp;
+        }    
+        close(TEF);
+
+        ###
+        ##  ツール用 座標付きカメラ設定ファイル
+        ###
+        open(TOF, ">$tofile")
+	    || die "*** could not open camera type list had vector data '$tofile'\n    $!";
+        $tmp = $titlehead;
+        $tmp =~ s/XXXX/座標付きカメラ設定ファイル/;
+        print TOF "$tmp\n";
+        foreach $val (sort values(%SEQSETLIST)){
+	    if($ATTRLIST{$val.":位置データ"} eq "TOOL"){
+	        $tmp = sprintf("%s\nCAM_SET_%s\n0 camera.mtx -1\n",
+			   $SETLIST{$val}, $val);
+	        print TOF "$tmp/* $DATALIST{$val}が必要 */\n\n";
+	    }
+        }    
+        close(TOF);
+    
+        ###
+        ##  ツール用 座標なしカメラ設定ファイル
+        ###
+        open(TCF, ">$tcfile")
+	    || die "*** could not open camera type list had vector data '$tcfile'\n    $!";
+        $tmp = $titlehead;
+        $tmp =~ s/XXXX/座標なしカメラ設定ファイル/;
+        print TCF "$tmp\n";
+        print TCF "カメラなし\nCAM_SET_NONE\n\n";
+        foreach $val (sort values(%SEQSETLIST)){
+	    if($ATTRLIST{$val.":トリガー"} ne "PROGRAM"
+	    && $ATTRLIST{$val.":位置データ"} ne "TOOL"){
+	        $tmp = sprintf("%s\nCAM_SET_%s\n",
+			   $SETLIST{$val}, $val);
+	        print TCF "$tmp\n";
+	    }
+        }    
+        close(TCF);
+    }
+    ###
+    ##  レジスタ設定値リスト
+    ###
+    if($plist_flag == 1){
+        open(PLF, ">$plfile")
+	    || die "*** could not open camera PREG list '$plfile'\n    $!";
+        $tmp = $titlehead;
+        $tmp =~ s/XXXX/デバッグ用レジスタ設定リスト/;
+        print PLF "$tmp\n";
+        $n = 0;
+        $regh = "P";
+        foreach $key (sort keys(%SEQREGLIST)){
+            $tmp = sprintf("%sR%02d\t%4d\t\t| %-30s ", $regh,
+                $n, $REGLIST{$SEQREGLIST{$key}}, $SEQREGLIST{$key});
+            print PLF "$tmp\n";
+            if($n == 95){
+                $regh = "Q";
+                $n = 0;
+            }else{
+                $n++;
+            }
+        }
+        print PLF "\n";
+        close(PLF);
+    }
+    print "!!! all over !!!\n\n";
+}else{
+    print STDERR "!!! there're $errrno error(s) !!!\n\n";
+}
+exit $errrno;
+
+toomanyerr:
+print STDERR "!!! too many errors - give up to make database !!!\n\n";
+exit $errrno;

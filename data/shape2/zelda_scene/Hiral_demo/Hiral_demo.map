@@ -1,0 +1,75 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3d50
+		.data                  0             100 hiral_demo_main_info.o
+		.data                100             d50 hiral_demo00.o
+		.data                e50             410 hiral_demo01.o
+		.data               1260             800 hiral_demo02.o
+		.data               1a60             4a0 hiral_demo03.o
+		.data               1f00             410 hiral_demo04.o
+		.data               2310             180 hiral_demo05.o
+		.data               2490             400 hiral_demo06.o
+		.data               2890             750 hiral_demo07.o
+		.data               2fe0             520 hiral_demo08.o
+		.data               3500              80 hiral_demo_bgc.o
+		.data               3580              c0 hiral_demo_main_info_ad.o
+		.data               3640              c0 hiral_demo_main_info_an.o
+		.data               3700              c0 hiral_demo_main_info_cn.o
+		.data               37c0              d0 hiral_demo_main_info_d0.o
+		.data               3890              90 hiral_demo_main_info_d1.o
+		.data               3920              90 hiral_demo_main_info_d2.o
+		.data               39b0              b0 hiral_demo_main_info_d3.o
+		.data               3a60              90 hiral_demo_main_info_d4.o
+		.data               3af0              90 hiral_demo_main_info_d5.o
+		.data               3b80              90 hiral_demo_main_info_d6.o
+		.data               3c10              90 hiral_demo_main_info_d7.o
+		.data               3ca0              b0 hiral_demo_main_info_d8.o
+
+.bss                                   0              90
+		.bss                   0              10 hiral_demo00.o
+		.bss                  10              10 hiral_demo01.o
+		.bss                  20              10 hiral_demo02.o
+		.bss                  30              10 hiral_demo03.o
+		.bss                  40              10 hiral_demo04.o
+		.bss                  50              10 hiral_demo05.o
+		.bss                  60              10 hiral_demo06.o
+		.bss                  70              10 hiral_demo07.o
+		.bss                  80              10 hiral_demo08.o
+
+.strtab                                0             24b
+		.strtab                0             24b *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0            1b2c
+		.mdebug                0            1b2c *ld_internal*
+
+.rel.data                              0             390
+		.rel.data              0              88 hiral_demo_main_info.o
+		.rel.data             88              20 hiral_demo_bgc.o
+		.rel.data             a8              38 hiral_demo_main_info_ad.o
+		.rel.data             e0              38 hiral_demo_main_info_an.o
+		.rel.data            118              38 hiral_demo_main_info_cn.o
+		.rel.data            150              40 hiral_demo_main_info_d0.o
+		.rel.data            190              40 hiral_demo_main_info_d1.o
+		.rel.data            1d0              40 hiral_demo_main_info_d2.o
+		.rel.data            210              40 hiral_demo_main_info_d3.o
+		.rel.data            250              40 hiral_demo_main_info_d4.o
+		.rel.data            290              40 hiral_demo_main_info_d5.o
+		.rel.data            2d0              40 hiral_demo_main_info_d6.o
+		.rel.data            310              40 hiral_demo_main_info_d7.o
+		.rel.data            350              40 hiral_demo_main_info_d8.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

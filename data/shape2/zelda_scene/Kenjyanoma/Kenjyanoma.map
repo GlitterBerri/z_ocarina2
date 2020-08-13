@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            38f0
+		.data                  0             120 kenjyanoma_main_info.o
+		.data                120            1180 Kenjyanoma_demo00.o
+		.data               12a0             3f0 Kenjyanoma_demo01.o
+		.data               1690            14b0 Kenjyanoma_demo02.o
+		.data               2b40             a90 kenjyanoma_bgc.o
+		.data               35d0             100 kenjyanoma_main_info_d0.o
+		.data               36d0             100 kenjyanoma_main_info_d1.o
+		.data               37d0             120 kenjyanoma_main_info_d2.o
+
+.bss                                   0              30
+		.bss                   0              10 Kenjyanoma_demo00.o
+		.bss                  10              10 Kenjyanoma_demo01.o
+		.bss                  20              10 Kenjyanoma_demo02.o
+
+.strtab                                0              fe
+		.strtab                0              fe *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             ac0
+		.mdebug                0             ac0 *ld_internal*
+
+.rel.data                              0             158
+		.rel.data              0              60 kenjyanoma_main_info.o
+		.rel.data             60              20 kenjyanoma_bgc.o
+		.rel.data             80              48 kenjyanoma_main_info_d0.o
+		.rel.data             c8              48 kenjyanoma_main_info_d1.o
+		.rel.data            110              48 kenjyanoma_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

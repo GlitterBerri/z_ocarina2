@@ -1,0 +1,4219 @@
+!###
+!## カメラの種類データベースファイル
+!###
+!##    このファイルを元にオブジェクトツール用の設定ファイルと
+!##    Ｃプログラム用のヘッダファイルをつくる。
+!###
+!##
+!## セットの名前には「カメラ」という言葉を必ずつける。
+
+!## セット
+!   TEST           実験用
+!   NORMALn        通常の組み合わせ
+!   STAIRSn        主に階段で使う組み合わせ
+!   DUNGEONn       主に洞窟で使う組み合わせ
+!   PLAINn         主に草原で使う組み合わせ
+!   STREETn        主に町で使う組み合わせ
+!   FIXEDn         固定カメラの組み合わせ
+!   CICRLEn        定点カメラの組み合わせ
+!   TOWERn         主に塔で使う組み合わせ
+!   RAILn          ベジェ等パスデータを使う組み合わせ
+!   PRERENDn       プリレンダモードで使う組み合わせ
+!   DOORn          ドアカメラの組み合わせ
+!##
+
+!## モード
+!   NORMAL        何も起こってない状態
+!   PARALLEL      注目するIBER対象なくＺボタンを押された状態
+!   KEEPON        非戦闘オブジェクトに注目してＺボタンを押された状態
+!   BATTLE        戦闘オブジェクトに注目してＺボタンを押された状態
+!   SUBJECT       Ｃ上ボタン（トグル）により主観モードに入った状態
+!   BOWARROW      武器が弓矢でＡボタンを押された状態
+!   BOWARROWZ     武器が弓矢でＡボタンとＺボタンを押された状態
+!   JUMP          アイテムがジャンプの時にＢボタンを押された状態
+!   FREEFALL      落下状態
+!   CHARGE        ため切り（武器が剣でＡボタンを押し続けた状態）
+!   HANG          ぶら下がっている状態
+!   HANGZ         ぶら下がっている状態でＺボタンを押された状態
+!   BOOMERANG     武器がブーメランでＡボタンを押された状態
+!##
+
+!###
+!## パラメータ
+!###
+
+!#
+!## 自動追尾型
+
+!
+! 通常基本 汎用    ((BASE0))
+set 通常カメラＡ [NORMAL0] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   30;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  180;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =    5;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   20;
+		距離             [MIND] =   70;
+		自動パン距離     [MAXD] =   70;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] = -120;
+		位置補正Ｙ       [ADJY] =   20;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =   80;
+		自動パン距離     [MAXD] =  250;
+		縦角度           [ANGV] =   45;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		タイマー         [TIME] =    6;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    5;
+		距離             [MIND] =   50;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =   -9;
+		位置補正Ｙ       [ADJY] =  -63;
+		位置補正Ｚ       [ADJZ] =  -30;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =  999;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2006;
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		横クッション     [CUSH] =   12;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		横クッション     [CUSH] =   15;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  300;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =    5;
+		フラグ           [FLAG] =    0xf003;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =   25;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x206a;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   30;
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =   -5;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   85;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -15;
+		空中心移動       [SHFU] =   30;
+	)
+}
+
+!
+! 通常基本 草原用    ((BASE1))
+set 通常カメラＢ [NORMAL1] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  400;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   20;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション         [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   65;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =   -9;
+		位置補正Ｙ       [ADJY] =  -63;
+		位置補正Ｚ       [ADJZ] =  -30;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    5;
+		距離             [MIND] =   50;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =   -5;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   85;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -15;
+		空中心移動       [SHFU] =   30;
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =   80;
+		自動パン距離     [MAXD] =  250;
+		タイマー         [TIME] =    6;
+		縦角度           [ANGV] =   45;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  250;
+		最大距離         [MAXD] =  400;
+		横クッション     [CUSH] =   15;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  400;
+		横クッション     [CUSH] =   30;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  400;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =    5;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  250;
+		最大距離         [MAXD] =  400;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =  999;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2006;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  300;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  400;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  400;
+		最大距離         [MAXD] =  400;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  400;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =   20;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =    5;
+		フラグ           [FLAG] =    0xf003;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =   25;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x206a;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   30;
+	)
+}
+
+
+!
+! ダンジョン基本。建物用    ((BASE2))
+set 洞窟カメラＡ [DUNGEON0] {
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =    5;
+		横クッション     [CUSH] =   10;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   30;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  150;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  180;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =   -9;
+		位置補正Ｙ       [ADJY] =  -63;
+		位置補正Ｚ       [ADJZ] =  -30;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    5;
+		距離             [MIND] =   50;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =   -5;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   85;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -15;
+		空中心移動       [SHFU] =   30;
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =   80;
+		自動パン距離     [MAXD] =  250;
+		タイマー         [TIME] =    6;
+		縦角度           [ANGV] =   45;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		横クッション     [CUSH] =   10;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		横クッション     [CUSH] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =    5;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  250;
+		最大距離         [MAXD] =  250;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =  999;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2006;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =  -10;
+		距離             [MIND] =  300;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  250;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =    5;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =    5;
+		フラグ           [FLAG] =    0xf003;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =   25;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x206a;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   30;
+	)
+}
+
+!
+! ダンジョン基本。通路用 ((BASE2))
+set 洞窟カメラＢ [DUNGEON1] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =   10;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   30;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  150;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  180;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =   -9;
+		位置補正Ｙ       [ADJY] =  -63;
+		位置補正Ｚ       [ADJZ] =  -30;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    5;
+		距離             [MIND] =   50;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =   -5;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   85;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -15;
+		空中心移動       [SHFU] =   30;
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =   80;
+		自動パン距離     [MAXD] =  250;
+		タイマー         [TIME] =    6;
+		縦角度           [ANGV] =   45;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		横クッション     [CUSH] =   10;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  180;
+		横クッション     [CUSH] =   12;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =    5;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =  999;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2006;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =  -40;
+		距離             [MIND] =  200;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 一時停止 [STILL] =  func 通常 [NORM1] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  150;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =    5;
+		フラグ           [FLAG] =    0xf003;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -40;
+		距離             [MIND] =  180;
+		縦角度           [ANGV] =   25;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x206a;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   30;
+	)
+}
+
+!
+! 通常カメラ、水中モード。
+! 水面下 -> mode JUMP
+set 通常カメラＤ [NORMAL3] {
+	mode 通常 [NORMAL] = func 通常 [JUMP3] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  280;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0004;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -50;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =   70;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =   20;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL0:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode 水面下 [BOOMERANG] = func ジャンプ [JUMP3] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =   -5;
+		横クッション     [CUSH] =   18;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   60;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0005;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! 馬カメラ。
+set 馬カメラＡ [HORSE0] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 通常 [NORM3] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  220;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   16;
+		地形角クッション [CUSC] =   20;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0600;
+	)
+	mode 平行 [PARALLEL] = func 平行 [NORM3] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  180;
+		最大距離         [MAXD] =  220;
+		縦角度           [ANGV] =   -2;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =  100;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x2600;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =  100;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   40;
+		フラグ           [FLAG] =    0x2600;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -60;
+		最小距離         [MIND] =  180;
+		最大距離         [MAXD] =  220;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2601;
+		空注目高         [CTRU] =  -60;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -60;
+		最小距離         [MIND] =  140;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+
+}
+
+!
+! ボス: ゴーマ用
+set ボスゴーマカメラ [BOSS_GOMA] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0001;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -30;
+		距離             [MIND] =  150;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   40;
+		最近縦角度       [NARV] =  -10;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [DUNGEON0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: キングドドンゴ用
+set 王ドドンゴカメラ [BOSS_DODO] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   70;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  160;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: バリネード用
+set バリネードカメラ [BOSS_BARI] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   -5;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   70;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -30;
+		距離             [MIND] =  125;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: ファントムガノン用
+set 幽霊ガノンカメラ [BOSS_FGANON] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =   10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =   15;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		最近横振り       [NARC] =   45;
+		最遠横振り       [FARC] =   40;
+		最近縦角度       [NARV] =    5;
+		最遠縦角度       [FARV] =   -5;
+		縦角度補正       [ADJV] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   60;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: バルバジア用
+set バルバジアカメラ [BOSS_BAL] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   16;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    3;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		最近横振り       [NARC] =   20;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+! 
+!  ボス: シェードストーカー用
+set 影ストーカカメラ [BOSS_SHADES] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0083;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		最近横振り       [NARC] =   20;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2082;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0083;
+	)
+	mode 落下 [FREEFALL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0083;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: モーファ用
+set モーファカメラ [BOSS_MOFA] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  100;
+		最大距離         [MAXD] =  150;
+		縦角度           [ANGV] =  -10;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =  -10;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: ツインローバ台上用
+set 双子老婆カメラ上 [BOSS_TWIN0] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  400;
+		最近横振り       [NARC] =    0;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =  -10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: ツインローバ台下用
+set 双子老婆カメラ下 [BOSS_TWIN1] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  200;
+		縦角度           [ANGV] =  -10;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  400;
+		最近横振り       [NARC] =    0;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =  -10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: ガノン第一形態用
+set 人ガノンカメラ [BOSS_GANON1] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =   40;
+		最小距離         [MIND] =  330;
+		最大距離         [MAXD] =  330;
+		縦角度           [ANGV] =   -5;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =   15;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		最近横振り       [NARC] =   45;
+		最遠横振り       [FARC] =   40;
+		最近縦角度       [NARV] =    5;
+		最遠縦角度       [FARV] =   -5;
+		縦角度補正       [ADJV] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   60;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =  -40;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =    0;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ボス: ガノン第ニ形態用
+set 豚ガノンカメラ [BOSS_GANON2] {
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 通常 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  180;
+		最近横振り       [NARC] =   20;
+		最遠横振り       [FARC] =   60;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! 塔カメラ基本。
+set 塔カメラＡ [TOWER0] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 通常 [NORM2] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  280;
+		最大横角度       [MAXH] =   60;
+		横クッション     [CUSH] =    8;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL0:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func 通常 [NORM2] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  280;
+		最大横角度       [MAXH] =   60;
+		横クッション     [CUSH] =    8;
+		横スピード依存度 [SPRH] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x0080;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! 逆塔カメラ
+set 塔カメラＢ [TOWER1] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 通常 [NORM2] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  270;
+		最大距離         [MAXD] =  300;
+		最大横角度       [MAXH] =  120;
+		横クッション     [CUSH] =    8;
+		横スピード依存度 [SPRH] =   60;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL0:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func 通常 [NORM2] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  270;
+		最大距離         [MAXD] =  300;
+		最大横角度       [MAXH] =  120;
+		横クッション     [CUSH] =    6;
+		横スピード依存度 [SPRH] =   60;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =  100;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! 固定カメラ基本。
+set 固定カメラＡ [FIXED0] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD1] (
+		注目高           [CTRH] =  -40;
+		クッション       [CUSH] =  100;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 注目 [KEEPON] = func 固定 [FIXD1] (
+		注目高           [CTRH] =  -40;
+		クッション       [CUSH] =  100;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 会話 [TALK] = func 固定 [FIXD1] (
+		注目高           [CTRH] =  -40;
+		クッション       [CUSH] =  100;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x3500;
+	)
+
+}
+
+!
+! 固定カメラ。ゆっくりセット
+set 固定カメラＢ [FIXED1] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD1] (
+		注目高           [CTRH] =  -40;
+		クッション       [CUSH] =   25;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0000;
+	)
+
+}
+
+!
+! 定点カメラ基本。
+set 定点カメラＡ [CIRCLE0] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD2] (
+		注目高           [CTRH] =  -40;
+		視点クッション   [CUSH] =   50;
+		注目点クッション [CUSC] =   80;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0001;
+	)
+
+}
+
+!
+! 定点カメラ。    縦にしか首を振らない
+set 定点カメラＣ [CIRCLE2] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [DATA4] (
+		注目高           [CTRH] =  -40;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x3f00;
+	)
+
+}
+
+!
+! 定点カメラ。    通常以外のモードあり
+set 定点カメラＤ [CIRCLE3] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD4] (
+		注目高           [CTRH] =  -40;
+		視点クッション   [CUSH] =   50;
+		注目点クッション [CUSC] =   80;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0004;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL1:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+
+!
+! プリレンダカメラ基本。
+set ＰＲカメラＡ [PREREND0] {
+
+	attribute 位置データ = TOOL;
+	attribute 優先順位 = 12;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD3] (
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 注目 [KEEPON] = func 特殊 [FIXD3] (
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 会話 [TALK] = func 特殊 [FIXD3] (
+		フラグ           [FLAG] =    0x2000;
+	)
+
+}
+
+!
+! プリレンダカメラ。ＶＲカメラＵＰ指定。
+set ＰＲカメラＢ [PREREND1] {
+
+	attribute 位置データ = TOOL;
+	attribute 優先順位 = 12;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ7] (
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 注目 [KEEPON] = func 注目 [UNIQ7] (
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP0] (
+		視野角調整       [ADJF] =   30;
+		注目位置         [CTRR] =    0;
+		クッション       [CUSH] =    4;
+		フラグ           [FLAG] =    0x3500;
+	)
+}
+
+
+!
+! プリレンダカメラ。ゼルダスクロール
+set ＰＲカメラＤ [PREREND3] {
+
+	attribute 位置データ = TOOL;
+!	attribute セーブモード = DONTPUSH;
+	attribute 優先順位 = 12;
+
+	mode 通常 [NORMAL] = func 固定 [SPEC6] (
+		フラグ           [FLAG] =    0x0000;
+	)
+
+}
+
+!
+! ドアカメラ基本。 固定＞通常
+set ドアカメラＡ [DOOR0] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ3] (
+		注目高           [CTRH] =  -40;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x3200;
+	)
+
+}
+
+!
+! デフォルトドアカメラ。
+set ドアカメラ梅 [DOORC] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特別 [SPEC9] (
+		注目高           [CTRH] =   -5;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x3202;
+	)
+	mode 平行 [PARALLEL] = func 特別 [SPEC9] (
+		注目高           [CTRH] =   -5;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x320a;
+	)
+}
+
+!
+! べジェレール主観  (主観 [SUBJ3])
+set レールカメラＤ [RAIL3] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特別 [SUBJ4] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    2;
+		自動パン距離     [MAXD] =   30;
+		クッション       [CUSH] =   10;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! スタート基本。固定＞通常  タイマーまたは動くと通常
+set 開始カメラＡ [START0] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ0] (
+		フラグ           [FLAG] =    0x0000;
+	)
+}
+
+!
+! スタート基本。固定＞通常 タイマーまで強制固定
+!   タイマー <- ツールの情報０
+set 開始カメラＢ [START1] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ0] (
+		フラグ           [FLAG] =    0x0001;
+	)
+}
+
+!
+! 何もしないカメラ。lockCamera()関数などで情報設定。
+set 自由カメラＡ [FREE0] {
+
+	attribute トリガー = PROGRAM;
+
+	mode 通常 [NORMAL] = func 固定 [UNIQ6] (
+		フラグ           [FLAG] =    0xff00;
+	)
+
+}
+
+!
+! 何もしないカメラ。デモ用タイマー付き自由カメラ
+set 自由カメラＣ [FREE2] {
+
+	attribute トリガー = PROGRAM;
+
+	mode 通常 [NORMAL] = func 固定 [UNIQ6] (
+		フラグ           [FLAG] =    0xff01;
+	)
+
+}
+
+
+!
+! 定点カメラいきなりパン。
+set 定点カメラＥ [CIRCLE4] {
+
+	attribute 位置データ = TOOL;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD2] (
+		注目高           [CTRH] =  -40;
+		視点クッション   [CUSH] =  100;
+		注目点クッション [CUSC] =   80;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0000;
+	)
+
+}
+
+!
+! 定点カメラ。    データ無しその場で止まるだけ 水潜るカメラ
+set 定点カメラＦ [CIRCLE5] {
+
+!	attribute 優先順位 = 8;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ2] (
+		注目高           [CTRH] =  -40;
+		距離             [MIND] =   60;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 特殊 [UNIQ2] (
+		注目高           [CTRH] =  -30;
+		距離             [MIND] =   45;
+		視野角           [FOVY] =  100;
+		フラグ           [FLAG] =    0x2001;
+	)
+
+}
+
+!
+! スプライン
+set デモカメラＡ [DEMO0] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+	attribute 優先順位 = 14;
+
+	mode 通常 [NORMAL] = func デモ [DEMO1] (
+		フラグ           [FLAG] =    0x3200;
+	)
+
+}
+
+!
+! つなぎＡ
+set デモカメラＢ [DEMO1] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+	attribute 優先順位 = 14;
+
+	mode 通常 [NORMAL] = func デモ [DEMO2] (
+		フラグ           [FLAG] =    0x3200;
+	)
+
+}
+
+!
+! 森の神殿 天井落し
+set 森ダンカメラＡ [MORI1] {
+
+	attribute トリガー = PROGRAM;
+
+	mode 通常 [NORMAL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -50;
+		距離             [MIND] =  450;
+		縦角度           [ANGV] =   40;
+		横角度           [ANGH] =  180;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x000c;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+
+	mode 会話 [TALK] = func 平行 [PARA3] (
+		フラグ           [FLAG] =    0x3501;
+	)
+
+}
+
+!
+! アイテム - 宝箱
+set お宝カメラＡ [ITEM0] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func デモ [DEMO3] (
+		視野角           [FOVY] =   60;
+		視野角２         [SHFT] =   30;
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! アイテム - 道端 × × ×
+set お宝カメラＢ [ITEM1] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func デモ [DEMO4] (
+		視野角           [FOVY] =   60;
+		視野角２         [SHFT] =   30;
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! デモ - ワンポイント スプライン with makeOnePointSplineCamera()
+set デモカメラＤ [DEMO3] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func デモ [DEMO9] (
+		フラグ           [FLAG] =    0x3212;
+	)
+}
+
+!
+! デモ - アクター注目デモ with makeActorAttentionCamera()
+set デモカメラＥ [DEMO4] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func デモ [DEMO5] (
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! 豆ＵＦＯリフト
+set 豆ＵＦＯカメラ [UFOBEAN] {
+
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -50;
+		距離             [MIND] =  300;
+		縦角度           [ANGV] =   10;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL1:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		横クッション     [CUSH] =   12;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   60;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  350;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0xf002;
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! 豆ＵＦＯリフト
+set 豆リフトカメラ [LIFTBEAN] {
+
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  200;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =   16;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -50;
+		距離             [MIND] =  200;
+		縦角度           [ANGV] =   40;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL1:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  150;
+		最大距離         [MAXD] =  250;
+		横クッション     [CUSH] =   12;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  200;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  200;
+		縦角度           [ANGV] =   60;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  250;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0xf002;
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! シーン切替用。切り替えから
+set 切替カメラＡ [SCENE0] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特別 [SPEC9] (
+		注目高           [CTRH] =  -30;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x010a;
+	)
+
+}
+
+!
+! シーン切替用。切り替えへ 定点
+set 切替カメラＢ [SCENE1] {
+
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func デモ [UNIQ2] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  150;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0210;
+	)
+}
+
+!
+! 炎の神殿 火で上昇するリフト
+set 火ダンカメラＡ [HIDAN1] {
+
+	attribute トリガー = PROGRAM;
+
+	mode 通常 [NORMAL] = func 特別 [SPEC7] (
+		フラグ           [FLAG] =    0x0000;
+	)
+}
+
+!
+! 炎の神殿 階段落しデモ
+set 火ダンカメラＢ [HIDAN2] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特別 [SPEC4] (
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! 森の神殿 ポー登場
+set 森ダンカメラＢ [MORI2] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特殊 [UNIQ5] (
+		フラグ           [FLAG] =    0x3200;
+	)
+
+}
+
+!
+! 森の神殿 ポー死亡
+set 森ダンカメラＣ [MORI3] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 特殊 [DEMO6] (
+		フラグ           [FLAG] =    0x3200;
+	)
+
+}
+
+!
+! じゃぶじゃぶ様の中 大だこ
+set 大だこカメラ [TAKO] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  400;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   35;
+		横クッション     [CUSH] =   14;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   20;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0012;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [DUNGEON0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [DUNGEON0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [DUNGEON0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =   30;
+		最遠縦角度       [FARV] =   20;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [DUNGEON0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [DUNGEON0:BOWARROW];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [DUNGEON0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [DUNGEON0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [DUNGEON0:FOOKSHOT];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [DUNGEON0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [DUNGEON0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [DUNGEON0:FREEFALL];
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [DUNGEON0:CLIMB];
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [DUNGEON0:CLIMBZ];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [DUNGEON0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [DUNGEON0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [DUNGEON0:HANGZ];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   60;
+		横クッション     [CUSH] =    8;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   60;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x0012;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [DUNGEON0:PUSHPULL];
+	)
+}
+
+!
+! ＳＰＯＴ０５用
+set ＳＰＯＴ０５Ａ [SPOT05A] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   70;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0012;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  500;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x201a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode 戦闘 [BATTLE] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  500;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x201a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode よじ登り [CLIMB] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0012;
+	)
+
+}
+
+!
+! ＳＰＯＴ０５用
+set ＳＰＯＴ０５Ｂ [SPOT05B] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  750;
+		最大距離         [MAXD] =  750;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   70;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0012;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  750;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x201a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode 戦闘 [BATTLE] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  750;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode よじ登り [CLIMB] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  750;
+		最大距離         [MAXD] =  750;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0012;
+	)
+
+}
+
+!
+! 炎の神殿 迷路用
+set 火ダンカメラＣ [HIDAN3] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   70;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  500;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode 戦闘 [BATTLE] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  500;
+		縦角度           [ANGV] =   80;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   40;
+	)
+	mode よじ登り [CLIMB] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  500;
+		最大距離         [MAXD] =  500;
+		縦角度           [ANGV] =   80;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0002;
+	)
+
+}
+
+!
+! アイテム - 使用
+set お宝カメラＣ [ITEM2] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+	attribute 優先順位 = 10;
+
+	mode 通常 [NORMAL] = func 注目 [KEEP4] (
+		注目高           [CTRH] =  -30;
+		距離             [MIND] =  120;
+		縦角度           [ANGV] =  -10;
+		横角度           [ANGH] =  170;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x2502;
+		クッション       [CUSH] =   25;
+		タイマー         [TIME] =    6;
+	)
+}
+
+!
+! 定点カメラ。    データ無しその場で止まるだけ タイマーつき
+!                 プレイヤーじゃなくてターゲットを見る
+set 定点カメラＧ [CIRCLE6] {
+
+	attribute トリガー = PROGRAM;
+
+	mode 通常 [NORMAL] = func 特殊 [SPEC0] (
+		クッション       [CUSH] =   20;
+		フラグ           [FLAG] =    0x3200;
+	)
+}
+
+!
+! 前方チェックしない。
+set 通常カメラＣ [NORMAL2] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+		縦角度           [ANGV] =   30;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL1:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+!
+! てすと
+set 釣りカメラ [FISHING] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =    0;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   55;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0f02;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2f0a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		最近横振り       [NARC] =    0;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   55;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2f02;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3f20;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  250;
+		最近横振り       [NARC] =    0;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   55;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2f02;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0f00;
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		横クッション     [CUSH] =   12;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0f00;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		横クッション     [CUSH] =   15;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0f00;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0f00;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -120;
+		最小距離         [MIND] =  300;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2f00;
+	)
+}
+
+!
+! 汎用デモ
+set デモカメラ梅 [DEMOC] {
+
+	attribute トリガー = PROGRAM;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func データ [UNIQ9] (
+		フラグ           [FLAG] =    0x3f00;
+	)
+}
+
+
+!
+! 巨大魚ダンジョン神経部屋用
+set 魚神経カメラ [UO_FIBER] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =   30;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =  -20;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSL] =    5;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   70;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -30;
+		距離             [MIND] =  160;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    0;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+
+!
+! ダンジョン基本。広場用 
+set 洞窟カメラＣ [DUNGEON2] {
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =   15;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =   30;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0003;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  200;
+		縦角度           [ANGV] =    0;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x200a;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =   25;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =   -5;
+		最遠縦角度       [FARV] =   15;
+		縦角度補正       [ADJV] =   15;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   20;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3500;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  180;
+		最近横振り       [NARC] =   10;
+		最遠横振り       [FARC] =   80;
+		最近縦角度       [NARV] =  -10;
+		最遠縦角度       [FARV] =   10;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x2002;
+		空注目高         [CTRU] =  -40;
+		空中心移動       [SHFU] =   25;
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =    5;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =  -30;
+		位置補正Ｚ       [ADJZ] =   -5;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =   -7;
+		距離             [MIND] =   14;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =   -9;
+		位置補正Ｙ       [ADJY] =  -63;
+		位置補正Ｚ       [ADJZ] =  -30;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		注目高           [CTRH] =    5;
+		距離             [MIND] =   50;
+		自動パン距離     [MAXD] =   50;
+		クッション       [CUSH] =   10;
+		位置補正Ｘ       [ADJX] =    0;
+		位置補正Ｙ       [ADJY] =    0;
+		位置補正Ｚ       [ADJZ] =    0;
+		視野角           [FOVY] =   45;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =   -5;
+		最小距離         [MIND] =  120;
+		最大距離         [MAXD] =  140;
+		最近横振り       [NARC] =    5;
+		最遠横振り       [FARC] =   85;
+		最近縦角度       [NARV] =   10;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   25;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -15;
+		空中心移動       [SHFU] =   30;
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =   80;
+		自動パン距離     [MAXD] =  250;
+		タイマー         [TIME] =    6;
+		縦角度           [ANGV] =   45;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		横クッション     [CUSH] =   10;
+		横スピード依存度 [SPRH] =   50;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		横クッション     [CUSH] =   15;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =    5;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		注目高           [CTRH] =  -40;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		距離マージン     [MARD] =   20;
+		横クッション     [CUSH] =  999;
+		注目高クッション [CUSC] =    5;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   40;
+		フラグ           [FLAG] =    0x2006;
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		注目高           [CTRH] =  -20;
+		距離             [MIND] =  300;
+		縦角度           [ANGV] =   50;
+		横クッション     [CUSH] =    2;
+		視野角           [FOVY] =   80;
+		中心移動         [SHFT] =   20;
+		フラグ           [FLAG] =    0xf000;
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] =  -50;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		縦角度           [ANGV] =   40;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x0000;
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		注目高           [CTRH] = -100;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		縦角度           [ANGV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   10;
+		フラグ           [FLAG] =    0x2000;
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  350;
+		最大距離         [MAXD] =  350;
+		縦角度           [ANGV] =   20;
+		横クッション     [CUSH] =  100;
+		地形角クッション [CUSC] =    5;
+		横スピード依存度 [SPRH] =  100;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =    5;
+		フラグ           [FLAG] =    0xf003;
+	)
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		注目高           [CTRH] =    0;
+		距離             [MIND] =  280;
+		縦角度           [ANGV] =   25;
+		横角度           [ANGH] =    0;
+		横クッション     [CUSH] =    5;
+		地形角クッション [CUSC] =    5;
+		視野角           [FOVY] =   70;
+		中心移動         [SHFT] =   30;
+		フラグ           [FLAG] =    0x206a;
+		空注目高         [CTRU] =  -20;
+		空中心移動       [SHFU] =   30;
+	)
+
+}
+
+
+!
+! 前見ない
+! for 大ゴロン、邪心像前リフト
+set 前見ないカメラ [TEPPEN] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -10;
+		最小距離         [MIND] =  280;
+		最大距離         [MAXD] =  320;
+		縦角度           [ANGV] =   -8;
+		横クッション     [CUSH] =   20;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   80;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   80;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  180;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   35;
+		最遠横振り       [FARC] =   45;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =   -5;
+		縦角度補正       [ADJV] =   20;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   50;
+		フラグ           [FLAG] =    0x2001;
+		空注目高         [CTRU] =  -50;
+		空中心移動       [SHFU] =   30;
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -80;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  250;
+		最近横振り       [NARC] =   30;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =   -8;
+		最遠縦角度       [FARV] =   -8;
+		縦角度補正       [ADJV] =   30;
+		視野角           [FOVY] =   50;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x3520;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL0:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+!
+! 定点カメラ。    通常以外のモードあり
+set 定点カメラＨ [CIRCLE7] {
+
+	attribute 位置データ = TOOL;
+	attribute セーブモード = DONTPUSH;
+
+	mode 通常 [NORMAL] = func 固定 [FIXD4] (
+		注目高           [CTRH] =  -40;
+		視点クッション   [CUSH] =   50;
+		注目点クッション [CUSC] =   80;
+		視野角           [FOVY] =   60;
+		フラグ           [FLAG] =    0x0004;
+	)
+	mode 注目 [KEEPON] = func 注目 [FIXD4] (
+		same = [CIRCLE7:NORMAL];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		same = [NORMAL0:TALK];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+
+}
+
+!
+! 前方チェックしない。
+set 通常カメラＥ [NORMAL4] {
+
+	mode 通常 [NORMAL] = func 通常 [NORM1] (
+		注目高           [CTRH] =  -20;
+		最小距離         [MIND] =  200;
+		最大距離         [MAXD] =  300;
+		縦角度           [ANGV] =   10;
+		横クッション     [CUSH] =   12;
+		地形角クッション [CUSC] =   10;
+		横スピード依存度 [SPRH] =   35;
+		視野角           [FOVY] =   60;
+		中心移動         [SHFT] =   60;
+		フラグ           [FLAG] =    0x0002;
+	)
+	mode 平行 [PARALLEL] = func 平行 [PARA1] (
+		same = [NORMAL0:PARALLEL];
+		縦角度           [ANGV] =   30;
+	)
+	mode 注目 [KEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:KEEPON];
+	)
+	mode 会話 [TALK] = func 注目 [KEEP3] (
+		注目高           [CTRH] =  -30;
+		最小距離         [MIND] =   70;
+		最大距離         [MAXD] =  200;
+		最近横振り       [NARC] =   40;
+		最遠横振り       [FARC] =   10;
+		最近縦角度       [NARV] =    0;
+		最遠縦角度       [FARV] =    5;
+		縦角度補正       [ADJV] =   70;
+		視野角           [FOVY] =   45;
+		中心移動         [SHFT] =   50;
+		クッション       [CUSH] =   10;
+		フラグ           [FLAG] =    0x35a0;
+	)
+	mode 戦闘 [BATTLE] = func 戦闘 [BATT1] (
+		same = [NORMAL1:BATTLE];
+	)
+	mode 主観 [SUBJECT] = func 主観 [SUBJ3] (
+		same = [NORMAL0:SUBJECT];
+	)
+	mode 弓矢 [BOWARROW] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROW];
+	)
+	mode 弓矢注目 [BOWARROWZ] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOWARROWZ];
+	)
+	mode ジャンプ [JUMP] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode 落下 [FREEFALL] = func ジャンプ [JUMP1] (
+		same = [NORMAL0:JUMP];
+	)
+	mode ため切り [CHARGE] = func 戦闘 [BATT4] (
+		same = [NORMAL0:CHARGE];
+	)
+	mode ぶら下り [HANG] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANG];
+	)
+	mode ぶら下り注目 [HANGZ] = func 特殊 [UNIQ1] (
+		same = [NORMAL0:HANGZ];
+	)
+	mode パチンコ [PACHINCO] = func 主観 [SUBJ3] (
+		same = [NORMAL0:PACHINCO];
+	)
+	mode ブーメラン [BOOMERANG] = func 主観 [SUBJ3] (
+		same = [NORMAL0:BOOMERANG];
+	)
+	mode ブメラン注目 [BOOKEEPON] = func 注目 [KEEP1] (
+		same = [NORMAL0:BOOKEEPON];
+	)
+	mode フックショット [FOOKSHOT] = func 注目 [SPEC5] (
+		same = [NORMAL0:FOOKSHOT];
+	)
+	mode 一時停止 [STILL] = func 通常 [NORM1] (
+		same = [NORMAL0:STILL];
+        )
+	mode よじ登り [CLIMB] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMB];
+        )
+	mode よじ登り注目 [CLIMBZ] = func ジャンプ [JUMP2] (
+		same = [NORMAL0:CLIMBZ];
+        )
+	mode 押引 [PUSHPULL] = func 平行 [PARA1] (
+		same = [NORMAL0:PUSHPULL];
+	)
+
+}
+

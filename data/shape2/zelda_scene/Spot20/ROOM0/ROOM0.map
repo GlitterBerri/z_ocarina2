@@ -1,0 +1,57 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            66d0
+		.data                  0             220 spot20_0_info.o
+		.data                220              d0 spot20_0_shape.o
+		.data                2f0             210 spot20_0_info_ad.o
+		.data                500             130 spot20_0_info_an.o
+		.data                630             230 spot20_0_info_cn.o
+		.data                860             120 spot20_0_info_d0.o
+		.data                980             120 spot20_0_info_d1.o
+		.data                aa0             1c0 spot20_0_info_d2.o
+		.data                c60             1f0 spot20_0_info_d3.o
+		.data                e50             1f0 spot20_0_info_d4.o
+		.data               1040             130 spot20_0_info_d5.o
+		.data               1170             230 spot20_0_info_d6.o
+		.data               13a0             1f0 spot20_0_info_d7.o
+		.data               1590            4920 spot20_grp_spot20.o
+		.data               5eb0             820 spot20_grp_spot20T.o
+
+.strtab                                0             47c
+		.strtab                0             47c *ld_internal*
+
+.symtab                                0             350
+		.symtab                0             350 *ld_internal*
+
+.mdebug                                0            2484
+		.mdebug                0            2484 *ld_internal*
+
+.rel.data                              0             660
+		.rel.data              0              78 spot20_0_info.o
+		.rel.data             78              78 spot20_0_shape.o
+		.rel.data             f0              18 spot20_0_info_ad.o
+		.rel.data            108              18 spot20_0_info_an.o
+		.rel.data            120              18 spot20_0_info_cn.o
+		.rel.data            138              18 spot20_0_info_d0.o
+		.rel.data            150              18 spot20_0_info_d1.o
+		.rel.data            168              18 spot20_0_info_d2.o
+		.rel.data            180              18 spot20_0_info_d3.o
+		.rel.data            198              18 spot20_0_info_d4.o
+		.rel.data            1b0              18 spot20_0_info_d5.o
+		.rel.data            1c8              18 spot20_0_info_d6.o
+		.rel.data            1e0              18 spot20_0_info_d7.o
+		.rel.data            1f8             400 spot20_grp_spot20.o
+		.rel.data            5f8              68 spot20_grp_spot20T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

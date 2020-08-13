@@ -1,0 +1,80 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           11240
+		.data                  0             330 spot04_main_info.o
+		.data                330            8620 spot04_bgc.o
+		.data               8950             450 spot04_demo00.o
+		.data               8da0             600 spot04_demo01.o
+		.data               93a0            1330 spot04_demo02.o
+		.data               a6d0             bb0 spot04_demo03.o
+		.data               b280             580 spot04_demo04.o
+		.data               b800             1b0 spot04_demo05.o
+		.data               b9b0             170 spot04_demo06.o
+		.data               bb20             190 spot04_demo07.o
+		.data               bcb0             d20 spot04_jr.o
+		.data               c9d0             230 spot04_jr2.o
+		.data               cc00             310 spot04_main_info_ad.o
+		.data               cf10             310 spot04_main_info_an.o
+		.data               d220             130 spot04_main_info_d0.o
+		.data               d350             120 spot04_main_info_d1.o
+		.data               d470             120 spot04_main_info_d2.o
+		.data               d590             1b0 spot04_main_info_d3.o
+		.data               d740             1b0 spot04_main_info_d4.o
+		.data               d8f0             1b0 spot04_main_info_d5.o
+		.data               daa0              e0 spot04_main_info_d6.o
+		.data               db80              e0 spot04_main_info_d7.o
+		.data               dc60             1d0 spot04_main_info_d8.o
+		.data               de30             1e0 spot04_main_info_d9.o
+		.data               e010            2e10 spot04_texture.o
+		.data              10e20             420 spot04_yahoo.o
+
+.bss                                   0              b0
+		.bss                   0              10 spot04_demo00.o
+		.bss                  10              10 spot04_demo01.o
+		.bss                  20              10 spot04_demo02.o
+		.bss                  30              10 spot04_demo03.o
+		.bss                  40              10 spot04_demo04.o
+		.bss                  50              10 spot04_demo05.o
+		.bss                  60              10 spot04_demo06.o
+		.bss                  70              10 spot04_demo07.o
+		.bss                  80              10 spot04_jr.o
+		.bss                  90              10 spot04_jr2.o
+		.bss                  a0              10 spot04_yahoo.o
+
+.strtab                                0             329
+		.strtab                0             329 *ld_internal*
+
+.symtab                                0             290
+		.symtab                0             290 *ld_internal*
+
+.mdebug                                0            2308
+		.mdebug                0            2308 *ld_internal*
+
+.rel.data                              0             6f8
+		.rel.data              0              f0 spot04_main_info.o
+		.rel.data             f0              80 spot04_bgc.o
+		.rel.data            170              78 spot04_main_info_ad.o
+		.rel.data            1e8              78 spot04_main_info_an.o
+		.rel.data            260              70 spot04_main_info_d0.o
+		.rel.data            2d0              70 spot04_main_info_d1.o
+		.rel.data            340              70 spot04_main_info_d2.o
+		.rel.data            3b0              88 spot04_main_info_d3.o
+		.rel.data            438              80 spot04_main_info_d4.o
+		.rel.data            4b8              80 spot04_main_info_d5.o
+		.rel.data            538              70 spot04_main_info_d6.o
+		.rel.data            5a8              70 spot04_main_info_d7.o
+		.rel.data            618              70 spot04_main_info_d8.o
+		.rel.data            688              70 spot04_main_info_d9.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

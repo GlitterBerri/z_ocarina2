@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7f90
+		.data                  0             430 soldier_kyotuke.o
+		.data                430             370 soldier_r_slide.o
+		.data                7a0             3f0 soldier_r_stop.o
+		.data                b90             370 soldier_slide.o
+		.data                f00            6930 soldier_slide_mdl.o
+		.data               7830             3d0 soldier_stop.o
+		.data               7c00             390 soldier_supprise.o
+
+.strtab                                0             30d
+		.strtab                0             30d *ld_internal*
+
+.symtab                                0             2d0
+		.symtab                0             2d0 *ld_internal*
+
+.mdebug                                0            11fc
+		.mdebug                0            11fc *ld_internal*
+
+.rel.data                              0             570
+		.rel.data              0              10 soldier_kyotuke.o
+		.rel.data             10              10 soldier_r_slide.o
+		.rel.data             20              10 soldier_r_stop.o
+		.rel.data             30              10 soldier_slide.o
+		.rel.data             40             510 soldier_slide_mdl.o
+		.rel.data            550              10 soldier_stop.o
+		.rel.data            560              10 soldier_supprise.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

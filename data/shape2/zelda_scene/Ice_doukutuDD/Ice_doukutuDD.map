@@ -1,0 +1,38 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           116c0
+		.data                  0             330 ice_doukutu_main_info.o
+		.data                330            17b0 ice_doukuto_demo00.o
+		.data               1ae0            dbc0 ice_doukutu_bgc.o
+		.data               f6a0             200 ice_doukutu_main_info_d0.o
+		.data               f8a0            1e20 ice_doukutu_texture.o
+
+.bss                                   0              10
+		.bss                   0              10 ice_doukuto_demo00.o
+
+.strtab                                0             470
+		.strtab                0             470 *ld_internal*
+
+.symtab                                0             270
+		.symtab                0             270 *ld_internal*
+
+.mdebug                                0             d78
+		.mdebug                0             d78 *ld_internal*
+
+.rel.data                              0             260
+		.rel.data              0             138 ice_doukutu_main_info.o
+		.rel.data            138              28 ice_doukutu_bgc.o
+		.rel.data            160             100 ice_doukutu_main_info_d0.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

@@ -1,0 +1,63 @@
+/*
+ * $Id: z_map_exp_data.decl,v 1.1.1.1 2003/03/10 22:42:51 tong Exp $
+ *
+ * マップマークデータ
+ *
+ * z_map_mark_data.[ch] から include されます 
+ *
+ * $Log: z_map_exp_data.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:51  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 21:17:25+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.7  1998/10/09 02:56:42  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.6  1998-10-02 21:14:12+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.5  1998-09-29 20:28:44+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.4  1998-09-26 22:31:36+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.3  1998-09-19 15:08:22+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.2  1998-09-19 14:39:52+09  hayakawa
+ * *** empty log message ***
+ *
+ */
+
+decl(short, map_no_data, [DUNGEON_NUM][8])
+decl(short, boss_floor_data, [BOSS_NUM])
+decl(unshort, map_palate_bit_dt, [DUNGEON_NUM][32])
+decl(short, dungeon_pt, [DUNGEON_NUM])
+decl(short, dungeon_room_dt, [DUNGEON_NUM][8][14])
+decl(short, dungeon_map_inf_dataX, [DUNGEON_NUM][44])
+decl(short, dungeon_map_inf_dataY, [DUNGEON_NUM][44])
+decl(u8, map_size, [DUNGEON_NUM])
+decl(unshort, map_index, [DUNGEON_NUM])
+decl(unshort, ground_map_size, [GROUND_NUM])
+decl(unshort, ground_map_pt, [GROUND_NUM])
+decl(short, ground_map_xps, [GROUND_NUM])
+decl(short, ground_map_yps, [GROUND_NUM])
+decl(short, grand_map_inf_data, [GROUND_NUM][4])
+decl(short, dungeon_map_data_pt, [DUNGEON_NUM])
+decl(short, dungeon_map_inf_data, [DUNGEON_NUM][4])
+decl(short, ground_map_xsz, [GROUND_NUM])
+decl(short, ground_map_ysz, [GROUND_NUM])
+decl(short, enter_xps, [GROUND_NUM])
+decl(short, enter_yps, [GROUND_NUM])
+decl(unshort, check_dungeon_no, [CHECK_DUNGEON_NUM])
+decl(float, floor_check_data, [DUNGEON_NUM][8])
+decl(unshort, sizedt, [DUNGEON_NUM])
+decl(unchar, dungeon_check_0, [DUNGEON_NUM][dct])
+decl(unchar, dungeon_check_1, [DUNGEON_NUM][dct])
+decl(unchar, dungeon_check_2, [DUNGEON_NUM][dct])
+/* z_kaleido_mapより */
+decl(unchar, dungeon_floor_data, [DUNGEON_NUM][8])
+decl(short, boss_position, [DUNGEON_NUM])

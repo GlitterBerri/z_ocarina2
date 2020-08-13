@@ -1,0 +1,74 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1e200
+		.data                  0             b00 go_Await.o
+		.data                b00             e50 go_Uwait.o
+		.data               1950             a20 go_Uwalk.o
+		.data               2370             690 go_after_umu.o
+		.data               2a00             fe0 go_atack.o
+		.data               39e0             950 go_atack01.o
+		.data               4330             700 go_atack02.o
+		.data               4a30             910 go_atack03.o
+		.data               5340             590 go_chakuchi.o
+		.data               58d0             670 go_chakuchi02.o
+		.data               5f40             7b0 go_clim.o
+		.data               66f0             780 go_damage.o
+		.data               6e70            44a0 go_down.o
+		.data               b310            1170 go_pre_atack.o
+		.data               c480             870 go_stan.o
+		.data               ccf0            2a30 go_startdemo.o
+		.data               f720            1210 go_startdemo02.o
+		.data              10930             aa0 go_umu.o
+		.data              113d0            12c0 go_wait.o
+		.data              12690            a270 go_wait_mdl.o
+		.data              1c900             e60 go_walk.o
+		.data              1d760             170 Door/a_yb_door.o
+		.data              1d8d0             130 Door/a_yb_door_bgc.o
+		.data              1da00             800 Door/tex.o
+
+.strtab                                0             875
+		.strtab                0             875 *ld_internal*
+
+.symtab                                0             7d0
+		.symtab                0             7d0 *ld_internal*
+
+.mdebug                                0            5fa8
+		.mdebug                0            5fa8 *ld_internal*
+
+.rel.data                              0             9d8
+		.rel.data              0              10 go_Await.o
+		.rel.data             10              10 go_Uwait.o
+		.rel.data             20              10 go_Uwalk.o
+		.rel.data             30              10 go_after_umu.o
+		.rel.data             40              10 go_atack.o
+		.rel.data             50              10 go_atack01.o
+		.rel.data             60              10 go_atack02.o
+		.rel.data             70              10 go_atack03.o
+		.rel.data             80              10 go_chakuchi.o
+		.rel.data             90              10 go_chakuchi02.o
+		.rel.data             a0              10 go_clim.o
+		.rel.data             b0              10 go_damage.o
+		.rel.data             c0              10 go_down.o
+		.rel.data             d0              10 go_pre_atack.o
+		.rel.data             e0              10 go_stan.o
+		.rel.data             f0              10 go_startdemo.o
+		.rel.data            100              10 go_startdemo02.o
+		.rel.data            110              10 go_umu.o
+		.rel.data            120              10 go_wait.o
+		.rel.data            130             868 go_wait_mdl.o
+		.rel.data            998              10 go_walk.o
+		.rel.data            9a8              10 Door/a_yb_door.o
+		.rel.data            9b8              20 Door/a_yb_door_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

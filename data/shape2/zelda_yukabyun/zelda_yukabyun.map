@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            14f0
+		.data                  0             800 jyasinzou_tex.o
+		.data                800             230 trap_yukabyun.o
+		.data                a30              c0 trap_yukabyun_hahen.o
+		.data                af0             a00 yukabyun_tex.o
+
+.strtab                                0              76
+		.strtab                0              76 *ld_internal*
+
+.symtab                                0              80
+		.symtab                0              80 *ld_internal*
+
+.mdebug                                0             450
+		.mdebug                0             450 *ld_internal*
+
+.rel.data                              0              20
+		.rel.data              0              10 trap_yukabyun.o
+		.rel.data             10              10 trap_yukabyun_hahen.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

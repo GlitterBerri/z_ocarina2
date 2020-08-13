@@ -1,0 +1,59 @@
+#!/bin/csh -f
+
+set COPT = "-fno-pic -mcpu=4300 -nostdinc -c -O2 -G 0"
+set CC = /usr/bin/mips-linux-gcc
+
+#build make_msg_zh.c
+rm -f make_msg_zh
+cc -o make_msg_zh make_msg_zh.c
+
+#build zeldaendingcnvus
+rm -f zeldaendingcnvus.C zeldaendingcnvus
+ln -s $ZELDA_ROOT/shape2/TEXTURE/MESSAGE/tools/zeldaendingcnvus.C .
+c++ -Wno-deprecated -o zeldaendingcnvus zeldaendingcnvus.C
+
+#make staff_c_zh.o
+ln -sf $ZELDA_ROOT/i10n/assets/zh/TEXTURE/MESSAGE/STAFF/staff.rtf .
+./zeldaendingcnvus staff staff.rtf
+$CC $COPT -o staff_c_zh.o staff_c.c
+mv -f staff_c_zh.o $ZELDA_ROOT/data/
+
+#make nes_c.c
+rm -f end.txt *.rtf
+rm -f nes_a nes_b nes_c.c 
+
+set dir1="$ZELDA_ROOT/i10n/assets/zh/TEXTURE/MESSAGE/NES"
+ln -s $dir1/zel0000.rtf zel0000.rtf 
+ln -s $dir1/zel0100.rtf zel0100.rtf 
+ln -s $dir1/zel0200.rtf zel0200.rtf 
+ln -s $dir1/zel0300.rtf zel0300.rtf 
+ln -s $dir1/zel0400.rtf zel0400.rtf 
+ln -s $dir1/zel0600.rtf zel0600.rtf 
+ln -s $dir1/zel0800.rtf zel0800.rtf 
+ln -s $dir1/zel1000.rtf zel1000.rtf 
+ln -s $dir1/zel2000.rtf zel2000.rtf 
+ln -s $dir1/zel3000.rtf zel3000.rtf 
+ln -s $dir1/zel4000.rtf zel4000.rtf 
+ln -s $dir1/zel5000.rtf zel5000.rtf 
+ln -s $dir1/zel6000.rtf zel6000.rtf 
+ln -s $dir1/zel7000.rtf zel7000.rtf 
+ln -s $dir1/zel7100.rtf zel7100.rtf 
+ln -s $dir1/end.txt end.txt
+./make_msg_zh nes zel0000.rtf zel0100.rtf zel0200.rtf zel0300.rtf zel0400.rtf zel0600.rtf zel0800.rtf  zel1000.rtf zel2000.rtf zel3000.rtf zel4000.rtf zel5000.rtf zel6000.rtf zel7000.rtf zel7100.rtf end.txt
+
+#make nes_c_zh.o font_zh.o
+rm -f $ZELDA_ROOT/data/nes_c_zh.o $ZELDA_ROOT/data/font_zh.o
+rm -f nes_zh.c nes_zh.zh font_e_zh.c
+rm -rf font_zh
+rm -f font_e
+
+cp $ZELDA_ROOT/shape2/TEXTURE/MESSAGE/font/font_e.c font_e_zh.c 
+chmod u+w font_e_zh.c
+ln -s $ZELDA_ROOT/shape2/TEXTURE/MESSAGE/font/font_e font_e
+./process_kanji.pl nes_c.c GBFONT_12x12.txt font_e_zh.c
+
+$CC $COPT -o nes_c_zh.o nes_c_zh.c
+mv nes_c_zh.o $ZELDA_ROOT/data/nes_c_zh.o
+$CC $COPT -o font_zh.o font_e_zh.c 
+mv font_zh.o $ZELDA_ROOT/data/font_zh.o
+

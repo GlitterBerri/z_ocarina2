@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           13c30
+		.data                  0             770 Back_damage/skelton_back_damage.o
+		.data                770            18a0 Back_down/skelton_back_down.o
+		.data               2010             910 Back_jump/skelton_back_jump.o
+		.data               2920             560 Defend/skelton_defend.o
+		.data               2e80            18a0 Down/skelton_down.o
+		.data               4720             6f0 Front_damage/skelton_front_damage.o
+		.data               4e10            1ec0 Front_down/skelton_front_down.o
+		.data               6cd0            1640 Kiru/skelton_kiru.o
+		.data               8310             960 Landing/skelton_landing.o
+		.data               8c70             7a0 Side_walk/skelton_side_walk.o
+		.data               9410            9ef0 Wait/skelton_wait.o
+		.data              13300             930 Walk/skelton_walk.o
+
+.strtab                                0             93f
+		.strtab                0             93f *ld_internal*
+
+.symtab                                0             900
+		.symtab                0             900 *ld_internal*
+
+.mdebug                                0            3d40
+		.mdebug                0            3d40 *ld_internal*
+
+.rel.data                              0             840
+		.rel.data              0              10 Back_damage/skelton_back_damage.o
+		.rel.data             10              10 Back_down/skelton_back_down.o
+		.rel.data             20              10 Back_jump/skelton_back_jump.o
+		.rel.data             30              10 Defend/skelton_defend.o
+		.rel.data             40              10 Down/skelton_down.o
+		.rel.data             50              10 Front_damage/skelton_front_damage.o
+		.rel.data             60              10 Front_down/skelton_front_down.o
+		.rel.data             70              10 Kiru/skelton_kiru.o
+		.rel.data             80              10 Landing/skelton_landing.o
+		.rel.data             90              10 Side_walk/skelton_side_walk.o
+		.rel.data             a0             790 Wait/skelton_wait.o
+		.rel.data            830              10 Walk/skelton_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            28f0
+		.data                  0            1a30 demo_efc_erupt1.o
+		.data               1a30             d00 demo_efc_erupt2.o
+		.data               2730             1c0 vb_hinoko.o
+
+.strtab                                0              f0
+		.strtab                0              f0 *ld_internal*
+
+.symtab                                0              f0
+		.symtab                0              f0 *ld_internal*
+
+.mdebug                                0             480
+		.mdebug                0             480 *ld_internal*
+
+.rel.data                              0              78
+		.rel.data              0              38 demo_efc_erupt1.o
+		.rel.data             38              30 demo_efc_erupt2.o
+		.rel.data             68              10 vb_hinoko.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

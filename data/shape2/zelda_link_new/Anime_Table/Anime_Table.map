@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            11f0
+		.data                  0            11f0 link_anime_table.o
+
+.strtab                                0            af9c
+		.strtab                0            af9c *ld_internal*
+
+.symtab                                0            47c0
+		.symtab                0            47c0 *ld_internal*
+
+.mdebug                                0          16d138
+		.mdebug                0          16d138 *ld_internal*
+
+.rel.data                              0            11e8
+		.rel.data              0            11e8 link_anime_table.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

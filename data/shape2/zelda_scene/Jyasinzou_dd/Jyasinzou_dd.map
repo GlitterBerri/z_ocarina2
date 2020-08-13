@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4570
+		.data                  0             130 jyasinzou_dd_main_info.o
+		.data                130            24b0 jyasinzou_dd_bgc.o
+		.data               25e0            1f90 jyasinzou_dd_texture.o
+
+.strtab                                0             229
+		.strtab                0             229 *ld_internal*
+
+.symtab                                0             130
+		.symtab                0             130 *ld_internal*
+
+.mdebug                                0             700
+		.mdebug                0             700 *ld_internal*
+
+.rel.data                              0              98
+		.rel.data              0              78 jyasinzou_dd_main_info.o
+		.rel.data             78              20 jyasinzou_dd_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

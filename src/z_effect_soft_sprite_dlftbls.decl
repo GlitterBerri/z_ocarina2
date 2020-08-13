@@ -1,0 +1,69 @@
+/*
+ * $Id: z_effect_soft_sprite_dlftbls.decl,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $
+ *
+ * エフェクトＳＳ登録テーブル
+ *
+ * efdecl0():ダミー(数合わせ用）
+ * efdecl1():オーバーレイ
+ *
+ *  オーバーレイの場合は
+ *
+ *   Makefile.CFILES の OVLFILES に ソースファイルを登録すること
+ *   spec_ovl.dat に登録すること
+ *
+ * $Log: z_effect_soft_sprite_dlftbls.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:56  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 21:13:45+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.3  1998/09/11 06:17:39  matutani
+ * *** empty log message ***
+ *
+ * Revision 1.2  1998-09-03 10:14:35+09  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.1  1998-08-05 20:33:38+09  matutani
+ * Initial revision
+ *
+ *
+ */
+
+efdecl1(Effect_Ss_Dust, EFFECT_SS_DUST)
+efdecl1(Effect_Ss_KiraKira, EFFECT_SS_KIRAKIRA)
+efdecl1(Effect_Ss_Bomb, EFFECT_SS_BOMB)
+efdecl1(Effect_Ss_Bomb2, EFFECT_SS_BOMB2)
+efdecl1(Effect_Ss_Blast, EFFECT_SS_BLAST)
+efdecl1(Effect_Ss_G_Spk, EFFECT_SS_G_SPK)
+efdecl1(Effect_Ss_D_Fire, EFFECT_SS_D_FIRE)
+efdecl1(Effect_Ss_Bubble, EFFECT_SS_BUBBLE)
+efdecl0(Effect_Ss_Magic, EFFECT_SS_MAGIC)
+efdecl1(Effect_Ss_G_Ripple, EFFECT_SS_G_RIPPLE)
+efdecl1(Effect_Ss_G_Splash, EFFECT_SS_G_SPLASH)
+efdecl1(Effect_Ss_G_Magma, EFFECT_SS_G_MAGMA)
+efdecl1(Effect_Ss_G_Fire, EFFECT_SS_G_FIRE)
+efdecl1(Effect_Ss_Lightning, EFFECT_SS_LIGHTNING)
+efdecl1(Effect_Ss_Dt_Bubble, EFFECT_SS_DT_BUBBLE)
+efdecl1(Effect_Ss_Hahen, EFFECT_SS_HAHEN)
+efdecl1(Effect_Ss_Stick, EFFECT_SS_STICK)
+efdecl1(Effect_Ss_Sibuki, EFFECT_SS_SIBUKI)
+efdecl1(Effect_Ss_Sibuki2, EFFECT_SS_SIBUKI2)
+efdecl1(Effect_Ss_G_Magma2, EFFECT_SS_G_MAGMA2)
+efdecl1(Effect_Ss_Stone1, EFFECT_SS_STONE1)
+efdecl1(Effect_Ss_HitMark, EFFECT_SS_HITMARK)
+efdecl1(Effect_Ss_Fhg_Flash, EFFECT_SS_FHG_FLASH)
+efdecl1(Effect_Ss_K_Fire, EFFECT_SS_K_FIRE)
+efdecl1(Effect_Ss_Solder_Srch_Ball, EFFECT_SS_SOLDER_SRCH_BALL)
+efdecl1(Effect_Ss_Kakera, EFFECT_SS_KAKERA)
+efdecl1(Effect_Ss_Ice_Piece, EFFECT_SS_ICE_PIECE)
+efdecl1(Effect_Ss_En_Ice, EFFECT_SS_EN_ICE)
+efdecl1(Effect_Ss_Fire_Tail, EFFECT_SS_FIRE_TAIL)
+efdecl1(Effect_Ss_En_Fire, EFFECT_SS_EN_FIRE)
+efdecl1(Effect_Ss_Extra, EFFECT_SS_EXTRA)
+efdecl1(Effect_Ss_Fcircle, EFFECT_SS_FCIRCLE)
+efdecl1(Effect_Ss_Dead_Db, EFFECT_SS_DEAD_DB)
+efdecl1(Effect_Ss_Dead_Dd, EFFECT_SS_DEAD_DD)
+efdecl1(Effect_Ss_Dead_Ds, EFFECT_SS_DEAD_DS)
+efdecl1(Effect_Ss_Dead_Sound, EFFECT_SS_DEAD_SOUND)
+efdecl1(Effect_Ss_Ice_Smoke, EFFECT_SS_ICE_SMOKE)

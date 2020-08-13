@@ -1,0 +1,42 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4ae0
+		.data                  0             130 hakaana_ouke_main_info.o
+		.data                130            2150 hakaana_ouke_bgc.o
+		.data               2280             110 hakaana_ouke_main_info_d0.o
+		.data               2390             110 hakaana_ouke_main_info_d1.o
+		.data               24a0             440 hakaana_ouke_sunA.o
+		.data               28e0             200 hakaana_ouke_sunB.o
+		.data               2ae0            2000 hakaana_ouke_texture.o
+
+.bss                                   0              20
+		.bss                   0              10 hakaana_ouke_sunA.o
+		.bss                  10              10 hakaana_ouke_sunB.o
+
+.strtab                                0             1fc
+		.strtab                0             1fc *ld_internal*
+
+.symtab                                0             140
+		.symtab                0             140 *ld_internal*
+
+.mdebug                                0             b80
+		.mdebug                0             b80 *ld_internal*
+
+.rel.data                              0             190
+		.rel.data              0              80 hakaana_ouke_main_info.o
+		.rel.data             80              30 hakaana_ouke_bgc.o
+		.rel.data             b0              70 hakaana_ouke_main_info_d0.o
+		.rel.data            120              70 hakaana_ouke_main_info_d1.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

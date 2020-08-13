@@ -1,0 +1,62 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1ea90
+		.data                  0             270 spot16_main_info.o
+		.data                270            3ad0 spot16_bgc.o
+		.data               3d40             370 spot16_demo00.o
+		.data               40b0            2320 spot16_demo01.o
+		.data               63d0             180 spot16_demo02.o
+		.data               6550             190 spot16_demo03.o
+		.data               66e0             ec0 spot16_demo04.o
+		.data               75a0             300 spot16_main_info_ad.o
+		.data               78a0             120 spot16_main_info_cn.o
+		.data               79c0              e0 spot16_main_info_d0.o
+		.data               7aa0             120 spot16_main_info_d1.o
+		.data               7bc0             120 spot16_main_info_d2.o
+		.data               7ce0              a0 spot16_main_info_d3.o
+		.data               7d80             120 spot16_main_info_d4.o
+		.data               7ea0             2d0 spot16_show.o
+		.data               8170           16530 spot16_texture.o
+		.data              1e6a0             3f0 spot16_tori.o
+
+.bss                                   0              70
+		.bss                   0              10 spot16_demo00.o
+		.bss                  10              10 spot16_demo01.o
+		.bss                  20              10 spot16_demo02.o
+		.bss                  30              10 spot16_demo03.o
+		.bss                  40              10 spot16_demo04.o
+		.bss                  50              10 spot16_show.o
+		.bss                  60              10 spot16_tori.o
+
+.strtab                                0             460
+		.strtab                0             460 *ld_internal*
+
+.symtab                                0             3a0
+		.symtab                0             3a0 *ld_internal*
+
+.mdebug                                0            1a28
+		.mdebug                0            1a28 *ld_internal*
+
+.rel.data                              0             2c0
+		.rel.data              0              90 spot16_main_info.o
+		.rel.data             90              20 spot16_bgc.o
+		.rel.data             b0              60 spot16_main_info_ad.o
+		.rel.data            110              48 spot16_main_info_cn.o
+		.rel.data            158              48 spot16_main_info_d0.o
+		.rel.data            1a0              48 spot16_main_info_d1.o
+		.rel.data            1e8              48 spot16_main_info_d2.o
+		.rel.data            230              48 spot16_main_info_d3.o
+		.rel.data            278              48 spot16_main_info_d4.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

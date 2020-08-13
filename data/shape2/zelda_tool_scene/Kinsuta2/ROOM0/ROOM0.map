@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            ff20
+		.data                  0            2000 room_info.o
+		.data               2000              20 kinsuta2_0_shape.o
+		.data               2020            9f70 kinsuta2_grp_kinsuta.o
+		.data               bf90            3f90 kinsuta2_grp_kinsutaT.o
+
+.strtab                                0              ea
+		.strtab                0              ea *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             f50
+		.mdebug                0             f50 *ld_internal*
+
+.rel.data                              0             240
+		.rel.data              0              20 kinsuta2_0_shape.o
+		.rel.data             20             1b0 kinsuta2_grp_kinsuta.o
+		.rel.data            1d0              70 kinsuta2_grp_kinsutaT.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

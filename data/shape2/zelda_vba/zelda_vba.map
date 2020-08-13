@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           11a90
+		.data                  0            55a0 vba_ALLparts.o
+		.data               55a0            1e40 vba_atack.o
+		.data               73e0             480 vba_beforedamage.o
+		.data               7860            1190 vba_damage.o
+		.data               89f0             7c0 vba_down.o
+		.data               91b0            1180 vba_hit.o
+		.data               a330             550 vba_pikupiku.o
+		.data               a880             620 vba_search.o
+		.data               aea0             920 vba_tyokkai.o
+		.data               b7c0             a20 vba_up.o
+		.data               c1e0             720 vba_wait.o
+		.data               c900             4c0 vba_wait02.o
+		.data               cdc0            4cd0 vba_wait_mdl.o
+
+.strtab                                0             605
+		.strtab                0             605 *ld_internal*
+
+.symtab                                0             540
+		.symtab                0             540 *ld_internal*
+
+.mdebug                                0            1cdc
+		.mdebug                0            1cdc *ld_internal*
+
+.rel.data                              0             a28
+		.rel.data              0             2f0 vba_ALLparts.o
+		.rel.data            2f0              10 vba_atack.o
+		.rel.data            300              10 vba_beforedamage.o
+		.rel.data            310              10 vba_damage.o
+		.rel.data            320              10 vba_down.o
+		.rel.data            330              10 vba_hit.o
+		.rel.data            340              10 vba_pikupiku.o
+		.rel.data            350              10 vba_search.o
+		.rel.data            360              10 vba_tyokkai.o
+		.rel.data            370              10 vba_up.o
+		.rel.data            380              10 vba_wait.o
+		.rel.data            390              10 vba_wait02.o
+		.rel.data            3a0             688 vba_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

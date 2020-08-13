@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6bd0
+		.data                  0             460 ocd_damagejump.o
+		.data                460             630 ocd_dead.o
+		.data                a90             2a0 ocd_stop.o
+		.data                d30             7a0 ocd_wait.o
+		.data               14d0             7f0 ocd_walk.o
+		.data               1cc0            4f10 ocd_walk_mdl.o
+
+.strtab                                0             295
+		.strtab                0             295 *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0             eb0
+		.mdebug                0             eb0 *ld_internal*
+
+.rel.data                              0             5a8
+		.rel.data              0              10 ocd_damagejump.o
+		.rel.data             10              10 ocd_dead.o
+		.rel.data             20              10 ocd_stop.o
+		.rel.data             30              10 ocd_wait.o
+		.rel.data             40              10 ocd_walk.o
+		.rel.data             50             558 ocd_walk_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

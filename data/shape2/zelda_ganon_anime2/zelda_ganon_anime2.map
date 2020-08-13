@@ -1,0 +1,61 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           10530
+		.data                  0            1f70 G_furimuku.o
+		.data               1f70            10c0 G_n_wait.o
+		.data               3030            12f0 G_okosu.o
+		.data               4320             c60 G_or_end.o
+		.data               4f80            1090 G_or_hikuL.o
+		.data               6010             b00 G_tame.o
+		.data               6b10             770 G_te_ageru.o
+		.data               7280             800 G_te_hikaru.o
+		.data               7a80             f90 G_usiro_wait.o
+		.data               8a10            10e0 G_warau.o
+		.data               9af0            1300 g_demo_down.o
+		.data               adf0             890 g_demo_hedohaki.o
+		.data               b680             7d0 g_demo_hedohaki_wait.o
+		.data               be50            2bc0 g_demo_hizaoti.o
+		.data               ea10             7a0 g_demo_hizaoti_wait.o
+		.data               f1b0            1100 g_demo_sakebi.o
+		.data              102b0             280 g_demo_sakebi_wait.o
+
+.strtab                                0             222
+		.strtab                0             222 *ld_internal*
+
+.symtab                                0             130
+		.symtab                0             130 *ld_internal*
+
+.mdebug                                0            140c
+		.mdebug                0            140c *ld_internal*
+
+.rel.data                              0             110
+		.rel.data              0              10 G_furimuku.o
+		.rel.data             10              10 G_n_wait.o
+		.rel.data             20              10 G_okosu.o
+		.rel.data             30              10 G_or_end.o
+		.rel.data             40              10 G_or_hikuL.o
+		.rel.data             50              10 G_tame.o
+		.rel.data             60              10 G_te_ageru.o
+		.rel.data             70              10 G_te_hikaru.o
+		.rel.data             80              10 G_usiro_wait.o
+		.rel.data             90              10 G_warau.o
+		.rel.data             a0              10 g_demo_down.o
+		.rel.data             b0              10 g_demo_hedohaki.o
+		.rel.data             c0              10 g_demo_hedohaki_wait.o
+		.rel.data             d0              10 g_demo_hizaoti.o
+		.rel.data             e0              10 g_demo_hizaoti_wait.o
+		.rel.data             f0              10 g_demo_sakebi.o
+		.rel.data            100              10 g_demo_sakebi_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

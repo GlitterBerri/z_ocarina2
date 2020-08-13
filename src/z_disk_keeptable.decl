@@ -1,0 +1,32 @@
+/*
+ * $Id: z_disk_keeptable.decl,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $
+ *
+ *
+ * $Log: z_disk_keeptable.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:55  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 1.1  2000-06-12 16:27:47+09  hayakawa
+ * Initial revision
+ *
+ *
+ */
+
+decl2(char, _object_link_childSegmentRomStart, [])
+decl2(void, Draw_1C1M_Type, (Game_play *, short))	/* z_draw.c */
+decl2(char, _object_gi_ki_tan_maskSegmentRomStart, [])
+decl2(char, _object_link_childSegmentStart,  [])
+decl2(char, _object_gi_ki_tan_maskSegmentStart, [])
+decl2(Gfx, ki_tan_mask_model, [])
+decl2(Gfx, gi_ki_tan_mask_model, [])
+decl2(Gfx, gi_ki_tan_mask_modelT, [])
+decl2(Gfx, gi_gerudomask_model, [])
+decl2(OSMesgQueue *, dmaEntryMsgQ, )			/* z_std_dma.c */
+decl2(GI_M_INFO, ShapeModel, [MODEL_MAX])		/* z_draw.c */
+decl0()
+decl0()
+decl0()
+decl0()
+decl0()
+decl0()
+decl0()

@@ -1,0 +1,21 @@
+#ifdef SPEC_SEGMENT_INCLUDE
+#endif /* SPEC_SEGMENT_INCLUDE */
+
+/*
+ * 常に岩脇さんがロックしていて反映できない
+ */
+#ifdef Z_PLAYER_INCLUDE_A
+#endif /* Z_PLAYER_INCLUDE_A */
+
+#ifdef Z_PLAYER_INCLUDE_B
+/* Player_actor_move() */
+{
+}
+#endif /* Z_PLAYER_INCLUDE_B */
+
+#ifdef Z_PLAYER_INCLUDE
+#endif /* Z_PLAYER_INCLUDE */
+
+#ifdef Z_PLAY_INCLUDE
+#endif /* Z_PLAY_INCLUDE */
+

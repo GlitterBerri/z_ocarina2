@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           112a0
+		.data                  0             210 jyasinzouDD_0_info.o
+		.data                210             210 jyasinzou_0_info.o
+		.data                420              f0 jyasinzouDD_0_shape.o
+		.data                510              50 jyasinzouDD_0_info_d0.o
+		.data                560              50 jyasinzouDD_0_info_d1.o
+		.data                5b0              50 jyasinzou_0_info_d0.o
+		.data                600              50 jyasinzou_0_info_d1.o
+		.data                650            fe40 jyasinzou_grp_jya00_00.o
+		.data              10490             e10 jyasinzou_grp_jya00_00T.o
+
+.strtab                                0             300
+		.strtab                0             300 *ld_internal*
+
+.symtab                                0             230
+		.symtab                0             230 *ld_internal*
+
+.mdebug                                0            2218
+		.mdebug                0            2218 *ld_internal*
+
+.rel.data                              0             af0
+		.rel.data              0              18 jyasinzouDD_0_info.o
+		.rel.data             18              18 jyasinzou_0_info.o
+		.rel.data             30              90 jyasinzouDD_0_shape.o
+		.rel.data             c0              10 jyasinzouDD_0_info_d0.o
+		.rel.data             d0              10 jyasinzouDD_0_info_d1.o
+		.rel.data             e0              10 jyasinzou_0_info_d0.o
+		.rel.data             f0              10 jyasinzou_0_info_d1.o
+		.rel.data            100             990 jyasinzou_grp_jya00_00.o
+		.rel.data            a90              60 jyasinzou_grp_jya00_00T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

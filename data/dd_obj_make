@@ -1,0 +1,24 @@
+#!/usr/local/bin/bash
+#set -x
+#
+# $Id: dd_obj_make,v 1.1.1.1 2003/03/10 22:58:54 tong Exp $
+
+cp2() {
+  if [ ! -e $2 -o $1 -nt $2 ]; then
+    echo    cp $1 $2
+    command cp $1 $2
+  fi
+}
+cp() {
+  SRC=$1
+  DEST=$2
+  SRCBASE=`basename $SRC`
+  if [ -d $DEST ]; then
+    cp2 $SRC $DEST/$SRCBASE
+  else
+    cp2 $SRC $DEST
+  fi
+}
+
+#cp /project/ZELDA2/data/shape/zelda2_gi_mask23/v2_mask_23.o .
+cp shape/zelda_mag/zelda_mag_ura.o mag_ura.o

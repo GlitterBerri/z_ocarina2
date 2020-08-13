@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            bd00
+		.data                  0             1a0 ss_after.o
+		.data                1a0             400 ss_attack.o
+		.data                5a0             620 ss_bowhit.o
+		.data                bc0             b90 ss_close.o
+		.data               1750             320 ss_dmg.o
+		.data               1a70             410 ss_dmg_open.o
+		.data               1e80             2b0 ss_swdhit.o
+		.data               2130             7f0 ss_towait.o
+		.data               2920             7d0 ss_wait_close.o
+		.data               30f0             b90 ss_wait_open.o
+		.data               3c80            8080 ss_wait_open_mdl.o
+
+.strtab                                0             461
+		.strtab                0             461 *ld_internal*
+
+.symtab                                0             3b0
+		.symtab                0             3b0 *ld_internal*
+
+.mdebug                                0            1b70
+		.mdebug                0            1b70 *ld_internal*
+
+.rel.data                              0             8b0
+		.rel.data              0              10 ss_after.o
+		.rel.data             10              10 ss_attack.o
+		.rel.data             20              10 ss_bowhit.o
+		.rel.data             30              10 ss_close.o
+		.rel.data             40              10 ss_dmg.o
+		.rel.data             50              10 ss_dmg_open.o
+		.rel.data             60              10 ss_swdhit.o
+		.rel.data             70              10 ss_towait.o
+		.rel.data             80              10 ss_wait_close.o
+		.rel.data             90              10 ss_wait_open.o
+		.rel.data             a0             810 ss_wait_open_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

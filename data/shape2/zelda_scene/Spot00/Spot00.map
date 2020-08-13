@@ -1,0 +1,89 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           2a220
+		.data                  0             410 spot00_main_info.o
+		.data                410            8080 spot00_bgc.o
+		.data               8490            1b70 spot00_demo01.o
+		.data               a000             920 spot00_demo02.o
+		.data               a920            1260 spot00_demo03.o
+		.data               bb80             3c0 spot00_demo04.o
+		.data               bf40             1e0 spot00_demo05.o
+		.data               c120             7a0 spot00_demo06.o
+		.data               c8c0            13f0 spot00_demo07.o
+		.data               dcb0             940 spot00_demo08.o
+		.data               e5f0            1280 spot00_demo09.o
+		.data               f870             170 spot00_demooca.o
+		.data               f9e0             520 spot00_demouma00.o
+		.data               ff00             650 spot00_demouma01.o
+		.data              10550             5e0 spot00_demouma02.o
+		.data              10b30             7a0 spot00_demouma03.o
+		.data              112d0             3c0 spot00_main_info_ad.o
+		.data              11690             440 spot00_main_info_cn.o
+		.data              11ad0              a0 spot00_main_info_d0.o
+		.data              11b70             150 spot00_main_info_d1.o
+		.data              11cc0              a0 spot00_main_info_d2.o
+		.data              11d60             100 spot00_main_info_d3.o
+		.data              11e60              c0 spot00_main_info_d4.o
+		.data              11f20             100 spot00_main_info_d5.o
+		.data              12020              c0 spot00_main_info_d6.o
+		.data              120e0              a0 spot00_main_info_d7.o
+		.data              12180             1c0 spot00_main_info_d8.o
+		.data              12340              c0 spot00_main_info_d9.o
+		.data              12400            16a0 spot00_opening.o
+		.data              13aa0             2d0 spot00_show.o
+		.data              13d70           164b0 spot00_texture.o
+
+.bss                                   0              f0
+		.bss                   0              10 spot00_demo02.o
+		.bss                  10              10 spot00_demo03.o
+		.bss                  20              10 spot00_demo04.o
+		.bss                  30              10 spot00_demo05.o
+		.bss                  40              10 spot00_demo06.o
+		.bss                  50              10 spot00_demo07.o
+		.bss                  60              10 spot00_demo08.o
+		.bss                  70              10 spot00_demo09.o
+		.bss                  80              10 spot00_demooca.o
+		.bss                  90              10 spot00_demouma00.o
+		.bss                  a0              10 spot00_demouma01.o
+		.bss                  b0              10 spot00_demouma02.o
+		.bss                  c0              10 spot00_demouma03.o
+		.bss                  d0              10 spot00_opening.o
+		.bss                  e0              10 spot00_show.o
+
+.strtab                                0             750
+		.strtab                0             750 *ld_internal*
+
+.symtab                                0             570
+		.symtab                0             570 *ld_internal*
+
+.mdebug                                0            2bec
+		.mdebug                0            2bec *ld_internal*
+
+.rel.data                              0             450
+		.rel.data              0              b0 spot00_main_info.o
+		.rel.data             b0              28 spot00_bgc.o
+		.rel.data             d8              50 spot00_main_info_ad.o
+		.rel.data            128              58 spot00_main_info_cn.o
+		.rel.data            180              48 spot00_main_info_d0.o
+		.rel.data            1c8              48 spot00_main_info_d1.o
+		.rel.data            210              48 spot00_main_info_d2.o
+		.rel.data            258              48 spot00_main_info_d3.o
+		.rel.data            2a0              48 spot00_main_info_d4.o
+		.rel.data            2e8              48 spot00_main_info_d5.o
+		.rel.data            330              48 spot00_main_info_d6.o
+		.rel.data            378              48 spot00_main_info_d7.o
+		.rel.data            3c0              48 spot00_main_info_d8.o
+		.rel.data            408              48 spot00_main_info_d9.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

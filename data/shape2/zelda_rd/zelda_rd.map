@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            eff0
+		.data                  0            3df0 gibud_mdl.o
+		.data               3df0             490 re_dead_attack_20f.o
+		.data               4280             490 re_dead_attack_end_20f.o
+		.data               4710             3e0 re_dead_attack_start_20f.o
+		.data               4af0             4c0 re_dead_back_turn_20f.o
+		.data               4fb0             810 re_dead_cryB_20f.o
+		.data               57c0             5f0 re_dead_cry_20f.o
+		.data               5db0            10f0 re_dead_down_20f.o
+		.data               6ea0             660 re_dead_hit_20f.o
+		.data               7500             b50 re_dead_standing_20f.o
+		.data               8050             790 re_dead_wait_20f.o
+		.data               87e0            5fb0 re_dead_wait_20f_mdl.o
+		.data               e790             860 re_dead_walk_20f.o
+
+.strtab                                0             578
+		.strtab                0             578 *ld_internal*
+
+.symtab                                0             450
+		.symtab                0             450 *ld_internal*
+
+.mdebug                                0            2008
+		.mdebug                0            2008 *ld_internal*
+
+.rel.data                              0             9c0
+		.rel.data              0             4c0 gibud_mdl.o
+		.rel.data            4c0              10 re_dead_attack_20f.o
+		.rel.data            4d0              10 re_dead_attack_end_20f.o
+		.rel.data            4e0              10 re_dead_attack_start_20f.o
+		.rel.data            4f0              10 re_dead_back_turn_20f.o
+		.rel.data            500              10 re_dead_cryB_20f.o
+		.rel.data            510              10 re_dead_cry_20f.o
+		.rel.data            520              10 re_dead_down_20f.o
+		.rel.data            530              10 re_dead_hit_20f.o
+		.rel.data            540              10 re_dead_standing_20f.o
+		.rel.data            550              10 re_dead_wait_20f.o
+		.rel.data            560             450 re_dead_wait_20f_mdl.o
+		.rel.data            9b0              10 re_dead_walk_20f.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

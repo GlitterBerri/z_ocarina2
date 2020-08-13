@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a280
+		.data                  0            2000 room_info.o
+		.data               2000              20 spot10_1_shape.o
+		.data               2020            75d0 spot10_grp_spot10_2.o
+		.data               95f0             c90 spot10_grp_spot10_2T.o
+
+.strtab                                0             24b
+		.strtab                0             24b *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0            16b4
+		.mdebug                0            16b4 *ld_internal*
+
+.rel.data                              0             360
+		.rel.data              0              20 spot10_1_shape.o
+		.rel.data             20             2f8 spot10_grp_spot10_2.o
+		.rel.data            318              48 spot10_grp_spot10_2T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,2305 @@
+2002年 6月 4日(火曜日) 12時04分21秒 JST 
+	make_spec_seg_ovl.sh < spec_ovl.dat > spec_seg_ovl.inc~$$~ && mv spec_seg_ovl.inc~$$~ spec_seg_ovl.inc
+	make_spec_inc_ovl.sh < spec_ovl.dat > spec_inc_ovl.inc~$$~ && mv spec_inc_ovl.inc~$$~ spec_inc_ovl.inc
+	if [ -r /home/zelda/prj/PR/ZELDA1/data/camera.zdb ] && [ ! -w /home/zelda/prj/PR/ZELDA1/data/camera.zdb ];  then  chmod +w /home/zelda/prj/PR/ZELDA1/data/camera.zdb;  fi
+	cp /home/zelda/prj/PR/ZELDA1/data/camera/camera.zdb /home/zelda/prj/PR/ZELDA1/data/camera.zdb
+	/home/zelda/prj/PR/ZELDA1/tool/bin/makecamera -td -q /home/zelda/prj/PR/ZELDA1/data/camera.zdb
+
+!!! all over !!!
+
+	/home/zelda/prj/PR/ZELDA1/tool/bin/makecamera -l -d/project/ZELDA1/link/tools/umemiya/SAM_TOOL /home/zelda/prj/PR/ZELDA1/data/camera.zdb
+set#1 通常カメラＡ
+ mode#0 通常 ..........0 ok
+ mode#1 平行 ...........1 ok
+ mode#2 注目 .............2 ok
+ mode#3 会話 ............3 ok
+ mode#4 戦闘 ............4 ok
+ mode#5 よじ登り .........5 ok
+ mode#6 主観 .........6 ok
+ mode#7 弓矢 .........7 ok
+ mode#8 弓矢注目 .........8 ok
+ mode#9 フックショット ........9 ok
+ mode#10 ブーメラン .........10 ok
+ mode#11 パチンコ .........11 ok
+ mode#12 よじ登り注目 .........12 ok
+ mode#13 ジャンプ ........13 ok
+ mode#14 ぶら下り .......14 ok
+ mode#15 ぶら下り注目 .......15 ok
+ mode#16 落下 ........16 ok
+ mode#17 ため切り .......17 ok
+ mode#18 一時停止 ..........18 ok
+ mode#19 押引 ...........19 ok
+ mode#20 ブメラン注目 .............20 ok
+set ok
+set#2 通常カメラＢ
+ mode#21 通常 ..........21 ok
+ mode#21 平行 ...........22 ok
+ mode#21 注目 .............23 ok
+ mode#21 会話 ............=3 ok
+ mode#21 戦闘 ............24 ok
+ mode#21 主観 .........=6 ok
+ mode#21 弓矢 .........=7 ok
+ mode#21 パチンコ .........=11 ok
+ mode#21 ブーメラン .........=10 ok
+ mode#21 ブメラン注目 .............=20 ok
+ mode#21 フックショット ........25 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........26 ok
+ mode#21 落下 ........27 ok
+ mode#21 よじ登り .........28 ok
+ mode#21 よじ登り注目 .........29 ok
+ mode#21 ため切り .......30 ok
+ mode#21 ぶら下り .......31 ok
+ mode#21 ぶら下り注目 .......32 ok
+ mode#21 一時停止 ..........33 ok
+ mode#21 押引 ...........=19 ok
+set ok
+set#3 洞窟カメラＡ
+ mode#21 通常 ..........34 ok
+ mode#21 平行 ...........35 ok
+ mode#21 注目 .............36 ok
+ mode#21 会話 ............=3 ok
+ mode#21 戦闘 ............37 ok
+ mode#21 主観 .........=6 ok
+ mode#21 弓矢 .........=7 ok
+ mode#21 パチンコ .........=11 ok
+ mode#21 ブーメラン .........=10 ok
+ mode#21 ブメラン注目 .............=20 ok
+ mode#21 フックショット ........=25 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........38 ok
+ mode#21 落下 ........39 ok
+ mode#21 よじ登り .........40 ok
+ mode#21 よじ登り注目 .........41 ok
+ mode#21 ため切り .......42 ok
+ mode#21 ぶら下り .......43 ok
+ mode#21 ぶら下り注目 .......44 ok
+ mode#21 一時停止 ..........45 ok
+ mode#21 押引 ...........=19 ok
+set ok
+set#4 洞窟カメラＢ
+ mode#21 通常 ..........46 ok
+ mode#21 平行 ...........=35 ok
+ mode#21 注目 .............=23 ok
+ mode#21 会話 ............47 ok
+ mode#21 戦闘 ............=37 ok
+ mode#21 主観 .........=6 ok
+ mode#21 弓矢 .........=7 ok
+ mode#21 パチンコ .........=11 ok
+ mode#21 ブーメラン .........=10 ok
+ mode#21 ブメラン注目 .............=20 ok
+ mode#21 フックショット ........=25 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........48 ok
+ mode#21 落下 ........49 ok
+ mode#21 よじ登り .........50 ok
+ mode#21 よじ登り注目 .........51 ok
+ mode#21 ため切り .......52 ok
+ mode#21 ぶら下り .......53 ok
+ mode#21 ぶら下り注目 .......54 ok
+ mode#21 一時停止 ..........55 ok
+ mode#21 押引 ...........56 ok
+set ok
+set#5 通常カメラＤ
+ mode#21 通常 ..........57 ok
+ mode#21 平行 ...........58 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 ............59 ok
+ mode#21 戦闘 =4 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 水面下 ..........60 ok
+ mode#21 弓矢 =7 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#6 馬カメラＡ
+ mode#21 通常 .........61 ok
+ mode#21 平行 .........62 ok
+ mode#21 弓矢 .........63 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 注目 .............64 ok
+ mode#21 会話 ............65 ok
+set ok
+set#7 ボスゴーマカメラ
+ mode#21 通常 ..........66 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............67 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =42 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#8 王ドドンゴカメラ
+ mode#21 通常 ..........68 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............69 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#9 バリネードカメラ
+ mode#21 通常 ..........70 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............71 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#10 幽霊ガノンカメラ
+ mode#21 通常 ..........72 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............73 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#11 バルバジアカメラ
+ mode#21 通常 ..........74 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 戦闘 ............75 ok
+ mode#21 会話 =3 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#12 影ストーカカメラ
+ mode#21 通常 ..........76 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............77 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ..........78 ok
+ mode#21 落下 ..........=78 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#13 モーファカメラ
+ mode#21 通常 ..........79 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............80 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#14 双子老婆カメラ上
+ mode#21 通常 ..........81 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 主観 =6 ok
+ mode#21 戦闘 ............82 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#15 双子老婆カメラ下
+ mode#21 通常 ..........83 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 主観 =6 ok
+ mode#21 戦闘 ............=82 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#16 人ガノンカメラ
+ mode#21 通常 ..........84 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............=73 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り .......85 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#17 豚ガノンカメラ
+ mode#21 通常 ..........86 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............87 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#18 塔カメラＡ
+ mode#21 通常 .........88 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =4 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ .........89 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#19 塔カメラＢ
+ mode#21 通常 .........90 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =4 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ .........91 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#20 固定カメラＡ
+ mode#21 通常 ....92 ok
+ mode#21 注目 ....93 ok
+ mode#21 会話 ....94 ok
+set ok
+set#21 固定カメラＢ
+ mode#21 通常 ....95 ok
+set ok
+set#22 定点カメラＡ
+ mode#21 通常 .....96 ok
+set ok
+set#23 定点カメラＣ
+ mode#21 通常 ...97 ok
+set ok
+set#24 定点カメラＤ
+ mode#21 通常 .....98 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =24 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ため切り =17 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#25 ＰＲカメラＡ
+ mode#21 通常 .99 ok
+ mode#21 注目 .100 ok
+ mode#21 会話 .=100 ok
+set ok
+set#26 ＰＲカメラＢ
+ mode#21 通常 ..101 ok
+ mode#21 注目 ..102 ok
+ mode#21 会話 ....103 ok
+set ok
+set#27 ＰＲカメラＤ
+ mode#21 通常 .=99 ok
+set ok
+set#28 ドアカメラＡ
+ mode#21 通常 ...104 ok
+set ok
+set#29 ドアカメラ梅
+ mode#21 通常 ...105 ok
+ mode#21 平行 ...106 ok
+set ok
+set#30 レールカメラＤ
+ mode#21 通常 ......107 ok
+set ok
+set#31 開始カメラＡ
+ mode#21 通常 .=99 ok
+set ok
+set#32 開始カメラＢ
+ mode#21 通常 .108 ok
+set ok
+set#33 自由カメラＡ
+ mode#21 通常 .109 ok
+set ok
+set#34 自由カメラＣ
+ mode#21 通常 .110 ok
+set ok
+set#35 定点カメラＥ
+ mode#21 通常 .....111 ok
+set ok
+set#36 定点カメラＦ
+ mode#21 通常 ....112 ok
+ mode#21 平行 ....113 ok
+set ok
+set#37 デモカメラＡ
+ mode#21 通常 .114 ok
+set ok
+set#38 デモカメラＢ
+ mode#21 通常 .=114 ok
+set ok
+set#39 森ダンカメラＡ
+ mode#21 通常 ...........115 ok
+ mode#21 会話 .116 ok
+set ok
+set#40 お宝カメラＡ
+ mode#21 通常 ...117 ok
+set ok
+set#41 お宝カメラＢ
+ mode#21 通常 ...=117 ok
+set ok
+set#42 デモカメラＤ
+ mode#21 通常 .118 ok
+set ok
+set#43 デモカメラＥ
+ mode#21 通常 .=114 ok
+set ok
+set#44 豆ＵＦＯカメラ
+ mode#21 通常 ..........119 ok
+ mode#21 平行 ...........120 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =24 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........121 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り .......122 ok
+ mode#21 ぶら下り注目 .......123 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 ..........124 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#45 豆リフトカメラ
+ mode#21 通常 ..........125 ok
+ mode#21 平行 ...........126 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =24 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........127 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り .......128 ok
+ mode#21 ぶら下り注目 .......129 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 ..........130 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#46 切替カメラＡ
+ mode#21 通常 ...131 ok
+set ok
+set#47 切替カメラＢ
+ mode#21 通常 ....132 ok
+set ok
+set#48 火ダンカメラＡ
+ mode#21 通常 .=99 ok
+set ok
+set#49 火ダンカメラＢ
+ mode#21 通常 .=114 ok
+set ok
+set#50 森ダンカメラＢ
+ mode#21 通常 .=114 ok
+set ok
+set#51 森ダンカメラＣ
+ mode#21 通常 .=114 ok
+set ok
+set#52 大だこカメラ
+ mode#21 通常 ..........133 ok
+ mode#21 平行 =35 ok
+ mode#21 注目 =36 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............134 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =25 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =38 ok
+ mode#21 落下 =39 ok
+ mode#21 よじ登り =40 ok
+ mode#21 よじ登り注目 =41 ok
+ mode#21 ため切り =42 ok
+ mode#21 ぶら下り =43 ok
+ mode#21 ぶら下り注目 =44 ok
+ mode#21 一時停止 ..........135 ok
+ mode#21 押引 =19 ok
+set ok
+set#53 ＳＰＯＴ０５Ａ
+ mode#21 通常 ..........136 ok
+ mode#21 平行 ...........137 ok
+ mode#21 戦闘 ...........138 ok
+ mode#21 よじ登り ..........139 ok
+set ok
+set#54 ＳＰＯＴ０５Ｂ
+ mode#21 通常 ..........140 ok
+ mode#21 平行 ...........141 ok
+ mode#21 戦闘 ...........142 ok
+ mode#21 よじ登り ..........143 ok
+set ok
+set#55 火ダンカメラＣ
+ mode#21 通常 ..........144 ok
+ mode#21 平行 ...........145 ok
+ mode#21 戦闘 ...........146 ok
+ mode#21 よじ登り ..........147 ok
+set ok
+set#56 お宝カメラＣ
+ mode#21 通常 .........148 ok
+set ok
+set#57 定点カメラＧ
+ mode#21 通常 ..149 ok
+set ok
+set#58 通常カメラＣ
+ mode#21 通常 ..........150 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 =24 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#59 釣りカメラ
+ mode#21 通常 ..........151 ok
+ mode#21 平行 ...........152 ok
+ mode#21 注目 ............153 ok
+ mode#21 会話 ............154 ok
+ mode#21 戦闘 ............=153 ok
+ mode#21 主観 .........155 ok
+ mode#21 ジャンプ ........156 ok
+ mode#21 落下 ........157 ok
+ mode#21 ぶら下り .......158 ok
+ mode#21 ぶら下り注目 .......159 ok
+set ok
+set#60 デモカメラ梅
+ mode#21 通常 .160 ok
+set ok
+set#61 魚神経カメラ
+ mode#21 通常 ..........161 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 =3 ok
+ mode#21 戦闘 ............162 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#62 洞窟カメラＣ
+ mode#21 通常 ..........163 ok
+ mode#21 平行 ...........164 ok
+ mode#21 注目 .............=36 ok
+ mode#21 会話 ............=3 ok
+ mode#21 戦闘 ............165 ok
+ mode#21 主観 .........=6 ok
+ mode#21 弓矢 .........=7 ok
+ mode#21 パチンコ .........=11 ok
+ mode#21 ブーメラン .........=10 ok
+ mode#21 ブメラン注目 .............=20 ok
+ mode#21 フックショット ........=25 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ ........166 ok
+ mode#21 落下 ........167 ok
+ mode#21 よじ登り .........168 ok
+ mode#21 よじ登り注目 .........169 ok
+ mode#21 ため切り .......=17 ok
+ mode#21 ぶら下り .......170 ok
+ mode#21 ぶら下り注目 .......171 ok
+ mode#21 一時停止 ..........172 ok
+ mode#21 押引 ...........173 ok
+set ok
+set#63 前見ないカメラ
+ mode#21 通常 ..........174 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 .............175 ok
+ mode#21 会話 ............176 ok
+ mode#21 戦闘 =4 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+set#64 定点カメラＨ
+ mode#21 通常 .....=98 ok
+ mode#21 注目 =98 ok
+ mode#21 会話 =3 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 フックショット =9 ok
+set ok
+set#65 通常カメラＥ
+ mode#21 通常 ..........=150 ok
+ mode#21 平行 =1 ok
+ mode#21 注目 =2 ok
+ mode#21 会話 ............177 ok
+ mode#21 戦闘 =24 ok
+ mode#21 主観 =6 ok
+ mode#21 弓矢 =7 ok
+ mode#21 弓矢注目 =8 ok
+ mode#21 ジャンプ =13 ok
+ mode#21 落下 =13 ok
+ mode#21 ため切り =17 ok
+ mode#21 ぶら下り =14 ok
+ mode#21 ぶら下り注目 =15 ok
+ mode#21 パチンコ =11 ok
+ mode#21 ブーメラン =10 ok
+ mode#21 ブメラン注目 =20 ok
+ mode#21 フックショット =9 ok
+ mode#21 一時停止 =18 ok
+ mode#21 よじ登り =5 ok
+ mode#21 よじ登り注目 =12 ok
+ mode#21 押引 =19 ok
+set ok
+
+!!! all over !!!
+
+2002年 6月 4日(火曜日) 12時04分27秒 JST 
+: Entering directory `./rom_d/'
+	mkdirhier rom_d
+	cd rom_d; smake  -f ../Makefile  rom  USE_LOCALE= USE_NEW_DUNGEON= ROM_D= USE_COUNT= DEBUG_CAMERA= USE_DEBUG_MALLOC= ISVIEWER= RAM8M= VIDEO_AUTO=
+/usr/bin/cc $(CFLAGS) -c ../last.c
+/usr/bin/cc $(CFLAGS) -c ../sys_cfb.c
+/usr/bin/cc $(CFLAGS) -c ../sys_dram_stack.c
+/usr/bin/cc $(CFLAGS) -c ../sys_dynamic.c
+/usr/bin/cc $(CFLAGS) -c ../sys_fifo_buffer.c
+/usr/bin/cc $(CFLAGS) -c ../sys_heap.c
+/usr/bin/cc $(CFLAGS) -c ../sys_yield_buffer.c
+/usr/bin/cc $(CFLAGS) -c ../sys_zb.c
+/usr/bin/cc $(CFLAGS) -c ../nullsegment.c
+/usr/bin/cc $(CFLAGS) -c ../rcp_cfb.c
+/usr/bin/cc $(CFLAGS) -c ../rcp_zb.c
+/usr/bin/cc $(CFLAGS) -c ../z_hilite.c
+	cc -Wab,-r4300_mul -mips2 -O -xansi -signed -fullwarn -prototypes -Xcpluscomm -I/usr/include/PR -non_shared -G 0 -c -Dyj -o kan.o ../kan.s
+/usr/bin/cc $(CFLAGS) -c ../z_title.c
+/usr/bin/cc $(CFLAGS) -c ../z_opening.c
+/usr/bin/cc $(CFLAGS) -c ../z_map_mark_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_arms_hook.c
+/usr/bin/cc $(CFLAGS) -c ../z_arrow_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_arrow_ice.c
+/usr/bin/cc $(CFLAGS) -c ../z_arrow_light.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_bdan_objects.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_bdan_switch.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_bom_guard.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_bombwall.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_bowl_wall.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_breakwall.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ddan_jd.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ddan_kd.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_dodoago.c
+cfe: Warning 814: ../z_bg_dodoago.c, line 210: static 'demo_camera_eye' unused
+ static xyz_t	demo_camera_eye;
+ ------------	^
+cfe: Warning 814: ../z_bg_dodoago.c, line 211: static 'demo_camera_way' unused
+ static xyz_t	demo_camera_way;
+ ------------	^
+cfe: Warning 814: ../z_bg_dodoago.c, line 212: static 'demo_camera_eye2' unused
+ static xyz_t	demo_camera_eye2;
+ ------------	^
+cfe: Warning 814: ../z_bg_dodoago.c, line 213: static 'demo_camera_way2' unused
+ static xyz_t	demo_camera_way2;
+ ------------	^
+cfe: Warning 814: ../z_bg_dodoago.c, line 214: static 'cam_spd' unused
+ static xyz_t	cam_spd;
+ ------------	^
+cfe: Warning 814: ../z_bg_dodoago.c, line 215: static 'cam_spd2' unused
+ static xyz_t	cam_spd2;
+ ------------	^
+/usr/bin/cc $(CFLAGS) -c ../z_bg_dy_yoseizo.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ganon_otyuka.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gate_shutter.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gjyo_bridge.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gnd_darkmeiro.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gnd_firemeiro.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gnd_iceblock.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gnd_nisekabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_gnd_soulmeiro.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_gate.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_huta.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_megane.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_meganeBG.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_sgami.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_ship.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_trap.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_tubo.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_water.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_haka_zou.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_heavy_block.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_curtain.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_dalm.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_firewall.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_fslift.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_fwbig.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_hamstep.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_hrock.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_kousi.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_kowarerukabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_rock.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_rsekizou.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_sekizou.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_sima.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_hidan_syoku.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ice_objects.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ice_shelter.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ice_shutter.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ice_turara.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ingate.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_1flift.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_amishutter.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_bigmirror.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_block.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_bombchuiwa.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_bombiwa.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_cobra.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_goroiwa.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_haheniron.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_ironobj.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_kanaami.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_lift.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_megami.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_jya_zurerukabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_menkuri_eye.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_menkuri_kaiten.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_menkuri_nisekabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mizu_bwall.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mizu_movebg.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mizu_shutter.c
+cfe: Warning 820: ../z_bg_mizu_shutter.c, line 162: 'no' is not used in function 'Bg_Mizu_Shutter_actor_ct'
+     int no;
+ --------^
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mizu_uzu.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mizu_water.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mjin.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_bigst.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_elevator.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_hashigo.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_hashira4.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_hineri.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_idomizu.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_kaitenkabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_mori_rakkatenjo.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_po_event.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_po_syokudai.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_pushbox.c
+cfe: Warning 821: ../z_bg_pushbox.c, line 261: 'game_play' set but unused in function 'Bg_Pushbox_actor_draw'
+     Game_play	*game_play = (Game_play *)game;
+ -------------	-^
+/usr/bin/cc $(CFLAGS) -c ../z_bg_relay_objects.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot00_break.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot00_hanebasi.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot01_fusya.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot01_idohashira.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot01_idomizu.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot01_idosoko.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot01_objects2.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot02_objects.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot03_taki.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot05_soko.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot06_objects.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot07_taki.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot08_bakudankabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot08_iceblock.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot09_obj.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot11_bakudankabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot11_oasis.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot12_gate.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot12_saku.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot15_rrbox.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot15_saku.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot16_bombstone.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot16_doughnut.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot17_bakudankabe.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot17_funen.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot18_basket.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot18_futa.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot18_obj.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_spot18_shutter.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_sst_floor.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_toki_hikari.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_toki_swd.c
+cfe: Warning 820: ../z_bg_toki_swd.c, line 725: 'eyeset' is not used in function 'Bg_Toki_Swd_actor_draw'
+     xyz_t	eyeset;
+ ---------	^
+/usr/bin/cc $(CFLAGS) -c ../z_bg_treemouth.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_umajump.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_vb_sima.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ydan_hasi.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ydan_maruta.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_ydan_sp.c
+/usr/bin/cc $(CFLAGS) -c ../z_bg_zg.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_dodongo.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_fd.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_fd2.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_ganon.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_ganon2.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_ganondrof.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_goma.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_mo.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_sst.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_tw.c
+/usr/bin/cc $(CFLAGS) -c ../z_boss_va.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_6k.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_du.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_ec.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_effect.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_ext.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_geff.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_gj.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_go.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_gt.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_ik.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_im.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_kankyo.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_kekkai.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_sa.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_shd.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo_tre_lgt.c
+/usr/bin/cc $(CFLAGS) -c ../z_door_ana.c
+/usr/bin/cc $(CFLAGS) -c ../z_door_gerudo.c
+/usr/bin/cc $(CFLAGS) -c ../z_door_killer.c
+cfe: Warning 819: ../z_door_killer.c, line 689: function parameter 'game_play' is not used in function 'move_dance'
+ static void move_dance(Door_Killer_Actor *this,Game_play *game_play)
+ ----------------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_door_shutter.c
+/usr/bin/cc $(CFLAGS) -c ../z_door_toki.c
+/usr/bin/cc $(CFLAGS) -c ../z_door_warp1.c
+/usr/bin/cc $(CFLAGS) -c ../z_efc_erupc.c
+cfe: Warning 821: ../z_efc_erupc.c, line 158: 'game_play' set but unused in function 'Efc_Erupc_Actor_ct'
+     Game_play *game_play = (Game_play *)game;
+ ---------------^
+/usr/bin/cc $(CFLAGS) -c ../z_eff_dust.c
+/usr/bin/cc $(CFLAGS) -c ../z_elf_msg.c
+/usr/bin/cc $(CFLAGS) -c ../z_elf_msg2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_am.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ani.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_anubice.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_anubice_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_anubice_tag.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_arow_trap.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_arrow.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_attack_niw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ba.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bdfire.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bigokuta.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bili.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bird.c
+cfe: Warning 821: ../z_en_bird.c, line 190: 'this' set but unused in function 'En_bird_Actor_dt'
+     En_Bird_Actor_s *this = (En_Bird_Actor_s *)thisx;
+ ---------------------^
+cfe: Warning 819: ../z_en_bird.c, line 208: function parameter 'idx' is not used in function 'En_Bird_mode_wait_init'
+ static void En_Bird_mode_wait_init(En_Bird_Actor_s *this, short idx)
+ ----------------------------------------------------------------^
+cfe: Warning 819: ../z_en_bird.c, line 278: function parameter 'idx' is not used in function 'En_Bird_mode_rnd_move_init'
+ static void En_Bird_mode_rnd_move_init(En_Bird_Actor_s *this,short idx)
+ -------------------------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_blkobj.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bom.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bom_bowl_man.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bom_bowl_pit.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bom_chu.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bombf.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_boom.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_box.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_brob.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bubble.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_bx.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_changer.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_choo.c
+cfe: Warning 819: ../z_en_choo.c, line 768: function parameter 'game_play' is not used in function 'mv_end'
+ static void mv_end(En_Choo_actor *this, Game_play *game_play)
+ ---------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_clear_tag.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_cow.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_crow.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_cs.c
+cfe: Warning 821: ../z_en_cs.c, line 448: 'player_actor' set but unused in function 'func_endmsg_chk'
+     Player_actor	*player_actor = (Player_actor *)((game_play)->actor_info.actor_list[ACTOR_PART_PLAYER].actor) ;
+ ----------------	-^
+cfe: Warning 821: ../z_en_cs.c, line 554: 'player_actor' set but unused in function 'func_talk'
+     Player_actor	*player_actor = (Player_actor *)((game_play)->actor_info.actor_list[ACTOR_PART_PLAYER].actor) ;
+ ----------------	-^
+/usr/bin/cc $(CFLAGS) -c ../z_en_daiku.c
+cfe: Warning 821: ../z_en_daiku.c, line 995: 'player_actor' set but unused in function 'func_run_camera_ed'
+     Player_actor *player_actor = (Player_actor *)((game_play)->actor_info.actor_list[ACTOR_PART_PLAYER].actor) ;
+ ------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_daiku_kakariko.c
+cfe: Warning 821: ../z_en_daiku_kakariko.c, line 883: 'rel_ang_sht' set but unused in function 'En_Daiku_Kakariko_Actor_move'
+     short rel_ang_sht;
+ ----------^
+cfe: Warning 819: ../z_en_daiku_kakariko.c, line 990: function parameter 'r' is not used in function 'func_before_display'
+     s_xyz *r,
+ -----------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_dekubaba.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dekunuts.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dh.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dha.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_diving_game.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dns.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dnt_demo.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dnt_jiji.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dnt_nomal.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dodojr.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dodongo.c
+cfe: Warning 820: ../z_en_dodongo.c, line 1417: 'trans_top' is not used in function 'en_da_attack_proc'
+     xyz_t trans_top, trans_root;
+ ----------^
+cfe: Warning 820: ../z_en_dodongo.c, line 1417: 'trans_root' is not used in function 'en_da_attack_proc'
+     xyz_t trans_top, trans_root;
+ ---------------------^
+cfe: Warning 820: ../z_en_dodongo.c, line 1418: 'trans_top2' is not used in function 'en_da_attack_proc'
+     xyz_t trans_top2, trans_root2;
+ ----------^
+cfe: Warning 820: ../z_en_dodongo.c, line 1418: 'trans_root2' is not used in function 'en_da_attack_proc'
+     xyz_t trans_top2, trans_root2;
+ ----------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_dog.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_door.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ds.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_du.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_dy_extra.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_eg.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_eiyer.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_elf.c
+cfe: Warning 819: ../z_en_elf.c, line 811: function parameter 'game_play' is not used in function 'floating_mode_check'
+ static void floating_mode_check(En_Elf_actor *this,Game_play *game_play)
+ --------------------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_encount1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_encount2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ex_item.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ex_ruppy.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fd.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fd_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fhg.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fhg_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fire_rock.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_firefly.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_floormas.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fr.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fu.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_fz.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_g_switch.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ganon_mant.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ganon_organ.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_gb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ge1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ge2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ge3.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_geldB.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_girlA.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_girlB.c
+cfe: Warning 814: ../z_en_girlB.c, line 491: static 'start_fixed_demo_camera' unused
+ static void  start_fixed_demo_camera(
+ -------------^
+cfe: Warning 814: ../z_en_girlB.c, line 504: static 'start_spline_demo_camera' unused
+ static void  start_spline_demo_camera(
+ -------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_gm.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_go.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_go2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_goma.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_gr.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_gs.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_guest.c
+cfe: Warning 821: ../z_en_guest.c, line 352: '__graph' set but unused in function 'before_display'
+     { 						    Graph *__graph = (game->graph); 			    int __poly_gfx_opened = 0; 			    __GraphCheck __graphcheck; 			    __graphcheck_opendisp(&__graphcheck, game->graph, "../z_en_guest.c", 352);     (void)0 ;
+ ------						-----------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_hata.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_heishi1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_heishi2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_heishi3.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_heishi4.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_hintnuts.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_holl.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_honotrap.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse_game_check.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse_ganon.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse_link_child.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse_normal.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_horse_zelda.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_hs.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_hs2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_hy.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ice_hono.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ik.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_in.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ishi.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_it.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_jj.c
+cfe: Warning 821: ../z_en_jj.c, line 690: 'thisx' set but unused in function 'move_wait'
+     Actor	*thisx = (Actor *)this;
+ ---------	-^
+/usr/bin/cc $(CFLAGS) -c ../z_en_js.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_jsjutan.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_kakasi.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_kakasi2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_kakasi3.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_kanban.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_karebaba.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ko.c
+cfe: Warning 820: ../z_en_ko.c, line 1858: 'i' is not used in function 'En_Ko_Actor_move'
+     int i;
+ --------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_kusa.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_kz.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_lbox.c
+cfe: Warning 820: ../z_en_lbox.c, line 117: 'ground_polygon_info' is not used in function 'En_lightbox_Actor_ct'
+     T_Polygon	*ground_polygon_info;
+ -------------	-^
+cfe: Warning 820: ../z_en_lbox.c, line 118: 'y' is not used in function 'En_lightbox_Actor_ct'
+     float	y,gy;
+ ---------	^
+cfe: Warning 821: ../z_en_lbox.c, line 118: 'gy' set but unused in function 'En_lightbox_Actor_ct'
+     float	y,gy;
+ ---------	--^
+cfe: Warning 819: ../z_en_lbox.c, line 265: function parameter 'thisx' is not used in function 'En_lightbox_display'
+ static void En_lightbox_display(Actor *thisx, Game *game)
+ ---------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_light.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_m_fire1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_m_thunder.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ma1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ma2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ma3.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mag.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_md.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mk.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mm.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mm2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ms.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mu.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_mushi.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_nb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_niw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_niw_girl.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_niw_lady.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_nutsball.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_nwc.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ny.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_oA2.c
+cfe: Warning 821: ../z_en_oA2_inWater.c, line 62: 'demo_play_p' set but unused in function 'En_Oa2_Set_DemoWater'
+ 	    Demo_play *demo_play_p = &(game_play_p->demo_play);
+ 	---------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_oB1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_oE2.c
+cfe: Warning 819: ../z_en_oE2.c, line 80: function parameter 'game' is not used in function 'En_OE2_Actor_ct'
+ extern void En_OE2_Actor_ct(Actor *thisx, Game *game)
+ ------------------------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 92: function parameter 'thisx' is not used in function 'En_OE2_Actor_dt'
+ extern void En_OE2_Actor_dt(Actor *thisx, Game *game)
+ -----------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 92: function parameter 'game' is not used in function 'En_OE2_Actor_dt'
+ extern void En_OE2_Actor_dt(Actor *thisx, Game *game)
+ ------------------------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 102: function parameter 'this' is not used in function 'matsu'
+     En_OE2_Actor *this,
+ ------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 103: function parameter 'game_play' is not used in function 'matsu'
+     Game_play *game_play
+ ---------------^
+cfe: Warning 819: ../z_en_oE2.c, line 112: function parameter 'thisx' is not used in function 'En_OE2_Actor_move'
+ extern void En_OE2_Actor_move(Actor *thisx, Game *game)
+ -------------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 112: function parameter 'game' is not used in function 'En_OE2_Actor_move'
+ extern void En_OE2_Actor_move(Actor *thisx, Game *game)
+ --------------------------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 121: function parameter 'thisx' is not used in function 'En_OE2_Actor_draw'
+ extern void En_OE2_Actor_draw(Actor *thisx, Game *game)
+ -------------------------------------^
+cfe: Warning 819: ../z_en_oE2.c, line 121: function parameter 'game' is not used in function 'En_OE2_Actor_draw'
+ extern void En_OE2_Actor_draw(Actor *thisx, Game *game)
+ --------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_okarina_effect.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_okarina_tag.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_okuta.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_owl.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_part.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_peehat.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_po_desert.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_po_field.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_po_relay.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_po_sisters.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_poh.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_pubox.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_rd.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_reeba.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_river_sound.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_rl.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_rr.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ru1.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ru2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_sa.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_sakana.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_sb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_scene_change.c
+cfe: Warning 819: ../z_en_scene_change.c, line 220: function parameter 'this' is not used in function 'move_wait'
+ static void move_wait(En_Scene_Change_actor *this, Game_play *game_play)
+ ---------------------------------------------^
+cfe: Warning 819: ../z_en_scene_change.c, line 220: function parameter 'game_play' is not used in function 'move_wait'
+ static void move_wait(En_Scene_Change_actor *this, Game_play *game_play)
+ --------------------------------------------------------------^
+cfe: Warning 821: ../z_en_scene_change.c, line 283: 'this' set but unused in function 'En_Scene_Change_actor_draw'
+     En_Scene_Change_actor	*this      = (En_Scene_Change_actor *)thisx;
+ -------------------------	-^
+cfe: Warning 821: ../z_en_scene_change.c, line 284: 'game_play' set but unused in function 'En_Scene_Change_actor_draw'
+     Game_play			*game_play = (Game_play *)game;
+ -------------			-^
+cfe: Warning 820: ../z_en_scene_change.c, line 287: 'i' is not used in function 'En_Scene_Change_actor_draw'
+     int i,j;
+ --------^
+cfe: Warning 820: ../z_en_scene_change.c, line 287: 'j' is not used in function 'En_Scene_Change_actor_draw'
+     int i,j;
+ ----------^
+cfe: Warning 820: ../z_en_scene_change.c, line 288: 'wk' is not used in function 'En_Scene_Change_actor_draw'
+     int wk;
+ --------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_sda.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_shopnuts.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_si.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_siofuki.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_skb.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_skj.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_skj_needle.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ssh.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_st.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_sth.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_stream.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_sw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_syateki_itm.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_syateki_man.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_syateki_niw.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_ta.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_takara_man.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tana.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_test.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tg.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tite.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tk.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_torch.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_torch2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_toryo.c
+cfe: Warning 821: ../z_en_toryo.c, line 582: 'player_actor' set but unused in function 'toryo_endcry_chk'
+     Player_actor	*player_actor = (Player_actor *)((game_play)->actor_info.actor_list[ACTOR_PART_PLAYER].actor) ;
+ ----------------	-^
+cfe: Warning 820: ../z_en_toryo.c, line 792: 'get_item' is not used in function 'func_talk'
+ 	    int get_item;
+ 	--------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_tp.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tr.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_trap.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_tubo_trap.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_vali.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_vase.c
+cfe: Warning 821: ../z_en_vase.c, line 115: 'pbgdata_to' set but unused in function 'En_vase_Actor_ct'
+     T_BGDataInfo	*pbgdata_to = 0 ;
+ ----------------	-^
+cfe: Warning 820: ../z_en_vase.c, line 116: 'ground_polygon_info' is not used in function 'En_vase_Actor_ct'
+     T_Polygon	*ground_polygon_info;
+ -------------	-^
+cfe: Warning 820: ../z_en_vase.c, line 117: 'y' is not used in function 'En_vase_Actor_ct'
+     float	y,gy;
+ ---------	^
+cfe: Warning 820: ../z_en_vase.c, line 117: 'gy' is not used in function 'En_vase_Actor_ct'
+     float	y,gy;
+ ---------	--^
+cfe: Warning 820: ../z_en_vase.c, line 118: 'idx' is not used in function 'En_vase_Actor_ct'
+     short	idx,idx2;
+ ---------	^
+cfe: Warning 820: ../z_en_vase.c, line 118: 'idx2' is not used in function 'En_vase_Actor_ct'
+     short	idx,idx2;
+ ---------	----^
+cfe: Warning 821: ../z_en_vase.c, line 122: 'this' set but unused in function 'En_vase_Actor_ct'
+     En_Vase_Actor_s *this = (En_Vase_Actor_s *)thisx;
+ ---------------------^
+cfe: Warning 821: ../z_en_vase.c, line 123: 'game_play' set but unused in function 'En_vase_Actor_ct'
+     Game_play *game_play = (Game_play *)game;
+ ---------------^
+cfe: Warning 819: ../z_en_vase.c, line 152: function parameter 'thisx' is not used in function 'En_vase_display'
+ static void En_vase_display(Actor *thisx, Game *game)
+ -----------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_vb_ball.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_viewer.c
+cfe: Warning 821: ../z_en_viewer.c, line 1760: '__graph' set but unused in function 'En_Viewer_actor_draw'
+     { 						    Graph *__graph = (game->graph); 			    int __poly_gfx_opened = 0; 			    __GraphCheck __graphcheck; 			    __graphcheck_opendisp(&__graphcheck, game->graph, "../z_en_viewer.c", 1760);     (void)0 ;
+ ------						-----------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_vm.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wall_tubo.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wallmas.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_weather_tag.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_weiyer.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wf.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wonder_item.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wonder_talk.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wonder_talk2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_wood02.c
+cfe: Warning 821: ../z_en_wood02.c, line 772: 'game_play' set but unused in function 'En_wood02_display'
+     Game_play	*game_play = (Game_play *)game;
+ -------------	-^
+/usr/bin/cc $(CFLAGS) -c ../z_en_yabusame_mark.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_yukabyun.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_zf.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_zl2.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_zl3.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_zl4.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_zo.c
+/usr/bin/cc $(CFLAGS) -c ../z_end_title.c
+/usr/bin/cc $(CFLAGS) -c ../z_fishing.c
+/usr/bin/cc $(CFLAGS) -c ../z_item_b_heart.c
+/usr/bin/cc $(CFLAGS) -c ../z_item_etcetera.c
+/usr/bin/cc $(CFLAGS) -c ../z_item_inbox.c
+cfe: Warning 821: ../z_item_inbox.c, line 98: 'game_play' set but unused in function 'Item_Inbox_Actor_ct'
+     Game_play *game_play=(Game_play *)game;
+ ---------------^
+/usr/bin/cc $(CFLAGS) -c ../z_item_ocarina.c
+/usr/bin/cc $(CFLAGS) -c ../z_item_shield.c
+/usr/bin/cc $(CFLAGS) -c ../z_magic_dark.c
+/usr/bin/cc $(CFLAGS) -c ../z_magic_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_magic_wind.c
+/usr/bin/cc $(CFLAGS) -c ../z_mir_ray.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_bean.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_blockstop.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_bombiwa.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_comb.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_dekujr.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_elevator.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_hamishi.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_hana.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_hsblock.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_ice_poly.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_kibako.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_kibako2.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_lift.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_lightswitch.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_makekinsuta.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_makeoshihiki.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_mure.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_mure2.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_mure3.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_oshihiki.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_roomtimer.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_switch.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_syokudai.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_timeblock.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_tsubo.c
+/usr/bin/cc $(CFLAGS) -c ../z_obj_warp2block.c
+/usr/bin/cc $(CFLAGS) -c ../z_object_kankyo.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_spot.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_storm.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_wipe.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_wipe2.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_wipe3.c
+/usr/bin/cc $(CFLAGS) -c ../z_oceff_wipe4.c
+/usr/bin/cc $(CFLAGS) -c ../z_shot_sun.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dust.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_kirakira.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_bomb.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_bomb2.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_blast.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_spk.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_d_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_bubble.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_ripple.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_splash.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_magma.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_lightning.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dt_bubble.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_hahen.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_stick.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_sibuki.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_sibuki2.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_g_magma2.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_stone1.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_hitmark.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_fhg_flash.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_k_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_solder_srch_ball.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_kakera.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ice_piece.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_en_ice.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_fire_tail.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_en_fire.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_extra.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_fcircle.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dead_db.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dead_dd.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dead_ds.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dead_sound.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_ice_smoke.c
+/usr/bin/cc $(CFLAGS) -c ../z_player.c
+/usr/bin/cc $(CFLAGS) -c ../boot.c
+/usr/bin/cc $(CFLAGS) -c ../bootstack.c
+/usr/bin/cc $(CFLAGS) -c ../idle.c
+cfe: Warning 712: ../idle.c, line 372: illegal combination of pointer and integer
+     osViSwapBuffer(0x803da80);
+ -------------------^
+Assigning an integral expression to a pointer is a bad practice.
+/usr/bin/cc $(CFLAGS) -c ../sys_vimgr.c
+/usr/bin/cc $(CFLAGS) -c ../system.c
+/usr/bin/cc $(CFLAGS) -c ../z_std_dma_slid.c
+cfe: Warning 820: ../z_std_dma_slid.c, line 53: 'oldsrcsize' is not used in function 'firstdata'
+     unsigned long oldsrcsize;
+ ------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_locale.c
+/usr/bin/cc $(CFLAGS) -c ../sys_assert.c
+/usr/bin/cc $(CFLAGS) -c ../is_debug.c
+cfe: Warning 819: ../is_debug.c, line 152: function parameter 'str' is not used in function '_is_printf_s'
+ extern void *_is_printf_s(void *str, register const char *buf, register int n)
+ --------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_en_a_keep.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_item00.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_blure.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_shield_particle.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_spark.c
+/usr/bin/cc $(CFLAGS) -c ../z_eff_ss_dead.c
+/usr/bin/cc $(CFLAGS) -c ../z_effect.c
+/usr/bin/cc $(CFLAGS) -c ../z_effect_soft_sprite.c
+/usr/bin/cc $(CFLAGS) -c ../z_effect_soft_sprite_old_init.c
+/usr/bin/cc $(CFLAGS) -c ../z_effect_soft_sprite_dlftbls.c
+/usr/bin/cc $(CFLAGS) -c ../flg_set.c
+/usr/bin/cc $(CFLAGS) -c ../z_DLF.c
+/usr/bin/cc $(CFLAGS) -c ../z_actor.c
+cfe: Warning 819: ../z_actor.c, line 3621: function parameter 'thisx' is not used in function 'player_make_horse_camera'
+     Actor     *thisx
+ ---------------^
+cfe: Warning 819: ../z_actor.c, line 6273: function parameter 'game_play' is not used in function 'Actor_draw_actor_no_culling_check2'
+     Game_play *game_play,
+ ---------------^
+cfe: Warning 819: ../z_cheap_proc.c, line 472: function parameter 'pipe_d' is not used in function 'shot_set'
+ 		       int time, s_xyz *pipe_d, Game_play *pgame_play,
+ 		------------------------^
+cfe: Warning 821: ../z_common.c, line 222: 'pl' set but unused in function 'npc_mes_set'
+     Player_actor *pl=(Player_actor *)((game_play)->actor_info.actor_list[ACTOR_PART_PLAYER].actor) ;
+ ------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_actor_dlftbls.c
+/usr/bin/cc $(CFLAGS) -c ../z_actor_profile.c
+/usr/bin/cc $(CFLAGS) -c ../z_bgcheck.c
+/usr/bin/cc $(CFLAGS) -c ../z_bgcheck_collection.c
+/usr/bin/cc $(CFLAGS) -c ../z_bgcheck_movebg.c
+/usr/bin/cc $(CFLAGS) -c ../z_camera.c
+cfe: Warning 821: ../z_camera.c, line 2081: 'ai0' set but unused in function 'default_bgcheck_proc'
+     int          ai0;
+ -----------------^
+cfe: Warning 819: ../z_camera.c, line 2317: function parameter 'obj' is not used in function 'NOTUSED'
+     Camera        *obj)
+ -------------------^
+cfe: Warning 821: ../z_camera.c, line 6998: 'pd' set but unused in function 'unique_camerawork_00'
+     short        fv, pd;
+ ---------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_collision_btl_tbl.c
+/usr/bin/cc $(CFLAGS) -c ../z_collision_check.c
+/usr/bin/cc $(CFLAGS) -c ../z_common_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_debug.c
+cfe: Warning 819: ../z_debug.c, line 313: function parameter 'line' is not used in function 'Debug_Print_write'
+ extern void Debug_Print_write(int line, int color, char *str)
+ ----------------------------------^
+cfe: Warning 819: ../z_debug.c, line 313: function parameter 'color' is not used in function 'Debug_Print_write'
+ extern void Debug_Print_write(int line, int color, char *str)
+ --------------------------------------------^
+cfe: Warning 819: ../z_debug.c, line 313: function parameter 'str' is not used in function 'Debug_Print_write'
+ extern void Debug_Print_write(int line, int color, char *str)
+ ---------------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_debug_display.c
+/usr/bin/cc $(CFLAGS) -c ../z_demo.c
+/usr/bin/cc $(CFLAGS) -c ../z_displib.c
+/usr/bin/cc $(CFLAGS) -c ../z_draw.c
+/usr/bin/cc $(CFLAGS) -c ../z_effect_SE.c
+/usr/bin/cc $(CFLAGS) -c ../z_elf_message.c
+/usr/bin/cc $(CFLAGS) -c ../z_en_msk.c
+/usr/bin/cc $(CFLAGS) -c ../z_event.c
+/usr/bin/cc $(CFLAGS) -c ../z_fcurve_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_fcurve_data_skelanime.c
+/usr/bin/cc $(CFLAGS) -c ../z_game_dlftbls.c
+/usr/bin/cc $(CFLAGS) -c ../z_horse.c
+/usr/bin/cc $(CFLAGS) -c ../z_jpeg.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido.c
+/usr/bin/cc $(CFLAGS) -c ../z_kanfont.c
+/usr/bin/cc $(CFLAGS) -c ../z_kankyo.c
+/usr/bin/cc $(CFLAGS) -c ../z_lib.c
+/usr/bin/cc $(CFLAGS) -c ../z_lifemeter.c
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'm1' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		-----------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'sx' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		---------------------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'sy' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		-------------------------------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'sz' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		-----------------------------------------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'tx' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		---------------------------------------------------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'ty' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		-------------------------------------------------------------------------------^
+cfe: Warning 819: ../z_lifemeter.c, line 587: function parameter 'tz' is not used in function 'DrawLifeMeter'
+ 		extern void suMtxMakeTS(Mtx *m1, float sx, float sy, float sz, float tx, float ty, float tz);  
+ 		-----------------------------------------------------------------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_lights.c
+cfe: Warning 820: ../z_lights.c, line 898: 'light_pos' is not used in function 'Light_list_point_draw'
+ 	    xyz_t	light_pos, display_pos;
+ 	---------	^
+cfe: Warning 820: ../z_lights.c, line 898: 'display_pos' is not used in function 'Light_list_point_draw'
+ 	    xyz_t	light_pos, display_pos;
+ 	---------	-----------^
+cfe: Warning 820: ../z_lights.c, line 899: 'w' is not used in function 'Light_list_point_draw'
+ 	    float	w;
+ 	---------	^
+/usr/bin/cc $(CFLAGS) -c ../z_malloc.c
+/usr/bin/cc $(CFLAGS) -c ../z_map_mark.c
+/usr/bin/cc $(CFLAGS) -c ../z_moji.c
+/usr/bin/cc $(CFLAGS) -c ../z_nmibuf.c
+/usr/bin/cc $(CFLAGS) -c ../z_nulltask.c
+/usr/bin/cc $(CFLAGS) -c ../z_olib.c
+/usr/bin/cc $(CFLAGS) -c ../z_onepointdemo.c
+/usr/bin/cc $(CFLAGS) -c ../z_map_exp.c
+/usr/bin/cc $(CFLAGS) -c ../z_map_exp_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_parameter.c
+/usr/bin/cc $(CFLAGS) -c ../z_path.c
+/usr/bin/cc $(CFLAGS) -c ../z_pause.c
+/usr/bin/cc $(CFLAGS) -c ../z_player_lib.c
+/usr/bin/cc $(CFLAGS) -c ../z_prenmi.c
+/usr/bin/cc $(CFLAGS) -c ../z_quake.c
+cfe: Warning 820: ../z_quake.c, line 103: 'ang' is not used in function 'regular_quake'
+     short         ang;
+ ------------------^
+cfe: Warning 820: ../z_quake.c, line 120: 'ang' is not used in function 'soft_quake'
+     short         ang;
+ ------------------^
+cfe: Warning 820: ../z_quake.c, line 135: 'ang' is not used in function 'endless_quake'
+     short         ang;
+ ------------------^
+cfe: Warning 820: ../z_quake.c, line 392: 'next' is not used in function 'cameraQuakeControl'
+     Quake        *obj, *next;
+ ------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_rcp.c
+/usr/bin/cc $(CFLAGS) -c ../z_room.c
+/usr/bin/cc $(CFLAGS) -c ../z_sample.c
+/usr/bin/cc $(CFLAGS) -c ../z_save_area.c
+/usr/bin/cc $(CFLAGS) -c ../z_scene.c
+/usr/bin/cc $(CFLAGS) -c ../z_scene_bank.c
+/usr/bin/cc $(CFLAGS) -c ../z_scene_table.c
+/usr/bin/cc $(CFLAGS) -c ../z_skelanime.c
+/usr/bin/cc $(CFLAGS) -c ../z_skin.c
+/usr/bin/cc $(CFLAGS) -c ../z_skin_awb.c
+/usr/bin/cc $(CFLAGS) -c ../z_skin_matrix.c
+/usr/bin/cc $(CFLAGS) -c ../z_soft_anim_tbl.c
+/usr/bin/cc $(CFLAGS) -c ../z_sram.c
+cfe: Warning 820: ../z_sram.c, line 406: 'm' is not used in function 'sram_load_check'
+     unshort	i, j, m, mmm;
+ -----------	------^
+cfe: Warning 820: ../z_sram.c, line 406: 'mmm' is not used in function 'sram_load_check'
+     unshort	i, j, m, mmm;
+ -----------	---------^
+cfe: Warning 820: ../z_sram.c, line 407: 'k' is not used in function 'sram_load_check'
+     unshort	*k;
+ -----------	-^
+cfe: Warning 820: ../z_sram.c, line 1419: 'j' is not used in function 'sram_initialize'
+     unshort	i, j;
+ -----------	---^
+cfe: Warning 820: ../z_sram.c, line 1420: 'k' is not used in function 'sram_initialize'
+     unshort	*k;
+ -----------	-^
+/usr/bin/cc $(CFLAGS) -c ../ssSRAMrdwt.c
+/usr/bin/cc $(CFLAGS) -c ../z_texture.c
+/usr/bin/cc $(CFLAGS) -c ../z_traplink.c
+/usr/bin/cc $(CFLAGS) -c ../z_vibctl.c
+/usr/bin/cc $(CFLAGS) -c ../z_vibctl2.c
+/usr/bin/cc $(CFLAGS) -c ../z_view.c
+cfe: Warning 821: ../z_view.c, line 878: '__graph' set but unused in function 'showViewAgain'
+     { { 						    Graph *__graph = (obj->graph); 			    int __poly_gfx_opened = 0; 			    __GraphCheck __graphcheck; 			    __graphcheck_opendisp(&__graphcheck, obj->graph, "../z_view.c", 878);     (void)0  ;
+ --------						-----------^
+/usr/bin/cc $(CFLAGS) -c ../z_vimode.c
+/usr/bin/cc $(CFLAGS) -c ../z_viscvg.c
+/usr/bin/cc $(CFLAGS) -c ../z_vismono.c
+cfe: Warning 819: ../z_vismono.c, line 170: function parameter 'this' is not used in function 'z_vismono_make_dl'
+ z_vismono_make_dl(Z_Vismono *this, Gfx *glistp)
+ -----------------------------^
+/usr/bin/cc $(CFLAGS) -c ../z_viszbuf.c
+/usr/bin/cc $(CFLAGS) -c ../z_vr_box.c
+/usr/bin/cc $(CFLAGS) -c ../z_vr_box_draw.c
+/usr/bin/cc $(CFLAGS) -c ../z_player_call.c
+/usr/bin/cc $(CFLAGS) -c ../z_fbdemo.c
+/usr/bin/cc $(CFLAGS) -c ../z_fbdemo_triforce.c
+/usr/bin/cc $(CFLAGS) -c ../z_fbdemo_wipe1.c
+/usr/bin/cc $(CFLAGS) -c ../z_fbdemo_wipe3.c
+/usr/bin/cc $(CFLAGS) -c ../z_fbdemo_fade.c
+/usr/bin/cc $(CFLAGS) -c ../z_shrink_window.c
+/usr/bin/cc $(CFLAGS) -c ../db_camera.c
+/usr/bin/cc $(CFLAGS) -c ../camdemo.c
+/usr/bin/cc $(CFLAGS) -c ../z_mempak.c
+cfe: Warning 820: ../z_mempak.c, line 38: 'pat' is not used in function 'checkMemPak'
+     u8          pat;
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 51: function parameter 'pakno' is not used in function 'freeAreaMemPak'
+     int         pakno)
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 78: function parameter 'pakno' is not used in function 'findFileMemPakExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 820: ../z_mempak.c, line 84: 'pat' is not used in function 'findFileMemPakExtAlfa'
+     u8          pat, c;
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 105: function parameter 'pakno' is not used in function 'saveMemPakExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 820: ../z_mempak.c, line 113: 'pat' is not used in function 'saveMemPakExtAlfa'
+     u8          pat;
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 129: function parameter 'pakno' is not used in function 'loadMemPakExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 820: ../z_mempak.c, line 137: 'pat' is not used in function 'loadMemPakExtAlfa'
+     u8          pat;
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 153: function parameter 'pakno' is not used in function 'makeMemPakExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 820: ../z_mempak.c, line 159: 'pat' is not used in function 'makeMemPakExtAlfa'
+     u8          pat;
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 206: function parameter 'pakno' is not used in function 'deleteMemPakExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 819: ../z_mempak.c, line 227: function parameter 'pakno' is not used in function 'sizeOfFileExtAlfa'
+     int         pakno,
+ ----------------^
+cfe: Warning 821: ../z_mempak.c, line 232: 'ret' set but unused in function 'sizeOfFileExtAlfa'
+     int		err, ret = 0;
+ -------		-----^
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_manager.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_scope_call.c
+/usr/bin/cc $(CFLAGS) -c ../z_play.c
+/usr/bin/cc $(CFLAGS) -c ../PreRender.c
+/usr/bin/cc $(CFLAGS) -c ../THA_GA.c
+/usr/bin/cc $(CFLAGS) -c ../TwoHeadArena.c
+/usr/bin/cc $(CFLAGS) -c ../audio.c
+/usr/bin/cc $(CFLAGS) -c ../audioMgr.c
+/usr/bin/cc $(CFLAGS) -c ../first_game.c
+/usr/bin/cc $(CFLAGS) -c ../game.c
+/usr/bin/cc $(CFLAGS) -c ../gamealloc.c
+/usr/bin/cc $(CFLAGS) -c ../graph.c
+/usr/bin/cc $(CFLAGS) -c ../gfxalloc.c
+/usr/bin/cc $(CFLAGS) -c ../listalloc.c
+/usr/bin/cc $(CFLAGS) -c ../main.c
+/usr/bin/cc $(CFLAGS) -c ../padmgr.c
+/usr/bin/cc $(CFLAGS) -c ../sched.c
+cfe: Warning 819: ../sched.c, line 959: function parameter 'mode' is not used in function 'osCreateScheduler'
+ 		  u8 mode, u8 numFields, irqmgr_t *irqmgr)
+ 		-----^
+cfe: Warning 819: ../sched.c, line 959: function parameter 'numFields' is not used in function 'osCreateScheduler'
+ 		  u8 mode, u8 numFields, irqmgr_t *irqmgr)
+ 		--------------^
+/usr/bin/cc $(CFLAGS) -c ../speed_meter.c
+/usr/bin/cc $(CFLAGS) -c ../sys_lib.c
+/usr/bin/cc $(CFLAGS) -c ../sys_math.c
+/usr/bin/cc $(CFLAGS) -c ../sys_math3d.c
+/usr/bin/cc $(CFLAGS) -c ../sys_math_atan.c
+/usr/bin/cc $(CFLAGS) -c ../sys_matrix.c
+cfe: Warning 820: ../sys_matrix.c, line 2268: 'Mtx3_t' is not used in function 'suMtxMakeTS'
+ } Mtx3_t;
+ --^
+/usr/bin/cc $(CFLAGS) -c ../sys_ucode.c
+/usr/bin/cc $(CFLAGS) -c ../sys_vibctl2.c
+/usr/bin/cc $(CFLAGS) -c ../sys_freeze.c
+/usr/bin/cc $(CFLAGS) -c ../zurumode.c
+/usr/bin/cc $(CFLAGS) -c ../irqmgr.c
+cfe: Warning 819: ../irqmgr.c, line 264: function parameter 'this' is not used in function 'irqmgr_HandlePreNMI500'
+ irqmgr_HandlePreNMI500(irqmgr_t *this)
+ ---------------------------------^
+/usr/bin/cc $(CFLAGS) -c ../debug_malloc.c
+	cc -Wab,-r4300_mul -mips2 -O -xansi -signed -fullwarn -prototypes -Xcpluscomm -I/usr/include/PR -non_shared -G 0 -c -Dyj -o kanread.o ../kanread.s
+/usr/bin/cc $(CFLAGS) -c ../z_select.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_collect.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_debug.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_equipment.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_item.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_map.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_save.c
+/usr/bin/cc $(CFLAGS) -c ../z_kaleido_scope.c
+/usr/bin/cc $(CFLAGS) -c ../z_lmap_mark.c
+/usr/bin/cc $(CFLAGS) -c ../z_lmap_mark_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_message.c
+/usr/bin/cc $(CFLAGS) -c ../z_gameover.c
+/usr/bin/cc $(CFLAGS) -c ../z_construct.c
+/usr/bin/cc $(CFLAGS) -c ../z_file_choose_data.c
+/usr/bin/cc $(CFLAGS) -c ../z_file_copy_del.c
+/usr/bin/cc $(CFLAGS) -c ../z_file_nameset.c
+cfe: Warning 820: ../z_file_nameset.c, line 858: 'length' is not used in function 'menu_nameset_play'
+     float	length;
+ ---------	^
+cfe: Warning 820: ../z_file_nameset.c, line 859: 'angle' is not used in function 'menu_nameset_play'
+     short	mmm, angle;
+ ---------	-----^
+/usr/bin/cc $(CFLAGS) -c ../z_file_choose.c
+	(LANG=C ZELDA_DATA=/home/zelda/prj/PR/ZELDA1/data /usr/bin/cc -E  -DUSE_NEW_DUNGEON -DHAYAKAWA_TESTks2 -DFOR_JAPAN -DFOR_USA -DNOUSE_LINE_UCODE		 -DPLAY_ADJUST		 -DOPTIMIZE_NEXT_DISP	 -DUSE_DEBUG_MODE -DROM_D -DZURUMODE=2 "-DU_zelda_U" -DISVIEWER=1			 -DRAM8M -DUSE_COUNT -DUSE_LOCALE -DUSE_DEBUG_MALLOC -DDEBUG_CAMERA "-DVIDEO_AUTO" -DF3DEX_GBI 			 -DF3DEX_GBI_2 			 -DUSE_VISCVG			 -DROM_VERSION=0			 -UNOUSE_PRINTF			 -DDEBUG=1			 -DUSE_DEBUG_MOJI		 -DUSE_TIMER=1 			 -D_ODEBUG 			 -DUSE_FAULT=1 			 -UUSE_RMON			 -DUSE_SEGMENT_NAME_TABLE -DUSE_ACTOR_NAME_TABLE  ../spec > spec.i.tmp)
+	mv spec.i.tmp spec.i
+	/usr/local/srd/PR/makerel  z_title.o
+	/usr/local/srd/PR/makerel  z_opening.o
+	/usr/local/srd/PR/makerel  z_map_mark_data.o
+	/usr/local/srd/PR/makerel  z_arms_hook.o
+	/usr/local/srd/PR/makerel  z_arrow_fire.o
+	/usr/local/srd/PR/makerel  z_arrow_ice.o
+	/usr/local/srd/PR/makerel  z_arrow_light.o
+	/usr/local/srd/PR/makerel  z_bg_bdan_objects.o
+	/usr/local/srd/PR/makerel  z_bg_bdan_switch.o
+	/usr/local/srd/PR/makerel  z_bg_bom_guard.o
+	/usr/local/srd/PR/makerel  z_bg_bombwall.o
+	/usr/local/srd/PR/makerel  z_bg_bowl_wall.o
+	/usr/local/srd/PR/makerel  z_bg_breakwall.o
+	/usr/local/srd/PR/makerel  z_bg_ddan_jd.o
+	/usr/local/srd/PR/makerel  z_bg_ddan_kd.o
+	/usr/local/srd/PR/makerel  z_bg_dodoago.o
+	/usr/local/srd/PR/makerel  z_bg_dy_yoseizo.o
+	/usr/local/srd/PR/makerel  z_bg_ganon_otyuka.o
+	/usr/local/srd/PR/makerel  z_bg_gate_shutter.o
+	/usr/local/srd/PR/makerel  z_bg_gjyo_bridge.o
+	/usr/local/srd/PR/makerel  z_bg_gnd_darkmeiro.o
+	/usr/local/srd/PR/makerel  z_bg_gnd_firemeiro.o
+	/usr/local/srd/PR/makerel  z_bg_gnd_iceblock.o
+	/usr/local/srd/PR/makerel  z_bg_gnd_nisekabe.o
+	/usr/local/srd/PR/makerel  z_bg_gnd_soulmeiro.o
+	/usr/local/srd/PR/makerel  z_bg_haka.o
+	/usr/local/srd/PR/makerel  z_bg_haka_gate.o
+	/usr/local/srd/PR/makerel  z_bg_haka_huta.o
+	/usr/local/srd/PR/makerel  z_bg_haka_megane.o
+	/usr/local/srd/PR/makerel  z_bg_haka_meganeBG.o
+	/usr/local/srd/PR/makerel  z_bg_haka_sgami.o
+	/usr/local/srd/PR/makerel  z_bg_haka_ship.o
+	/usr/local/srd/PR/makerel  z_bg_haka_trap.o
+	/usr/local/srd/PR/makerel  z_bg_haka_tubo.o
+	/usr/local/srd/PR/makerel  z_bg_haka_water.o
+	/usr/local/srd/PR/makerel  z_bg_haka_zou.o
+	/usr/local/srd/PR/makerel  z_bg_heavy_block.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_curtain.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_dalm.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_firewall.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_fslift.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_fwbig.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_hamstep.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_hrock.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_kousi.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_kowarerukabe.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_rock.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_rsekizou.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_sekizou.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_sima.o
+	/usr/local/srd/PR/makerel  z_bg_hidan_syoku.o
+	/usr/local/srd/PR/makerel  z_bg_ice_objects.o
+	/usr/local/srd/PR/makerel  z_bg_ice_shelter.o
+	/usr/local/srd/PR/makerel  z_bg_ice_shutter.o
+	/usr/local/srd/PR/makerel  z_bg_ice_turara.o
+	/usr/local/srd/PR/makerel  z_bg_ingate.o
+	/usr/local/srd/PR/makerel  z_bg_jya_1flift.o
+	/usr/local/srd/PR/makerel  z_bg_jya_amishutter.o
+	/usr/local/srd/PR/makerel  z_bg_jya_bigmirror.o
+	/usr/local/srd/PR/makerel  z_bg_jya_block.o
+	/usr/local/srd/PR/makerel  z_bg_jya_bombchuiwa.o
+	/usr/local/srd/PR/makerel  z_bg_jya_bombiwa.o
+	/usr/local/srd/PR/makerel  z_bg_jya_cobra.o
+	/usr/local/srd/PR/makerel  z_bg_jya_goroiwa.o
+	/usr/local/srd/PR/makerel  z_bg_jya_haheniron.o
+	/usr/local/srd/PR/makerel  z_bg_jya_ironobj.o
+	/usr/local/srd/PR/makerel  z_bg_jya_kanaami.o
+	/usr/local/srd/PR/makerel  z_bg_jya_lift.o
+	/usr/local/srd/PR/makerel  z_bg_jya_megami.o
+	/usr/local/srd/PR/makerel  z_bg_jya_zurerukabe.o
+	/usr/local/srd/PR/makerel  z_bg_menkuri_eye.o
+	/usr/local/srd/PR/makerel  z_bg_menkuri_kaiten.o
+	/usr/local/srd/PR/makerel  z_bg_menkuri_nisekabe.o
+	/usr/local/srd/PR/makerel  z_bg_mizu_bwall.o
+	/usr/local/srd/PR/makerel  z_bg_mizu_movebg.o
+	/usr/local/srd/PR/makerel  z_bg_mizu_shutter.o
+	/usr/local/srd/PR/makerel  z_bg_mizu_uzu.o
+	/usr/local/srd/PR/makerel  z_bg_mizu_water.o
+	/usr/local/srd/PR/makerel  z_bg_mjin.o
+	/usr/local/srd/PR/makerel  z_bg_mori_bigst.o
+	/usr/local/srd/PR/makerel  z_bg_mori_elevator.o
+	/usr/local/srd/PR/makerel  z_bg_mori_hashigo.o
+	/usr/local/srd/PR/makerel  z_bg_mori_hashira4.o
+	/usr/local/srd/PR/makerel  z_bg_mori_hineri.o
+	/usr/local/srd/PR/makerel  z_bg_mori_idomizu.o
+	/usr/local/srd/PR/makerel  z_bg_mori_kaitenkabe.o
+	/usr/local/srd/PR/makerel  z_bg_mori_rakkatenjo.o
+	/usr/local/srd/PR/makerel  z_bg_po_event.o
+	/usr/local/srd/PR/makerel  z_bg_po_syokudai.o
+	/usr/local/srd/PR/makerel  z_bg_pushbox.o
+	/usr/local/srd/PR/makerel  z_bg_relay_objects.o
+	/usr/local/srd/PR/makerel  z_bg_spot00_break.o
+	/usr/local/srd/PR/makerel  z_bg_spot00_hanebasi.o
+	/usr/local/srd/PR/makerel  z_bg_spot01_fusya.o
+	/usr/local/srd/PR/makerel  z_bg_spot01_idohashira.o
+	/usr/local/srd/PR/makerel  z_bg_spot01_idomizu.o
+	/usr/local/srd/PR/makerel  z_bg_spot01_idosoko.o
+	/usr/local/srd/PR/makerel  z_bg_spot01_objects2.o
+	/usr/local/srd/PR/makerel  z_bg_spot02_objects.o
+	/usr/local/srd/PR/makerel  z_bg_spot03_taki.o
+	/usr/local/srd/PR/makerel  z_bg_spot05_soko.o
+	/usr/local/srd/PR/makerel  z_bg_spot06_objects.o
+	/usr/local/srd/PR/makerel  z_bg_spot07_taki.o
+	/usr/local/srd/PR/makerel  z_bg_spot08_bakudankabe.o
+	/usr/local/srd/PR/makerel  z_bg_spot08_iceblock.o
+	/usr/local/srd/PR/makerel  z_bg_spot09_obj.o
+	/usr/local/srd/PR/makerel  z_bg_spot11_bakudankabe.o
+	/usr/local/srd/PR/makerel  z_bg_spot11_oasis.o
+	/usr/local/srd/PR/makerel  z_bg_spot12_gate.o
+	/usr/local/srd/PR/makerel  z_bg_spot12_saku.o
+	/usr/local/srd/PR/makerel  z_bg_spot15_rrbox.o
+	/usr/local/srd/PR/makerel  z_bg_spot15_saku.o
+	/usr/local/srd/PR/makerel  z_bg_spot16_bombstone.o
+	/usr/local/srd/PR/makerel  z_bg_spot16_doughnut.o
+	/usr/local/srd/PR/makerel  z_bg_spot17_bakudankabe.o
+	/usr/local/srd/PR/makerel  z_bg_spot17_funen.o
+	/usr/local/srd/PR/makerel  z_bg_spot18_basket.o
+	/usr/local/srd/PR/makerel  z_bg_spot18_futa.o
+	/usr/local/srd/PR/makerel  z_bg_spot18_obj.o
+	/usr/local/srd/PR/makerel  z_bg_spot18_shutter.o
+	/usr/local/srd/PR/makerel  z_bg_sst_floor.o
+	/usr/local/srd/PR/makerel  z_bg_toki_hikari.o
+	/usr/local/srd/PR/makerel  z_bg_toki_swd.o
+	/usr/local/srd/PR/makerel  z_bg_treemouth.o
+	/usr/local/srd/PR/makerel  z_bg_umajump.o
+	/usr/local/srd/PR/makerel  z_bg_vb_sima.o
+	/usr/local/srd/PR/makerel  z_bg_ydan_hasi.o
+	/usr/local/srd/PR/makerel  z_bg_ydan_maruta.o
+	/usr/local/srd/PR/makerel  z_bg_ydan_sp.o
+	/usr/local/srd/PR/makerel  z_bg_zg.o
+	/usr/local/srd/PR/makerel  z_boss_dodongo.o
+	/usr/local/srd/PR/makerel  z_boss_fd.o
+	/usr/local/srd/PR/makerel  z_boss_fd2.o
+	/usr/local/srd/PR/makerel  z_boss_ganon.o
+	/usr/local/srd/PR/makerel  z_boss_ganon2.o
+	/usr/local/srd/PR/makerel  z_boss_ganondrof.o
+	/usr/local/srd/PR/makerel  z_boss_goma.o
+	/usr/local/srd/PR/makerel  z_boss_mo.o
+	/usr/local/srd/PR/makerel  z_boss_sst.o
+	/usr/local/srd/PR/makerel  z_boss_tw.o
+	/usr/local/srd/PR/makerel  z_boss_va.o
+	/usr/local/srd/PR/makerel  z_demo_6k.o
+	/usr/local/srd/PR/makerel  z_demo_du.o
+	/usr/local/srd/PR/makerel  z_demo_ec.o
+	/usr/local/srd/PR/makerel  z_demo_effect.o
+	/usr/local/srd/PR/makerel  z_demo_ext.o
+	/usr/local/srd/PR/makerel  z_demo_geff.o
+	/usr/local/srd/PR/makerel  z_demo_gj.o
+	/usr/local/srd/PR/makerel  z_demo_go.o
+	/usr/local/srd/PR/makerel  z_demo_gt.o
+	/usr/local/srd/PR/makerel  z_demo_ik.o
+	/usr/local/srd/PR/makerel  z_demo_im.o
+	/usr/local/srd/PR/makerel  z_demo_kankyo.o
+	/usr/local/srd/PR/makerel  z_demo_kekkai.o
+	/usr/local/srd/PR/makerel  z_demo_sa.o
+	/usr/local/srd/PR/makerel  z_demo_shd.o
+	/usr/local/srd/PR/makerel  z_demo_tre_lgt.o
+	/usr/local/srd/PR/makerel  z_door_ana.o
+	/usr/local/srd/PR/makerel  z_door_gerudo.o
+	/usr/local/srd/PR/makerel  z_door_killer.o
+	/usr/local/srd/PR/makerel  z_door_shutter.o
+	/usr/local/srd/PR/makerel  z_door_toki.o
+	/usr/local/srd/PR/makerel  z_door_warp1.o
+	/usr/local/srd/PR/makerel  z_efc_erupc.o
+	/usr/local/srd/PR/makerel  z_eff_dust.o
+	/usr/local/srd/PR/makerel  z_elf_msg.o
+	/usr/local/srd/PR/makerel  z_elf_msg2.o
+	/usr/local/srd/PR/makerel  z_en_am.o
+	/usr/local/srd/PR/makerel  z_en_ani.o
+	/usr/local/srd/PR/makerel  z_en_anubice.o
+	/usr/local/srd/PR/makerel  z_en_anubice_fire.o
+	/usr/local/srd/PR/makerel  z_en_anubice_tag.o
+	/usr/local/srd/PR/makerel  z_en_arow_trap.o
+	/usr/local/srd/PR/makerel  z_en_arrow.o
+	/usr/local/srd/PR/makerel  z_en_attack_niw.o
+	/usr/local/srd/PR/makerel  z_en_ba.o
+	/usr/local/srd/PR/makerel  z_en_bb.o
+	/usr/local/srd/PR/makerel  z_en_bdfire.o
+	/usr/local/srd/PR/makerel  z_en_bigokuta.o
+	/usr/local/srd/PR/makerel  z_en_bili.o
+	/usr/local/srd/PR/makerel  z_en_bird.o
+	/usr/local/srd/PR/makerel  z_en_blkobj.o
+	/usr/local/srd/PR/makerel  z_en_bom.o
+	/usr/local/srd/PR/makerel  z_en_bom_bowl_man.o
+	/usr/local/srd/PR/makerel  z_en_bom_bowl_pit.o
+	/usr/local/srd/PR/makerel  z_en_bom_chu.o
+	/usr/local/srd/PR/makerel  z_en_bombf.o
+	/usr/local/srd/PR/makerel  z_en_boom.o
+	/usr/local/srd/PR/makerel  z_en_box.o
+	/usr/local/srd/PR/makerel  z_en_brob.o
+	/usr/local/srd/PR/makerel  z_en_bubble.o
+	/usr/local/srd/PR/makerel  z_en_bw.o
+	/usr/local/srd/PR/makerel  z_en_bx.o
+	/usr/local/srd/PR/makerel  z_en_changer.o
+	/usr/local/srd/PR/makerel  z_en_choo.o
+	/usr/local/srd/PR/makerel  z_en_clear_tag.o
+	/usr/local/srd/PR/makerel  z_en_cow.o
+	/usr/local/srd/PR/makerel  z_en_crow.o
+	/usr/local/srd/PR/makerel  z_en_cs.o
+	/usr/local/srd/PR/makerel  z_en_daiku.o
+	/usr/local/srd/PR/makerel  z_en_daiku_kakariko.o
+	/usr/local/srd/PR/makerel  z_en_dekubaba.o
+	/usr/local/srd/PR/makerel  z_en_dekunuts.o
+	/usr/local/srd/PR/makerel  z_en_dh.o
+	/usr/local/srd/PR/makerel  z_en_dha.o
+	/usr/local/srd/PR/makerel  z_en_diving_game.o
+	/usr/local/srd/PR/makerel  z_en_dns.o
+	/usr/local/srd/PR/makerel  z_en_dnt_demo.o
+	/usr/local/srd/PR/makerel  z_en_dnt_jiji.o
+	/usr/local/srd/PR/makerel  z_en_dnt_nomal.o
+	/usr/local/srd/PR/makerel  z_en_dodojr.o
+	/usr/local/srd/PR/makerel  z_en_dodongo.o
+	/usr/local/srd/PR/makerel  z_en_dog.o
+	/usr/local/srd/PR/makerel  z_en_door.o
+	/usr/local/srd/PR/makerel  z_en_ds.o
+	/usr/local/srd/PR/makerel  z_en_du.o
+	/usr/local/srd/PR/makerel  z_en_dy_extra.o
+	/usr/local/srd/PR/makerel  z_en_eg.o
+	/usr/local/srd/PR/makerel  z_en_eiyer.o
+	/usr/local/srd/PR/makerel  z_en_elf.o
+	/usr/local/srd/PR/makerel  z_en_encount1.o
+	/usr/local/srd/PR/makerel  z_en_encount2.o
+	/usr/local/srd/PR/makerel  z_en_ex_item.o
+	/usr/local/srd/PR/makerel  z_en_ex_ruppy.o
+	/usr/local/srd/PR/makerel  z_en_fd.o
+	/usr/local/srd/PR/makerel  z_en_fd_fire.o
+	/usr/local/srd/PR/makerel  z_en_fhg.o
+	/usr/local/srd/PR/makerel  z_en_fhg_fire.o
+	/usr/local/srd/PR/makerel  z_en_fire_rock.o
+	/usr/local/srd/PR/makerel  z_en_firefly.o
+	/usr/local/srd/PR/makerel  z_en_floormas.o
+	/usr/local/srd/PR/makerel  z_en_fr.o
+	/usr/local/srd/PR/makerel  z_en_fu.o
+	/usr/local/srd/PR/makerel  z_en_fw.o
+	/usr/local/srd/PR/makerel  z_en_fz.o
+	/usr/local/srd/PR/makerel  z_en_g_switch.o
+	/usr/local/srd/PR/makerel  z_en_ganon_mant.o
+	/usr/local/srd/PR/makerel  z_en_ganon_organ.o
+	/usr/local/srd/PR/makerel  z_en_gb.o
+	/usr/local/srd/PR/makerel  z_en_ge1.o
+	/usr/local/srd/PR/makerel  z_en_ge2.o
+	/usr/local/srd/PR/makerel  z_en_ge3.o
+	/usr/local/srd/PR/makerel  z_en_geldB.o
+	/usr/local/srd/PR/makerel  z_en_girlA.o
+	/usr/local/srd/PR/makerel  z_en_girlB.o
+	/usr/local/srd/PR/makerel  z_en_gm.o
+	/usr/local/srd/PR/makerel  z_en_go.o
+	/usr/local/srd/PR/makerel  z_en_go2.o
+	/usr/local/srd/PR/makerel  z_en_goma.o
+	/usr/local/srd/PR/makerel  z_en_gr.o
+	/usr/local/srd/PR/makerel  z_en_gs.o
+	/usr/local/srd/PR/makerel  z_en_guest.o
+	/usr/local/srd/PR/makerel  z_en_hata.o
+	/usr/local/srd/PR/makerel  z_en_heishi1.o
+	/usr/local/srd/PR/makerel  z_en_heishi2.o
+	/usr/local/srd/PR/makerel  z_en_heishi3.o
+	/usr/local/srd/PR/makerel  z_en_heishi4.o
+	/usr/local/srd/PR/makerel  z_en_hintnuts.o
+	/usr/local/srd/PR/makerel  z_en_holl.o
+	/usr/local/srd/PR/makerel  z_en_honotrap.o
+	/usr/local/srd/PR/makerel  z_en_horse.o
+	/usr/local/srd/PR/makerel  z_en_horse_game_check.o
+	/usr/local/srd/PR/makerel  z_en_horse_ganon.o
+	/usr/local/srd/PR/makerel  z_en_horse_link_child.o
+	/usr/local/srd/PR/makerel  z_en_horse_normal.o
+	/usr/local/srd/PR/makerel  z_en_horse_zelda.o
+	/usr/local/srd/PR/makerel  z_en_hs.o
+	/usr/local/srd/PR/makerel  z_en_hs2.o
+	/usr/local/srd/PR/makerel  z_en_hy.o
+	/usr/local/srd/PR/makerel  z_en_ice_hono.o
+	/usr/local/srd/PR/makerel  z_en_ik.o
+	/usr/local/srd/PR/makerel  z_en_in.o
+	/usr/local/srd/PR/makerel  z_en_ishi.o
+	/usr/local/srd/PR/makerel  z_en_it.o
+	/usr/local/srd/PR/makerel  z_en_jj.o
+	/usr/local/srd/PR/makerel  z_en_js.o
+	/usr/local/srd/PR/makerel  z_en_jsjutan.o
+	/usr/local/srd/PR/makerel  z_en_kakasi.o
+	/usr/local/srd/PR/makerel  z_en_kakasi2.o
+	/usr/local/srd/PR/makerel  z_en_kakasi3.o
+	/usr/local/srd/PR/makerel  z_en_kanban.o
+	/usr/local/srd/PR/makerel  z_en_karebaba.o
+	/usr/local/srd/PR/makerel  z_en_ko.o
+	/usr/local/srd/PR/makerel  z_en_kusa.o
+	/usr/local/srd/PR/makerel  z_en_kz.o
+	/usr/local/srd/PR/makerel  z_en_lbox.o
+	/usr/local/srd/PR/makerel  z_en_light.o
+	/usr/local/srd/PR/makerel  z_en_m_fire1.o
+	/usr/local/srd/PR/makerel  z_en_m_thunder.o
+	/usr/local/srd/PR/makerel  z_en_ma1.o
+	/usr/local/srd/PR/makerel  z_en_ma2.o
+	/usr/local/srd/PR/makerel  z_en_ma3.o
+	/usr/local/srd/PR/makerel  z_en_mag.o
+	/usr/local/srd/PR/makerel  z_en_mb.o
+	/usr/local/srd/PR/makerel  z_en_md.o
+	/usr/local/srd/PR/makerel  z_en_mk.o
+	/usr/local/srd/PR/makerel  z_en_mm.o
+	/usr/local/srd/PR/makerel  z_en_mm2.o
+	/usr/local/srd/PR/makerel  z_en_ms.o
+	/usr/local/srd/PR/makerel  z_en_mu.o
+	/usr/local/srd/PR/makerel  z_en_mushi.o
+	/usr/local/srd/PR/makerel  z_en_nb.o
+	/usr/local/srd/PR/makerel  z_en_niw.o
+	/usr/local/srd/PR/makerel  z_en_niw_girl.o
+	/usr/local/srd/PR/makerel  z_en_niw_lady.o
+	/usr/local/srd/PR/makerel  z_en_nutsball.o
+	/usr/local/srd/PR/makerel  z_en_nwc.o
+	/usr/local/srd/PR/makerel  z_en_ny.o
+	/usr/local/srd/PR/makerel  z_en_oA2.o
+	/usr/local/srd/PR/makerel  z_en_oB1.o
+	/usr/local/srd/PR/makerel  z_en_oE2.o
+	/usr/local/srd/PR/makerel  z_en_okarina_effect.o
+	/usr/local/srd/PR/makerel  z_en_okarina_tag.o
+	/usr/local/srd/PR/makerel  z_en_okuta.o
+	/usr/local/srd/PR/makerel  z_en_owl.o
+	/usr/local/srd/PR/makerel  z_en_part.o
+	/usr/local/srd/PR/makerel  z_en_peehat.o
+	/usr/local/srd/PR/makerel  z_en_po_desert.o
+	/usr/local/srd/PR/makerel  z_en_po_field.o
+	/usr/local/srd/PR/makerel  z_en_po_relay.o
+	/usr/local/srd/PR/makerel  z_en_po_sisters.o
+	/usr/local/srd/PR/makerel  z_en_poh.o
+	/usr/local/srd/PR/makerel  z_en_pubox.o
+	/usr/local/srd/PR/makerel  z_en_rd.o
+	/usr/local/srd/PR/makerel  z_en_reeba.o
+	/usr/local/srd/PR/makerel  z_en_river_sound.o
+	/usr/local/srd/PR/makerel  z_en_rl.o
+	/usr/local/srd/PR/makerel  z_en_rr.o
+	/usr/local/srd/PR/makerel  z_en_ru1.o
+	/usr/local/srd/PR/makerel  z_en_ru2.o
+	/usr/local/srd/PR/makerel  z_en_sa.o
+	/usr/local/srd/PR/makerel  z_en_sakana.o
+	/usr/local/srd/PR/makerel  z_en_sb.o
+	/usr/local/srd/PR/makerel  z_en_scene_change.o
+	/usr/local/srd/PR/makerel  z_en_sda.o
+	/usr/local/srd/PR/makerel  z_en_shopnuts.o
+	/usr/local/srd/PR/makerel  z_en_si.o
+	/usr/local/srd/PR/makerel  z_en_siofuki.o
+	/usr/local/srd/PR/makerel  z_en_skb.o
+	/usr/local/srd/PR/makerel  z_en_skj.o
+	/usr/local/srd/PR/makerel  z_en_skj_needle.o
+	/usr/local/srd/PR/makerel  z_en_ssh.o
+	/usr/local/srd/PR/makerel  z_en_st.o
+	/usr/local/srd/PR/makerel  z_en_sth.o
+	/usr/local/srd/PR/makerel  z_en_stream.o
+	/usr/local/srd/PR/makerel  z_en_sw.o
+	/usr/local/srd/PR/makerel  z_en_syateki_itm.o
+	/usr/local/srd/PR/makerel  z_en_syateki_man.o
+	/usr/local/srd/PR/makerel  z_en_syateki_niw.o
+	/usr/local/srd/PR/makerel  z_en_ta.o
+	/usr/local/srd/PR/makerel  z_en_takara_man.o
+	/usr/local/srd/PR/makerel  z_en_tana.o
+	/usr/local/srd/PR/makerel  z_en_test.o
+	/usr/local/srd/PR/makerel  z_en_tg.o
+	/usr/local/srd/PR/makerel  z_en_tite.o
+	/usr/local/srd/PR/makerel  z_en_tk.o
+	/usr/local/srd/PR/makerel  z_en_torch.o
+	/usr/local/srd/PR/makerel  z_en_torch2.o
+	/usr/local/srd/PR/makerel  z_en_toryo.o
+	/usr/local/srd/PR/makerel  z_en_tp.o
+	/usr/local/srd/PR/makerel  z_en_tr.o
+	/usr/local/srd/PR/makerel  z_en_trap.o
+	/usr/local/srd/PR/makerel  z_en_tubo_trap.o
+	/usr/local/srd/PR/makerel  z_en_vali.o
+	/usr/local/srd/PR/makerel  z_en_vase.o
+	/usr/local/srd/PR/makerel  z_en_vb_ball.o
+	/usr/local/srd/PR/makerel  z_en_viewer.o
+	/usr/local/srd/PR/makerel  z_en_vm.o
+	/usr/local/srd/PR/makerel  z_en_wall_tubo.o
+	/usr/local/srd/PR/makerel  z_en_wallmas.o
+	/usr/local/srd/PR/makerel  z_en_weather_tag.o
+	/usr/local/srd/PR/makerel  z_en_weiyer.o
+	/usr/local/srd/PR/makerel  z_en_wf.o
+	/usr/local/srd/PR/makerel  z_en_wonder_item.o
+	/usr/local/srd/PR/makerel  z_en_wonder_talk.o
+	/usr/local/srd/PR/makerel  z_en_wonder_talk2.o
+	/usr/local/srd/PR/makerel  z_en_wood02.o
+	/usr/local/srd/PR/makerel  z_en_yabusame_mark.o
+	/usr/local/srd/PR/makerel  z_en_yukabyun.o
+	/usr/local/srd/PR/makerel  z_en_zf.o
+	/usr/local/srd/PR/makerel  z_en_zl2.o
+	/usr/local/srd/PR/makerel  z_en_zl3.o
+	/usr/local/srd/PR/makerel  z_en_zl4.o
+	/usr/local/srd/PR/makerel  z_en_zo.o
+	/usr/local/srd/PR/makerel  z_end_title.o
+	/usr/local/srd/PR/makerel  z_fishing.o
+	/usr/local/srd/PR/makerel  z_item_b_heart.o
+	/usr/local/srd/PR/makerel  z_item_etcetera.o
+	/usr/local/srd/PR/makerel  z_item_inbox.o
+	/usr/local/srd/PR/makerel  z_item_ocarina.o
+	/usr/local/srd/PR/makerel  z_item_shield.o
+	/usr/local/srd/PR/makerel  z_magic_dark.o
+	/usr/local/srd/PR/makerel  z_magic_fire.o
+	/usr/local/srd/PR/makerel  z_magic_wind.o
+	/usr/local/srd/PR/makerel  z_mir_ray.o
+	/usr/local/srd/PR/makerel  z_obj_bean.o
+	/usr/local/srd/PR/makerel  z_obj_blockstop.o
+	/usr/local/srd/PR/makerel  z_obj_bombiwa.o
+	/usr/local/srd/PR/makerel  z_obj_comb.o
+	/usr/local/srd/PR/makerel  z_obj_dekujr.o
+	/usr/local/srd/PR/makerel  z_obj_elevator.o
+	/usr/local/srd/PR/makerel  z_obj_hamishi.o
+	/usr/local/srd/PR/makerel  z_obj_hana.o
+	/usr/local/srd/PR/makerel  z_obj_hsblock.o
+	/usr/local/srd/PR/makerel  z_obj_ice_poly.o
+	/usr/local/srd/PR/makerel  z_obj_kibako.o
+	/usr/local/srd/PR/makerel  z_obj_kibako2.o
+	/usr/local/srd/PR/makerel  z_obj_lift.o
+	/usr/local/srd/PR/makerel  z_obj_lightswitch.o
+	/usr/local/srd/PR/makerel  z_obj_makekinsuta.o
+	/usr/local/srd/PR/makerel  z_obj_makeoshihiki.o
+	/usr/local/srd/PR/makerel  z_obj_mure.o
+	/usr/local/srd/PR/makerel  z_obj_mure2.o
+	/usr/local/srd/PR/makerel  z_obj_mure3.o
+	/usr/local/srd/PR/makerel  z_obj_oshihiki.o
+	/usr/local/srd/PR/makerel  z_obj_roomtimer.o
+	/usr/local/srd/PR/makerel  z_obj_switch.o
+	/usr/local/srd/PR/makerel  z_obj_syokudai.o
+	/usr/local/srd/PR/makerel  z_obj_timeblock.o
+	/usr/local/srd/PR/makerel  z_obj_tsubo.o
+	/usr/local/srd/PR/makerel  z_obj_warp2block.o
+	/usr/local/srd/PR/makerel  z_object_kankyo.o
+	/usr/local/srd/PR/makerel  z_oceff_spot.o
+	/usr/local/srd/PR/makerel  z_oceff_storm.o
+	/usr/local/srd/PR/makerel  z_oceff_wipe.o
+	/usr/local/srd/PR/makerel  z_oceff_wipe2.o
+	/usr/local/srd/PR/makerel  z_oceff_wipe3.o
+	/usr/local/srd/PR/makerel  z_oceff_wipe4.o
+	/usr/local/srd/PR/makerel  z_shot_sun.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dust.o
+	/usr/local/srd/PR/makerel  z_eff_ss_kirakira.o
+	/usr/local/srd/PR/makerel  z_eff_ss_bomb.o
+	/usr/local/srd/PR/makerel  z_eff_ss_bomb2.o
+	/usr/local/srd/PR/makerel  z_eff_ss_blast.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_spk.o
+	/usr/local/srd/PR/makerel  z_eff_ss_d_fire.o
+	/usr/local/srd/PR/makerel  z_eff_ss_bubble.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_ripple.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_splash.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_magma.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_fire.o
+	/usr/local/srd/PR/makerel  z_eff_ss_lightning.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dt_bubble.o
+	/usr/local/srd/PR/makerel  z_eff_hahen.o
+	/usr/local/srd/PR/makerel  z_eff_ss_stick.o
+	/usr/local/srd/PR/makerel  z_eff_ss_sibuki.o
+	/usr/local/srd/PR/makerel  z_eff_ss_sibuki2.o
+	/usr/local/srd/PR/makerel  z_eff_ss_g_magma2.o
+	/usr/local/srd/PR/makerel  z_eff_ss_stone1.o
+	/usr/local/srd/PR/makerel  z_eff_ss_hitmark.o
+	/usr/local/srd/PR/makerel  z_eff_fhg_flash.o
+	/usr/local/srd/PR/makerel  z_eff_k_fire.o
+	/usr/local/srd/PR/makerel  z_eff_ss_solder_srch_ball.o
+	/usr/local/srd/PR/makerel  z_eff_kakera.o
+	/usr/local/srd/PR/makerel  z_eff_ice_piece.o
+	/usr/local/srd/PR/makerel  z_eff_en_ice.o
+	/usr/local/srd/PR/makerel  z_eff_fire_tail.o
+	/usr/local/srd/PR/makerel  z_eff_en_fire.o
+	/usr/local/srd/PR/makerel  z_eff_ss_extra.o
+	/usr/local/srd/PR/makerel  z_eff_fcircle.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dead_db.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dead_dd.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dead_ds.o
+	/usr/local/srd/PR/makerel  z_eff_ss_dead_sound.o
+	/usr/local/srd/PR/makerel  z_eff_ss_ice_smoke.o
+	/usr/local/srd/PR/makerel  z_player.o
+	/usr/lib/PR/nld  -o z_select_segment.o -r z_select.o  -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   -m > z_select_segment.map
+	/usr/lib/PR/nld  -o z_kaleido_segment.o -r z_kaleido_collect.o z_kaleido_debug.o z_kaleido_equipment.o z_kaleido_item.o z_kaleido_map.o z_kaleido_save.o z_kaleido_scope.o z_lmap_mark.o z_lmap_mark_data.o  -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   -m > z_kaleido_segment.map
+	/usr/lib/PR/nld  -o z_vr_box_segment.o -r z_message.o z_gameover.o z_construct.o  -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   -m > z_vr_box_segment.map
+	/usr/lib/PR/nld  -o z_file_choose_segment.o -r z_file_choose_data.o z_file_copy_del.o z_file_nameset.o z_file_choose.o  -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   -m > z_file_choose_segment.map
+	grep include spec.i |  grep -v "\." |  grep -v '"nullsegment"' |  grep -v '"hilite"' |  grep -v '"fifobuffer"' |  grep -v '"yieldbuffer"' |  grep -v '"SystemDynamic"' |  grep -v '"dramstackbuffer"' |  grep -v '"yieldbuffer"' |  grep -v '"zbuffer"' |  grep -v '"rcp_cfb"' |  grep -v '"rcp_zb"' |  grep -v '"Audioheap"' |  grep -v '"SystemHeap"' |  grep -v '"object_go2"' |  grep -v '"object_stk"' |  grep -v '"object_gate"' |  sed -e 's/[ 	]*include[ 	]*"\(.*\)"[ 	]*/_DECL_(\1)/' > z_segment.decl.tmp
+	mv z_segment.decl.tmp z_segment.decl
+	/usr/local/srd/PR/makerel  z_select_segment.o
+	/usr/local/srd/PR/makerel  z_kaleido_segment.o
+	/usr/local/srd/PR/makerel  z_vr_box_segment.o
+	/usr/local/srd/PR/makerel  z_file_choose_segment.o
+/usr/bin/cc $(CFLAGS) -c ../z_std_dma.c
+/usr/bin/cc $(CFLAGS) -c ../z_std_dma_data.c
+	/usr/lib/PR/nld  -o bootsegment.o -r boot.o bootstack.o idle.o sys_vimgr.o system.o z_std_dma.o z_std_dma_slid.o z_locale.o sys_assert.o is_debug.o    -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   /home/zelda/prj/PR/ZELDA1/lib/driverominit.o	 /home/zelda/prj/PR/ZELDA1/lib/slidV10.o -L/usr/lib -lu64_d -lc64_d  -lultra_rom -lnustd_d -m > bootsegment.map
+nld: WARNING 84: /usr/local/n64kit/nustd/lib/libnustd_d.a is not used for resolving any symbol.
+	echo "bootsegment.map できた"
+bootsegment.map できた
+	rm -f tmplibultra.a
+	cp /usr/lib/libultra_rom.a tmplibultra.a
+	chmod 644 tmplibultra.a
+	sed -n -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" bootsegment.map > ultra.stdout
+	/usr/bin/ar d tmplibultra.a `sed -n -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" bootsegment.map | sort | uniq`
+	/usr/bin/ar d tmplibultra.a sprintf.o
+	/usr/bin/ar d tmplibultra.a syncprintf.o
+	chmod 444 tmplibultra.a
+	mv tmplibultra.a libultra2.a
+	rm -f tmplibu64.a
+	cp /usr/local/srd/PR/libu64_d.a tmplibu64.a
+	chmod 644 tmplibu64.a
+	sed -n -e "s/.*libu64.*(\(.*\.o\)).*/\1/p" bootsegment.map > u64.stdout
+	/usr/bin/ar d tmplibu64.a `sed -n -e "s/.*libu64.*(\(.*\.o\)).*/\1/p" bootsegment.map | sort | uniq`
+	chmod 444 tmplibu64.a
+	mv tmplibu64.a libu642.a
+	rm -f tmplibc64.a
+	cp /usr/local/srd/PR/libc64_d.a tmplibc64.a
+	chmod 644 tmplibc64.a
+	sed -n -e "s/.*libc64.*(\(.*\.o\)).*/\1/p" bootsegment.map > c64.stdout
+	/usr/bin/ar d tmplibc64.a `sed -n -e "s/.*libc64.*(\(.*\.o\)).*/\1/p" bootsegment.map | sort | uniq`
+	/usr/bin/ar d tmplibc64.a assert64.o	# zelda のassertを使用するため
+	chmod 444 tmplibc64.a
+	mv tmplibc64.a libc642.a
+	rm -f tmplibnus.a
+	cp /usr/local/n64kit/nustd/lib/libnustd_d.a tmplibnus.a
+	chmod 644 tmplibnus.a
+	sed -n -e "s/.*libnustd_d.*(\(.*\.o\)).*/\1/p" bootsegment.map > nus.stdout
+	/usr/bin/ar d tmplibnus.a `sed -n -e "s/.*'libnustd_d'.*(\(.*\.o\)).*/\1/p" bootsegment.map | sort | uniq`
+	/usr/bin/ar d tmplibnus.a memcpy.o strchr.o strlen.o
+	chmod 444 tmplibnus.a
+	mv tmplibnus.a libnustd2.a
+	/usr/lib/PR/nld  -o codesegment.o -r z_en_a_keep.o z_en_item00.o z_eff_blure.o z_eff_shield_particle.o z_eff_spark.o z_eff_ss_dead.o z_effect.o z_effect_soft_sprite.o z_effect_soft_sprite_old_init.o z_effect_soft_sprite_dlftbls.o flg_set.o z_DLF.o z_actor.o z_actor_dlftbls.o z_actor_profile.o z_bgcheck.o z_bgcheck_collection.o z_bgcheck_movebg.o z_camera.o z_collision_btl_tbl.o z_collision_check.o z_common_data.o z_debug.o z_debug_display.o z_demo.o z_displib.o z_draw.o z_effect_SE.o z_elf_message.o z_en_msk.o z_event.o z_fcurve_data.o z_fcurve_data_skelanime.o z_game_dlftbls.o z_horse.o z_jpeg.o z_kaleido.o z_kanfont.o z_kankyo.o z_lib.o z_lifemeter.o z_lights.o z_malloc.o z_map_mark.o z_moji.o z_nmibuf.o z_nulltask.o z_olib.o z_onepointdemo.o z_map_exp.o z_map_exp_data.o z_parameter.o z_path.o z_pause.o z_player_lib.o z_prenmi.o z_quake.o z_rcp.o z_room.o z_sample.o z_save_area.o z_scene.o z_scene_bank.o z_scene_table.o z_skelanime.o z_skin.o z_skin_awb.o z_skin_matrix.o z_soft_anim_tbl.o z_sram.o ssSRAMrdwt.o z_texture.o z_traplink.o z_vibctl.o z_vibctl2.o z_view.o z_vimode.o z_viscvg.o z_vismono.o z_viszbuf.o z_vr_box.o z_vr_box_draw.o z_player_call.o z_fbdemo.o z_fbdemo_triforce.o z_fbdemo_wipe1.o z_fbdemo_wipe3.o z_fbdemo_fade.o z_shrink_window.o db_camera.o camdemo.o z_mempak.o z_kaleido_manager.o z_kaleido_scope_call.o z_play.o PreRender.o THA_GA.o TwoHeadArena.o audio.o audioMgr.o first_game.o game.o gamealloc.o graph.o gfxalloc.o listalloc.o main.o padmgr.o sched.o speed_meter.o sys_cfb.o sys_lib.o sys_math.o sys_math3d.o sys_math_atan.o sys_matrix.o sys_ucode.o sys_vibctl2.o sys_freeze.o zurumode.o irqmgr.o debug_malloc.o    /home/zelda/prj/PR/ZELDA1/lib/z_fault.o  /home/zelda/prj/PR/ZELDA1/lib/faultprint.o  kanread.o /home/zelda/prj/PR/ZELDA1/lib/count.o /home/zelda/prj/PR/ZELDA1/lib/audio/debug_audio.o   -MDupdate Makedepend -L/usr/local/srd/PR/patch/PR -L/home/zelda/prj/PR/ZELDA1/lib/audio  -L/usr/local/srd/PR  -L/usr/lib/PR  -L/usr/local/n64kit/nustd/lib   libu642.a libc642.a /home/zelda/prj/PR/ZELDA1/lib/ucode/libjpg.a libultra2.a libnustd2.a -m > codesegment.map
+	../make_version.sh  > version_data.h
+	/usr/bin/cc      -DUSE_NEW_DUNGEON -DHAYAKAWA_TESTks2 -DFOR_JAPAN -DFOR_USA -DNOUSE_LINE_UCODE		 -DPLAY_ADJUST		 -DOPTIMIZE_NEXT_DISP	 -DUSE_DEBUG_MODE -DROM_D -DZURUMODE=2 "-DU_zelda_U" -DISVIEWER=1			 -DRAM8M -DUSE_COUNT -DUSE_LOCALE -DUSE_DEBUG_MALLOC -DDEBUG_CAMERA "-DVIDEO_AUTO" -DF3DEX_GBI 			 -DF3DEX_GBI_2 			 -DUSE_VISCVG			 -DROM_VERSION=0			 -UNOUSE_PRINTF			 -DDEBUG=1			 -DUSE_DEBUG_MOJI		 -DUSE_TIMER=1 			 -D_ODEBUG 			 -DUSE_FAULT=1 			 -UUSE_RMON			 -DUSE_SEGMENT_NAME_TABLE -DUSE_ACTOR_NAME_TABLE  -I/usr/local/srd/PR/patch/PR  -I/usr/local/srd/PR/patch/PR/..  -I/home/zelda/prj/PR/ZELDA1/lib -I/usr/local/srd/PR  -I/usr/include/PR  -I/usr/local/n64kit/nustd/include -non_shared -G 0 -mips2 -fullwarn -float -xansi -Xcpluscomm -wlint,-fhp -D_HW_VERSION_2 -Wab,-r4300_mul -nostdinc -I/usr/include -mips2 -o32 -O2 -g3				  -MDupdate Makedepend -woff 813,828,852,827,609 -c ../version.c
+	(LANG=C ZELDA_DATA=/home/zelda/prj/PR/ZELDA1/data time /usr/sbin/makerom -d  -I/home/zelda/prj/PR/ZELDA1   -DUSE_NEW_DUNGEON -DHAYAKAWA_TESTks2 -DFOR_JAPAN -DFOR_USA -DNOUSE_LINE_UCODE		 -DPLAY_ADJUST		 -DOPTIMIZE_NEXT_DISP	 -DUSE_DEBUG_MODE -DROM_D -DZURUMODE=2 "-DU_zelda_U" -DISVIEWER=1			 -DRAM8M -DUSE_COUNT -DUSE_LOCALE -DUSE_DEBUG_MALLOC -DDEBUG_CAMERA "-DVIDEO_AUTO" -DF3DEX_GBI 			 -DF3DEX_GBI_2 			 -DUSE_VISCVG			 -DROM_VERSION=0			 -UNOUSE_PRINTF			 -DDEBUG=1			 -DUSE_DEBUG_MOJI		 -DUSE_TIMER=1 			 -D_ODEBUG 			 -DUSE_FAULT=1 			 -UUSE_RMON			 -DUSE_SEGMENT_NAME_TABLE -DUSE_ACTOR_NAME_TABLE  -r rom.tmp ../spec > zelda_makerom.stdout)
+
+real 4:47.34
+user 2:02.91
+sys  21.45
+	/home/zelda/prj/PR/ZELDA1/lib/NRDC/nrdc/nrdc -b -iczlj	 -t"THE LEGEND OF ZELDA" -vf		 rom.tmp
+NINTENDO 64 Master Data Utility  Version 1.02
+Copyright(C) 1996 Nintendo Co.,LTD.
+
+big-endian
+
+	mv -f rom.tmp rom
+	(/usr/bin/nm -B zelda | sort | tee zelda.nm2 | egrep "^8" > zelda.nm)&
+	/usr/sbin/makemask6105 rom		# ROM焼き用変換
+makemask6105 ver.1.00
+	date
+2002年 6月 4日(火曜日) 17時56分44秒 JST 
+: Leaving directory `./rom_d/'
+2002年 6月 4日(火曜日) 17時56分46秒 JST 

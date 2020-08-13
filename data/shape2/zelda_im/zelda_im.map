@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           12230
+		.data                  0             720 impa_banzai.o
+		.data                720             3f0 impa_banzai_wait.o
+		.data                b10             9f0 impa_kieru.o
+		.data               1500             380 impa_matsu.o
+		.data               1880            df20 impa_matsu_mdl.o
+		.data               f7a0             380 impa_miage_wait.o
+		.data               fb20             6c0 impa_miageru.o
+		.data              101e0             d10 inpa_y_kuti.o
+		.data              10ef0             950 inpa_y_roop.o
+		.data              11840             3e0 km_inp1.o
+		.data              11c20             610 km_inp2.o
+
+.strtab                                0             403
+		.strtab                0             403 *ld_internal*
+
+.symtab                                0             3a0
+		.symtab                0             3a0 *ld_internal*
+
+.mdebug                                0            17e0
+		.mdebug                0            17e0 *ld_internal*
+
+.rel.data                              0            1008
+		.rel.data              0              10 impa_banzai.o
+		.rel.data             10              10 impa_banzai_wait.o
+		.rel.data             20              10 impa_kieru.o
+		.rel.data             30              10 impa_matsu.o
+		.rel.data             40             f68 impa_matsu_mdl.o
+		.rel.data            fa8              10 impa_miage_wait.o
+		.rel.data            fb8              10 impa_miageru.o
+		.rel.data            fc8              10 inpa_y_kuti.o
+		.rel.data            fd8              10 inpa_y_roop.o
+		.rel.data            fe8              10 km_inp1.o
+		.rel.data            ff8              10 km_inp2.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

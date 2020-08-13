@@ -1,0 +1,57 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            9940
+		.data                  0            13e0 da_die.o
+		.data               13e0             230 da_die_b.o
+		.data               1610             450 da_dmg.o
+		.data               1a60             500 da_dmg_wait.o
+		.data               1f60             9a0 da_fire.o
+		.data               2900             7a0 da_fire_wait.o
+		.data               30a0             2e0 da_hokan.o
+		.data               3380             7b0 da_left.o
+		.data               3b30             7b0 da_right.o
+		.data               42e0             950 da_wait.o
+		.data               4c30            36f0 da_wait_mdl.o
+		.data               8320             810 da_walk.o
+		.data               8b30             2c0 da_walk_end.o
+		.data               8df0             2b0 da_walk_start.o
+		.data               90a0             8a0 g_ddg_fire/g_ddg_fire.o
+
+.strtab                                0             40c
+		.strtab                0             40c *ld_internal*
+
+.symtab                                0             380
+		.symtab                0             380 *ld_internal*
+
+.mdebug                                0            1c30
+		.mdebug                0            1c30 *ld_internal*
+
+.rel.data                              0             410
+		.rel.data              0              10 da_die.o
+		.rel.data             10              10 da_die_b.o
+		.rel.data             20              10 da_dmg.o
+		.rel.data             30              10 da_dmg_wait.o
+		.rel.data             40              10 da_fire.o
+		.rel.data             50              10 da_fire_wait.o
+		.rel.data             60              10 da_hokan.o
+		.rel.data             70              10 da_left.o
+		.rel.data             80              10 da_right.o
+		.rel.data             90              10 da_wait.o
+		.rel.data             a0             330 da_wait_mdl.o
+		.rel.data            3d0              10 da_walk.o
+		.rel.data            3e0              10 da_walk_end.o
+		.rel.data            3f0              10 da_walk_start.o
+		.rel.data            400              10 g_ddg_fire/g_ddg_fire.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

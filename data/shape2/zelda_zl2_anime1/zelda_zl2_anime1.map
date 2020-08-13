@@ -1,0 +1,79 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            b610
+		.data                  0             3d0 demo_aruki.o
+		.data                3d0             690 demo_banzai.o
+		.data                a60             460 demo_banzai_wait.o
+		.data                ec0             160 demo_kizetu.o
+		.data               1020             390 demo_kizetu_wait.o
+		.data               13b0             2d0 demo_modori.o
+		.data               1680             4e0 demo_modori_wait.o
+		.data               1b60             780 demo_sitamuki.o
+		.data               22e0             480 demo_sitamuki_wait.o
+		.data               2760             3d0 demo_tukamaru.o
+		.data               2b30             410 demo_tukamaru_wait.o
+		.data               2f40             330 demo_uemuki.o
+		.data               3270             2e0 demo_uemuki_wait.o
+		.data               3550            13c0 demo_zelda_byebye.o
+		.data               4910            1640 demo_zelda_hanasu.o
+		.data               5f50             840 demo_zelda_hwait.o
+		.data               6790            1590 demo_zelda_kure.o
+		.data               7d20             ab0 demo_zelda_kwait.o
+		.data               87d0             920 demo_zelda_lovelove.o
+		.data               90f0             a00 demo_zelda_lwait.o
+		.data               9af0             680 demo_zelda_nwait.o
+		.data               a170             640 demo_zelda_piroro.o
+		.data               a7b0             340 zl2_demo_furimuki.o
+		.data               aaf0             500 zl2_demo_furimuki_wait.o
+		.data               aff0             250 zl2_game_run.o
+		.data               b240             3d0 zl2_matsu.o
+
+.strtab                                0             394
+		.strtab                0             394 *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0            1fbc
+		.mdebug                0            1fbc *ld_internal*
+
+.rel.data                              0             1a0
+		.rel.data              0              10 demo_aruki.o
+		.rel.data             10              10 demo_banzai.o
+		.rel.data             20              10 demo_banzai_wait.o
+		.rel.data             30              10 demo_kizetu.o
+		.rel.data             40              10 demo_kizetu_wait.o
+		.rel.data             50              10 demo_modori.o
+		.rel.data             60              10 demo_modori_wait.o
+		.rel.data             70              10 demo_sitamuki.o
+		.rel.data             80              10 demo_sitamuki_wait.o
+		.rel.data             90              10 demo_tukamaru.o
+		.rel.data             a0              10 demo_tukamaru_wait.o
+		.rel.data             b0              10 demo_uemuki.o
+		.rel.data             c0              10 demo_uemuki_wait.o
+		.rel.data             d0              10 demo_zelda_byebye.o
+		.rel.data             e0              10 demo_zelda_hanasu.o
+		.rel.data             f0              10 demo_zelda_hwait.o
+		.rel.data            100              10 demo_zelda_kure.o
+		.rel.data            110              10 demo_zelda_kwait.o
+		.rel.data            120              10 demo_zelda_lovelove.o
+		.rel.data            130              10 demo_zelda_lwait.o
+		.rel.data            140              10 demo_zelda_nwait.o
+		.rel.data            150              10 demo_zelda_piroro.o
+		.rel.data            160              10 zl2_demo_furimuki.o
+		.rel.data            170              10 zl2_demo_furimuki_wait.o
+		.rel.data            180              10 zl2_game_run.o
+		.rel.data            190              10 zl2_matsu.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

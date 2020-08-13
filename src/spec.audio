@@ -1,0 +1,32 @@
+/*
+#
+#  $Id: spec.audio,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $
+#
+# ゼルダ６４ スペック ファイル（オーディオ）
+#
+# $Log: spec.audio,v $
+# Revision 1.1.1.1  2003/03/10 22:42:56  tong
+# new OBJ tree for ocarina from Nintendo
+#
+# Revision 2.1  1998-10-22 20:41:56+09  zelda
+# ＲＯＭ出しバージョン(NTSC)
+#
+# Revision 1.3  1997/03/17 00:49:24  hayakawa
+# マクロを使って簡略定義できるようにした
+#
+# Revision 1.2  1996/10/12  08:31:02  hayakawa
+# オーディオのディレクトリが正しくなかったのを修正
+#
+*/
+
+#define DefSegRaw(segname, seginclude) \
+beginseg 			\
+	name    segname 	\
+	flags   RAW 		\
+	include seginclude 	\
+endseg
+
+DefSegRaw("Audiobank", 	"$(ZELDA_ROOT)/lib/audio/fox64.banks")
+DefSegRaw("Audiotable", "$(ZELDA_ROOT)/lib/audio/fox64.table")
+DefSegRaw("Audioseq", 	"$(ZELDA_ROOT)/lib/audio/fox64.music")
+DefSegRaw("Audiomap", 	"$(ZELDA_ROOT)/lib/audio/fox64.sbmap")

@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              50
+		.MIPS.options          0              50 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            d330
+		.data                  0            d330 shape/zelda_field_keep/zelda_field_keep.o
+
+.strtab                                0             42c
+		.strtab                0             42c *ld_internal*
+
+.symtab                                0             440
+		.symtab                0             440 *ld_internal*
+
+.mdebug                                0            1e0c
+		.mdebug                0            1e0c *ld_internal*
+
+.rel.data                              0             3d8
+		.rel.data              0             3d8 shape/zelda_field_keep/zelda_field_keep.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

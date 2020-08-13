@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           12e30
+		.data                  0             c10 kotake_furimuki.o
+		.data                c10             7d0 kotake_furimuki_wait.o
+		.data               13e0             910 kotake_wait.o
+		.data               1cf0             ef0 koume_furimuki.o
+		.data               2be0             a00 koume_furimuki_wait.o
+		.data               35e0             a00 koume_wait.o
+		.data               3fe0             a00 trT_fly.o
+		.data               49e0             940 trT_wait.o
+		.data               5320            7220 trT_wait_mdl.o
+		.data               c540              e0 trU_default.o
+		.data               c620            5080 trU_default_mdl.o
+		.data              116a0            1790 twin_shoot.o
+
+.strtab                                0             753
+		.strtab                0             753 *ld_internal*
+
+.symtab                                0             660
+		.symtab                0             660 *ld_internal*
+
+.mdebug                                0            25a8
+		.mdebug                0            25a8 *ld_internal*
+
+.rel.data                              0             bd0
+		.rel.data              0              10 kotake_furimuki.o
+		.rel.data             10              10 kotake_furimuki_wait.o
+		.rel.data             20              10 kotake_wait.o
+		.rel.data             30              10 koume_furimuki.o
+		.rel.data             40              10 koume_furimuki_wait.o
+		.rel.data             50              10 koume_wait.o
+		.rel.data             60              10 trT_fly.o
+		.rel.data             70              10 trT_wait.o
+		.rel.data             80             598 trT_wait_mdl.o
+		.rel.data            618              10 trU_default.o
+		.rel.data            628             598 trU_default_mdl.o
+		.rel.data            bc0              10 twin_shoot.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

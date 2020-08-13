@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           147f0
+		.data                  0             c10 GF_aw.o
+		.data                c10            1570 GF_f.o
+		.data               2180             740 GF_hen_shin.o
+		.data               28c0             5c0 GF_sw.o
+		.data               2e80             8f0 GF_tijimu.o
+		.data               3770             130 GF_tijimu_wait.o
+		.data               38a0             6b0 GF_tw.o
+		.data               3f50            c440 LG_DANGO.o
+		.data              10390            4460 LG_Hoeru.o
+
+.strtab                                0             100
+		.strtab                0             100 *ld_internal*
+
+.symtab                                0              b0
+		.symtab                0              b0 *ld_internal*
+
+.mdebug                                0             a44
+		.mdebug                0             a44 *ld_internal*
+
+.rel.data                              0              90
+		.rel.data              0              10 GF_aw.o
+		.rel.data             10              10 GF_f.o
+		.rel.data             20              10 GF_hen_shin.o
+		.rel.data             30              10 GF_sw.o
+		.rel.data             40              10 GF_tijimu.o
+		.rel.data             50              10 GF_tijimu_wait.o
+		.rel.data             60              10 GF_tw.o
+		.rel.data             70              10 LG_DANGO.o
+		.rel.data             80              10 LG_Hoeru.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

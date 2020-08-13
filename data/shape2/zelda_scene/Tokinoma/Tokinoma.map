@@ -1,0 +1,82 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           127a0
+		.data                  0             280 tokinoma_main_info.o
+		.data                280             230 tokinoma_after_iamseek.o
+		.data                4b0            2e80 tokinoma_bgc.o
+		.data               3330             2a0 tokinoma_dm_door.o
+		.data               35d0             2f0 tokinoma_dm_grupy.o
+		.data               38c0             2f0 tokinoma_dm_khisui.o
+		.data               3bb0             b40 tokinoma_dm_seiti.o
+		.data               46f0            1ad0 tokinoma_dm_siku.o
+		.data               61c0             b60 tokinoma_dm_tama.o
+		.data               6d20            17c0 tokinoma_dm_zd.o
+		.data               84e0             6e0 tokinoma_dm_zd1.o
+		.data               8bc0            13b0 tokinoma_dm_zd2.o
+		.data               9f70            1f20 tokinoma_dm_zd3.o
+		.data               be90             310 tokinoma_dm_zsfa.o
+		.data               c1a0             1b0 tokinoma_main_info_d0.o
+		.data               c350             100 tokinoma_main_info_d1.o
+		.data               c450             130 tokinoma_main_info_d10.o
+		.data               c580             1b0 tokinoma_main_info_d2.o
+		.data               c730             100 tokinoma_main_info_d3.o
+		.data               c830             100 tokinoma_main_info_d4.o
+		.data               c930             100 tokinoma_main_info_d5.o
+		.data               ca30             100 tokinoma_main_info_d6.o
+		.data               cb30             110 tokinoma_main_info_d7.o
+		.data               cc40              d0 tokinoma_main_info_d8.o
+		.data               cd10              f0 tokinoma_main_info_d9.o
+		.data               ce00             1a0 tokinoma_show.o
+		.data               cfa0            5800 tokinoma_texture.o
+
+.bss                                   0              d0
+		.bss                   0              10 tokinoma_after_iamseek.o
+		.bss                  10              10 tokinoma_dm_door.o
+		.bss                  20              10 tokinoma_dm_grupy.o
+		.bss                  30              10 tokinoma_dm_khisui.o
+		.bss                  40              10 tokinoma_dm_seiti.o
+		.bss                  50              10 tokinoma_dm_siku.o
+		.bss                  60              10 tokinoma_dm_tama.o
+		.bss                  70              10 tokinoma_dm_zd.o
+		.bss                  80              10 tokinoma_dm_zd1.o
+		.bss                  90              10 tokinoma_dm_zd2.o
+		.bss                  a0              10 tokinoma_dm_zd3.o
+		.bss                  b0              10 tokinoma_dm_zsfa.o
+		.bss                  c0              10 tokinoma_show.o
+
+.strtab                                0             365
+		.strtab                0             365 *ld_internal*
+
+.symtab                                0             2a0
+		.symtab                0             2a0 *ld_internal*
+
+.mdebug                                0            2250
+		.mdebug                0            2250 *ld_internal*
+
+.rel.data                              0             500
+		.rel.data              0              b8 tokinoma_main_info.o
+		.rel.data             b8              28 tokinoma_bgc.o
+		.rel.data             e0              60 tokinoma_main_info_d0.o
+		.rel.data            140              60 tokinoma_main_info_d1.o
+		.rel.data            1a0              60 tokinoma_main_info_d10.o
+		.rel.data            200              60 tokinoma_main_info_d2.o
+		.rel.data            260              60 tokinoma_main_info_d3.o
+		.rel.data            2c0              60 tokinoma_main_info_d4.o
+		.rel.data            320              60 tokinoma_main_info_d5.o
+		.rel.data            380              60 tokinoma_main_info_d6.o
+		.rel.data            3e0              60 tokinoma_main_info_d7.o
+		.rel.data            440              60 tokinoma_main_info_d8.o
+		.rel.data            4a0              60 tokinoma_main_info_d9.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

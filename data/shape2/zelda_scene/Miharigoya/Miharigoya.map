@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            c550
+		.data                  0             100 miharigoya_main_info.o
+		.data                100             a60 miharigoya_bgc.o
+		.data                b60              f0 miharigoya_main_info_ad.o
+		.data                c50            b900 miharigoya_texture.o
+
+.strtab                                0             254
+		.strtab                0             254 *ld_internal*
+
+.symtab                                0             190
+		.symtab                0             190 *ld_internal*
+
+.mdebug                                0             8ec
+		.mdebug                0             8ec *ld_internal*
+
+.rel.data                              0              c0
+		.rel.data              0              58 miharigoya_main_info.o
+		.rel.data             58              20 miharigoya_bgc.o
+		.rel.data             78              48 miharigoya_main_info_ad.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

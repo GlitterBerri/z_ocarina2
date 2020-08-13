@@ -1,0 +1,81 @@
+Message Format of English Text in Zelda: Ocarina of Time
+
+-----------------------------  Basic format  -------------------------- 
+{xxxx:xx:comment:main message} xxxx is a message number. xx means type 
+of message.  High-order position specifies type of dialogue balloon, and 
+low-order position specifies location of dialogue balloon.
+
+<High-order of xx>
+0: normal (normal)
+1: normal (excitement)
+2: normal (fear)
+3: angry
+4: fury
+5: rectangle
+6: dimly
+7: normal (fixed)
+8: narration
+9: rectangle
+A: notice board
+
+<Low-order of xx>
+0: automatic
+1: upper
+2: middle
+3: lower
+-----------------------------------------------------------------------
+
+
+-------------------------  Control code table  -----------------------
+{        0x01  beginning of data
+}        0x02  end of data
+\        0x03  separation of data
+/        0x04  new line (CR)
+_dd      0x06  make a space (1 SPACE = 6 DOT. You must specify "dd" in decimal)
+#xxxx    0x07  Next message (You must specify "xxxx" in hexadecimal with uppercase letter)
+[        0x08  beginning collective display
+]        0x09  end of collective display
+@00      0x0A  stop display
+@01      0x0B  delegate control to other process after display of message
++dd      0x0C  CR with timer (You must specify "dd" in decimal)
+@02      0x0D  wait user's key input
+=dd      0x0E  end code with timer
+%        0x0F  user name
+@03      0x10  input of melody of ocarina
+*ddd     0x11  end code with timer for STAFF. ("You must specify "ddd" in decimal)
+$xxxx    0x12  sound : SE : (You must specify "xxxx" in hexadecimal with uppercase letter)
+&ddd     0x13  display of item ("You must specify "ddd" in decimal)
+~dd      0x14  speed of displaying texts (You must specify "dd" in decimal)
+^dddddd  0x15  a texture
+@04      0x16  event timer (in large scale)
+@05      0x17  event timer (in small scale)
+@06      0x18  score of archery on horseback
+@10      0x19  number of collected golden spider tokens
+@11      0x1D  size of fish in a fishing pond
+@12      0x1F  time of Zelda's world
+<dd      0x1E  00: archery on horseback
+               01: number of hunted ghost, "Big Poe"
+               02: fishing
+               03: time (1)
+               04: time (2)
+               05: reserved (1)
+               06: reserved (2)
+
+COLOR    0x05  switching text color
+@07      0x1A  prohibit fast-forwarding of message
+@08      0x1B  select from 2 items
+@09      0x1C  select from 3 items
+
+@20      A button
+@21      B button
+@22      C button
+@23      L button
+@24      R button
+@25      Z button
+@26      C button (up)
+@27      C button (down)
+@28      C button (left)
+@29      C button (right)
+@30      triangle
+@31      3D stick
+-----------------------------------------------------------------------

@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3c90
+		.data                  0             570 syokudai.o
+		.data                570             460 syokudai_isi.o
+		.data                9d0             2c0 syokudai_ki.o
+		.data                c90            3000 tex.o
+
+.strtab                                0              ad
+		.strtab                0              ad *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             49c
+		.mdebug                0             49c *ld_internal*
+
+.rel.data                              0              80
+		.rel.data              0              40 syokudai.o
+		.rel.data             40              20 syokudai_isi.o
+		.rel.data             60              20 syokudai_ki.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

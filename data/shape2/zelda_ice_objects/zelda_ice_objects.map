@@ -1,0 +1,54 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            8d50
+		.data                  0             2c0 ice_brick.o
+		.data                2c0             160 ice_brick_bgc.o
+		.data                420             3c0 ice_ice.o
+		.data                7e0             d40 ice_ice3.o
+		.data               1520             730 ice_ice3_bgc.o
+		.data               1c50             170 ice_tobira.o
+		.data               1dc0             540 ice_trap.o
+		.data               2300             170 ice_turara.o
+		.data               2470             150 ice_turara_bgc.o
+		.data               25c0             120 ice_wall.o
+		.data               26e0             100 ice_wall2.o
+		.data               27e0              a0 ice_wall2_bgc.o
+		.data               2880              d0 ice_wall_bgc.o
+		.data               2950            6400 tex.o
+
+.strtab                                0             18b
+		.strtab                0             18b *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0            1078
+		.mdebug                0            1078 *ld_internal*
+
+.rel.data                              0             1b0
+		.rel.data              0              28 ice_brick.o
+		.rel.data             28              20 ice_brick_bgc.o
+		.rel.data             48              28 ice_ice.o
+		.rel.data             70              50 ice_ice3.o
+		.rel.data             c0              20 ice_ice3_bgc.o
+		.rel.data             e0              20 ice_tobira.o
+		.rel.data            100              20 ice_trap.o
+		.rel.data            120              10 ice_turara.o
+		.rel.data            130              20 ice_turara_bgc.o
+		.rel.data            150              10 ice_wall.o
+		.rel.data            160              10 ice_wall2.o
+		.rel.data            170              20 ice_wall2_bgc.o
+		.rel.data            190              20 ice_wall_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

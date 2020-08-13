@@ -1,0 +1,37 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            bac0
+		.data                  0             a50 jj_hrc4_bgc.o
+		.data                a50             e10 jj_hrc5_bgc.o
+		.data               1860             700 jj_wait.o
+		.data               1f60            9a60 jj_wait_mdl.o
+		.data               b9c0             100 obj_08check_bgc.o
+
+.strtab                                0             27a
+		.strtab                0             27a *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0             ebc
+		.mdebug                0             ebc *ld_internal*
+
+.rel.data                              0             408
+		.rel.data              0              20 jj_hrc4_bgc.o
+		.rel.data             20              20 jj_hrc5_bgc.o
+		.rel.data             40              10 jj_wait.o
+		.rel.data             50             398 jj_wait_mdl.o
+		.rel.data            3e8              20 obj_08check_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

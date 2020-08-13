@@ -1,0 +1,11 @@
+#!/bin/csh
+# $Header: D:\Downloads\bbgames\bbgames\d1\routefree\bbgames\depot\/z_ocarina2/shape2/u64tools/u64cvci,v 1.1 2003/03/14 20:03:29 tong Exp $
+unalias *
+#set nonomatch
+
+set names = `ls *.c`
+foreach name ($names)
+	mv $name "$name"c
+	cvci "$name"c > $name
+end
+

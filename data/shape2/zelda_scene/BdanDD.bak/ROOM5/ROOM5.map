@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            62d0
+		.data                  0             1d0 bdanDD_5_info.o
+		.data                1d0             1d0 bdan_5_info.o
+		.data                3a0              20 bdanDD_5_shape.o
+		.data                3c0              90 bdanDD_5_info_d0.o
+		.data                450            36a0 bdan_grp_bda05_00.o
+		.data               3af0            27e0 bdan_grp_bda05_00T.o
+
+.strtab                                0             113
+		.strtab                0             113 *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             c34
+		.mdebug                0             c34 *ld_internal*
+
+.rel.data                              0             2b8
+		.rel.data              0              28 bdanDD_5_info.o
+		.rel.data             28              28 bdan_5_info.o
+		.rel.data             50              20 bdanDD_5_shape.o
+		.rel.data             70              18 bdanDD_5_info_d0.o
+		.rel.data             88             1c0 bdan_grp_bda05_00.o
+		.rel.data            248              70 bdan_grp_bda05_00T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

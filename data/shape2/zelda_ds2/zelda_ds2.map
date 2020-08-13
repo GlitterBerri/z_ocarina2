@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4270
+		.data                  0             300 ds2_matsu.o
+		.data                300            3f70 ds2_matsu_mdl.o
+
+.strtab                                0             1a3
+		.strtab                0             1a3 *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0             7c8
+		.mdebug                0             7c8 *ld_internal*
+
+.rel.data                              0             2f0
+		.rel.data              0              10 ds2_matsu.o
+		.rel.data             10             2e0 ds2_matsu_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

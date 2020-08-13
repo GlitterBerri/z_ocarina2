@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7b50
+		.data                  0             420 raul_banzai.o
+		.data                420             420 raul_banzai_wait.o
+		.data                840             210 rl_matsu.o
+		.data                a50            7100 rl_matsu_mdl.o
+
+.strtab                                0             251
+		.strtab                0             251 *ld_internal*
+
+.symtab                                0             240
+		.symtab                0             240 *ld_internal*
+
+.mdebug                                0             c94
+		.mdebug                0             c94 *ld_internal*
+
+.rel.data                              0             688
+		.rel.data              0              10 raul_banzai.o
+		.rel.data             10              10 raul_banzai_wait.o
+		.rel.data             20              10 rl_matsu.o
+		.rel.data             30             658 rl_matsu_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

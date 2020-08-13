@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6c10
+		.data                  0             140 souko_main_info.o
+		.data                140            42d0 souko_bgc.o
+		.data               4410            2800 souko_texture.o
+
+.strtab                                0             13e
+		.strtab                0             13e *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             5d0
+		.mdebug                0             5d0 *ld_internal*
+
+.rel.data                              0              b0
+		.rel.data              0              68 souko_main_info.o
+		.rel.data             68              48 souko_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,18 @@
+#!/bin/csh -f 
+# $Header: D:\Downloads\bbgames\bbgames\d1\routefree\bbgames\depot\/z_ocarina2/shape2/u64tools/u64ccall,v 1.1 2003/03/14 20:03:29 tong Exp $
+# set echo
+unalias *
+#set nonomatch
+
+foreach f ( * )
+    if ( -d $f ) then
+	echo "***** $f *****"
+	cd $f
+	ls *.c
+	if ( $status == 0 ) then
+	    echo u64cc
+		 u64cc
+	endif
+	cd ..
+    endif
+end

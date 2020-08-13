@@ -1,0 +1,47 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a500
+		.data                  0            3bd0 wfw_data_mdl.o
+		.data               3bd0             ac0 wolfman_attack.o
+		.data               4690             470 wolfman_back_jump.o
+		.data               4b00             1c0 wolfman_defense.o
+		.data               4cc0             7c0 wolfman_down.o
+		.data               5480             350 wolfman_run.o
+		.data               57d0            3ed0 wolfman_run_mdl.o
+		.data               96a0             250 wolfman_side_walk.o
+		.data               98f0             250 wolfman_tail_hit.o
+		.data               9b40             9c0 wolfman_wait.o
+
+.strtab                                0             554
+		.strtab                0             554 *ld_internal*
+
+.symtab                                0             4e0
+		.symtab                0             4e0 *ld_internal*
+
+.mdebug                                0            1edc
+		.mdebug                0            1edc *ld_internal*
+
+.rel.data                              0             920
+		.rel.data              0             450 wfw_data_mdl.o
+		.rel.data            450              10 wolfman_attack.o
+		.rel.data            460              10 wolfman_back_jump.o
+		.rel.data            470              10 wolfman_defense.o
+		.rel.data            480              10 wolfman_down.o
+		.rel.data            490              10 wolfman_run.o
+		.rel.data            4a0             450 wolfman_run_mdl.o
+		.rel.data            8f0              10 wolfman_side_walk.o
+		.rel.data            900              10 wolfman_tail_hit.o
+		.rel.data            910              10 wolfman_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

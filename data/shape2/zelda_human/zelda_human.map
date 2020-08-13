@@ -1,0 +1,58 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           13180
+		.data                  0            2400 ANIME_TEXTURE/girl_Leye_idx.o
+		.data               2400             600 ANIME_TEXTURE/girl_Lmayu_idx.o
+		.data               2a00            2400 ANIME_TEXTURE/girl_Reye_idx.o
+		.data               4e00             600 ANIME_TEXTURE/girl_Rmayu_idx.o
+		.data               5400             200 ANIME_TEXTURE/girl_hoho_idx.o
+		.data               5600            2400 ANIME_TEXTURE/girl_mouth_idx.o
+		.data               7a00             200 ANIME_TEXTURE/girl_pal.o
+		.data               7c00             760 Furimukiwait/human_furimukiwait.o
+		.data               8360             430 Furimuku/human_furimuku.o
+		.data               8790             560 Hello/human_hello.o
+		.data               8cf0             c30 Kyorokyoro/human_kyorokyoro.o
+		.data               9920             320 Syoumen/human_syoumen.o
+		.data               9c40             410 Tereend/human_tereend.o
+		.data               a050             870 Tereru/human_tereru.o
+		.data               a8c0             680 Terewait/human_terewait.o
+		.data               af40            7130 Wait/human_wait.o
+		.data              12070             8c0 Walk/human_walk.o
+		.data              12930             400 Walk_end/human_walk_end.o
+		.data              12d30             450 Walk_start/human_walk_start.o
+
+.strtab                                0             695
+		.strtab                0             695 *ld_internal*
+
+.symtab                                0             710
+		.symtab                0             710 *ld_internal*
+
+.mdebug                                0            2f68
+		.mdebug                0            2f68 *ld_internal*
+
+.rel.data                              0             6b8
+		.rel.data              0              10 Furimukiwait/human_furimukiwait.o
+		.rel.data             10              10 Furimuku/human_furimuku.o
+		.rel.data             20              10 Hello/human_hello.o
+		.rel.data             30              10 Kyorokyoro/human_kyorokyoro.o
+		.rel.data             40              10 Syoumen/human_syoumen.o
+		.rel.data             50              10 Tereend/human_tereend.o
+		.rel.data             60              10 Tereru/human_tereru.o
+		.rel.data             70              10 Terewait/human_terewait.o
+		.rel.data             80             608 Wait/human_wait.o
+		.rel.data            688              10 Walk/human_walk.o
+		.rel.data            698              10 Walk_end/human_walk_end.o
+		.rel.data            6a8              10 Walk_start/human_walk_start.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

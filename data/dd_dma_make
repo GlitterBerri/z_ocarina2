@@ -1,0 +1,43 @@
+#!/usr/local/bin/bash
+#set -x
+#
+# $Id: dd_dma_make,v 1.1.1.1 2003/03/10 22:58:54 tong Exp $
+#
+
+cp2() {
+    if [ ! -e $1 ]; then
+	echo "ファイルがありません $1"
+    else
+	if [ ! -e $2 -o $1 -nt $2 ]; then
+	    echo    cp $1 $2
+	    command cp $1 $2
+	fi
+    fi
+}
+cp() {
+    SRC=$1
+    DEST=$2
+    SRCBASE=`basename $SRC`
+    if [ -d $DEST ]; then
+	cp2 $SRC $DEST/$SRCBASE
+    else
+	cp2 $SRC $DEST
+    fi
+}
+
+#####	ＭＡＰ
+     cp shape/TEXTURE/DD_MAP/dd_map_i.o .
+     cp shape/TEXTURE/DD_MAP/dd_map_48x85.o .
+##### メッセージソースというか(ROMのデッドコピー)
+##   cp shape/TEXTURE/MESSAGE/DD/zld64_msg_data.o dd_message.o
+     cp shape/TEXTURE/MESSAGE/message/message.o dd_message.o
+##   cp shape/TEXTURE/MESSAGE/DD/zld64_msg_data.h dd_msg.h
+     cp shape/TEXTURE/MESSAGE/message/zld64_msg_data.h dd_msg.h
+##   cp shape/TEXTURE/MESSAGE/DD/zld64_msg_data.tbl dd_msg.tbl
+     cp shape/TEXTURE/MESSAGE/message/zld64_msg_data.tbl dd_msg.tbl
+     cp shape/TEXTURE/MESSAGE/NES/nes_a dd_nes_a
+     cp shape/TEXTURE/MESSAGE/NES/nes_b dd_nes_b
+     cp shape/TEXTURE/MESSAGE/NES/nes_c.o dd_nes_c.o
+     cp shape/TEXTURE/MESSAGE/STAFF/staff_a dd_staff_a
+     cp shape/TEXTURE/MESSAGE/STAFF/staff_b dd_staff_b
+     cp shape/TEXTURE/MESSAGE/STAFF/staff_c.o dd_staff_c.o

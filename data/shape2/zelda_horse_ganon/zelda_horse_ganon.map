@@ -1,0 +1,76 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            c090
+		.data                  0             2f0 hg_FLfoot.o
+		.data                2f0             1f0 hg_FLleg.o
+		.data                4e0             440 hg_FLleg02.o
+		.data                920             2f0 hg_FRfoot.o
+		.data                c10             1f0 hg_FRleg.o
+		.data                e00             440 hg_FRleg02.o
+		.data               1240             290 hg_Lkata.o
+		.data               14d0             270 hg_RLfoot.o
+		.data               1740             1f0 hg_RLleg.o
+		.data               1930             270 hg_RRfoot.o
+		.data               1ba0             1f0 hg_RRleg.o
+		.data               1d90             290 hg_Rkata.o
+		.data               2020             640 hg_anim_fastrun.o
+		.data               2660             6a0 hg_anim_slowrun.o
+		.data               2d00             b70 hg_anim_stand.o
+		.data               3870            1250 hg_anim_wait.o
+		.data               4ac0             7c0 hg_anim_wait02.o
+		.data               5280             910 hg_anim_walk.o
+		.data               5b90             870 hg_chest.o
+		.data               6400            2270 hg_default_mdl.o
+		.data               8670             e10 hg_head.o
+		.data               9480             4d0 hg_kura.o
+		.data               9950             3d0 hg_mask.o
+		.data               9d20             650 hg_skin.o
+		.data               a370            1d20 tex.o
+
+.strtab                                0             40d
+		.strtab                0             40d *ld_internal*
+
+.symtab                                0             410
+		.symtab                0             410 *ld_internal*
+
+.mdebug                                0            4184
+		.mdebug                0            4184 *ld_internal*
+
+.rel.data                              0             d08
+		.rel.data              0              28 hg_FLfoot.o
+		.rel.data             28              10 hg_FLleg.o
+		.rel.data             38              28 hg_FLleg02.o
+		.rel.data             60              28 hg_FRfoot.o
+		.rel.data             88              10 hg_FRleg.o
+		.rel.data             98              28 hg_FRleg02.o
+		.rel.data             c0              20 hg_Lkata.o
+		.rel.data             e0              20 hg_RLfoot.o
+		.rel.data            100              10 hg_RLleg.o
+		.rel.data            110              20 hg_RRfoot.o
+		.rel.data            130              10 hg_RRleg.o
+		.rel.data            140              20 hg_Rkata.o
+		.rel.data            160              10 hg_anim_fastrun.o
+		.rel.data            170              10 hg_anim_slowrun.o
+		.rel.data            180              10 hg_anim_stand.o
+		.rel.data            190              10 hg_anim_wait.o
+		.rel.data            1a0              10 hg_anim_wait02.o
+		.rel.data            1b0              10 hg_anim_walk.o
+		.rel.data            1c0              80 hg_chest.o
+		.rel.data            240             908 hg_default_mdl.o
+		.rel.data            b48              88 hg_head.o
+		.rel.data            bd0              40 hg_kura.o
+		.rel.data            c10              20 hg_mask.o
+		.rel.data            c30              d8 hg_skin.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

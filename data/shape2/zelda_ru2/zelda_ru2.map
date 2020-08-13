@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            f8d0
+		.data                  0             4e0 km_luto.o
+		.data                4e0             920 ru2_matsu.o
+		.data                e00            b910 ru2_matsu_mdl.o
+		.data               c710             ce0 ruto_banzai.o
+		.data               d3f0             8d0 ruto_end_furimuki.o
+		.data               dcc0             980 ruto_end_wait.o
+		.data               e640             a10 ruto_furimuki_wait.o
+		.data               f050             880 ruto_swim_up.o
+
+.strtab                                0             366
+		.strtab                0             366 *ld_internal*
+
+.symtab                                0             320
+		.symtab                0             320 *ld_internal*
+
+.mdebug                                0            1558
+		.mdebug                0            1558 *ld_internal*
+
+.rel.data                              0             b00
+		.rel.data              0              10 km_luto.o
+		.rel.data             10              10 ru2_matsu.o
+		.rel.data             20             a90 ru2_matsu_mdl.o
+		.rel.data            ab0              10 ruto_banzai.o
+		.rel.data            ac0              10 ruto_end_furimuki.o
+		.rel.data            ad0              10 ruto_end_wait.o
+		.rel.data            ae0              10 ruto_furimuki_wait.o
+		.rel.data            af0              10 ruto_swim_up.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

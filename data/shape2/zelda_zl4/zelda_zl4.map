@@ -1,0 +1,95 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1ce20
+		.data                  0             670 anim_matsu.o
+		.data                670            d9e0 anim_matsu_mdl.o
+		.data               e050             590 demo_aisatu.o
+		.data               e5e0             600 demo_aisatu_wait.o
+		.data               ebe0             4e0 demo_arigato.o
+		.data               f0c0             7f0 demo_arigato_wait.o
+		.data               f8b0            1560 demo_furimuki.o
+		.data              10e10             450 demo_furimuki_wait.o
+		.data              11260             450 demo_gomen.o
+		.data              116b0             4a0 demo_himitu.o
+		.data              11b50             ab0 demo_kaku.o
+		.data              12600             870 demo_kaku_wait.o
+		.data              12e70             420 demo_kasige.o
+		.data              13290             3b0 demo_kasige_wait.o
+		.data              13640             420 demo_kirai.o
+		.data              13a60             450 demo_kirai_wait.o
+		.data              13eb0            2080 demo_modoru.o
+		.data              15f30             aa0 demo_modoru_to_omegai2.o
+		.data              169d0             350 demo_modoru_wait.o
+		.data              16d20             560 demo_namae.o
+		.data              17280             5b0 demo_namae_wait.o
+		.data              17830             840 demo_naname_wait.o
+		.data              18070             840 demo_noridasi.o
+		.data              188b0             870 demo_noridasi_wait.o
+		.data              19120             4f0 demo_nozoki_wait.o
+		.data              19610             320 demo_onegai.o
+		.data              19930             9e0 demo_onegai2.o
+		.data              1a310             7e0 demo_onegai2_wait.o
+		.data              1aaf0             3b0 demo_onegai_wait.o
+		.data              1aea0             9f0 demo_slide.o
+		.data              1b890             470 demo_slide_wait.o
+		.data              1bd00             7b0 demo_tetataki_1.o
+		.data              1c4b0             310 demo_tetataki_wait.o
+		.data              1c7c0             660 demo_usiro_ude_wait.o
+
+.strtab                                0             859
+		.strtab                0             859 *ld_internal*
+
+.symtab                                0             650
+		.symtab                0             650 *ld_internal*
+
+.mdebug                                0            35cc
+		.mdebug                0            35cc *ld_internal*
+
+.rel.data                              0             998
+		.rel.data              0              10 anim_matsu.o
+		.rel.data             10             788 anim_matsu_mdl.o
+		.rel.data            798              10 demo_aisatu.o
+		.rel.data            7a8              10 demo_aisatu_wait.o
+		.rel.data            7b8              10 demo_arigato.o
+		.rel.data            7c8              10 demo_arigato_wait.o
+		.rel.data            7d8              10 demo_furimuki.o
+		.rel.data            7e8              10 demo_furimuki_wait.o
+		.rel.data            7f8              10 demo_gomen.o
+		.rel.data            808              10 demo_himitu.o
+		.rel.data            818              10 demo_kaku.o
+		.rel.data            828              10 demo_kaku_wait.o
+		.rel.data            838              10 demo_kasige.o
+		.rel.data            848              10 demo_kasige_wait.o
+		.rel.data            858              10 demo_kirai.o
+		.rel.data            868              10 demo_kirai_wait.o
+		.rel.data            878              10 demo_modoru.o
+		.rel.data            888              10 demo_modoru_to_omegai2.o
+		.rel.data            898              10 demo_modoru_wait.o
+		.rel.data            8a8              10 demo_namae.o
+		.rel.data            8b8              10 demo_namae_wait.o
+		.rel.data            8c8              10 demo_naname_wait.o
+		.rel.data            8d8              10 demo_noridasi.o
+		.rel.data            8e8              10 demo_noridasi_wait.o
+		.rel.data            8f8              10 demo_nozoki_wait.o
+		.rel.data            908              10 demo_onegai.o
+		.rel.data            918              10 demo_onegai2.o
+		.rel.data            928              10 demo_onegai2_wait.o
+		.rel.data            938              10 demo_onegai_wait.o
+		.rel.data            948              10 demo_slide.o
+		.rel.data            958              10 demo_slide_wait.o
+		.rel.data            968              10 demo_tetataki_1.o
+		.rel.data            978              10 demo_tetataki_wait.o
+		.rel.data            988              10 demo_usiro_ude_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

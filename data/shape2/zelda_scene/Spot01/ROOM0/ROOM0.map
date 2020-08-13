@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            9ee0
+		.data                  0             420 spot01_0_info.o
+		.data                420             150 spot01_0_shape.o
+		.data                570             390 spot01_0_info_ad.o
+		.data                900             340 spot01_0_info_an.o
+		.data                c40             380 spot01_0_info_cn.o
+		.data                fc0             230 spot01_0_info_d0.o
+		.data               11f0             1a0 spot01_0_info_d1.o
+		.data               1390              f0 spot01_0_info_d2.o
+		.data               1480             1b0 spot01_0_info_d3.o
+		.data               1630              f0 spot01_0_info_d4.o
+		.data               1720            87c0 spot01_grp_spot01.o
+
+.strtab                                0             6ae
+		.strtab                0             6ae *ld_internal*
+
+.symtab                                0             4a0
+		.symtab                0             4a0 *ld_internal*
+
+.mdebug                                0            330c
+		.mdebug                0            330c *ld_internal*
+
+.rel.data                              0             7b8
+		.rel.data              0              60 spot01_0_info.o
+		.rel.data             60              b0 spot01_0_shape.o
+		.rel.data            110              18 spot01_0_info_ad.o
+		.rel.data            128              18 spot01_0_info_an.o
+		.rel.data            140              18 spot01_0_info_cn.o
+		.rel.data            158              18 spot01_0_info_d0.o
+		.rel.data            170              18 spot01_0_info_d1.o
+		.rel.data            188              18 spot01_0_info_d2.o
+		.rel.data            1a0              18 spot01_0_info_d3.o
+		.rel.data            1b8              18 spot01_0_info_d4.o
+		.rel.data            1d0             5e8 spot01_grp_spot01.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

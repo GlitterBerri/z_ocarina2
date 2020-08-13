@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            74b0
+		.data                  0            2000 room_info.o
+		.data               2000              20 MIZUsinDD_7_shape.o
+		.data               2020            5490 MIZUsin_grp_Wat07.o
+
+.strtab                                0              bb
+		.strtab                0              bb *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             7e0
+		.mdebug                0             7e0 *ld_internal*
+
+.rel.data                              0             2f8
+		.rel.data              0              18 MIZUsinDD_7_shape.o
+		.rel.data             18             2e0 MIZUsin_grp_Wat07.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

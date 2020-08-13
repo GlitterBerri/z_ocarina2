@@ -1,0 +1,48 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            e000
+		.data                  0             130 daiyousei_izumi_main_info.o
+		.data                130            12b0 Daiyousei_demo00.o
+		.data               13e0            11f0 Daiyousei_demo01.o
+		.data               25d0            11c0 Daiyousei_demo02.o
+		.data               3790             c40 daiyousei_izumi_bgc.o
+		.data               43d0              d0 daiyousei_izumi_main_info_cn.o
+		.data               44a0             120 daiyousei_izumi_main_info_d0.o
+		.data               45c0             120 daiyousei_izumi_main_info_d1.o
+		.data               46e0             120 daiyousei_izumi_main_info_d2.o
+		.data               4800            9800 daiyousei_izumi_texture.o
+
+.bss                                   0              30
+		.bss                   0              10 Daiyousei_demo00.o
+		.bss                  10              10 Daiyousei_demo01.o
+		.bss                  20              10 Daiyousei_demo02.o
+
+.strtab                                0             2de
+		.strtab                0             2de *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0             fb8
+		.mdebug                0             fb8 *ld_internal*
+
+.rel.data                              0             198
+		.rel.data              0              60 daiyousei_izumi_main_info.o
+		.rel.data             60              20 daiyousei_izumi_bgc.o
+		.rel.data             80              40 daiyousei_izumi_main_info_cn.o
+		.rel.data             c0              48 daiyousei_izumi_main_info_d0.o
+		.rel.data            108              48 daiyousei_izumi_main_info_d1.o
+		.rel.data            150              48 daiyousei_izumi_main_info_d2.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

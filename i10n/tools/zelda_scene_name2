@@ -1,0 +1,15 @@
+#!/bin/csh -f
+#
+
+foreach dir ($ZELDA_ROOT/i10n/assets/zh/zelda_scene_name2/G_pn_*)
+    set dir1=`basename $dir`
+    set file=`echo $dir1 |sed -e s/G_/g_/`
+    ln -sf $ZELDA_ROOT/i10n/assets/zelda_scene_name2/$dir1/$file.inta $ZELDA_ROOT/i10n/assets/zh/zelda_scene_name2/$dir1/$file.inta
+
+    cd $dir
+    rm -f *.o *.c
+    $ZELDA_ROOT/i10n/tools/rgb2o IA 8
+
+    rm -f $ZELDA_ROOT/data/$dir1.zh.o
+    cp $dir/$dir1.o $ZELDA_ROOT/data/$dir1.zh.o
+end

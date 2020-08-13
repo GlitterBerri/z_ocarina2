@@ -1,0 +1,42 @@
+I'm going to tell you how to modify "Japanese text" of ZELDA. But please 
+note that a modification of "English text" is different from case of 
+"Japanese text". I wish that it will help your localization.
+
+(0) We assume using INDY.
+
+
+(1) Please place following files into a same directory.
+    "jp_msg.tar.gz" that I've uploaded to your SSH server
+    contains following files.
+
+ [Source files of Japanese text messages.
+ Their file format is EGWORD ver.7 of Macintosh]
+  ALL_0    NAVI_8  DOOR    BOARD   TEKI     Z_ZELDA  MORI_1
+  HEIYA_2  YAMA_3  KAWA_4  MURA_5  SABAKU_6 SIRO_7   END_TXT
+
+ [Executable file]
+  message_change
+
+ ["message_change" refers to this file]
+  message.tbl
+
+
+(2) Modify the source files if you want.
+
+
+(3) Execute "message_change".  Three files ("zld64_msg_data.c",
+    "zld64_msg_data.h", and "zld64_msg_data.tbl") will be generated.
+ 
+
+(4) Compile "zld64_msg_data.c" like below lines:
+    cc -c zld64_msg_data.c
+
+
+(5) Copy (and rename) files into suitable directory.
+    cp zld64_msg_data.o   $ZELDA_ROOT/data/message.o
+    cp zld64_msg_data.h   $ZELDA_ROOT/data/msg.h
+    cp zld64_msg_data.tbl $ZELDA_ROOT/data/msg.tbl
+
+
+(6) Build rom image.
+

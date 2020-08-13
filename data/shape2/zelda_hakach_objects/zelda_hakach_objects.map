@@ -1,0 +1,52 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6af0
+		.data                  0             2c0 m_Hinv02.o
+		.data                2c0             280 m_Hinv05.o
+		.data                540             230 m_Hkhuta.o
+		.data                770             130 m_Hkhuta_bgc.o
+		.data                8a0             2e0 m_HkotuBomb00.o
+		.data                b80              e0 m_HkotuBomb00_bgc.o
+		.data                c60             680 m_Hsec00.o
+		.data               12e0             580 m_Hsec00_bgc.o
+		.data               1860             1a0 m_Hsec03.o
+		.data               1a00              f0 m_Hsec03_bgc.o
+		.data               1af0             4c0 m_Hwat00_Down.o
+		.data               1fb0             140 m_Hwat00_FO.o
+		.data               20f0            4a00 tex.o
+
+.strtab                                0             183
+		.strtab                0             183 *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0             f4c
+		.mdebug                0             f4c *ld_internal*
+
+.rel.data                              0             1a8
+		.rel.data              0              18 m_Hinv02.o
+		.rel.data             18              28 m_Hinv05.o
+		.rel.data             40              10 m_Hkhuta.o
+		.rel.data             50              20 m_Hkhuta_bgc.o
+		.rel.data             70              28 m_HkotuBomb00.o
+		.rel.data             98              20 m_HkotuBomb00_bgc.o
+		.rel.data             b8              50 m_Hsec00.o
+		.rel.data            108              20 m_Hsec00_bgc.o
+		.rel.data            128              18 m_Hsec03.o
+		.rel.data            140              20 m_Hsec03_bgc.o
+		.rel.data            160              28 m_Hwat00_Down.o
+		.rel.data            188              20 m_Hwat00_FO.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            8e30
+		.data                  0             550 skeltonJR_back_jump.o
+		.data                550             270 skeltonJR_blowgun_attack.o
+		.data                7c0             690 skeltonJR_dance_walk.o
+		.data                e50            5100 skeltonJR_dance_walk_mdl.o
+		.data               5f50             ba0 skeltonJR_down.o
+		.data               6af0             2c0 skeltonJR_hit.o
+		.data               6db0             3a0 skeltonJR_landing.o
+		.data               7150            10a0 skeltonJR_serch_wait.o
+		.data               81f0             1a0 skeltonJR_side_walk.o
+		.data               8390             870 skeltonJR_wait.o
+		.data               8c00             230 skeltonJR_walk.o
+
+.strtab                                0             47d
+		.strtab                0             47d *ld_internal*
+
+.symtab                                0             380
+		.symtab                0             380 *ld_internal*
+
+.mdebug                                0            190c
+		.mdebug                0            190c *ld_internal*
+
+.rel.data                              0             6d0
+		.rel.data              0              10 skeltonJR_back_jump.o
+		.rel.data             10              10 skeltonJR_blowgun_attack.o
+		.rel.data             20              10 skeltonJR_dance_walk.o
+		.rel.data             30             630 skeltonJR_dance_walk_mdl.o
+		.rel.data            660              10 skeltonJR_down.o
+		.rel.data            670              10 skeltonJR_hit.o
+		.rel.data            680              10 skeltonJR_landing.o
+		.rel.data            690              10 skeltonJR_serch_wait.o
+		.rel.data            6a0              10 skeltonJR_side_walk.o
+		.rel.data            6b0              10 skeltonJR_wait.o
+		.rel.data            6c0              10 skeltonJR_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

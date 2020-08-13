@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           30400
+		.data                  0            c000 vr_cloud0_div8_idx.o
+		.data               c000             100 vr_cloud0_pal.o
+		.data               c100            c000 vr_cloud1_div8_idx.o
+		.data              18100             100 vr_cloud1_pal.o
+		.data              18200            c000 vr_cloud2_div8_idx.o
+		.data              24200             100 vr_cloud2_pal.o
+		.data              24300            c000 vr_cloud3_div8_idx.o
+		.data              30300             100 vr_cloud3_pal.o
+
+.strtab                                0             1e7
+		.strtab                0             1e7 *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0            1d84
+		.mdebug                0            1d84 *ld_internal*
+
+.shstrtab                              0              40
+		.shstrtab              0              40 *ld_internal*

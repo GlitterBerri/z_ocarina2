@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            71b0
+		.data                  0             190 takaraya_main_info.o
+		.data                190            5020 takaraya_bgc.o
+		.data               51b0            2000 takaraya_texture.o
+
+.strtab                                0             231
+		.strtab                0             231 *ld_internal*
+
+.symtab                                0             160
+		.symtab                0             160 *ld_internal*
+
+.mdebug                                0             73c
+		.mdebug                0             73c *ld_internal*
+
+.rel.data                              0             100
+		.rel.data              0              a8 takaraya_main_info.o
+		.rel.data             a8              58 takaraya_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

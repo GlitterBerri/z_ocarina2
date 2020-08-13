@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7670
+		.data                  0            6220 Ani_matsu_mdl.o
+		.data               6220             520 ani_bikkuri.o
+		.data               6740             930 ani_nanyarona.o
+		.data               7070             600 ani_suwari_wait.o
+
+.strtab                                0             20b
+		.strtab                0             20b *ld_internal*
+
+.symtab                                0             200
+		.symtab                0             200 *ld_internal*
+
+.mdebug                                0             f0c
+		.mdebug                0             f0c *ld_internal*
+
+.rel.data                              0             590
+		.rel.data              0             560 Ani_matsu_mdl.o
+		.rel.data            560              10 ani_bikkuri.o
+		.rel.data            570              10 ani_nanyarona.o
+		.rel.data            580              10 ani_suwari_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

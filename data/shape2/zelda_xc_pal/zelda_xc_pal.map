@@ -1,0 +1,69 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1c100
+		.data                  0             b80 X_hikari_p.o
+		.data                b80             ea0 demo_hensin.o
+		.data               1a20             310 demo_hensin_wait.o
+		.data               1d30             b80 honoonobolero.o
+		.data               28b0             d30 kazenomenuetto.o
+		.data               35e0             fa0 mizunoserenaade.o
+		.data               4580             2c0 xc_matsu.o
+		.data               4840            e2c0 xc_matsu_mdl.o
+		.data              12b00             4e0 xechu_aruku.o
+		.data              12fe0             ae0 xechu_daiza_wait.o
+		.data              13ac0             f40 xechu_drop.o
+		.data              14a00            2000 xechu_furimawashi.o
+		.data              16a00             e10 xechu_hiku.o
+		.data              17810             460 xechu_kamae.o
+		.data              17c70             ea0 xechu_kamaeru.o
+		.data              18b10             aa0 xechu_kieru.o
+		.data              195b0             690 xechu_shagami_wait.o
+		.data              19c40             350 xechu_stop.o
+		.data              19f90              d0 xechu_tobikomi.o
+		.data              1a060            1150 xechu_toridasu.o
+		.data              1b1b0             f50 xechutoujyou.o
+
+.strtab                                0             5aa
+		.strtab                0             5aa *ld_internal*
+
+.symtab                                0             4a0
+		.symtab                0             4a0 *ld_internal*
+
+.mdebug                                0            2514
+		.mdebug                0            2514 *ld_internal*
+
+.rel.data                              0             858
+		.rel.data              0              10 X_hikari_p.o
+		.rel.data             10              10 demo_hensin.o
+		.rel.data             20              10 demo_hensin_wait.o
+		.rel.data             30              10 honoonobolero.o
+		.rel.data             40              10 kazenomenuetto.o
+		.rel.data             50              10 mizunoserenaade.o
+		.rel.data             60              10 xc_matsu.o
+		.rel.data             70             718 xc_matsu_mdl.o
+		.rel.data            788              10 xechu_aruku.o
+		.rel.data            798              10 xechu_daiza_wait.o
+		.rel.data            7a8              10 xechu_drop.o
+		.rel.data            7b8              10 xechu_furimawashi.o
+		.rel.data            7c8              10 xechu_hiku.o
+		.rel.data            7d8              10 xechu_kamae.o
+		.rel.data            7e8              10 xechu_kamaeru.o
+		.rel.data            7f8              10 xechu_kieru.o
+		.rel.data            808              10 xechu_shagami_wait.o
+		.rel.data            818              10 xechu_stop.o
+		.rel.data            828              10 xechu_tobikomi.o
+		.rel.data            838              10 xechu_toridasu.o
+		.rel.data            848              10 xechutoujyou.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

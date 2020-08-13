@@ -1,0 +1,57 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           163a0
+		.data                  0            66a0 zf2_mdl.o
+		.data               66a0            1ab0 zf_aruku.o
+		.data               8150             b30 zf_chyakuchi.o
+		.data               8c80             8c0 zf_jump.o
+		.data               9540             eb0 zf_kiru.o
+		.data               a3f0             d30 zf_matsu.o
+		.data               b120            53a0 zf_mdl.o
+		.data              104c0             370 zf_nige_jump_a.o
+		.data              10830             490 zf_nige_jump_b.o
+		.data              10cc0             3c0 zf_nige_jump_c.o
+		.data              11080             990 zf_nigeru.o
+		.data              11a10            1c70 zf_nuku.o
+		.data              13680            17f0 zf_shini.o
+		.data              14e70             9a0 zf_yarare.o
+		.data              15810             b90 zf_yokoaruki.o
+
+.strtab                                0             704
+		.strtab                0             704 *ld_internal*
+
+.symtab                                0             740
+		.symtab                0             740 *ld_internal*
+
+.mdebug                                0            4360
+		.mdebug                0            4360 *ld_internal*
+
+.rel.data                              0            10f8
+		.rel.data              0             9f8 zf2_mdl.o
+		.rel.data            9f8              10 zf_aruku.o
+		.rel.data            a08              10 zf_chyakuchi.o
+		.rel.data            a18              10 zf_jump.o
+		.rel.data            a28              10 zf_kiru.o
+		.rel.data            a38              10 zf_matsu.o
+		.rel.data            a48             630 zf_mdl.o
+		.rel.data           1078              10 zf_nige_jump_a.o
+		.rel.data           1088              10 zf_nige_jump_b.o
+		.rel.data           1098              10 zf_nige_jump_c.o
+		.rel.data           10a8              10 zf_nigeru.o
+		.rel.data           10b8              10 zf_nuku.o
+		.rel.data           10c8              10 zf_shini.o
+		.rel.data           10d8              10 zf_yarare.o
+		.rel.data           10e8              10 zf_yokoaruki.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

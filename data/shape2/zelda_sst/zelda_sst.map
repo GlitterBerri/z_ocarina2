@@ -1,0 +1,92 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           197b0
+		.data                  0             300 slh/slh_pose_a.o
+		.data                300            4af0 slh/slh_pose_a_mdl.o
+		.data               4df0              f0 slh/slh_pose_b.o
+		.data               4ee0              f0 slh/slh_pose_c.o
+		.data               4fd0              f0 slh/slh_pose_d.o
+		.data               50c0             1f0 slh/slh_pose_e.o
+		.data               52b0             100 slh/slh_pose_f.o
+		.data               53b0             100 slh/slh_pose_g.o
+		.data               54b0              f0 slh/slh_pose_h.o
+		.data               55a0             2d0 srh/srh_pose_a.o
+		.data               5870            4af0 srh/srh_pose_a_mdl.o
+		.data               a360              f0 srh/srh_pose_b.o
+		.data               a450              f0 srh/srh_pose_c.o
+		.data               a540              f0 srh/srh_pose_d.o
+		.data               a630             230 srh/srh_pose_e.o
+		.data               a860             100 srh/srh_pose_f.o
+		.data               a960             100 srh/srh_pose_g.o
+		.data               aa60              f0 srh/srh_pose_h.o
+		.data               ab50             1a0 ss/ss_after.o
+		.data               acf0             400 ss/ss_attack.o
+		.data               b0f0             620 ss/ss_bowhit.o
+		.data               b710             b90 ss/ss_close.o
+		.data               c2a0             320 ss/ss_dmg.o
+		.data               c5c0             410 ss/ss_dmg_open.o
+		.data               c9d0             2b0 ss/ss_swdhit.o
+		.data               cc80             7f0 ss/ss_towait.o
+		.data               d470             7d0 ss/ss_wait_close.o
+		.data               dc40             b90 ss/ss_wait_open.o
+		.data               e7d0            8080 ss/ss_wait_open_mdl.o
+		.data              16850             390 sst_eff/ice_piece.o
+		.data              16be0            1320 sst_obj/m_Htaiko.o
+		.data              17f00             230 sst_obj/m_Htaiko_bgc.o
+		.data              18130            1680 sst_tex/sst_tex.o
+
+.strtab                                0             90f
+		.strtab                0             90f *ld_internal*
+
+.symtab                                0             790
+		.symtab                0             790 *ld_internal*
+
+.mdebug                                0            4194
+		.mdebug                0            4194 *ld_internal*
+
+.rel.data                              0            1800
+		.rel.data              0              10 slh/slh_pose_a.o
+		.rel.data             10             680 slh/slh_pose_a_mdl.o
+		.rel.data            690              10 slh/slh_pose_b.o
+		.rel.data            6a0              10 slh/slh_pose_c.o
+		.rel.data            6b0              10 slh/slh_pose_d.o
+		.rel.data            6c0              10 slh/slh_pose_e.o
+		.rel.data            6d0              10 slh/slh_pose_f.o
+		.rel.data            6e0              10 slh/slh_pose_g.o
+		.rel.data            6f0              10 slh/slh_pose_h.o
+		.rel.data            700              10 srh/srh_pose_a.o
+		.rel.data            710             680 srh/srh_pose_a_mdl.o
+		.rel.data            d90              10 srh/srh_pose_b.o
+		.rel.data            da0              10 srh/srh_pose_c.o
+		.rel.data            db0              10 srh/srh_pose_d.o
+		.rel.data            dc0              10 srh/srh_pose_e.o
+		.rel.data            dd0              10 srh/srh_pose_f.o
+		.rel.data            de0              10 srh/srh_pose_g.o
+		.rel.data            df0              10 srh/srh_pose_h.o
+		.rel.data            e00              10 ss/ss_after.o
+		.rel.data            e10              10 ss/ss_attack.o
+		.rel.data            e20              10 ss/ss_bowhit.o
+		.rel.data            e30              10 ss/ss_close.o
+		.rel.data            e40              10 ss/ss_dmg.o
+		.rel.data            e50              10 ss/ss_dmg_open.o
+		.rel.data            e60              10 ss/ss_swdhit.o
+		.rel.data            e70              10 ss/ss_towait.o
+		.rel.data            e80              10 ss/ss_wait_close.o
+		.rel.data            e90              10 ss/ss_wait_open.o
+		.rel.data            ea0             900 ss/ss_wait_open_mdl.o
+		.rel.data           17a0              28 sst_eff/ice_piece.o
+		.rel.data           17c8              18 sst_obj/m_Htaiko.o
+		.rel.data           17e0              20 sst_obj/m_Htaiko_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           17c00
+		.data                  0              30 hairal_niwa2_0_info.o
+		.data                 30              20 hairal_niwa2_0_shape.o
+		.data                 50           13700 hairal_niwa2_grp_niwa.o
+		.data              13750            44b0 hairal_niwa2_grp_niwaT.o
+
+.strtab                                0             1b9
+		.strtab                0             1b9 *ld_internal*
+
+.symtab                                0             170
+		.symtab                0             170 *ld_internal*
+
+.mdebug                                0            18dc
+		.mdebug                0            18dc *ld_internal*
+
+.rel.data                              0             690
+		.rel.data              0               8 hairal_niwa2_0_info.o
+		.rel.data              8              20 hairal_niwa2_0_shape.o
+		.rel.data             28             568 hairal_niwa2_grp_niwa.o
+		.rel.data            590             100 hairal_niwa2_grp_niwaT.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

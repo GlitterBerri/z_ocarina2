@@ -1,0 +1,40 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            75c0
+		.data                  0            1000 a_gandoor_v3.o
+		.data               1000             180 bossdoor.o
+		.data               1180             370 doorkagiboss.o
+		.data               14f0              d0 doorkusariboss.o
+		.data               15c0            1000 l_j_bossdoor.o
+		.data               25c0            1000 l_m_bossdoor.o
+		.data               35c0            1000 m_FBossShutter1.o
+		.data               45c0            1000 m_HBOSSshutter.o
+		.data               55c0            1000 m_WBOSSshutter1.o
+		.data               65c0            1000 tex.o
+
+.strtab                                0             100
+		.strtab                0             100 *ld_internal*
+
+.symtab                                0             110
+		.symtab                0             110 *ld_internal*
+
+.mdebug                                0             954
+		.mdebug                0             954 *ld_internal*
+
+.rel.data                              0              40
+		.rel.data              0              18 bossdoor.o
+		.rel.data             18              18 doorkagiboss.o
+		.rel.data             30              10 doorkusariboss.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

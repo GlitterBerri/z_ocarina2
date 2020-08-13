@@ -1,0 +1,60 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a720
+		.data                  0            1260 ganon_b1.o
+		.data               1260             940 ganon_b1_bgc.o
+		.data               1ba0             2d0 ganon_b2_1.o
+		.data               1e70             130 ganon_b2_1_bgc.o
+		.data               1fa0             370 ganon_b2_2.o
+		.data               2310             170 ganon_b2_2_bgc.o
+		.data               2480             2d0 ganon_b2_3.o
+		.data               2750             130 ganon_b2_3_bgc.o
+		.data               2880             370 ganon_b2_4.o
+		.data               2bf0             170 ganon_b2_4_bgc.o
+		.data               2d60             1d0 ganon_b2_5.o
+		.data               2f30              e0 ganon_b2_5_bgc.o
+		.data               3010             2d0 ganon_b2_6.o
+		.data               32e0             130 ganon_b2_6_bgc.o
+		.data               3410             4d0 ganon_b2_7.o
+		.data               38e0             240 ganon_b2_7_bgc.o
+		.data               3b20            6c00 tex.o
+
+.strtab                                0             232
+		.strtab                0             232 *ld_internal*
+
+.symtab                                0             1f0
+		.symtab                0             1f0 *ld_internal*
+
+.mdebug                                0            155c
+		.mdebug                0            155c *ld_internal*
+
+.rel.data                              0             308
+		.rel.data              0              a8 ganon_b1.o
+		.rel.data             a8              20 ganon_b1_bgc.o
+		.rel.data             c8              30 ganon_b2_1.o
+		.rel.data             f8              20 ganon_b2_1_bgc.o
+		.rel.data            118              40 ganon_b2_2.o
+		.rel.data            158              20 ganon_b2_2_bgc.o
+		.rel.data            178              30 ganon_b2_3.o
+		.rel.data            1a8              20 ganon_b2_3_bgc.o
+		.rel.data            1c8              40 ganon_b2_4.o
+		.rel.data            208              20 ganon_b2_4_bgc.o
+		.rel.data            228              10 ganon_b2_5.o
+		.rel.data            238              20 ganon_b2_5_bgc.o
+		.rel.data            258              30 ganon_b2_6.o
+		.rel.data            288              20 ganon_b2_6_bgc.o
+		.rel.data            2a8              40 ganon_b2_7.o
+		.rel.data            2e8              20 ganon_b2_7_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

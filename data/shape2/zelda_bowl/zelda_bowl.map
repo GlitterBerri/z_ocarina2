@@ -1,0 +1,40 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            34f0
+		.data                  0             860 bowling_p1.o
+		.data                860             490 bowling_p1_bgc.o
+		.data                cf0             940 bowling_p2.o
+		.data               1630             500 bowling_p2_bgc.o
+		.data               1b30              b0 bowling_saku.o
+		.data               1be0              90 bowling_saku_bgc.o
+		.data               1c70            1880 tex.o
+
+.strtab                                0              b8
+		.strtab                0              b8 *ld_internal*
+
+.symtab                                0              c0
+		.symtab                0              c0 *ld_internal*
+
+.mdebug                                0             89c
+		.mdebug                0             89c *ld_internal*
+
+.rel.data                              0             118
+		.rel.data              0              50 bowling_p1.o
+		.rel.data             50              20 bowling_p1_bgc.o
+		.rel.data             70              60 bowling_p2.o
+		.rel.data             d0              20 bowling_p2_bgc.o
+		.rel.data             f0               8 bowling_saku.o
+		.rel.data             f8              20 bowling_saku_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

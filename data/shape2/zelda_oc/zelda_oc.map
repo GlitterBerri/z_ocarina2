@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5570
+		.data                  0             190 okuta_damage.o
+		.data                190             450 okuta_damage_wait.o
+		.data                5e0             670 okuta_move.o
+		.data                c50             830 okuta_shot.o
+		.data               1480             270 okuta_wait.o
+		.data               16f0            3e80 okuta_wait_mdl.o
+
+.strtab                                0             540
+		.strtab                0             540 *ld_internal*
+
+.symtab                                0             4d0
+		.symtab                0             4d0 *ld_internal*
+
+.mdebug                                0            1c38
+		.mdebug                0            1c38 *ld_internal*
+
+.rel.data                              0             308
+		.rel.data              0              10 okuta_damage.o
+		.rel.data             10              10 okuta_damage_wait.o
+		.rel.data             20              10 okuta_move.o
+		.rel.data             30              10 okuta_shot.o
+		.rel.data             40              10 okuta_wait.o
+		.rel.data             50             2b8 okuta_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

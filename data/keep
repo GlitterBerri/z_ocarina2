@@ -1,0 +1,26 @@
+#!/bin/sh
+set -x
+#
+# $Id: keep,v 1.1.1.1 2003/03/10 22:57:46 tong Exp $
+#
+# $Log: keep,v $
+# Revision 1.1.1.1  2003/03/10 22:57:46  tong
+# new OBJ tree for ocarina from Nintendo
+#
+# Revision 2.1  1998/10/22  12:42:44  hayakawa
+# ＲＯＭ出しバージョン(NTSC)
+#
+# Revision 1.2  1997-04-18 21:12:37+09  iwawaki
+# *** empty log message ***
+#
+# Revision 1.1  1997/04/18  11:52:25  iwawaki
+# Initial revision
+#
+# Revision 1.1  1997/04/18  10:45:48  iwawaki
+# Initial revision
+#
+# Revision 1.1  1997/04/18  10:45:48  iwawaki
+# Initial revision
+#
+#
+ld -r -o keep.o -objectlist keep.objs -m > keep.map

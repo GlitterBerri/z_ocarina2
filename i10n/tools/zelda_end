@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ../assets/zh/zelda_end
+for f in *.inta; do rgb2c -F -f IA -s 8 -m ${f%.inta}_txt $f > ${f%.inta}.txt; done

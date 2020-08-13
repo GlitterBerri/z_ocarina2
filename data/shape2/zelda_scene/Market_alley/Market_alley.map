@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1250
+		.data                  0             120 market_alley_main_info.o
+		.data                120            1130 market_alley_bgc.o
+
+.strtab                                0              77
+		.strtab                0              77 *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             3ec
+		.mdebug                0             3ec *ld_internal*
+
+.rel.data                              0              80
+		.rel.data              0              48 market_alley_main_info.o
+		.rel.data             48              38 market_alley_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

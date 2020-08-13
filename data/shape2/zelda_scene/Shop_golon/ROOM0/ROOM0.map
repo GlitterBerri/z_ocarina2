@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           261d0
+		.data                  0              80 golon_0_info.o
+		.data                 80              30 golon_0_shape.o
+		.data                 b0             920 golon.o
+		.data                9d0           25800 golon_txt.o
+
+.strtab                                0              68
+		.strtab                0              68 *ld_internal*
+
+.symtab                                0              80
+		.symtab                0              80 *ld_internal*
+
+.mdebug                                0             42c
+		.mdebug                0             42c *ld_internal*
+
+.rel.data                              0              70
+		.rel.data              0              18 golon_0_info.o
+		.rel.data             18              18 golon_0_shape.o
+		.rel.data             30              40 golon.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

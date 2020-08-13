@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1ae0
+		.data                  0            14b0 heavy_object.o
+		.data               14b0             220 heavy_object_bgc.o
+		.data               16d0             2b0 l_g_kin_hahen.o
+		.data               1980             160 l_g_kin_hahen2.o
+
+.strtab                                0              70
+		.strtab                0              70 *ld_internal*
+
+.symtab                                0              70
+		.symtab                0              70 *ld_internal*
+
+.mdebug                                0             4e4
+		.mdebug                0             4e4 *ld_internal*
+
+.rel.data                              0              58
+		.rel.data              0              18 heavy_object.o
+		.rel.data             18              20 heavy_object_bgc.o
+		.rel.data             38              10 l_g_kin_hahen.o
+		.rel.data             48              10 l_g_kin_hahen2.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,47 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3140
+		.data                  0             180 dnh_atack.o
+		.data                180            2250 dnh_atack_mdl.o
+		.data               23d0             110 dnh_dig.o
+		.data               24e0             200 dnh_jump.o
+		.data               26e0             1d0 dnh_lookaround.o
+		.data               28b0             120 dnh_mahi.o
+		.data               29d0             1d0 dnh_start.o
+		.data               2ba0             300 dnh_talk.o
+		.data               2ea0              f0 dnh_wait.o
+		.data               2f90             1b0 dnh_walk.o
+
+.strtab                                0             23d
+		.strtab                0             23d *ld_internal*
+
+.symtab                                0             1e0
+		.symtab                0             1e0 *ld_internal*
+
+.mdebug                                0            1204
+		.mdebug                0            1204 *ld_internal*
+
+.rel.data                              0             210
+		.rel.data              0              10 dnh_atack.o
+		.rel.data             10             180 dnh_atack_mdl.o
+		.rel.data            190              10 dnh_dig.o
+		.rel.data            1a0              10 dnh_jump.o
+		.rel.data            1b0              10 dnh_lookaround.o
+		.rel.data            1c0              10 dnh_mahi.o
+		.rel.data            1d0              10 dnh_start.o
+		.rel.data            1e0              10 dnh_talk.o
+		.rel.data            1f0              10 dnh_wait.o
+		.rel.data            200              10 dnh_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

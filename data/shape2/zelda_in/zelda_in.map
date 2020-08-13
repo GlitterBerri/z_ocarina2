@@ -1,0 +1,61 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           18c50
+		.data                  0             3d0 in2_fusagu.o
+		.data                3d0             8f0 in2_kachi.o
+		.data                cc0             f30 in2_kuyasii.o
+		.data               1bf0              e0 in_matsu1.o
+		.data               1cd0           11ed0 in_matsu1_mdl.o
+		.data              13ba0              e0 in_matsu2.o
+		.data              13c80              f0 in_neru1.o
+		.data              13d70             5c0 in_pekopeko.o
+		.data              14330             990 in_shigoto.o
+		.data              14cc0             520 ingo_anim_fastrun.o
+		.data              151e0             650 ingo_anim_fastrun_muti.o
+		.data              15830             5d0 ingo_anim_slowrun.o
+		.data              15e00             680 ingo_anim_slowrun_muti.o
+		.data              16480             6d0 ingo_anim_stop.o
+		.data              16b50             a90 ingo_anim_stop_muti.o
+		.data              175e0             590 ingo_anim_wait1.o
+		.data              17b70            10e0 ingo_anim_wait2.o
+
+.strtab                                0             74d
+		.strtab                0             74d *ld_internal*
+
+.symtab                                0             690
+		.symtab                0             690 *ld_internal*
+
+.mdebug                                0            2720
+		.mdebug                0            2720 *ld_internal*
+
+.rel.data                              0             fe0
+		.rel.data              0              10 in2_fusagu.o
+		.rel.data             10              10 in2_kachi.o
+		.rel.data             20              10 in2_kuyasii.o
+		.rel.data             30              10 in_matsu1.o
+		.rel.data             40             ee0 in_matsu1_mdl.o
+		.rel.data            f20              10 in_matsu2.o
+		.rel.data            f30              10 in_neru1.o
+		.rel.data            f40              10 in_pekopeko.o
+		.rel.data            f50              10 in_shigoto.o
+		.rel.data            f60              10 ingo_anim_fastrun.o
+		.rel.data            f70              10 ingo_anim_fastrun_muti.o
+		.rel.data            f80              10 ingo_anim_slowrun.o
+		.rel.data            f90              10 ingo_anim_slowrun_muti.o
+		.rel.data            fa0              10 ingo_anim_stop.o
+		.rel.data            fb0              10 ingo_anim_stop_muti.o
+		.rel.data            fc0              10 ingo_anim_wait1.o
+		.rel.data            fd0              10 ingo_anim_wait2.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

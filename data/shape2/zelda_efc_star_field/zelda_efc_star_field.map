@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            17d0
+		.data                  0             510 efc_star_field.o
+		.data                510            12c0 rock.o
+
+.strtab                                0              68
+		.strtab                0              68 *ld_internal*
+
+.symtab                                0              80
+		.symtab                0              80 *ld_internal*
+
+.mdebug                                0             294
+		.mdebug                0             294 *ld_internal*
+
+.rel.data                              0              40
+		.rel.data              0              10 efc_star_field.o
+		.rel.data             10              30 rock.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

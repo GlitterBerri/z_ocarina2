@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a070
+		.data                  0             5a0 wm_damage.o
+		.data                5a0             920 wm_damage_wait.o
+		.data                ec0             b20 wm_f_jump.o
+		.data               19e0             790 wm_l_turn.o
+		.data               2170             840 wm_link_hangup.o
+		.data               29b0             780 wm_miss.o
+		.data               3130             890 wm_motionA.o
+		.data               39c0             850 wm_move.o
+		.data               4210            4db0 wm_move_mdl.o
+		.data               8fc0             2a0 wm_move_wait.o
+		.data               9260             2d0 wm_success.o
+		.data               9530             890 wm_wait.o
+		.data               9dc0             2b0 wm_wait_move.o
+
+.strtab                                0             2d6
+		.strtab                0             2d6 *ld_internal*
+
+.symtab                                0             270
+		.symtab                0             270 *ld_internal*
+
+.mdebug                                0            16b4
+		.mdebug                0            16b4 *ld_internal*
+
+.rel.data                              0             5e0
+		.rel.data              0              10 wm_damage.o
+		.rel.data             10              10 wm_damage_wait.o
+		.rel.data             20              10 wm_f_jump.o
+		.rel.data             30              10 wm_l_turn.o
+		.rel.data             40              10 wm_link_hangup.o
+		.rel.data             50              10 wm_miss.o
+		.rel.data             60              10 wm_motionA.o
+		.rel.data             70              10 wm_move.o
+		.rel.data             80             520 wm_move_mdl.o
+		.rel.data            5a0              10 wm_move_wait.o
+		.rel.data            5b0              10 wm_success.o
+		.rel.data            5c0              10 wm_wait.o
+		.rel.data            5d0              10 wm_wait_move.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

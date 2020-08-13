@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            b6f0
+		.data                  0             3e0 geldB_attackA.o
+		.data                3e0             b90 geldB_attackB.o
+		.data                f70             430 geldB_back_ten.o
+		.data               13a0             1f0 geldB_defense.o
+		.data               1590             890 geldB_down.o
+		.data               1e20             470 geldB_hit.o
+		.data               2290             270 geldB_run.o
+		.data               2500            7f70 geldB_run_mdl.o
+		.data               a470             3c0 geldB_side_walk.o
+		.data               a830             5e0 geldB_start.o
+		.data               ae10             280 geldB_talk.o
+		.data               b090             660 geldB_wait.o
+
+.strtab                                0             3d6
+		.strtab                0             3d6 *ld_internal*
+
+.symtab                                0             310
+		.symtab                0             310 *ld_internal*
+
+.mdebug                                0            19c4
+		.mdebug                0            19c4 *ld_internal*
+
+.rel.data                              0             760
+		.rel.data              0              10 geldB_attackA.o
+		.rel.data             10              10 geldB_attackB.o
+		.rel.data             20              10 geldB_back_ten.o
+		.rel.data             30              10 geldB_defense.o
+		.rel.data             40              10 geldB_down.o
+		.rel.data             50              10 geldB_hit.o
+		.rel.data             60              10 geldB_run.o
+		.rel.data             70             6b0 geldB_run_mdl.o
+		.rel.data            720              10 geldB_side_walk.o
+		.rel.data            730              10 geldB_start.o
+		.rel.data            740              10 geldB_talk.o
+		.rel.data            750              10 geldB_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

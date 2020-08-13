@@ -1,0 +1,50 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           30e40
+		.data                  0             550 jyasinzouDD_main_info.o
+		.data                550             550 jyasinzou_main_info.o
+		.data                aa0           16370 jyasinzouDD_bgc.o
+		.data              16e10             4e0 jyasinzouDD_demo00.o
+		.data              172f0             4e0 jyasinzouDD_demo01.o
+		.data              177d0             4f0 jyasinzouDD_main_info_d0.o
+		.data              17cc0             4f0 jyasinzouDD_main_info_d1.o
+		.data              181b0            1f40 jyasinzouDD_texture.o
+		.data              1a0f0           16370 jyasinzou_bgc.o
+		.data              30460             4f0 jyasinzou_main_info_d0.o
+		.data              30950             4f0 jyasinzou_main_info_d1.o
+
+.bss                                   0              20
+		.bss                   0              10 jyasinzouDD_demo00.o
+		.bss                  10              10 jyasinzouDD_demo01.o
+
+.strtab                                0            1155
+		.strtab                0            1155 *ld_internal*
+
+.symtab                                0             8c0
+		.symtab                0             8c0 *ld_internal*
+
+.mdebug                                0            2928
+		.mdebug                0            2928 *ld_internal*
+
+.rel.data                              0             dd0
+		.rel.data              0             240 jyasinzouDD_main_info.o
+		.rel.data            240             240 jyasinzou_main_info.o
+		.rel.data            480              78 jyasinzouDD_bgc.o
+		.rel.data            4f8             218 jyasinzouDD_main_info_d0.o
+		.rel.data            710             218 jyasinzouDD_main_info_d1.o
+		.rel.data            928              78 jyasinzou_bgc.o
+		.rel.data            9a0             218 jyasinzou_main_info_d0.o
+		.rel.data            bb8             218 jyasinzou_main_info_d1.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

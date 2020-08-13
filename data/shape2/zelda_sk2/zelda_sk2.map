@@ -1,0 +1,71 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            e800
+		.data                  0             460 skelton_back_damage.o
+		.data                460             fd0 skelton_back_down.o
+		.data               1430             560 skelton_back_jump.o
+		.data               1990             2a0 skelton_defend.o
+		.data               1c30             570 skelton_fight_wait2wait.o
+		.data               21a0             550 skelton_fighting_run.o
+		.data               26f0             a90 skelton_fighting_wait.o
+		.data               3180            4ab0 skelton_fighting_wait_mdl.o
+		.data               7c30             5a0 skelton_fighting_walk.o
+		.data               81d0             450 skelton_front_damage.o
+		.data               8620            1480 skelton_front_down.o
+		.data               9aa0             3c0 skelton_jump.o
+		.data               9e60             4e0 skelton_jump_kiru.o
+		.data               a340             670 skelton_jump_kiru_end.o
+		.data               a9b0             670 skelton_kiru.o
+		.data               b020             4e0 skelton_kiru_end.o
+		.data               b500             960 skelton_kiru_finsh.o
+		.data               be60             5f0 skelton_landing.o
+		.data               c450             460 skelton_laugh.o
+		.data               c8b0            1450 skelton_search_wait.o
+		.data               dd00             5c0 skelton_side_walk.o
+		.data               e2c0             540 skelton_wait2fight_wait.o
+
+.strtab                                0             7e3
+		.strtab                0             7e3 *ld_internal*
+
+.symtab                                0             530
+		.symtab                0             530 *ld_internal*
+
+.mdebug                                0            29ac
+		.mdebug                0            29ac *ld_internal*
+
+.rel.data                              0             6b0
+		.rel.data              0              10 skelton_back_damage.o
+		.rel.data             10              10 skelton_back_down.o
+		.rel.data             20              10 skelton_back_jump.o
+		.rel.data             30              10 skelton_defend.o
+		.rel.data             40              10 skelton_fight_wait2wait.o
+		.rel.data             50              10 skelton_fighting_run.o
+		.rel.data             60              10 skelton_fighting_wait.o
+		.rel.data             70             560 skelton_fighting_wait_mdl.o
+		.rel.data            5d0              10 skelton_fighting_walk.o
+		.rel.data            5e0              10 skelton_front_damage.o
+		.rel.data            5f0              10 skelton_front_down.o
+		.rel.data            600              10 skelton_jump.o
+		.rel.data            610              10 skelton_jump_kiru.o
+		.rel.data            620              10 skelton_jump_kiru_end.o
+		.rel.data            630              10 skelton_kiru.o
+		.rel.data            640              10 skelton_kiru_end.o
+		.rel.data            650              10 skelton_kiru_finsh.o
+		.rel.data            660              10 skelton_landing.o
+		.rel.data            670              10 skelton_laugh.o
+		.rel.data            680              10 skelton_search_wait.o
+		.rel.data            690              10 skelton_side_walk.o
+		.rel.data            6a0              10 skelton_wait2fight_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

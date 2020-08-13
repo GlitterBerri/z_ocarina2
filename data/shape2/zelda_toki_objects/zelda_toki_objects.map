@@ -1,0 +1,46 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            8450
+		.data                  0             930 demo_tt_triforce.o
+		.data                930             100 demo_tt_triforce2.o
+		.data                a30            1570 master_sword.o
+		.data               1fa0             e20 master_swordB.o
+		.data               2dc0            4400 tex.o
+		.data               71c0             4f0 tokinoma_doorA.o
+		.data               76b0             210 tokinoma_doorA_bgc.o
+		.data               78c0             750 tokinoma_hikari.o
+		.data               8010             240 tokinoma_hikari2.o
+		.data               8250             200 tokinoma_hikari3.o
+
+.strtab                                0             1b9
+		.strtab                0             1b9 *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0             c40
+		.mdebug                0             c40 *ld_internal*
+
+.rel.data                              0             258
+		.rel.data              0              18 demo_tt_triforce.o
+		.rel.data             18              10 demo_tt_triforce2.o
+		.rel.data             28              90 master_sword.o
+		.rel.data             b8              d0 master_swordB.o
+		.rel.data            188              50 tokinoma_doorA.o
+		.rel.data            1d8              20 tokinoma_doorA_bgc.o
+		.rel.data            1f8              38 tokinoma_hikari.o
+		.rel.data            230              10 tokinoma_hikari2.o
+		.rel.data            240              18 tokinoma_hikari3.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

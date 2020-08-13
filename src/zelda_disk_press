@@ -1,0 +1,50 @@
+#!/usr/local/bin/bash
+
+ZELDA_TOOL_BIN=$ZELDA_ROOT/tool/bin
+PATH=/usr/bin
+
+ROMDIVIDE=$ZELDA_TOOL_BIN/romdivide
+ROMMAP_NEW=$ZELDA_TOOL_BIN/rommap_new
+
+echo -n "Tool checking ..."
+for tool in $ROMADDRESS $ROMALIGN $ROMDIVIDE $ROMMAP $SLICNV $SLIENC $SLIDEC $ROMFILL
+do
+  echo -n "`basename $tool` "
+  if [ ! -x $tool ]; then
+    echo $tool not exist
+    exit 1
+  fi
+done
+echo "ok"
+
+#
+# ファイルのチェック
+#
+read_check() {
+  for file in $*
+  do
+    if [ ! -f $file ]; then
+      echo $file がありません
+      exit 1
+    elif [ ! -r $file ]; then
+      echo $file が読めません
+      exit 1
+    fi
+  done
+}
+
+ZELDA_INFO=zelda_disk_makerom.stdout
+ROMIMG=n64dd.rom
+
+echo `date` "7 $ZELDA_INFO を解析し、rom.map を作成"
+read_check $ZELDA_INFO
+work=$(grep "Creating segment symbol source file in" $ZELDA_INFO)
+work=${work#"Creating segment symbol source file in "}
+read_check $work
+$ROMMAP_NEW $work > rom.map
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
+
+echo `date` '5 $ROMIMG を分割し、*.d を作成'
+read_check $ROMIMG
+$ROMDIVIDE rom.map $ROMIMG
+if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi

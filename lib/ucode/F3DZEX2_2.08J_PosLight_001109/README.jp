@@ -1,0 +1,63 @@
+------------------------------------------------------------------------
+  F3DZEX2 (Zelda64 用) マイクロコード説明書
+------------------------------------------------------------------------
+
+  F3DZEX2 マイクロコードは F3DZEX マイクロコードの F3DEX2 対応版です.
+F3DEX2 と F3DZEX2 の違いは g*SPBranchLessZ の代りに, g*SPBranchLessZraw
+が使用できることです. F3DZEX シリーズでは, g*SPBranchLessZraw をお使い
+下さい. 
+
+    gSPBranchLessZraw(pkt, dl, vtx, zval)
+    gsSPBranchLessZraw(dl, vtx, zval)
+
+    Gfx             *dl     分岐先の DL
+    unsigned int    vtx     比較対象になる頂点の番号 (zval 以下なら分岐)
+    unsigned short  zval    比較する Depth 値
+
+  先に対応するバージョンの F3DEX2 をインストールしてください.
+その後 ucode_z.h を /usr/include/PR へ gspF3DZEX2.*.o を /usr/lib/PR へ
+コピーしてください. 本マイクロコードを使用するときは ucode_z.h をインク
+ルードする必要があります. その他制限事項は F3DEX2 を参考にしてください.
+
+  バージョン 2.02B 以降で S2DEX2 との自己ロードが出来るようになりました.
+
+● 変更履歴
+
+  Mar-31-98  Release 2.01A
+	最初のバージョン
+
+  Apr-21-98  Release 2.02B
+	S2DEX2 とロードが可能になった.
+	その他のバグ修正についての情報は F3DEX2 の README.jp を参考.
+	rspboot0 から起動しないと動作しないようにした.
+
+  Apr-23-98  Release 2.03C
+	gSPBranchLessZ GBI が正常に動作しないバグを修正.
+
+  May-21-98  Release 2.04D
+	ライティングがうまく動作しないことがあることを修正.
+
+  Jun-04-98  Release 2.04E
+	g*SPBranchLessZraw の修正の評価版. 評価版のため rspboot から
+	も起動できるので注意する.
+
+  Jun-07-98  Release 2.05F
+	G_TEXTURE_GEN_LINEAR の動作を修正.
+	Safe モードのマイクロコード. RDP 処理ごとに PipeSync を自動で
+	送るようにしている. (このバージョンのみ)
+
+  Jun-15-98  Release 2.05G
+	F3DZEX2.NoN で視点の手前から NearPlane の間に描画されるポリゴンの
+	Z 座標値が定義範囲を超えることの修正.
+	クリッピング処理によってクリップされた結果多角形に変換されたポリ
+	ゴンを描画したときの結果を F3DEX シリーズのそれとなるべく等しくな
+	るように描画方法を変更.
+
+  Jul-29-98  Release 2.06H
+	F3DZEX.NoN での NearClip 処理における不都合の修正.
+
+  Oct-04-98  Release 2.07I
+	F3DZEX2, F3DZEX2.NoN, F3DZEX2.Rej において隣接したポリゴンの境界に小
+	さな穴が開くことがあるのを修正.
+
+------------------------------------------------------------------------

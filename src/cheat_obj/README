@@ -1,0 +1,7 @@
+The file contains four object files.  If you build 
+rom image with them, you can use cheat-mode.
+  (a) Press Z+L+R at once. "ZELDA MAP SELECT" screen will be appear.
+  (b) Select item "10:SPOT09" using UP-key and DOWN-key.
+  (c) Press Z button several times to select "Stage:XX02"   (XX is a Japanese letter)
+  (d) When you're ready, press A button to start the credit screen.
+

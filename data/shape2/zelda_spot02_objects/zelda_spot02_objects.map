@@ -1,0 +1,48 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           16620
+		.data                  0            15e0 haka_l_ring.o
+		.data               15e0            80d0 haka_thunder0.o
+		.data               96b0            90d0 haka_thunder1.o
+		.data              12780             110 obj_s02futa.o
+		.data              12890              80 obj_s02futa_bgc.o
+		.data              12910             220 obj_s02gate.o
+		.data              12b30              a0 obj_s02gate_bgc.o
+		.data              12bd0             260 obj_s02hahen.o
+		.data              12e30             3f0 obj_s02kinghaka.o
+		.data              13220             200 obj_s02kinghaka_bgc.o
+		.data              13420            3200 tex.o
+
+.strtab                                0             358
+		.strtab                0             358 *ld_internal*
+
+.symtab                                0             2c0
+		.symtab                0             2c0 *ld_internal*
+
+.mdebug                                0            1074
+		.mdebug                0            1074 *ld_internal*
+
+.rel.data                              0             120
+		.rel.data              0              28 haka_l_ring.o
+		.rel.data             28              10 haka_thunder0.o
+		.rel.data             38              10 haka_thunder1.o
+		.rel.data             48              18 obj_s02futa.o
+		.rel.data             60              20 obj_s02futa_bgc.o
+		.rel.data             80              10 obj_s02gate.o
+		.rel.data             90              20 obj_s02gate_bgc.o
+		.rel.data             b0              20 obj_s02hahen.o
+		.rel.data             d0              30 obj_s02kinghaka.o
+		.rel.data            100              20 obj_s02kinghaka_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

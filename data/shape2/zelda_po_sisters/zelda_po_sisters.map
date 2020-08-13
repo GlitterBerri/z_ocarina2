@@ -1,0 +1,56 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            e3c0
+		.data                  0             130 pob_atack.o
+		.data                130             560 pob_cry.o
+		.data                690             240 pob_damage.o
+		.data                8d0             1a0 pob_escape.o
+		.data                a70             2e0 pob_fly.o
+		.data                d50             460 pob_start.o
+		.data               11b0             330 pob_wait.o
+		.data               14e0            50f0 pob_wait_mdl.o
+		.data               65d0             530 po_event/l_pou1pict.o
+		.data               6b00             530 po_event/l_pou2pict.o
+		.data               7030             3f0 po_event/l_pou3pict.o
+		.data               7420             340 po_event/l_poublock.o
+		.data               7760             130 po_event/l_poublock_bgc.o
+		.data               7890             230 po_event/l_poublockdamy.o
+		.data               7ac0            6900 po_event/tex3.o
+
+.strtab                                0             517
+		.strtab                0             517 *ld_internal*
+
+.symtab                                0             500
+		.symtab                0             500 *ld_internal*
+
+.mdebug                                0            1d44
+		.mdebug                0            1d44 *ld_internal*
+
+.rel.data                              0             568
+		.rel.data              0              10 pob_atack.o
+		.rel.data             10              10 pob_cry.o
+		.rel.data             20              10 pob_damage.o
+		.rel.data             30              10 pob_escape.o
+		.rel.data             40              10 pob_fly.o
+		.rel.data             50              10 pob_start.o
+		.rel.data             60              10 pob_wait.o
+		.rel.data             70             348 pob_wait_mdl.o
+		.rel.data            3b8              70 po_event/l_pou1pict.o
+		.rel.data            428              70 po_event/l_pou2pict.o
+		.rel.data            498              50 po_event/l_pou3pict.o
+		.rel.data            4e8              48 po_event/l_poublock.o
+		.rel.data            530              20 po_event/l_poublock_bgc.o
+		.rel.data            550              18 po_event/l_poublockdamy.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

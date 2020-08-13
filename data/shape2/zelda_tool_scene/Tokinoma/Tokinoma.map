@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           4bc20
+		.data                  0           40000 main_info.o
+		.data              40000             2a0 tokinoma_dm_door.o
+		.data              402a0             2e0 tokinoma_dm_grupy.o
+		.data              40580             2e0 tokinoma_dm_khisui.o
+		.data              40860             220 tokinoma_dm_seiti.o
+		.data              40a80             e90 tokinoma_dm_siku.o
+		.data              41910             ba0 tokinoma_dm_tama.o
+		.data              424b0             630 tokinoma_dm_zd.o
+		.data              42ae0             650 tokinoma_dm_zd1.o
+		.data              43130            11f0 tokinoma_dm_zd2.o
+		.data              44320            1c60 tokinoma_dm_zd3.o
+		.data              45f80             300 tokinoma_dm_zsfa.o
+		.data              46280             1a0 tokinoma_show.o
+		.data              46420            5800 tokinoma_texture.o
+
+.bss                                   0              c0
+		.bss                   0              10 tokinoma_dm_door.o
+		.bss                  10              10 tokinoma_dm_grupy.o
+		.bss                  20              10 tokinoma_dm_khisui.o
+		.bss                  30              10 tokinoma_dm_seiti.o
+		.bss                  40              10 tokinoma_dm_siku.o
+		.bss                  50              10 tokinoma_dm_tama.o
+		.bss                  60              10 tokinoma_dm_zd.o
+		.bss                  70              10 tokinoma_dm_zd1.o
+		.bss                  80              10 tokinoma_dm_zd2.o
+		.bss                  90              10 tokinoma_dm_zd3.o
+		.bss                  a0              10 tokinoma_dm_zsfa.o
+		.bss                  b0              10 tokinoma_show.o
+
+.strtab                                0             1c9
+		.strtab                0             1c9 *ld_internal*
+
+.symtab                                0             180
+		.symtab                0             180 *ld_internal*
+
+.mdebug                                0             e58
+		.mdebug                0             e58 *ld_internal*
+
+.shstrtab                              0              45
+		.shstrtab              0              45 *ld_internal*

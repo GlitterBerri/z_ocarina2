@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            39a0
+		.data                  0             160 av_die.o
+		.data                160             200 av_dmg.o
+		.data                360             440 av_fire.o
+		.data                7a0             1a0 av_getup.o
+		.data                940             120 av_jump.o
+		.data                a60             160 av_jump_start.o
+		.data                bc0             3d0 av_wait.o
+		.data                f90            2a10 av_wait_mdl.o
+
+.strtab                                0             1de
+		.strtab                0             1de *ld_internal*
+
+.symtab                                0             1b0
+		.symtab                0             1b0 *ld_internal*
+
+.mdebug                                0            10c4
+		.mdebug                0            10c4 *ld_internal*
+
+.rel.data                              0             238
+		.rel.data              0              10 av_die.o
+		.rel.data             10              10 av_dmg.o
+		.rel.data             20              10 av_fire.o
+		.rel.data             30              10 av_getup.o
+		.rel.data             40              10 av_jump.o
+		.rel.data             50              10 av_jump_start.o
+		.rel.data             60              10 av_wait.o
+		.rel.data             70             1c8 av_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

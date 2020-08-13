@@ -1,0 +1,157 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            a640
+		.data                  0              d0 Ahg2_18.o
+		.data                 d0              b0 Ahg2_8.o
+		.data                180              c0 Ahg_matsu.o
+		.data                240             4f0 Ane_hanasu.o
+		.data                730              b0 Ane_matsu.o
+		.data                7e0              d0 Ani_matsu.o
+		.data                8b0              90 Aob_mastu.o
+		.data                940             2d0 Aob_n_wait.o
+		.data                c10             3f0 Aob_tataku_roop.o
+		.data               1000             300 Aob_te_wait.o
+		.data               1300             1b0 Bba_aruku.o
+		.data               14b0             1b0 Bba_furimuku.o
+		.data               1660              a0 Bba_matsu.o
+		.data               1700             1b0 Bba_modoru.o
+		.data               18b0             5e0 Bba_n_wait.o
+		.data               1e90              a0 Bji2_20.o
+		.data               1f30             240 Bji_aruku.o
+		.data               2170             470 Bji_hiso_wait.o
+		.data               25e0              90 Bji_matsu.o
+		.data               2670             1f0 Bji_n_wait.o
+		.data               2860              90 Bob_matsu.o
+		.data               28f0             430 Boj2_17.o
+		.data               2d20              b0 Boj2_19.o
+		.data               2dd0             250 Boj2_5.o
+		.data               3020             1a0 Boj2_9.o
+		.data               31c0             210 Boj2_9_2.o
+		.data               33d0             9d0 Boj_13.o
+		.data               3da0             470 Boj_14.o
+		.data               4210              b0 Boj_matsu.o
+		.data               42c0             160 Cne2_15.o
+		.data               4420             380 Cne_aruku.o
+		.data               47a0             4c0 Cne_hiso_wait.o
+		.data               4c60              b0 Cne_matsu.o
+		.data               4d10             190 Cne_n_wait.o
+		.data               4ea0              a0 Cob_matsu.o
+		.data               4f40             8e0 fad_kusukusu.o
+		.data               5820             ad0 fad_n_wait.o
+		.data               62f0             180 ge1_hanasi.o
+		.data               6470              c0 ge1_matsu.o
+		.data               6530              c0 km1_agura_pose.o
+		.data               65f0             480 km1_asekaki_wait.o
+		.data               6a70             480 km1_backcyu.o
+		.data               6ef0              c0 km1_bed_suwari_pose.o
+		.data               6fb0              d0 km1_doushite_pose.o
+		.data               7080              b0 km1_hiji_suwari_pose.o
+		.data               7130             340 km1_ijiiji.o
+		.data               7470             3d0 km1_ishi_wait.o
+		.data               7840             570 km1_kusakari.o
+		.data               7db0              d0 km1_kususu_pose.o
+		.data               7e80              d0 km1_miage_pose.o
+		.data               7f50              c0 km1_nani_pose.o
+		.data               8010              c0 km1_niterunar_pose.o
+		.data               80d0              c0 km1_nokezori_pose.o
+		.data               8190             620 km1_osiete_wait.o
+		.data               87b0             7d0 km1_out_in_pose.o
+		.data               8f80              c0 km1_setsumei_pose.o
+		.data               9040              c0 km1_shinpai_pose.o
+		.data               9100              c0 km1_suwari_pose.o
+		.data               91c0              d0 km1_udekumi_pose.o
+		.data               9290             5b0 km1_ukiuki_wait.o
+		.data               9840              c0 km1_usirote_pose.o
+		.data               9900              c0 km1_utsumuki_pose.o
+		.data               99c0             1c0 kw1_out_in_pose.o
+		.data               9b80             430 onegai_c.o
+		.data               9fb0             690 oro_oro.o
+
+.strtab                                0             7fb
+		.strtab                0             7fb *ld_internal*
+
+.symtab                                0             430
+		.symtab                0             430 *ld_internal*
+
+.mdebug                                0            4af0
+		.mdebug                0            4af0 *ld_internal*
+
+.rel.data                              0             410
+		.rel.data              0              10 Ahg2_18.o
+		.rel.data             10              10 Ahg2_8.o
+		.rel.data             20              10 Ahg_matsu.o
+		.rel.data             30              10 Ane_hanasu.o
+		.rel.data             40              10 Ane_matsu.o
+		.rel.data             50              10 Ani_matsu.o
+		.rel.data             60              10 Aob_mastu.o
+		.rel.data             70              10 Aob_n_wait.o
+		.rel.data             80              10 Aob_tataku_roop.o
+		.rel.data             90              10 Aob_te_wait.o
+		.rel.data             a0              10 Bba_aruku.o
+		.rel.data             b0              10 Bba_furimuku.o
+		.rel.data             c0              10 Bba_matsu.o
+		.rel.data             d0              10 Bba_modoru.o
+		.rel.data             e0              10 Bba_n_wait.o
+		.rel.data             f0              10 Bji2_20.o
+		.rel.data            100              10 Bji_aruku.o
+		.rel.data            110              10 Bji_hiso_wait.o
+		.rel.data            120              10 Bji_matsu.o
+		.rel.data            130              10 Bji_n_wait.o
+		.rel.data            140              10 Bob_matsu.o
+		.rel.data            150              10 Boj2_17.o
+		.rel.data            160              10 Boj2_19.o
+		.rel.data            170              10 Boj2_5.o
+		.rel.data            180              10 Boj2_9.o
+		.rel.data            190              10 Boj2_9_2.o
+		.rel.data            1a0              10 Boj_13.o
+		.rel.data            1b0              10 Boj_14.o
+		.rel.data            1c0              10 Boj_matsu.o
+		.rel.data            1d0              10 Cne2_15.o
+		.rel.data            1e0              10 Cne_aruku.o
+		.rel.data            1f0              10 Cne_hiso_wait.o
+		.rel.data            200              10 Cne_matsu.o
+		.rel.data            210              10 Cne_n_wait.o
+		.rel.data            220              10 Cob_matsu.o
+		.rel.data            230              10 fad_kusukusu.o
+		.rel.data            240              10 fad_n_wait.o
+		.rel.data            250              10 ge1_hanasi.o
+		.rel.data            260              10 ge1_matsu.o
+		.rel.data            270              10 km1_agura_pose.o
+		.rel.data            280              10 km1_asekaki_wait.o
+		.rel.data            290              10 km1_backcyu.o
+		.rel.data            2a0              10 km1_bed_suwari_pose.o
+		.rel.data            2b0              10 km1_doushite_pose.o
+		.rel.data            2c0              10 km1_hiji_suwari_pose.o
+		.rel.data            2d0              10 km1_ijiiji.o
+		.rel.data            2e0              10 km1_ishi_wait.o
+		.rel.data            2f0              10 km1_kusakari.o
+		.rel.data            300              10 km1_kususu_pose.o
+		.rel.data            310              10 km1_miage_pose.o
+		.rel.data            320              10 km1_nani_pose.o
+		.rel.data            330              10 km1_niterunar_pose.o
+		.rel.data            340              10 km1_nokezori_pose.o
+		.rel.data            350              10 km1_osiete_wait.o
+		.rel.data            360              10 km1_out_in_pose.o
+		.rel.data            370              10 km1_setsumei_pose.o
+		.rel.data            380              10 km1_shinpai_pose.o
+		.rel.data            390              10 km1_suwari_pose.o
+		.rel.data            3a0              10 km1_udekumi_pose.o
+		.rel.data            3b0              10 km1_ukiuki_wait.o
+		.rel.data            3c0              10 km1_usirote_pose.o
+		.rel.data            3d0              10 km1_utsumuki_pose.o
+		.rel.data            3e0              10 kw1_out_in_pose.o
+		.rel.data            3f0              10 onegai_c.o
+		.rel.data            400              10 oro_oro.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

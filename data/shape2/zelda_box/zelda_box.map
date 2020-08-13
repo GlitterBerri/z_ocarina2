@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6000
+		.data                  0             140 cdemo_box_boxA.o
+		.data                140             210 demo_box_boxA.o
+		.data                350             160 demo_box_boxB.o
+		.data                4b0            4340 demo_box_boxB_mdl.o
+		.data               47f0             380 demo_tre_lgt.o
+		.data               4b70             410 demo_tre_lgt_c.o
+		.data               4f80             f40 demo_tre_lgt_mdl.o
+		.data               5ec0             140 takara_hako_bgc.o
+
+.strtab                                0             257
+		.strtab                0             257 *ld_internal*
+
+.symtab                                0             1f0
+		.symtab                0             1f0 *ld_internal*
+
+.mdebug                                0            1420
+		.mdebug                0            1420 *ld_internal*
+
+.rel.data                              0             2d8
+		.rel.data              0              10 cdemo_box_boxA.o
+		.rel.data             10              10 demo_box_boxA.o
+		.rel.data             20              10 demo_box_boxB.o
+		.rel.data             30             118 demo_box_boxB_mdl.o
+		.rel.data            148              18 demo_tre_lgt.o
+		.rel.data            160              18 demo_tre_lgt_c.o
+		.rel.data            178             140 demo_tre_lgt_mdl.o
+		.rel.data            2b8              20 takara_hako_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

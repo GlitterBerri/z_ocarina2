@@ -1,0 +1,789 @@
+/*
+ * $Id: z_scene_bank.decl,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $
+ *
+ *	オブジェクト入れ替えバンクデータテーブル
+ *
+ * 原則としてdeclの順番は変えないでください
+ * 追加する場合は decl0 の行と置き換えるか、後ろに追加してください
+ * 
+ * decl(ename, sname)          シーン登録
+ * decl0(ename, sname)         ダミー登録
+ *
+ * ename:enum名
+ * sname:シーン名
+ *
+ * $Log: z_scene_bank.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 20:51:48+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.120  1998/10/14 05:23:21  matutani
+ * Skeleton消しました
+ *
+ * Revision 1.119  1998-10-13 22:16:31+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.118  1998-09-23 00:45:18+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.117  1998-09-18 21:44:16+09  sakakibara
+ * 時の歌ブロック
+ *
+ * Revision 1.116  1998-09-15 17:08:41+09  nisiwaki
+ * killer_door 追加
+ *
+ * Revision 1.115  1998-09-14 15:26:10+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.114  1998-09-07 11:30:51+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.113  1998-09-05 14:33:08+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.112  1998-09-03 20:16:45+09  umemiya
+ * 怪鳥グエー追加
+ *
+ * Revision 1.111  1998-09-02 22:04:15+09  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.110  1998-09-02 12:00:41+09  umemiya
+ * オクタロックの吐く石を外した
+ *
+ * Revision 1.109  1998-09-01 20:28:17+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.108  1998-09-01 00:48:58+09  yoshida
+ * ゴシップストーン
+ * 水の神殿オブジェ３分割
+ * カカリコ村大工の弟子
+ * 追加
+ *
+ * Revision 1.107  1998-08-26 22:01:58+09  umemiya
+ * 墓下ダンジョンドア追加
+ *
+ * Revision 1.106  1998-08-26 11:37:53+09  komatu
+ * ガノンの塔崩壊デモバンク分
+ * ガノンの塔崩壊デモ用エフェクトバンク追加
+ *
+ * Revision 1.105  1998-08-26 00:33:05+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.104  1998-08-24 16:58:02+09  umemiya
+ * 作曲家ポウ追加
+ *
+ * Revision 1.103  1998-08-22 17:29:52+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.102  1998-08-22 16:02:15+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.101  1998-08-22 14:32:19+09  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.100  1998-08-21 18:21:24+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.99  1998-08-20 15:57:01+09  nisiwaki
+ * Efc_Doughnut Demo_Kekkai 追加
+ *
+ * Revision 1.98  1998-08-20 13:56:47+09  umemiya
+ * フィールドポウ追加
+ *
+ * Revision 1.97  1998-08-20 11:40:47+09  kuzuhara
+ * ボムチュウ屋見えない壁
+ *
+ * Revision 1.96  1998-08-19 19:11:48+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.95  1998-08-18 16:32:08+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.94  1998-08-18 11:39:00+09  kuzuhara
+ * デグナッツのお面品評会
+ *
+ * Revision 1.93  1998-08-17 21:06:20+09  sakakibara
+ * ｓｐｏｔ１１ オブジェクト と据置の木箱追加
+ *
+ * Revision 1.92  1998-08-17 18:34:29+09  yoshida
+ * *** empty log message ***
+ *
+ * Revision 1.91  1998-08-12 14:43:13+09  sakakibara
+ * 邪神像ダンジョン 鉄柱と鉄椅子 & ドア  分割
+ *
+ * Revision 1.90  1998-08-11 12:53:26+09  kuzuhara
+ * 犬やら鶏小娘やら
+ *
+ * Revision 1.89  1998-08-10 15:42:48+09  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.88  1998-08-08 16:05:40+09  umemiya
+ * 売りナッツ追加
+ *
+ * Revision 1.87  1998-08-07 19:35:29+09  nisiwaki
+ * Gla 追加
+ *
+ * Revision 1.86  1998-08-07 14:34:58+09  umemiya
+ * SPOT00・こわれた橋追加
+ *
+ * Revision 1.85  1998-08-06 20:10:58+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.84  1998-08-06 17:59:11+09  umemiya
+ * ヒントナッツ追加
+ *
+ * Revision 1.83  1998-08-06 17:26:46+09  sakakibara
+ * ｓｐｏｔ１２ オブジェクト & 汎用爆弾岩追加
+ *
+ * Revision 1.82  1998-08-06 11:46:35+09  umemiya
+ * SPOT05オブジェ追加
+ *
+ * Revision 1.81  1998-08-05 18:14:53+09  kuzuhara
+ * ボムチュウアルバイトねーちゃん作成
+ *
+ * Revision 1.80  1998-08-04 13:14:12+09  umemiya
+ * ダイオクタ追加
+ *
+ * Revision 1.79  1998-08-03 17:55:17+09  nisiwaki
+ * SSH 追加
+ *
+ * Revision 1.78  1998-07-31 20:50:49+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.77  1998-07-31 11:19:53+09  kuzuhara
+ * 魚追加
+ *
+ * Revision 1.76  1998-07-30 11:51:13+09  komatu
+ * Ecの追加
+ *
+ * Revision 1.75  1998-07-30 11:32:16+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.74  1998-07-29 13:29:38+09  komatu
+ * Zgの追加
+ *
+ * Revision 1.73  1998-07-23 17:20:57+09  kuzuhara
+ * 宝箱屋作成
+ *
+ * Revision 1.72  1998-07-23 13:03:28+09  kuzuhara
+ * 案山子
+ *
+ * Revision 1.71  1998-07-21 16:13:53+09  kuzuhara
+ * ガノン２作成
+ *
+ * Revision 1.70  1998-07-20 16:39:04+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.69  1998-07-20 15:02:55+09  komatu
+ * 大ゼルダのアニメのバンクを別にした
+ *
+ * Revision 1.68  1998-07-18 15:33:20+09  nisiwaki
+ * efc_erupc 追加
+ *
+ * Revision 1.67  1998-07-17 13:54:04+09  komatu
+ * gtの追加
+ *
+ * Revision 1.66  1998-07-16 22:17:35+09  soejima
+ * *** empty log message ***
+ *
+ * Revision 1.65  1998-07-15 15:10:33+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.64  1998-07-15 13:41:57+09  yoshida
+ * いろいろ追加
+ *
+ * Revision 1.63  1998-07-14 19:58:55+09  nisiwaki
+ * js 追加
+ *
+ * Revision 1.62  1998-07-14 11:57:56+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.61  1998-07-13 14:28:12+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.60  1998-07-09 14:52:34+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.59  1998-07-09 14:26:10+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.58  1998-07-08 17:02:47+09  yoshida
+ * 吸い込み渦 潮吹 脱出ゼルダ 追加
+ *
+ * Revision 1.57  1998-07-07 22:04:45+09  umemiya
+ * ガノン内部・オブジェ追加
+ *
+ * Revision 1.56  1998-07-03 17:16:26+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.55  1998-07-02 16:40:44+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.54  1998-07-02 15:46:01+09  nisiwaki
+ * Fu 風車小屋の男
+ *
+ * Revision 1.53  1998-06-30 17:55:37+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.52  1998-06-29 20:38:44+09  umemiya
+ * ガノン城・オブジェ追加
+ *
+ * Revision 1.51  1998-06-26 15:29:06+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.50  1998-06-25 19:17:57+09  kuzuhara
+ * 爆破看板作成
+ *
+ * Revision 1.49  1998-06-24 13:09:41+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.48  1998-06-23 21:57:03+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.47  1998-06-22 16:25:12+09  sumiyosi
+ * インゴーとめ柵追加。
+ *
+ * Revision 1.46  1998-06-22 10:27:16+10  tarukado
+ * *** empty log message ***
+ *
+ * Revision 1.45  1998-06-20 16:52:14+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.44  1998-06-18 13:07:10+09  komatu
+ * OF1をけした
+ *
+ * Revision 1.43  1998-06-16 18:36:41+09  umemiya
+ * 墓下子供ダンジョンオブジェ追加
+ *
+ * Revision 1.42  1998-06-16 12:05:55+09  nisiwaki
+ * たくさん増やした
+ *
+ * Revision 1.41  1998-06-15 13:27:07+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.40  1998-06-15 11:45:00+09  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.39  1998-06-10 16:25:28+09  nisiwaki
+ * *** empty log message ***
+ *
+ * Revision 1.38  1998-06-10 11:34:48+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.37  1998-06-09 22:10:14+09  kuzuhara
+ * やぶさめ得点
+ *
+ * Revision 1.36  1998-06-08 10:43:18+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.35  1998-06-05 23:20:19+10  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.34  1998-06-04 23:03:51+10  hayakawa
+ * もういいでしょう
+ *
+ * Revision 1.33  1998-06-04 14:19:37+09  umemiya
+ * 墓下リレーオブジェ追加
+ *
+ * Revision 1.32  1998-06-04 14:03:56+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.31  1998-06-04 13:51:31+09  yoshida
+ * spot03,spot07滝追加
+ *
+ * Revision 1.30  1998-06-01 22:47:16+09  sumiyosi
+ * ねえちゃん、おじさん追加。
+ *
+ * Revision 1.29  1998-06-01 23:31:06+10  hayakawa
+ * 空きをdecl00にした
+ * 小松削除
+ *
+ * Revision 1.28  1998-06-01 16:40:53+09  sakakibara
+ * Ｓｐｏｔ０８ オブジェクト追加
+ *
+ * Revision 1.27  1998-05-29 14:29:35+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.26  1998-05-28 16:14:10+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.25  1998-05-15 22:41:34+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.24  1998/05/13 10:55:36  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.23  1998-05-13 18:46:57+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.22  1998-05-12 23:17:52+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.21  1998/05/12 10:01:28  komatu
+ * *** empty log message ***
+ *
+ * Revision 1.20  1998-05-11 22:42:17+09  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.19  1998/05/08 08:43:27  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.18  1998-05-07 15:06:46+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.17  1998-05-06 17:41:25+09  umemiya
+ * 馬ジャンプ柵追加
+ *
+ * Revision 1.16  1998-05-06 15:24:53+09  sumiyosi
+ * キングゾーラ追加
+ *
+ * Revision 1.15  1998/04/29 14:06:31  sumiyosi
+ * *** empty log message ***
+ *
+ * Revision 1.14  1998/04/28 02:26:03  kuzuhara
+ * カカリコ、ゾーラゲート作成
+ *
+ * Revision 1.13  1998-04-23 16:19:08+09  kuzuhara
+ * 兵士開く柵
+ *
+ * Revision 1.12  1998-04-22 18:37:24+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.11  1998-04-21 11:56:46+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.10  1998-04-20 16:55:21+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.9  1998-04-17 21:16:35+09  matutani
+ * 汎用馬とデブ（その１)の位置入れ替え
+ *
+ * Revision 1.8  1998-04-17 21:17:05+10  matutani
+ * *** empty log message ***
+ *
+ * Revision 1.7  1998-04-17 20:12:56+10  sakakibara
+ * *** empty log message ***
+ *
+ * Revision 1.6  1998/04/17 08:03:39  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.5  1998-04-17 11:27:09+09  takahata
+ * *** empty log message ***
+ *
+ * Revision 1.4  1998-04-17 10:53:17+09  nisiwaki
+ * Demo_6K, object_demo_6k 追加
+ *
+ * Revision 1.3  1998/04/16 12:23:35  hayakawa
+ * decl0, decl00マクロの追加
+ *
+ * Revision 1.2  1998-04-16 21:01:15+09  hayakawa
+ * z_scene_bank.decl化 取りあえず完成
+ *
+ * Revision 1.1  1998-04-15 21:31:32+09  hayakawa
+ * Initial revision
+ *
+ */
+
+decl(Keep, gameplay_keep)		/* 全常駐 */
+decl(F_Keep, gameplay_field_keep)	/* フィールド常駐 */
+decl(D_Keep, gameplay_dangeon_keep)	/* ダンジョン常駐 */
+decl0(Skeleton, object_skelton)		/* スタルフォス */
+decl0(IronKnack, object_ironknack)	/* アイアンナック */
+decl(Girl, object_human)		/* 女の子 */
+decl(Okuta, object_okuta)		/* オクタロック */
+decl(Crow, object_crow)			/* 怪鳥グエー */
+decl(Poh, object_poh)			/* ポウ */
+decl(Dy_Obj, object_dy_obj)		/* 大妖精の泉オブジェクト */
+decl(Wallmaster, object_wallmaster)	/* ウォールマスター */
+decl(Dodongo, object_dodongo)		/* ドドンゴ */
+decl(Firefly, object_firefly)		/* ファイヤーフライ */
+decl(Box, object_box)			/* 宝箱 */
+decl(Fire, object_fire)			/* 火 */
+decl0(Slime, object_slime)		/* スライム */
+decl0(Baby_Skel, object_baby_skel)	/* ベビースタルフォス */
+decl(Bubble, object_bubble)		/* 泡 */
+decl(Niw, object_niw)			/* ニワトリ */
+decl(Link_Boy, object_link_boy)		/* リンク青年 */
+decl(Link_Child, object_link_child)	/* リンク少年 */
+decl(Tite, object_tite)			/* テクタイト */
+decl(Reeba, object_reeba)		/* リーバ */
+decl(Peehat, object_peehat)		/* ピーハット */
+decl(Boss_Dodongo, object_kingdodongo)	/* ボスドドンゴ */
+decl(Horse, object_horse)		/* 馬 */
+decl(Zf, object_zf)			/* リザルフォス */
+decl(Boss_Goma, object_goma)		/* ゴーマ */
+decl(Zl1, object_zl1)			/* 子ゼルダ */
+decl(Ko_Goma, object_gol)		/* 子ゴーマ */
+decl(Dodojr, object_dodojr)		/* ベビードドンゴ */
+decl(Torch2, object_torch2)		/* 松明２ */
+decl(Bili, object_bl)			/* ビリ */
+decl(Tp, object_tp)			/* テールパサラン */
+decl(OAX, object_oA1)			/* 成人男性 */
+decl(St, object_st)			/* スタルチュラ */
+decl(Bw, object_bw)			/* バブルウォーク */
+decl(Eiyer, object_ei)			/* エイヤー */
+decl(Horse_Normal, object_horse_normal)	/* 汎用馬 */
+decl(OBX, object_oB1)			/* デブ（その１） */
+decl(O_Anime, object_o_anime)		/* ワンパースシステムアニメーションデータ */
+decl(Spot04_Objects, object_spot04_objects) /* スポット０４妖精の木・オブジェ */
+decl(Ddan_Objects, object_ddan_objects)	/* ドドンゴダンジョン・オブジェ */
+decl(Hidan_Objects, object_hidan_objects) /* 炎の神殿・オブジェ */
+decl(Horse_Ganon, object_horse_ganon)	/* ガノン用馬 */
+decl(OA2, object_oA2)			/* ゾーラ族 */
+decl(Spot00_Objects, object_spot00_objects) /* スポット００・オブジェ */
+decl(Mb, object_mb)			/* モリブリン */
+decl(Bombf, object_bombf)		/* 爆弾花 */
+decl(Sk2, object_sk2)			/* 新スタルフォス */
+decl(OE1, object_oE1)			/* コキリ族（Ｚボタンを制する）	*/
+decl(OE_Anime, object_oE_anime)		/* ワンパースシステムアニメーションデータ２ */
+decl(OE2, object_oE2)			/* コキリ族（妖精の樹説明娘）	*/
+decl(Ydan_Objects, object_ydan_objects)	/* 妖精ダンジョン・オブジェ */
+decl(Boss_Ganondrof, object_gnd)	/* ファントムガノン */
+decl(Am, object_am)			/* アモス */
+decl(Dekubaba, object_dekubaba)		/* デクババ */
+decl0(OF1, object_oF1)			/* ゴロン族 */
+decl(OA3, object_oA3)			/* シーカー族〜インパ（マスク付）〜 */
+decl(OA4, object_oA4)			/* ハイリア（おやじ） */
+decl(OA5, object_oA5)			/* ハイリア（ネーちゃん２） */
+decl(OA6, object_oA6)			/* ハイリア（オヤジ２） */
+decl(OA7, object_oA7)			/* ハイリア（ネーちゃん） */
+decl(Jj, object_jj)			/* 巨大魚ジャブジャブ */
+decl(OA8, object_oA8)			/* ハイリア（ネーちゃん） */
+decl(OA9, object_oA9)			/* ハイリア（ネーちゃん） */
+decl(OB2, object_oB2)			/* ハイリア（ネーちゃん） */
+decl(OB3, object_oB3)			/* ハイリア（ネーちゃん） */
+decl(OB4, object_oB4)			/* ハイリア（ネーちゃん） */
+decl(Horse_Zelda, object_horse_zelda)	/* ゼルダ用馬 */
+decl(Opening_Demo1, object_opening_demo1) /* オープニングデモ用データ */
+decl(Warp1, object_warp1)		/* ボス部屋からのワープ */
+decl(B_Heart, object_b_heart)		/* ハートの器 */
+decl(Dekunuts, object_dekunuts)		/* デクナッツ */
+decl(OE3, object_oE3)			/* コキリ族（サリア）		*/
+decl(OE4, object_oE4)			/* コキリ族（家の中のヤツ）	*/
+decl(Menkuri_Objects, object_menkuri_objects) /* 面クリダンジョン・オブジェ */
+decl(OE5, object_oE5)			/* コキリ族（店説明生意気娘）	*/
+decl(OE6, object_oE6)			/* コキリ族（ハズカシ娘）	*/
+decl(OE7, object_oE7)			/* コキリ族（柵の向こう）	*/
+decl(OE8, object_oE8)			/* コキリ族（家入るな娘）	*/
+decl(OE9, object_oE9)			/* コキリ族（Ｃボタン説明）	*/
+decl(OE10, object_oE10)			/* コキリ族（コキリ店主）	*/
+decl(OE11, object_oE11)			/* コキリ族（剣振り説明）	*/
+decl(OE12, object_oE12)			/* コキリ族（）	*/
+decl(Vali, object_vali)			/* バリ */
+decl(OA10, object_oA10)			/* 門番（その１）	*/
+decl(OA11, object_oA11)			/* 門番（その２）	*/
+decl(Mizu_Objects, object_mizu_objects)	/* 水の神殿・オブジェ */
+decl(fHG, object_fhg)			/* ファントムガノン馬 */
+decl(Ossan, object_ossan)		/* 店のおっさん */
+decl(Mori_Hineri1, object_mori_hineri1)	/* 森の神殿・ひねり回廊部屋１ */
+decl(Bb, object_Bb)			/* バブル */
+decl(Toki_Objects, object_toki_objects)	/* 時の間・オブジェ */
+decl(Yukabyun, object_yukabyun)		/* トラップ床ビュン */
+decl(Zl2, object_zl2)			/* 大ゼルダ	*/
+decl(Mjin, object_mjin)			/* 魔方陣ベース	*/
+decl(Mjin_flash, object_mjin_flash)	/* 光の魔方陣テクスチャー */
+decl(Mjin_dark, object_mjin_dark)	/* 闇の魔方陣テクスチャー */
+decl(Mjin_flame, object_mjin_flame)	/* 炎の魔方陣テクスチャー */
+decl(Mjin_ice, object_mjin_ice)		/* 氷の魔方陣テクスチャー */
+decl(Mjin_soul, object_mjin_soul)	/* 魂の魔方陣テクスチャー */
+decl(Mjin_wind, object_mjin_wind)	/* 風の魔方陣テクスチャー */
+decl(Mjin_oka, object_mjin_oka)		/* オカリナワープポイント */
+decl(Haka_Objects, object_haka_objects)	/* 墓下ダンジョン・オブジェ */
+decl(Spot06_Objects, object_spot06_objects) /* スポット０６・オブジェ */
+decl(Ice_Objects, object_ice_objects)	/* 氷の洞窟・オブジェ */
+decl(Relay_Objects, object_relay_objects) /* 墓下リレー・オブジェ */
+decl(Po_Field, object_po_field) 	/* フィールドポウ */
+decl(Po_Composer, object_po_composer) 	/* 作曲家ポウ */
+decl(Mori_Hineri1a, object_mori_hineri1a) /* 森の神殿・ひねり回廊部屋１ａ */
+decl(Mori_Hineri2, object_mori_hineri2)	/* 森の神殿・ひねり回廊部屋２ */
+decl(Mori_Hineri2a, object_mori_hineri2a) /* 森の神殿・ひねり回廊部屋２ａ */
+decl(Mori_Objects, object_mori_objects)	/* 森の神殿・オブジェ */
+decl(Mori_Tex, object_mori_tex)		/* 森の神殿・テクスチャ */
+decl(Spot08_Obj, object_spot08_obj)	/* Ｓｐｏｔ０８ オブジェクト */
+decl(Warp2, object_warp2)		/* ボス部屋からのワープ（クリスタル） */
+decl(Hata, object_hata)			/* 旗 */
+decl(Bird, object_bird)			/* 小鳥 */
+decl0(Stree, object_stree)		/* 木（ブロッコリ型） */
+decl0(Kui, object_kui)			/* 杭 */
+decl0(Maruta, object_maruta)		/* 丸太 */
+decl0(Saku, object_saku)			/* 柵 */
+decl(Wood02, object_wood02)		/* 木２ */
+decl0(Twood01, object_twood01)		/* トンネル木 */
+decl0(Kabu02, object_kabu02)		/* 株２ */
+decl0(Board, object_board)		/* 板 */
+decl0(Floater, object_floater)		/* フローター */
+decl(Lightbox, object_lightbox)		/* 軽い箱 */
+decl(Pu_box, object_pu_box)		/* 押せる箱 */
+decl0(Spia, object_spia)			/* 槍 */
+decl0(Stoneb, object_stoneb)		/* 石橋 */
+decl(Trap, object_trap)			/* トラップ */
+decl(Vase, object_vase)			/* 壷 */
+decl(Im, object_im)			/* インパ	*/
+decl(Ta, object_ta)			/* タロン	*/
+decl(Tk, object_tk)			/* 墓守		*/
+decl(Xc, object_xc)			/* シーク	*/
+decl(Vm, object_vm)			/* ビーモス	*/
+decl(Bv, object_bv)			/* バリネード */
+decl(Hakach_Objects, object_hakach_objects)	/* 墓下子供ダンジョン・オブジェ */
+decl(efc_crystal_light, object_efc_crystal_light) /* (デモ用)クリスタル */
+decl(efc_fire_ball, object_efc_fire_ball) /* (デモ用)赤い光 */
+decl(efc_flash, object_efc_flash)	/* (デモ用)閃光 */
+decl(efc_lgt_shower, object_efc_lgt_shower) /* (デモ用)光のしぶき */
+decl(efc_star_field, object_efc_star_field) /* (デモ用)スターフィールド */
+decl(god_lgt, object_god_lgt)		/* (デモ用)三大神 */
+decl(light_ring, object_light_ring)	/* (デモ用)光の輪 */
+decl(triforce_spot, object_triforce_spot) /* (デモ用)トライフォース */
+decl(Bdan_Objects, object_bdan_objects)	/* 巨大魚ダンジョン・オブジェ */
+decl(Sd, object_sd)			/* 城兵士１ */
+decl(Rd, object_rd)			/* リーデッド */
+decl(Po_Sisters, object_po_sisters)	/* ポウ四姉妹 */
+decl(Heavy_Object, object_heavy_object)	/* 最大ブロック */
+decl(Gnd, object_gndd)			/* ガノンドロフ */
+decl(Boss_Fd, object_fd)		/* ファイアードラゴン */
+decl(Du, object_du)			/* ダルニア */
+decl(Fd, object_fw)			/* フレイムダンサー */
+decl(medal, object_medal)		/* フレイムダンサー */
+decl(Horse_Link_Child, object_horse_link_child)	/* リンクの子馬 */
+decl(Spot02_Objects, object_spot02_objects) /* スポット０２・オブジェ */
+decl(Haka, object_haka)			/* 墓 */
+decl(Ru1, object_ru1)			/* ルト 子供時代 */
+decl(Syokudai, object_syokudai)		/* 燭台 */
+decl(Boss_Fd2, object_fd2)		/* ファイアードラゴン 2*/
+decl(Dh, object_dh)			/* デッドハンド＆デッドアーム 2*/
+decl(Rl, object_rl)			/* ラウル */
+decl(efc_tw, object_efc_tw)		/* 時の間用 エフェクト */
+decl(Demo_Tre_Lgt, object_demo_tre_lgt)	/* 宝箱の光 */
+decl(Gi_Key, object_gi_key)		/* ダンジョンキー */
+decl(Mir_Ray, object_mir_ray)		/* 宝箱の光 */
+decl(Brob, object_brob)			/* ブロッブ */
+decl(Gi_Jewel, object_gi_jewel)		/* ブロッブ */
+decl(Spot09_Obj, object_spot09_obj)	/* ｓｐｏｔ０９ ゲルドの谷 オブジェクト */
+decl(Spot18_Obj, object_spot18_obj)	/* ｓｐｏｔ１８ オブジェクト */
+decl(Bdoor, object_bdoor)		/* ボスドア */
+decl(Spot17_Obj, object_spot17_obj)	/* ｓｐｏｔ１７ オブジェクト */
+decl(Shop_Tana, object_shop_dungen)	/* 店の棚 */
+decl(Nb, object_nb)			/* ナボール */
+decl(Mo, object_mo)			/* ＭＯＲＰＨＡ */
+decl(Sb, object_sb)			/* シェルブレード */
+decl(Gi_Melody, object_gi_melody)	/* ６つのメロディ */
+decl(Gi_Heart, object_gi_heart)		/* 回復のハート */
+decl(Gi_Compass, object_gi_compass)	/* コンパス */
+decl(Gi_Bosskey, object_gi_bosskey)	/* ボス部屋キー */
+decl(Gi_Medal, object_gi_medal)		/* 魔法のメダル */
+decl(Gi_Nuts, object_gi_nuts)		/* デクの実 */
+decl(Sa, object_sa)			/* 賢者サリア */
+decl(Gi_Hearts, object_gi_hearts)	/* ハートの欠片＆器 */
+decl(Gi_Arrowcase, object_gi_arrowcase)	/* 矢立て */
+decl(Gi_Bombpouch, object_gi_bombpouch)	/* ボム袋 */
+decl(In, object_in)			/* インゴー */
+decl(Tr, object_tr)			/* ツイン ローバ */
+decl(Spot16_Obj, object_spot16_obj)	/* ｓｐｏｔ１６ オブジェクト */
+decl(OE1s, object_oE1s)			/* コキリ族  テスト１	*/
+decl(OE4s, object_oE4s)			/* コキリ族  テスト２	*/
+decl(OEs_anime, object_os_anime)	/* コキリ族  アニメーションテスト	*/
+decl(Gi_Bottle, object_gi_bottle)	/* 空ビン */
+decl(Gi_Stick, object_gi_stick)		/* デクの棒 */
+decl(Gi_Map, object_gi_map)		/* マップ */
+decl(OF1d_Map, object_oF1d_map)		/* デモ用ゴロン族 */
+decl(Ru2, object_ru2)			/* ルト 大人時代 */
+decl(Gi_Shield_1, object_gi_shield_1)	/* デクの盾 */
+decl(Dekujr, object_dekujr)		/* デクの樹Ｊｒ．*/
+decl(Gi_Magicpot, object_gi_magicpot)	/* 魔法のつぼ */
+decl(Gi_Bomb_1, object_gi_bomb_1)	/* バクダン */
+decl(OF1s, object_oF1s)			/* ゴロン族  テスト１	*/
+decl(Ma2, object_ma2)			/* マロン(大人時代) */
+decl(Gi_Purse, object_gi_purse)		/* 大人のサイフ＆巨人のサイフ */
+decl(Hni, object_hni)			/* レース用馬（インゴー馬）*/
+decl(Tw, object_tw)			/* ツインローブ */
+decl(Rr, object_rr)			/* ライクライク	*/
+decl(Bxa, object_bxa)			/* ババリネードトラップ ＆ リネードアーム*/
+decl(Anubice, object_anubice)		/* アヌビス */
+decl(Gi_Gerudo, object_gi_gerudo)	/* ゲルドの会員証 */
+decl(Gi_Arrow, object_gi_arrow)		/* 矢×１＆矢×２＆矢×３ */
+decl(Gi_Bomb_2, object_gi_bomb_2)	/* ボムチュウ */
+decl(Gi_Egg, object_gi_egg)		/* ニワトリタマゴ */
+decl(Gi_Scale, object_gi_scale)		/* 銀のウロコ＆金のウロコ */
+decl(Gi_Shield_2, object_gi_shield_2)	/* ハイリアの盾 */
+decl(Gi_Hookshot, object_gi_hookshot)	/* フックショット */
+decl(Gi_Ocarina, object_gi_ocarina)	/* オカリナ */
+decl(Gi_Milk, object_gi_milk)		/* 牛乳 */
+decl(Ma1, object_ma1)			/* マロン(子供時代)*/
+decl(Ganon, object_ganon)		/* ラスト ガノン */ 
+decl(Sst, object_sst)			/* シェィド ストーカー */
+decl(Go2, object_go2)			/* ゴーマ２ */
+decl0(Stk, object_stk)			/* スタル キッド */
+decl(Ny, object_ny)			/* ニュウ */
+decl(Fr, object_fr)			/* フロック */
+decl(Gi_Pachinko, object_gi_pachinko)	/* パチンコ */
+decl(Gi_Boomerang, object_gi_boomerang)	/* ブーメラン */
+decl(Gi_Bow, object_gi_bow)		/* 妖精の弓 */
+decl(Gi_Glasses, object_gi_glasses)	/* まことの虫メガネ */
+decl(Gi_Liquid, object_gi_liquid)	/* くすり */
+decl(Ani, object_ani)			/* にいちゃん	*/
+decl(Demo_6K, object_demo_6k)		/* 六賢者用デモバンク */
+decl(Gi_Shield_3, object_gi_shield_3)	/* ミラーシールド */
+decl(Gi_Letter, object_gi_letter)	/* ゼルダの手紙 */
+decl(Spot15_Obj, object_spot15_obj)	/* Ｓｐｏｔ１５ オブジェクト */
+decl(Jya_Obj, object_jya_obj)		/* 巨大邪神像ダンジョン オブジェクト */
+decl(Gi_Clothes, object_gi_clothes)	/* ゴロンの服＆ゾーラの服 */
+decl(Gi_Bean, object_gi_bean)		/* 魔法の豆 */
+decl(Gi_Fish, object_gi_fish)		/* さかな */
+decl(Gi_Saw, object_gi_saw)		/* 名人のノコギリ */
+decl(Gi_Hammer, object_gi_hammer)	/* メガトンハンマー */
+decl(Gi_Grass, object_gi_grass)		/* 馬の草笛 */
+decl(Gi_Longsword, object_gi_longsword)	/* 巨人のナイフ */
+decl(Spot01_Objects, object_spot01_objects) /* スポット０１・オブジェ */
+decl(Gate, object_gate) 		/* ゲート */
+decl(Md, object_md) 		/* ミド		    */
+decl(Km1, object_km1) 		/* 汎用コキリ族(男) */
+decl(Kw1, object_kw1) 		/* 汎用コキリ族(女) */
+decl(Zo, object_zo) 		/* ゾーラ族	    */
+decl(Kz, object_kz) 		/* キングゾーラ	    */
+decl(Umajump, object_umajump)	/* 馬ジャンプ柵 */
+decl(Masterkokiri, object_masterkokiri)		/* コキリ店主 モデル */
+decl(Masterkokirihead, object_masterkokirihead)	/* コキリ店主 頭 */
+decl(Mastergolon, object_mastergolon)	/* ゴロン店主 モデル */
+decl(Masterzoora, object_masterzoora)	/* ゾーラ店主 モデル */
+decl(Aob, object_aob) 		/* オバちゃん	    */
+decl(Ik, object_ik) 		/* アイアンナック	    */
+decl(Ahg, object_ahg) 		/* ヒゲおじちゃん	    */
+decl(Cne, object_cne) 		/* ねえちゃん	    */
+decl(Gi_Niwatori, object_gi_niwatori)	/* ニワトリ */
+decl(Skj, object_skj)		/* スタルキッド */
+decl(Gi_Bottle_Letter, object_gi_bottle_letter)		/* 手紙入りビン */
+decl(Bji, object_bji)		/* じいちゃん	*/
+decl(Bba, object_bba)		/* ばあちゃん	*/
+decl(Gi_Ocarina_0, object_gi_ocarina_0)		/* 妖精のオカリナ */
+decl(Ds, object_ds)		/* 薬屋のおばちゃん */
+decl(Ane, object_ane)		/* ねえちゃん	*/
+decl(Boj, object_boj)		/* おじさん	*/
+decl(Spot03_Object, object_spot03_object) /* スポット０１・オブジェ */
+decl(Spot07_Object, object_spot07_object) /* スポット０１・オブジェ */
+decl(Fz, object_fz)		/* フリーザド */
+decl(Bob, object_bob)		/* おばちゃん */
+decl(Ge1, object_ge1)		/* 汎用ゲルド */
+decl(Yabusame_Point, object_yabusame_point )	/* やぶさめ得点 */
+decl(Gi_Boots_2, object_gi_boots_2)		/* ヘビィブーツ */
+decl(Gi_Seed, object_gi_seed)		/* デクのタネ */
+decl(Gnd_Magic, object_gnd_magic)		/* デクのタネ */
+decl(D_Elevator, object_d_elevator)	/* ダンジョン エレベータ */
+decl(D_Hsblock, object_d_hsblock)	/* ダンジョン フックショットブロック */
+decl(D_lift, object_d_lift)		/* ダンジョン リフト */
+decl(Mamenoki, object_mamenoki)		/* フィールド 豆の木 */
+decl(Goroiwa, object_goroiwa)		/* 汎用 ごろ岩 */
+decl0(Gi_Milk_2, object_gi_milk_2)	/* インゴー牛乳 */
+decl(Toryo, object_toryo)		/* 大工の頭領 */
+decl(Daiku, object_daiku)		/* 大工 */
+decl0(Stopge, object_stopge)		/* ゲルド */
+decl(Nwc, object_nwc)			/* ひよこ */
+decl(Blkobj,object_blkobj)		/* ブラックリンク用オブジェ */
+decl(Gm,object_gm)		/* 中ゴロン モデル */
+decl(Ms,object_ms)		/* まめや */
+decl(Hs,object_hs)		/* ひよこや */
+decl(Ingate, object_ingate)	/* インゴーとめ柵 */
+decl(Lightswitch, object_lightswitch)	/* 光反応スイッチ */
+decl(Kusa, object_kusa)			/* 豪華な草 */
+decl(Tsubo, object_tsubo)		/* フィールド壷 */
+decl(Gi_Gloves, object_gi_gloves)	/* 金と銀のグローブ */
+decl(Gi_Coin, object_gi_coin)	/* Ｎコイン */
+decl(Kanban, object_kanban)		/* 看板 */
+decl(Gjyo_Objects, object_gjyo_objects)	/* ガノン城（スポット１５の大人）・オブジェクト */
+decl(Owl, object_owl)		/* フクロウ */
+decl(Mk, object_mk)		/* 湖博士 */
+decl(Fu, object_fu)		/* 湖博士 */
+decl(Gi_Ki_Tan_Mask, object_gi_ki_tan_mask)		/* キータンのお面 */
+decl(Gi_Redead_Mask, object_gi_redead_mask)		/* こわそなお面 */
+decl(Gi_Skj_Mask, object_gi_skj_mask)			/* ドクロのお面 */
+decl(Gi_Rabit_Mask, object_gi_rabit_mask)		/* ウサギずきん */
+decl(Gi_Truth_Mask, object_gi_truth_mask)		/* まことの仮面 */
+decl(Ganon_Objects, object_ganon_objects)		/* ガノン内部・オブジェクト */
+decl(Siofuki, object_siofuki)		                /* 潮吹 */
+decl(Stream, object_stream)		                /* 吸い込み渦 */
+decl(Mm, object_mm)	                                /* ランニングマン */
+decl(Fa, object_fa)	/* コキリ族・ファド	*/
+decl(Os, object_os)	/* お面屋 */
+decl(Gi_Eye_Lotion, object_gi_eye_lotion)	/* 特製本生目薬 */
+decl(Gi_Powder, object_gi_powder)	/* あやしい薬 */
+decl(Gi_Mushroom, object_gi_mushroom)	/* あやしいキノコ */
+decl(Gi_Ticketstone, object_gi_ticketstone)	/* ゴロン刀引換券 */
+decl(Gi_Brokensword, object_gi_brokensword)	/* 折れたゴロン刀 */
+decl(Js, object_js)		/* じゅうたん商人 */
+decl(Cs, object_cs)	                                /* ちびっこストーカー */
+decl(Gi_Prescription, object_gi_prescription)	        /* 処方せん */
+decl(Gi_Bracelet, object_gi_bracelet)	                /* ゴロンのうでわ */
+decl(Gi_Soldout, object_gi_soldout)	                /* ＳＯＬＤＯＵＴ */
+decl(Gi_Frog, object_gi_frog)	                        /* メダマガエル */
+decl(Mag, object_mag)	                        /* タイトル */
+decl(Door_Gerudo, object_door_gerudo)	        /* ゲルド通路シャッター */
+decl(Gt, object_gt)		/* 崩壊デモ用ガノンの塔 */
+decl(Efc_Erupc, object_efc_erupc)		/* 火山噴火 */
+decl(Zl2_Anime1, object_zl2_anime1)		/* 大ゼルダ通常デモ用アニメ */
+decl(Zl2_Anime2, object_zl2_anime2)		/* 大ゼルダガノン戦デモ用アニメ */
+decl(Gi_Golonmask, object_gi_golonmask)			/* ゴロンのお面 */
+decl(Gi_Zoramask, object_gi_zoramask)			/* ゾーラのお面 */
+decl(Gi_Gerudomask, object_gi_gerudomask)		/* ゲルドのお面 */
+decl(Ganon2, object_ganon2)		/* ラスト ガノン */ 
+decl(Ka, object_ka) 					/* 案山子	*/
+decl(Ts, object_ts) 					/* 宝箱おやじ	*/
+decl(Zg, object_zg) 					/* 宝箱おやじ	*/
+decl(Gi_Hoverboots, object_gi_hoverboots) 		/* ホバーブーツ */
+decl(Gi_M_Arrow, object_gi_m_arrow) 			/* 魔法の矢×３ */
+decl(Ds2, object_ds2) 			/* 薬屋２ */
+decl(Ec, object_ec) 			/* エンディングキャラ */
+decl(Fish, object_fish) 				/* さかなっつハイ！ */
+decl(Gi_Sutaru, object_gi_sutaru) 			/* 黄金の魂 */
+decl(Gi_Goddess, object_gi_goddess) 			/* 魔法石×３ */
+decl(Ssh, object_ssh) 			/* 魔法石×３ */
+decl(Bigokuta, object_bigokuta)		/* ダイオクタ */
+decl(Bg, object_bg)					/* ぼむちゅうぼーりんぐアルバイトねーちゃん */
+decl(Spot05_Objects, object_spot05_objects) /* スポット０５・オブジェ */
+decl(Spot12_Obj, object_spot12_obj)	/* ｓｐｏｔ１２ オブジェクト */
+decl(Bombiwa, object_bombiwa)		/* 汎用爆弾岩 */
+decl(Hintnuts, object_hintnuts)		/* ヒントナッツ */
+decl(Rs, object_rs)		/* 路地裏の店（おやじ） */
+decl(Spot00_Break, object_spot00_break)	/* SPOT00・こわれた橋 */
+decl(Gla, object_gla)		/* 警戒ゲルド */
+decl(Shopnuts, object_shopnuts)		/* 売りナッツ */
+decl(Gelb, object_geldb)		/* ゲルド戦闘兵 */
+decl(Gr, object_gr)					/* 鶏おっかけ小娘 */
+decl(Dog, object_dog)					/* 犬 */
+decl(Jya_Iron, object_jya_iron)		/* 邪神像ダンジョン 鉄柱と鉄椅子 */
+decl(Jya_Door, object_jya_door)		/* 邪神像ダンジョン ドア */
+decl0(Spot01_Objects2, object_spot01_objects2)		/* SPOT01オブジェクトその2 */
+decl(Spot11_Obj, object_spot11_obj)	/* ｓｐｏｔ１１ オブジェクト */
+decl(Kibako2, object_kibako2)		/* 据置木箱 */
+decl(Dns, object_dns)					/* デグナッツお面品評会長老 */
+decl(Dnk, object_dnk)					/* デグナッツお面品評会一般人 */
+decl(Gi_Fire, object_gi_fire) 			/* 炎 */
+decl(Gi_Insect, object_gi_insect) 			/* 虫 */
+decl(Gi_Butterfly, object_gi_butterfly) 			/* チョウチョ */
+decl(Gi_Ghost, object_gi_ghost) 			/* ポウ */
+decl(Gi_Soul, object_gi_soul) 			/* 妖精の魂 */
+decl(Bowl, object_bowl)					/* ボムチュウ屋見えない壁 */
+decl(Demo_Kekkai, object_demo_kekkai)		/* ガノン城地下ダンジョン中央フロアの結界 */
+decl(Efc_Doughnut, object_efc_doughnut)		/* 火山のドーナッツ雲 */
+decl(Gi_Dekupouch, object_gi_dekupouch) 			/* デクのタネ袋 */
+decl(Ganon_Anime1, object_ganon_anime1)		/* ラスト ガノンアニメーション１ */
+decl(Ganon_Anime2, object_ganon_anime2)		/* ラスト ガノンアニメーション２ */
+decl(Ganon_Anime3, object_ganon_anime3)		/* ラスト ガノンアニメーション３ */
+decl(Gi_Rupy, object_gi_rupy) 			/* ルピー×３ */
+decl(Spot01_Matoya,  object_spot01_matoya) 	/* 的当て屋(完成) */
+decl(Spot01_MatoyaB, object_spot01_matoyab) 	/* 的当て屋(建設中) */
+decl(Mu, object_mu) 	/* 群 */
+decl(Wf, object_wf) 	/* ワーウルフ */
+decl(Skb, object_skb) 	/* ベビースタル	*/
+decl(Gj, object_gj)		/* ガノン最終戦２用ガノンの塔瓦礫 */
+decl(Geff, object_geff)		/* ガノンの塔崩壊デモ用エフェクト */
+decl(Haka_Door, object_haka_door)		/* 墓下ダンジョン ドア */
+decl(Gs, object_gs)		/* ゴシップストーン */
+decl(Ps, object_ps)		/* ゴーストバイヤー */
+decl(Bwall, object_bwall)	/* 壊れる壁 */
+decl(Cow, object_cow)	/* 壊れる壁 */
+decl(Cob, object_cob)	/* おばちゃん */
+decl(Gi_Sword_1, object_gi_sword_1)	/* コキリの剣 */
+decl(Door_Killer, object_door_killer)	/* キラードア */
+decl(Ouke_Haka, object_ouke_haka)	/* 王家墓 */
+decl(Timeblock, object_timeblock)	/* 時の歌ブロック */
+decl(Zl4, object_zl4) 		/* ゼルダ姫	    */

@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           143c0
+		.data                  0             450 anim_matsu.o
+		.data                450            f1a0 anim_matsu_mdl.o
+		.data               f5f0            1560 demo_furimuki.o
+		.data              10b50             810 demo_furimuki_wait.o
+		.data              11360             3a0 demo_kasige.o
+		.data              11700             4a0 demo_kasige_wait.o
+		.data              11ba0             590 demo_nozoki_wait.o
+		.data              12130             9f0 demo_slide.o
+		.data              12b20             470 demo_slide_wait.o
+		.data              12f90             360 demo_tesage.o
+		.data              132f0             600 demo_tetataki_1.o
+		.data              138f0             630 demo_tetataki_2.o
+		.data              13f20             4a0 demo_tetataki_wait.o
+
+.strtab                                0             555
+		.strtab                0             555 *ld_internal*
+
+.symtab                                0             4a0
+		.symtab                0             4a0 *ld_internal*
+
+.mdebug                                0            1e54
+		.mdebug                0            1e54 *ld_internal*
+
+.rel.data                              0             bf8
+		.rel.data              0              10 anim_matsu.o
+		.rel.data             10             b38 anim_matsu_mdl.o
+		.rel.data            b48              10 demo_furimuki.o
+		.rel.data            b58              10 demo_furimuki_wait.o
+		.rel.data            b68              10 demo_kasige.o
+		.rel.data            b78              10 demo_kasige_wait.o
+		.rel.data            b88              10 demo_nozoki_wait.o
+		.rel.data            b98              10 demo_slide.o
+		.rel.data            ba8              10 demo_slide_wait.o
+		.rel.data            bb8              10 demo_tesage.o
+		.rel.data            bc8              10 demo_tetataki_1.o
+		.rel.data            bd8              10 demo_tetataki_2.o
+		.rel.data            be8              10 demo_tetataki_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

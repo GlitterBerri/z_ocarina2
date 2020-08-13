@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             db0
+		.data                  0             d30 efc_tw_whirlpool.o
+		.data                d30              80 m_Wsiofuki_bgc.o
+
+.strtab                                0              5e
+		.strtab                0              5e *ld_internal*
+
+.symtab                                0              70
+		.symtab                0              70 *ld_internal*
+
+.mdebug                                0             334
+		.mdebug                0             334 *ld_internal*
+
+.rel.data                              0              50
+		.rel.data              0              30 efc_tw_whirlpool.o
+		.rel.data             30              20 m_Wsiofuki_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

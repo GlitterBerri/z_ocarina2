@@ -1,0 +1,4 @@
+TEXTURE/DMA_MAKE/ICON_ITEM/gameover/g_go_font1.inta  icon_item_gameover.o 0x170  0x0    2048
+TEXTURE/DMA_MAKE/ICON_ITEM/gameover/g_go_font2.inta  icon_item_gameover.o 0x170  0x800  2048
+TEXTURE/DMA_MAKE/ICON_ITEM/gameover/g_go_font3.inta  icon_item_gameover.o 0x170  0x1000 2048
+TEXTURE/DMA_MAKE/ICON_ITEM/nes/save/h_mes_save3_nes.ia  icon_item_gameover.o 0x170  0x2980 2432

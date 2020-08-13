@@ -1,0 +1,57 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           11a00
+		.data                  0             5d0 gnd_anim_fastrun.o
+		.data                5d0             2e0 gnd_anim_mahou.o
+		.data                8b0             330 gnd_anim_mahou_wait.o
+		.data                be0             390 gnd_anim_nirami.o
+		.data                f70             5a0 gnd_anim_nirami_wait.o
+		.data               1510             830 gnd_anim_stand.o
+		.data               1d40             c00 gnd_anim_wait.o
+		.data               2940             960 gnd_demo_ojigi.o
+		.data               32a0             1a0 gnd_demo_ojigi_furimuki.o
+		.data               3440             960 gnd_demo_ojigi_wait.o
+		.data               3da0             4d0 gnd_demo_ukabi_wait.o
+		.data               4270             2e0 gnd_demo_ukabi_warai.o
+		.data               4550             370 gnd_demo_ukabi_warai_wait.o
+		.data               48c0             800 gnd_walk.o
+		.data               50c0            c940 gnd_walk_mdl.o
+
+.strtab                                0             5bd
+		.strtab                0             5bd *ld_internal*
+
+.symtab                                0             4a0
+		.symtab                0             4a0 *ld_internal*
+
+.mdebug                                0            2048
+		.mdebug                0            2048 *ld_internal*
+
+.rel.data                              0             df0
+		.rel.data              0              10 gnd_anim_fastrun.o
+		.rel.data             10              10 gnd_anim_mahou.o
+		.rel.data             20              10 gnd_anim_mahou_wait.o
+		.rel.data             30              10 gnd_anim_nirami.o
+		.rel.data             40              10 gnd_anim_nirami_wait.o
+		.rel.data             50              10 gnd_anim_stand.o
+		.rel.data             60              10 gnd_anim_wait.o
+		.rel.data             70              10 gnd_demo_ojigi.o
+		.rel.data             80              10 gnd_demo_ojigi_furimuki.o
+		.rel.data             90              10 gnd_demo_ojigi_wait.o
+		.rel.data             a0              10 gnd_demo_ukabi_wait.o
+		.rel.data             b0              10 gnd_demo_ukabi_warai.o
+		.rel.data             c0              10 gnd_demo_ukabi_warai_wait.o
+		.rel.data             d0              10 gnd_walk.o
+		.rel.data             e0             d10 gnd_walk_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

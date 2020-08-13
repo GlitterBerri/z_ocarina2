@@ -1,0 +1,43 @@
+/*
+ * Game派生クラス登録テーブル
+ *
+ * decl2:オーバーレイ
+ * decl3:非オーバーレイ
+ * 
+ * オーバーレイの場合はMakefile.CFILESでOVLFILESに登録すること
+ * オーバーレイの場合はspecに登録すること
+ * 
+ * $Log: z_game_dlftbls.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 21:17:25+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.5  1998/05/13 00:34:01  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.4  1998-04-01 22:15:32+09  hayakawa
+ * さようなら onetri 君のことは忘れない
+ *
+ * Revision 1.3  1997/07/31  08:09:19  hayakawa
+ * playのオーバーレイテスト
+ *
+ * Revision 1.2  1997/07/16  08:02:27  hayakawa
+ * SOEJIMA_TEST,HAYAKAWA_TESTd2,HAYAKAWA_TESTd3を標準として外した
+ *
+ * Revision 1.1  1997/05/30  01:05:06  hayakawa
+ * Initial revision
+ *
+ */
+
+    decl3(first_game)
+    decl2(select)
+    decl2(title)
+#ifdef HAYAKAWA_TESTiwa
+    decl3(play)
+#else
+    decl3(play)
+#endif
+    decl2(opening)
+    decl2(file_choose)

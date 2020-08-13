@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           36580
+		.data                  0            2000 room_info.o
+		.data               2000              30 kokiri_home3_0_shape.o
+		.data               2030           25800 kokiri3_txt.o
+		.data              27830            ed50 kokiri_home3.o
+
+.strtab                                0             18d
+		.strtab                0             18d *ld_internal*
+
+.symtab                                0             130
+		.symtab                0             130 *ld_internal*
+
+.mdebug                                0             604
+		.mdebug                0             604 *ld_internal*
+
+.rel.data                              0             418
+		.rel.data              0              18 kokiri_home3_0_shape.o
+		.rel.data             18             400 kokiri_home3.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

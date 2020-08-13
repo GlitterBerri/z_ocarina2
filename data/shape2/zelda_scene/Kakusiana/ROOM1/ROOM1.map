@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5190
+		.data                  0              80 kakusiana_1_info.o
+		.data                 80              90 kakusiana_1_shape.o
+		.data                110            4110 kakusiana_grp_ana02.o
+		.data               4220             f70 kakusiana_grp_ana02T.o
+
+.strtab                                0             1c4
+		.strtab                0             1c4 *ld_internal*
+
+.symtab                                0             140
+		.symtab                0             140 *ld_internal*
+
+.mdebug                                0            11d8
+		.mdebug                0            11d8 *ld_internal*
+
+.rel.data                              0             1b8
+		.rel.data              0              18 kakusiana_1_info.o
+		.rel.data             18              58 kakusiana_1_shape.o
+		.rel.data             70              e0 kakusiana_grp_ana02.o
+		.rel.data            150              68 kakusiana_grp_ana02T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

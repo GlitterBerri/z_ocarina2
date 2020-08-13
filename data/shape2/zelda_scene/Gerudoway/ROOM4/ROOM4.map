@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3920
+		.data                  0             110 gerudoway_4_info.o
+		.data                110              70 gerudoway_4_shape.o
+		.data                180            2eb0 gerudoway_grp_way_5_6.o
+		.data               3030             8f0 gerudoway_grp_way_5_6T.o
+
+.strtab                                0             1fd
+		.strtab                0             1fd *ld_internal*
+
+.symtab                                0             180
+		.symtab                0             180 *ld_internal*
+
+.mdebug                                0            1094
+		.mdebug                0            1094 *ld_internal*
+
+.rel.data                              0             220
+		.rel.data              0              18 gerudoway_4_info.o
+		.rel.data             18              50 gerudoway_4_shape.o
+		.rel.data             68             130 gerudoway_grp_way_5_6.o
+		.rel.data            198              88 gerudoway_grp_way_5_6T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

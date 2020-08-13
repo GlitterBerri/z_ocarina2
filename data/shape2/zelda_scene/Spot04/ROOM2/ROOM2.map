@@ -1,0 +1,59 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5070
+		.data                  0             150 spot04_2_info.o
+		.data                150              80 spot04_2_shape.o
+		.data                1d0              30 spot04_2_info_ad.o
+		.data                200              30 spot04_2_info_an.o
+		.data                230              30 spot04_2_info_d0.o
+		.data                260              30 spot04_2_info_d1.o
+		.data                290              30 spot04_2_info_d2.o
+		.data                2c0              30 spot04_2_info_d3.o
+		.data                2f0              30 spot04_2_info_d4.o
+		.data                320              30 spot04_2_info_d5.o
+		.data                350              30 spot04_2_info_d6.o
+		.data                380              30 spot04_2_info_d7.o
+		.data                3b0              30 spot04_2_info_d8.o
+		.data                3e0              30 spot04_2_info_d9.o
+		.data                410            49f0 spot04_grp_spot04_3.o
+		.data               4e00             270 spot04_grp_spot04_3T.o
+
+.strtab                                0             2a1
+		.strtab                0             2a1 *ld_internal*
+
+.symtab                                0             210
+		.symtab                0             210 *ld_internal*
+
+.mdebug                                0            1a5c
+		.mdebug                0            1a5c *ld_internal*
+
+.rel.data                              0             2e8
+		.rel.data              0              80 spot04_2_info.o
+		.rel.data             80              50 spot04_2_shape.o
+		.rel.data             d0               8 spot04_2_info_ad.o
+		.rel.data             d8               8 spot04_2_info_an.o
+		.rel.data             e0               8 spot04_2_info_d0.o
+		.rel.data             e8               8 spot04_2_info_d1.o
+		.rel.data             f0               8 spot04_2_info_d2.o
+		.rel.data             f8               8 spot04_2_info_d3.o
+		.rel.data            100               8 spot04_2_info_d4.o
+		.rel.data            108               8 spot04_2_info_d5.o
+		.rel.data            110               8 spot04_2_info_d6.o
+		.rel.data            118               8 spot04_2_info_d7.o
+		.rel.data            120               8 spot04_2_info_d8.o
+		.rel.data            128               8 spot04_2_info_d9.o
+		.rel.data            130             198 spot04_grp_spot04_3.o
+		.rel.data            2c8              20 spot04_grp_spot04_3T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,15 @@
+#!/bin/csh
+# $Header: D:\Downloads\bbgames\bbgames\d1\routefree\bbgames\depot\/z_ocarina2/shape2/u64tools/u64ccs,v 1.1 2003/03/14 20:03:29 tong Exp $
+unalias *
+#set nonomatch
+
+echo 四角形を使わないときは u64cc を使いましょう
+echo 二回目以降は u64cc を使いましょう
+
+set names = `ls *.c`
+foreach name ($names)
+	mv $name "$name"c
+	square "$name"c > $name
+end
+
+u64cc

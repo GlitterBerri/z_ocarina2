@@ -1,0 +1,63 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           12630
+		.data                  0             810 dal_banzai.o
+		.data                810             500 dal_banzai_wait.o
+		.data                d10            1070 dal_bashi.o
+		.data               1d80             610 dal_kangeki.o
+		.data               2390             510 dal_okiru.o
+		.data               28a0             600 dalnia_base_dance.o
+		.data               2ea0             f00 dalnia_base_to_chotto.o
+		.data               3da0             370 dalnia_base_to_dai.o
+		.data               4110             4b0 dalnia_base_to_kihon.o
+		.data               45c0             5c0 dalnia_chotto_chigau.o
+		.data               4b80             600 dalnia_dai_dance.o
+		.data               5180             370 dalnia_dai_to_base.o
+		.data               54f0             580 dalnia_end_miage.o
+		.data               5a70             cb0 dalnia_end_modoru.o
+		.data               6720             6c0 dalnia_end_wait.o
+		.data               6de0             6e0 du_matsu.o
+		.data               74c0            ae00 du_matsu_mdl.o
+		.data              122c0             370 km_daru.o
+
+.strtab                                0             54e
+		.strtab                0             54e *ld_internal*
+
+.symtab                                0             400
+		.symtab                0             400 *ld_internal*
+
+.mdebug                                0            20e4
+		.mdebug                0            20e4 *ld_internal*
+
+.rel.data                              0             8c8
+		.rel.data              0              10 dal_banzai.o
+		.rel.data             10              10 dal_banzai_wait.o
+		.rel.data             20              10 dal_bashi.o
+		.rel.data             30              10 dal_kangeki.o
+		.rel.data             40              10 dal_okiru.o
+		.rel.data             50              10 dalnia_base_dance.o
+		.rel.data             60              10 dalnia_base_to_chotto.o
+		.rel.data             70              10 dalnia_base_to_dai.o
+		.rel.data             80              10 dalnia_base_to_kihon.o
+		.rel.data             90              10 dalnia_chotto_chigau.o
+		.rel.data             a0              10 dalnia_dai_dance.o
+		.rel.data             b0              10 dalnia_dai_to_base.o
+		.rel.data             c0              10 dalnia_end_miage.o
+		.rel.data             d0              10 dalnia_end_modoru.o
+		.rel.data             e0              10 dalnia_end_wait.o
+		.rel.data             f0              10 du_matsu.o
+		.rel.data            100             7b8 du_matsu_mdl.o
+		.rel.data            8b8              10 km_daru.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

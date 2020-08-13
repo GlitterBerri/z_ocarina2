@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2000
+		.data                  0             400 smoke1_1.o
+		.data                400             400 smoke1_2.o
+		.data                800             400 smoke1_3.o
+		.data                c00             400 smoke1_4.o
+		.data               1000             400 smoke1_5.o
+		.data               1400             400 smoke1_6.o
+		.data               1800             400 smoke1_7.o
+		.data               1c00             400 smoke1_8.o
+
+.strtab                                0              6f
+		.strtab                0              6f *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             6c0
+		.mdebug                0             6c0 *ld_internal*
+
+.shstrtab                              0              40
+		.shstrtab              0              40 *ld_internal*

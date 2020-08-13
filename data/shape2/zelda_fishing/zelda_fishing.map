@@ -1,0 +1,75 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           155f0
+		.data                  0              90 basu.o
+		.data                 90            2940 basu_mdl.o
+		.data               29d0             310 fishing_hook.o
+		.data               2ce0             640 fs_backwater.o
+		.data               3320             1c0 fs_bubble.o
+		.data               34e0             1c0 fs_eff.o
+		.data               36a0             390 fs_line.o
+		.data               3a30             b20 fs_matsu.o
+		.data               4550            40c0 fs_matsu_mdl.o
+		.data               8610              80 fs_ripple.o
+		.data               8690             300 fs_smoke.o
+		.data               8990            1f80 fs_tex.o
+		.data               a910            10d0 fs_worm.o
+		.data               b9e0             8d0 kzz_all.o
+		.data               c2b0             cd0 lure.o
+		.data               cf80              70 nz_namazu.o
+		.data               cff0            4080 nz_namazu_mdl.o
+		.data              11070             3d0 rod.o
+		.data              11440             ea0 rua_all.o
+		.data              122e0            1000 tex.o
+		.data              132e0              f0 turi_hasu.o
+		.data              133d0             290 turi_isi.o
+		.data              13660             9a0 turi_kui.o
+		.data              14000              d0 turi_kusa.o
+		.data              140d0            1520 turi_suisou.o
+
+.strtab                                0             7f1
+		.strtab                0             7f1 *ld_internal*
+
+.symtab                                0             830
+		.symtab                0             830 *ld_internal*
+
+.mdebug                                0            2d90
+		.mdebug                0            2d90 *ld_internal*
+
+.rel.data                              0             a18
+		.rel.data              0              10 basu.o
+		.rel.data             10             258 basu_mdl.o
+		.rel.data            268              20 fishing_hook.o
+		.rel.data            288              20 fs_backwater.o
+		.rel.data            2a8              10 fs_bubble.o
+		.rel.data            2b8              10 fs_eff.o
+		.rel.data            2c8              20 fs_line.o
+		.rel.data            2e8              10 fs_matsu.o
+		.rel.data            2f8             390 fs_matsu_mdl.o
+		.rel.data            688              10 fs_ripple.o
+		.rel.data            698              20 fs_smoke.o
+		.rel.data            6b8              10 fs_worm.o
+		.rel.data            6c8              10 kzz_all.o
+		.rel.data            6d8              18 lure.o
+		.rel.data            6f0              10 nz_namazu.o
+		.rel.data            700             278 nz_namazu_mdl.o
+		.rel.data            978               8 rod.o
+		.rel.data            980              20 rua_all.o
+		.rel.data            9a0              10 turi_hasu.o
+		.rel.data            9b0              10 turi_isi.o
+		.rel.data            9c0              10 turi_kui.o
+		.rel.data            9d0              10 turi_kusa.o
+		.rel.data            9e0              38 turi_suisou.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

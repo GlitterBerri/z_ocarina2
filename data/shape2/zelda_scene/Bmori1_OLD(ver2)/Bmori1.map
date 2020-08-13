@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           15f90
+		.data                  0             470 Bmori1_main_info.o
+		.data                470           13c10 Bmori1_bgc.o
+		.data              14080            1f10 Bmori1_texture.o
+
+.strtab                                0             654
+		.strtab                0             654 *ld_internal*
+
+.symtab                                0             3b0
+		.symtab                0             3b0 *ld_internal*
+
+.mdebug                                0             da0
+		.mdebug                0             da0 *ld_internal*
+
+.rel.data                              0             1d0
+		.rel.data              0             1a8 Bmori1_main_info.o
+		.rel.data            1a8              28 Bmori1_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

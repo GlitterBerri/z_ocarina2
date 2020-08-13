@@ -1,0 +1,42 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2da0
+		.data                  0             230 c_s06afterwater.o
+		.data                230             3a0 c_s06beforewater.o
+		.data                5d0             8d0 c_s06gate.o
+		.data                ea0              80 c_s06gate_bgc.o
+		.data                f20             2d0 c_s06ice.o
+		.data               11f0              80 c_s06ice_bgc.o
+		.data               1270            1330 c_s06mizuzou.o
+		.data               25a0             800 tex_water.o
+
+.strtab                                0              cd
+		.strtab                0              cd *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             940
+		.mdebug                0             940 *ld_internal*
+
+.rel.data                              0              d8
+		.rel.data              0              30 c_s06afterwater.o
+		.rel.data             30              28 c_s06beforewater.o
+		.rel.data             58              10 c_s06gate.o
+		.rel.data             68              20 c_s06gate_bgc.o
+		.rel.data             88              10 c_s06ice.o
+		.rel.data             98              20 c_s06ice_bgc.o
+		.rel.data             b8              20 c_s06mizuzou.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

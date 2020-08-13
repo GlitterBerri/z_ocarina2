@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            c040
+		.data                  0             5b0 ZS_z1.o
+		.data                5b0             7b0 ZS_z2.o
+		.data                d60            1450 Zola_maku.o
+		.data               21b0             1c0 zo_bubble.o
+		.data               2370             1c0 zo_eff.o
+		.data               2530             9f0 zo_mizu_talk.o
+		.data               2f20              e0 zo_riku_matsu.o
+		.data               3000            8fc0 zo_riku_matsu_mdl.o
+		.data               bfc0              80 zo_ripple.o
+
+.strtab                                0             324
+		.strtab                0             324 *ld_internal*
+
+.symtab                                0             330
+		.symtab                0             330 *ld_internal*
+
+.mdebug                                0            12d4
+		.mdebug                0            12d4 *ld_internal*
+
+.rel.data                              0             8d8
+		.rel.data              0              10 ZS_z1.o
+		.rel.data             10              10 ZS_z2.o
+		.rel.data             20              10 Zola_maku.o
+		.rel.data             30              10 zo_bubble.o
+		.rel.data             40              10 zo_eff.o
+		.rel.data             50              10 zo_mizu_talk.o
+		.rel.data             60              10 zo_riku_matsu.o
+		.rel.data             70             858 zo_riku_matsu_mdl.o
+		.rel.data            8c8              10 zo_ripple.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2e30
+		.data                  0             330 dnk_atack.o
+		.data                330             110 dnk_dig.o
+		.data                440             2a0 dnk_happy.o
+		.data                6e0             1d0 dnk_jump.o
+		.data                8b0             2d0 dnk_start.o
+		.data                b80            1f80 dnk_start_mdl.o
+		.data               2b00             1d0 dnk_wait.o
+		.data               2cd0             160 dnk_walk.o
+
+.strtab                                0             237
+		.strtab                0             237 *ld_internal*
+
+.symtab                                0             200
+		.symtab                0             200 *ld_internal*
+
+.mdebug                                0            105c
+		.mdebug                0            105c *ld_internal*
+
+.rel.data                              0             1f0
+		.rel.data              0              10 dnk_atack.o
+		.rel.data             10              10 dnk_dig.o
+		.rel.data             20              10 dnk_happy.o
+		.rel.data             30              10 dnk_jump.o
+		.rel.data             40              10 dnk_start.o
+		.rel.data             50             180 dnk_start_mdl.o
+		.rel.data            1d0              10 dnk_wait.o
+		.rel.data            1e0              10 dnk_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

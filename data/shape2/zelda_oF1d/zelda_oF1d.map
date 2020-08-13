@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           105a0
+		.data                  0             760 Goro_een.o
+		.data                760             610 Goro_siku_siku.o
+		.data                d70             8c0 Goron_mukuri.o
+		.data               1630             3e0 Goron_pikupiku.o
+		.data               1a10             7d0 Goron_poripori.o
+		.data               21e0             7e0 goron_demo_walk.o
+		.data               29c0             3d0 oF1d_dai_goron_ii.o
+		.data               2d90             9f0 oF1d_dai_goron_kaii.o
+		.data               3780             180 oF1d_dai_goron_megusuri.o
+		.data               3900            1040 oF1d_konnnichiwa.o
+		.data               4940            b5c0 oF1d_konnnichiwa_mdl.o
+		.data               ff00             6a0 oF1d_yokoaruki.o
+
+.strtab                                0             492
+		.strtab                0             492 *ld_internal*
+
+.symtab                                0             3a0
+		.symtab                0             3a0 *ld_internal*
+
+.mdebug                                0            1a20
+		.mdebug                0            1a20 *ld_internal*
+
+.rel.data                              0             710
+		.rel.data              0              10 Goro_een.o
+		.rel.data             10              10 Goro_siku_siku.o
+		.rel.data             20              10 Goron_mukuri.o
+		.rel.data             30              10 Goron_pikupiku.o
+		.rel.data             40              10 Goron_poripori.o
+		.rel.data             50              10 goron_demo_walk.o
+		.rel.data             60              10 oF1d_dai_goron_ii.o
+		.rel.data             70              10 oF1d_dai_goron_kaii.o
+		.rel.data             80              10 oF1d_dai_goron_megusuri.o
+		.rel.data             90              10 oF1d_konnnichiwa.o
+		.rel.data             a0             660 oF1d_konnnichiwa_mdl.o
+		.rel.data            700              10 oF1d_yokoaruki.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

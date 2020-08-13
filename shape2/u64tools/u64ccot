@@ -1,0 +1,31 @@
+#!/bin/csh
+# $Header: D:\Downloads\bbgames\bbgames\d1\routefree\bbgames\depot\/z_ocarina2/shape2/u64tools/u64ccot,v 1.1 2003/03/14 20:03:29 tong Exp $
+# 
+# オブジェクト作成のみ
+# ディレクトリ名.o は作りません
+#
+# set echo
+unalias *
+#set nonomatch
+
+if ( $?VF3DEXOPT == 0 ) then
+  setenv VF3DEXOPT
+  setenv VF3DEXOPT '-DF3DEX_GBI_2'
+endif
+
+set PATCH_DIR = /usr/local/srd/PR/patch/PR
+set LIBC64_DIR = /usr/local/srd/PR
+set COPT = "-G 0 -fullwarn -xansi -Xcpluscomm -non_shared -mips2 -o32 -nostdinc -I$PATCH_DIR -I$PATCH_DIR/.. -I$LIBC64_DIR -I$ZELDA_ROOT/src -I/usr/local/srd/PR -I/usr/include/PR -I/usr/include -DF3DEX_GBI $VF3DEXOPT"
+set CC = /usr/bin/cc
+
+set names = `\ls -t *.c`
+
+foreach name ($names)
+	set newname = `\ls -t $name:r.*`
+	if ( $name == $newname[1] ) then
+		echo $CC $COPT -c $name
+		     $CC $COPT -c $name
+	else
+		echo $name
+	endif
+end

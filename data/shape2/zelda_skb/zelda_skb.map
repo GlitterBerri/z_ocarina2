@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4810
+		.data                  0             490 stal_baby_attack.o
+		.data                490             580 stal_baby_down.o
+		.data                a10             3b0 stal_baby_hit.o
+		.data                dc0             ae0 stal_baby_start.o
+		.data               18a0            2960 stal_baby_start_mdl.o
+		.data               4200             610 stal_baby_walk.o
+
+.strtab                                0             2cf
+		.strtab                0             2cf *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0             f54
+		.mdebug                0             f54 *ld_internal*
+
+.rel.data                              0             318
+		.rel.data              0              10 stal_baby_attack.o
+		.rel.data             10              10 stal_baby_down.o
+		.rel.data             20              10 stal_baby_hit.o
+		.rel.data             30              10 stal_baby_start.o
+		.rel.data             40             2c8 stal_baby_start_mdl.o
+		.rel.data            308              10 stal_baby_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

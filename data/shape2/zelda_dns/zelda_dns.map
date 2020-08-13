@@ -1,0 +1,51 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            37d0
+		.data                  0             410 dns_atack.o
+		.data                410             160 dns_dig.o
+		.data                570             2d0 dns_happy.o
+		.data                840             120 dns_hintdig01.o
+		.data                960             120 dns_hintdig02.o
+		.data                a80             160 dns_hintwait.o
+		.data                be0             230 dns_jump.o
+		.data                e10             1a0 dns_jumpwalk.o
+		.data                fb0             310 dns_start.o
+		.data               12c0            2130 dns_start_mdl.o
+		.data               33f0             270 dns_wait.o
+		.data               3660             170 dns_walk.o
+
+.strtab                                0             2d8
+		.strtab                0             2d8 *ld_internal*
+
+.symtab                                0             260
+		.symtab                0             260 *ld_internal*
+
+.mdebug                                0            1584
+		.mdebug                0            1584 *ld_internal*
+
+.rel.data                              0             270
+		.rel.data              0              10 dns_atack.o
+		.rel.data             10              10 dns_dig.o
+		.rel.data             20              10 dns_happy.o
+		.rel.data             30              10 dns_hintdig01.o
+		.rel.data             40              10 dns_hintdig02.o
+		.rel.data             50              10 dns_hintwait.o
+		.rel.data             60              10 dns_jump.o
+		.rel.data             70              10 dns_jumpwalk.o
+		.rel.data             80              10 dns_start.o
+		.rel.data             90             1c0 dns_start_mdl.o
+		.rel.data            250              10 dns_wait.o
+		.rel.data            260              10 dns_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

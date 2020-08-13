@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           2a370
+		.data                  0            2000 room_info.o
+		.data               2000              30 night_shop_0_shape.o
+		.data               2030            2b40 night_shop.o
+		.data               4b70           25800 night_shop1_txt.o
+
+.strtab                                0             12a
+		.strtab                0             12a *ld_internal*
+
+.symtab                                0             100
+		.symtab                0             100 *ld_internal*
+
+.mdebug                                0             53c
+		.mdebug                0             53c *ld_internal*
+
+.rel.data                              0             4d8
+		.rel.data              0              18 night_shop_0_shape.o
+		.rel.data             18             4c0 night_shop.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

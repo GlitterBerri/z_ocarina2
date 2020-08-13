@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7120
+		.data                  0            7120 oE3_hone_mdl.o
+
+.strtab                                0             255
+		.strtab                0             255 *ld_internal*
+
+.symtab                                0             270
+		.symtab                0             270 *ld_internal*
+
+.mdebug                                0             ca8
+		.mdebug                0             ca8 *ld_internal*
+
+.rel.data                              0             4f8
+		.rel.data              0             4f8 oE3_hone_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

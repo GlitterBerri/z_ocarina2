@@ -1,0 +1,61 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            d330
+		.data                  0             750 flower1.o
+		.data                750             c00 tex.o
+		.data               1350            10d0 ana/ana01.o
+		.data               2420              60 bf/butterfly_fly.o
+		.data               2480            1280 bf/butterfly_fly_mdl.o
+		.data               3700             a50 bombwall/c_bombwall.o
+		.data               4150              90 bombwall/c_bombwallbefore_bgc.o
+		.data               41e0             970 door/obj_door.o
+		.data               4b50            1400 door/tex.o
+		.data               5f50              b0 f1/fish_swim.o
+		.data               6000            2900 f1/fish_swim_mdl.o
+		.data               8900             e10 hatisu/hatisu.o
+		.data               9710             2c0 hatisu/hatisu_hahen.o
+		.data               99d0             d00 ishi/obj_ginbure.o
+		.data               a6d0             270 ishi/obj_isi01.o
+		.data               a940             800 ishi/tex.o
+		.data               b140             930 kusa/grass05.o
+		.data               ba70            10c0 sstorm/g_sstorm.o
+		.data               cb30             800 woods/tex.o
+
+.strtab                                0             42c
+		.strtab                0             42c *ld_internal*
+
+.symtab                                0             440
+		.symtab                0             440 *ld_internal*
+
+.mdebug                                0            1e0c
+		.mdebug                0            1e0c *ld_internal*
+
+.rel.data                              0             3d8
+		.rel.data              0              c0 flower1.o
+		.rel.data             c0              10 ana/ana01.o
+		.rel.data             d0              10 bf/butterfly_fly.o
+		.rel.data             e0              90 bf/butterfly_fly_mdl.o
+		.rel.data            170              30 bombwall/c_bombwall.o
+		.rel.data            1a0              20 bombwall/c_bombwallbefore_bgc.o
+		.rel.data            1c0              c0 door/obj_door.o
+		.rel.data            280              10 f1/fish_swim.o
+		.rel.data            290              b0 f1/fish_swim_mdl.o
+		.rel.data            340              20 hatisu/hatisu.o
+		.rel.data            360              10 hatisu/hatisu_hahen.o
+		.rel.data            370              30 ishi/obj_ginbure.o
+		.rel.data            3a0              10 ishi/obj_isi01.o
+		.rel.data            3b0              10 kusa/grass05.o
+		.rel.data            3c0              18 sstorm/g_sstorm.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            54e0
+		.data                  0              30 besitu_0_info.o
+		.data                 30              20 besitu_0_shape.o
+		.data                 50            5490 besitu_grp_g1.o
+
+.strtab                                0              df
+		.strtab                0              df *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             c7c
+		.mdebug                0             c7c *ld_internal*
+
+.rel.data                              0             128
+		.rel.data              0               8 besitu_0_info.o
+		.rel.data              8              18 besitu_0_shape.o
+		.rel.data             20             108 besitu_grp_g1.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

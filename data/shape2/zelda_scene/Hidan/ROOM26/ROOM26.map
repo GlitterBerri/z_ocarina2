@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            68a0
+		.data                  0              50 HIDAN_26_info.o
+		.data                 50              b0 HIDAN_26_shape.o
+		.data                100            67a0 HIDAN_grp_Hidff.o
+
+.strtab                                0             1b4
+		.strtab                0             1b4 *ld_internal*
+
+.symtab                                0             180
+		.symtab                0             180 *ld_internal*
+
+.mdebug                                0            12b4
+		.mdebug                0            12b4 *ld_internal*
+
+.rel.data                              0             4b0
+		.rel.data              0              10 HIDAN_26_info.o
+		.rel.data             10              60 HIDAN_26_shape.o
+		.rel.data             70             440 HIDAN_grp_Hidff.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

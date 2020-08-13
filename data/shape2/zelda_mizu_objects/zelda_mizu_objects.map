@@ -1,0 +1,82 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            b320
+		.data                  0             310 m_WFloat00S.o
+		.data                310             110 m_WFloat00S_bgc.o
+		.data                420             400 m_WFloat00W.o
+		.data                820             1b0 m_WFloat00W_bgc.o
+		.data                9d0             400 m_WFloat01.o
+		.data                dd0             130 m_WFloat01_bgc.o
+		.data                f00             500 m_WPathFloat.o
+		.data               1400             230 m_WPathFloat_bgc.o
+		.data               1630             2c0 m_Wbomb00E.o
+		.data               18f0             260 m_Wbomb03.o
+		.data               1b50             140 m_Wbomb03_bgc.o
+		.data               1c90             110 m_Wbomb0eE.o
+		.data               1da0              80 m_Wbomb0eE_bgc.o
+		.data               1e20             3a0 m_Wbomb0eW.o
+		.data               21c0             370 m_Wbomb11.o
+		.data               2530              a0 m_Wbomb11_bgc.o
+		.data               25d0             c50 m_WmatoDR_00.o
+		.data               3220             3a0 m_WmatoDR_00_bgc.o
+		.data               35c0            1510 m_Wnormaldoor.o
+		.data               4ad0             130 m_Wsea00_Mov.o
+		.data               4c00            1270 m_Wshutter1.o
+		.data               5e70            1270 m_Wshutter2.o
+		.data               70e0              f0 m_WswShutter00.o
+		.data               71d0              b0 m_WswShutter00_bgc.o
+		.data               7280              f0 m_WswShutter05.o
+		.data               7370              b0 m_WswShutter05_bgc.o
+		.data               7420             100 m_Wuzu_05_bgc.o
+		.data               7520            3e00 tex.o
+
+.strtab                                0             344
+		.strtab                0             344 *ld_internal*
+
+.symtab                                0             310
+		.symtab                0             310 *ld_internal*
+
+.mdebug                                0            2220
+		.mdebug                0            2220 *ld_internal*
+
+.rel.data                              0             4b8
+		.rel.data              0              40 m_WFloat00S.o
+		.rel.data             40              20 m_WFloat00S_bgc.o
+		.rel.data             60              40 m_WFloat00W.o
+		.rel.data             a0              20 m_WFloat00W_bgc.o
+		.rel.data             c0              40 m_WFloat01.o
+		.rel.data            100              20 m_WFloat01_bgc.o
+		.rel.data            120              50 m_WPathFloat.o
+		.rel.data            170              20 m_WPathFloat_bgc.o
+		.rel.data            190              38 m_Wbomb00E.o
+		.rel.data            1c8              20 m_Wbomb03.o
+		.rel.data            1e8              20 m_Wbomb03_bgc.o
+		.rel.data            208              20 m_Wbomb0eE.o
+		.rel.data            228              20 m_Wbomb0eE_bgc.o
+		.rel.data            248              28 m_Wbomb0eW.o
+		.rel.data            270              38 m_Wbomb11.o
+		.rel.data            2a8              20 m_Wbomb11_bgc.o
+		.rel.data            2c8              b0 m_WmatoDR_00.o
+		.rel.data            378              20 m_WmatoDR_00_bgc.o
+		.rel.data            398              40 m_Wnormaldoor.o
+		.rel.data            3d8              20 m_Wsea00_Mov.o
+		.rel.data            3f8              20 m_Wshutter1.o
+		.rel.data            418              20 m_Wshutter2.o
+		.rel.data            438              10 m_WswShutter00.o
+		.rel.data            448              20 m_WswShutter00_bgc.o
+		.rel.data            468              10 m_WswShutter05.o
+		.rel.data            478              20 m_WswShutter05_bgc.o
+		.rel.data            498              20 m_Wuzu_05_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

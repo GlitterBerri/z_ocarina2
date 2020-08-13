@@ -1,0 +1,50 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1b430
+		.data                  0             2a0 spot06_main_info.o
+		.data                2a0            5340 spot06_bgc.o
+		.data               55e0            18b0 spot06_demo00.o
+		.data               6e90             190 spot06_demo01.o
+		.data               7020             430 spot06_itemfall.o
+		.data               7450             330 spot06_main_info_ad.o
+		.data               7780             1a0 spot06_main_info_d0.o
+		.data               7920             110 spot06_main_info_d1.o
+		.data               7a30             1e0 spot06_show.o
+		.data               7c10           134b0 spot06_texture.o
+		.data              1b0c0             370 spot06_tori.o
+
+.bss                                   0              50
+		.bss                   0              10 spot06_demo00.o
+		.bss                  10              10 spot06_demo01.o
+		.bss                  20              10 spot06_itemfall.o
+		.bss                  30              10 spot06_show.o
+		.bss                  40              10 spot06_tori.o
+
+.strtab                                0             511
+		.strtab                0             511 *ld_internal*
+
+.symtab                                0             3a0
+		.symtab                0             3a0 *ld_internal*
+
+.mdebug                                0            1520
+		.mdebug                0            1520 *ld_internal*
+
+.rel.data                              0             1c8
+		.rel.data              0              78 spot06_main_info.o
+		.rel.data             78              30 spot06_bgc.o
+		.rel.data             a8              60 spot06_main_info_ad.o
+		.rel.data            108              60 spot06_main_info_d0.o
+		.rel.data            168              60 spot06_main_info_d1.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

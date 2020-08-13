@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           23200
+		.data                  0             ac0 ganon_fire.o
+		.data                ac0            af80 gn2.o
+		.data               ba40            b0f0 gn22.o
+		.data              16b30            3700 gn22_tex.o
+		.data              1a230            4320 gn2_ALLparts.o
+		.data              1e550             8a0 gn2_kenblur.o
+		.data              1edf0            1c10 gn2_mant.o
+		.data              20a00            2800 gn2_tex.o
+
+.strtab                                0             5e0
+		.strtab                0             5e0 *ld_internal*
+
+.symtab                                0             610
+		.symtab                0             610 *ld_internal*
+
+.mdebug                                0            1360
+		.mdebug                0            1360 *ld_internal*
+
+.rel.data                              0            19e8
+		.rel.data              0              20 ganon_fire.o
+		.rel.data             20             b20 gn2.o
+		.rel.data            b40             c88 gn22.o
+		.rel.data           17c8             1b8 gn2_ALLparts.o
+		.rel.data           1980              20 gn2_kenblur.o
+		.rel.data           19a0              48 gn2_mant.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,95 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           39bb0
+		.data                  0             4c0 btT_DEMOwait.o
+		.data                4c0             600 btT_DEMOwait_to_fly.o
+		.data                ac0             800 btT_EDikari.o
+		.data               12c0             530 btT_EDmiage.o
+		.data               17f0             530 btT_EDwait.o
+		.data               1d20             600 btT_EDyaruki.o
+		.data               2320            1310 btT_atack.o
+		.data               3630             820 btT_beeem.o
+		.data               3e50             710 btT_beeem_to_fly.o
+		.data               4560            1240 btT_damage01.o
+		.data               57a0             da0 btT_damage02.o
+		.data               6540             a00 btT_fly.o
+		.data               6f40             1b0 btT_fly_mdl.o
+		.data               70f0             5b0 btT_fly_to_tame.o
+		.data               76a0             620 btT_guard.o
+		.data               7cc0             c20 btT_hihihi.o
+		.data               88e0             ad0 btT_tame.o
+		.data               93b0              e0 btU_default.o
+		.data               9490           16410 btU_default_mdl.o
+		.data              1f8a0            1e50 btW_EDdamage.o
+		.data              216f0            1020 btW_atackL.o
+		.data              22710            1050 btW_atackR.o
+		.data              23760             c30 btW_damage.o
+		.data              24390             140 btW_default.o
+		.data              244d0            c760 btW_default_mdl.o
+		.data              30c30             be0 btW_fly.o
+		.data              31810             cf0 btW_hit.o
+		.data              32500             ad0 btW_hit_to_mahi.o
+		.data              32fd0             c70 btW_mahi.o
+		.data              33c40             960 btW_mahi_to_fly.o
+		.data              345a0            1630 btW_preatack.o
+		.data              35bd0            1e70 btW_start.o
+		.data              37a40            14a0 btW_ufufu.o
+		.data              38ee0             cd0 tw_test.o
+
+.strtab                                0            1179
+		.strtab                0            1179 *ld_internal*
+
+.symtab                                0             e50
+		.symtab                0             e50 *ld_internal*
+
+.mdebug                                0            7358
+		.mdebug                0            7358 *ld_internal*
+
+.rel.data                              0            1d80
+		.rel.data              0              10 btT_DEMOwait.o
+		.rel.data             10              10 btT_DEMOwait_to_fly.o
+		.rel.data             20              10 btT_EDikari.o
+		.rel.data             30              10 btT_EDmiage.o
+		.rel.data             40              10 btT_EDwait.o
+		.rel.data             50              10 btT_EDyaruki.o
+		.rel.data             60              10 btT_atack.o
+		.rel.data             70              10 btT_beeem.o
+		.rel.data             80              10 btT_beeem_to_fly.o
+		.rel.data             90              10 btT_damage01.o
+		.rel.data             a0              10 btT_damage02.o
+		.rel.data             b0              10 btT_fly.o
+		.rel.data             c0             1a8 btT_fly_mdl.o
+		.rel.data            268              10 btT_fly_to_tame.o
+		.rel.data            278              10 btT_guard.o
+		.rel.data            288              10 btT_hihihi.o
+		.rel.data            298              10 btT_tame.o
+		.rel.data            2a8              10 btU_default.o
+		.rel.data            2b8             eb8 btU_default_mdl.o
+		.rel.data           1170              10 btW_EDdamage.o
+		.rel.data           1180              10 btW_atackL.o
+		.rel.data           1190              10 btW_atackR.o
+		.rel.data           11a0              10 btW_damage.o
+		.rel.data           11b0              10 btW_default.o
+		.rel.data           11c0             b28 btW_default_mdl.o
+		.rel.data           1ce8              10 btW_fly.o
+		.rel.data           1cf8              10 btW_hit.o
+		.rel.data           1d08              10 btW_hit_to_mahi.o
+		.rel.data           1d18              10 btW_mahi.o
+		.rel.data           1d28              10 btW_mahi_to_fly.o
+		.rel.data           1d38              10 btW_preatack.o
+		.rel.data           1d48              10 btW_start.o
+		.rel.data           1d58              10 btW_ufufu.o
+		.rel.data           1d68              18 tw_test.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

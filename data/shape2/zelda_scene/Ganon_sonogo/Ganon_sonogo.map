@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7f10
+		.data                  0             280 ganon_sonogo_main_info.o
+		.data                280            6080 ganon_sonogo_bgc.o
+		.data               6300            1c10 ganon_sonogo_texture.o
+
+.strtab                                0             250
+		.strtab                0             250 *ld_internal*
+
+.symtab                                0             140
+		.symtab                0             140 *ld_internal*
+
+.mdebug                                0             7d4
+		.mdebug                0             7d4 *ld_internal*
+
+.rel.data                              0              d8
+		.rel.data              0              b8 ganon_sonogo_main_info.o
+		.rel.data             b8              20 ganon_sonogo_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

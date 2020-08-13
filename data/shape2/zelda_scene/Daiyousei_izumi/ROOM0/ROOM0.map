@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3910
+		.data                  0              c0 daiyousei_izumi_0_info.o
+		.data                 c0              20 daiyousei_izumi_0_shape.o
+		.data                 e0              80 daiyousei_izumi_0_info_cn.o
+		.data                160              80 daiyousei_izumi_0_info_d0.o
+		.data                1e0              80 daiyousei_izumi_0_info_d1.o
+		.data                260              80 daiyousei_izumi_0_info_d2.o
+		.data                2e0            28f0 daiyousei_izumi_grp_g2.o
+		.data               2bd0             d40 daiyousei_izumi_grp_g2T.o
+
+.strtab                                0             2c6
+		.strtab                0             2c6 *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0             ee8
+		.mdebug                0             ee8 *ld_internal*
+
+.rel.data                              0             298
+		.rel.data              0              38 daiyousei_izumi_0_info.o
+		.rel.data             38              20 daiyousei_izumi_0_shape.o
+		.rel.data             58              18 daiyousei_izumi_0_info_cn.o
+		.rel.data             70              18 daiyousei_izumi_0_info_d0.o
+		.rel.data             88              18 daiyousei_izumi_0_info_d1.o
+		.rel.data             a0              18 daiyousei_izumi_0_info_d2.o
+		.rel.data             b8             148 daiyousei_izumi_grp_g2.o
+		.rel.data            200              98 daiyousei_izumi_grp_g2T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,522 @@
+<html><head><title>Kawasedo homepage: F3DEX2 with positional light support</title></head>
+<body bgcolor="#c1c1c1" text="#000000" link="#0000ee" vlink="#0000ee" alink="#ff0000" background=/outbox/images/background.gif>
+<h1 align=center><tt>F3DEX2_PosLight</tt> …  点光源をサポートした F3DEX2
+</h1>
+<h5>
+<!-- -->Last Update: "1999/07/12 09:34:41"
+</h5>
+ver.990712
+
+<p>
+環境マッピング(G_TEXTURE_GEN, G_TEXTURE_GEN_LINEAR)が使用可能になりました!
+
+<p>
+※ダウンロードは <a href="ftp://172.16.62.11/pub/n64/">ここ</a> からどうぞ。
+<br>最新版は<br>
+ヘッダファイル <tt>gbi-poslight-990705.h</tt><br>
+マイクロコード <tt>gspF3DEX2_PosLight-??.{fifo,xbus}.o</tt><br>
+Zelda 用パッケージ <tt>F3DZEX2-2.08I_PosLight-??.tar.gz</tt><br>
+Mario Paint/Artist 用パッケージ <tt>F3DPEX2-2.08G_PosLight-??.tar.gz</tt><br>
+の、?? 部分に 990712 が入ったものです。
+
+<p>
+<ul>
+<li><a href="#compat">F3DEX2 の上位互換</a>
+<li><a href="#kumi">組み込みかた・使いかた</a>
+<li><a href="#noposlight">点光源を一回も使わない場合</a>
+<li><a href="#mix">点光源と平行光源の混在</a>
+<li><a href="#struct">PosLight 構造体について</a>
+<li><a href="#atten">減衰係数</a>
+<li><a href="#game">ゲームに特化したマイクロコード</a>
+<li><a href="#sorry">おことわり</a>
+<li><a href="#hist">version history</a>
+</ul>
+
+<p>
+興味を持たれた方やご意見などありましたら、<a
+href="mailto:kawaset@zelda.nintendo.co.jp"> 川瀬 </a> へお気軽にどうぞ。
+
+<br>
+<img src="poslight-4.gif"><img src="poslight-5.gif"><br>
+<img src="poslight-1.gif"><img src="poslight-2.gif"><br>
+<img src="poslight-3.gif"><br>
+
+<p>
+<a name="compat">
+<h2>
+F3DEX2 の上位互換
+</h2>
+
+<p>
+本マイクロコードは F3DEX2-2.08 を元に作成されており、F3DEX2 用のディス
+プレイリストのソースはそのまま使用できます。ただし点光源を使う場合、従
+来の平行光源用のものに関しても、ライト構造体のデータの作成方法が若干異
+なります。
+
+<p>
+本マイクロコードでは、ライトのタイプに「点光源」か、従来通りの「平行光
+源」のどちらかを選ぶことができます。従来通り、使えるアンビエントライト
+は 1 つ、ディフューズライトは 7 つまでで、ディフューズライトの内訳として、
+点光源なのか平行光源なのか個別に指定可能です。ただし、点光源は平行光源
+よりも RSP の処理に時間がかかります。頂点の数にも比例して時間がかかり
+ます。
+
+<p>
+点光源の光線方向は全方向です。スポットライトではありません。工夫次第で、
+上の画面例のようにスペキュラハイライトのような効果を出すことが可能です。
+
+<p>
+ジオメトリモードに G_LIGHTING_POSITIONAL が追加されています。これはジ
+オメトリモード G_LIGHTING が指定されている場合にのみ参照されます。
+どちらも、マイクロコード起動時にはクリアされています。
+
+<p>
+点光源のライトデータを RSP へロードする方法は、従来と同じように
+g*SPSetLights# などを使うことができます。このときロードする構造体は 
+Lights# ではなく PosLights# になります。
+
+<p>
+PosLights# 構造体は Lights# 構造体を改造したものです。どちらの構造体も
+同じバイト数ですが、構成が異なります。色指定に関する部分だけは互換性が
+あります。ライティング処理は従来同様 g*SPVertex 処理時に行われます。
+
+<p>
+静的な PosLights# 構造体を定義するためのマクロ gdSPDefPosLights# が用
+意されています。これは静的な Lights# 構造体を定義するマクロ 
+gdSPDefLights# に対応するものです。
+
+<p>
+<a name="kumi">
+<h2>
+組み込みかた・使いかた
+</h2>
+
+<p>
+本マイクロコードは F3DEX2-2.08 に機能を追加したものです。ライトに関す
+るもの以外のディスプレイリストは F3DEX2 の決まりに従って作成してくださ
+い。
+
+<p>
+ディスプレイリストに関わるソースでインクルードされているはずの
+N64 OS 付属 &lt;PR/gbi.h&gt; に続いて、専用 GBI ファイル 
+gbi-poslight.h を追加インクルードしてください。
+
+<p>
+&lt;PR/gbi.h&gt; は &lt;ultra64.h&gt; からインクルードされています。
+つまり
+
+<pre>
+#include &lt;ultra64.h&gt;
+</pre>
+とある場合は
+<pre>
+#include &lt;ultra64.h&gt;
+#include "gbi-poslight.h"
+</pre>
+などとしてください。
+
+<p>
+次に、spec ファイルで
+<pre>
+	include "/usr/lib/PR/gspF3DEX2.fifo.o"
+</pre>
+などとなっているところを
+<pre>
+	include "gspF3DEX2_PosLight.fifo.o"
+</pre>
+
+などと変更(あるいは追加)してください。そして、OSTask 構造体のメンバ設
+定を
+
+<pre>
+  OSTask task;
+  extern u64 gspF3DEX2_PosLight_fifoTextStart[],
+             gspF3DEX2_PosLight_fifoDataStart[];
+  task.t.ucode =      gspF3DEX2_PosLight_fifoTextStart;
+  task.t.ucode_data = gspF3DEX2_PosLight_fifoDataStart;
+</pre>
+などと変更してください。
+
+<p>
+なお、ゲームに特化したマイクロコードの場合 extern 宣言は
+
+<pre>
+/* Zelda - F3DZEX2, F3DZEX2.NoN, L3DZEX2 */
+extern u64 gspF3DZEX2_PosLight_fifoTextStart[],
+           gspF3DZEX2_PosLight_fifoTextEnd[];
+extern u64 gspF3DZEX2_PosLight_fifoDataStart[],
+           gspF3DZEX2_PosLight_fifoDataEnd[];
+extern u64 gspF3DZEX2_PosLight_xbusTextStart[],
+           gspF3DZEX2_PosLight_xbusTextEnd[];
+extern u64 gspF3DZEX2_PosLight_xbusDataStart[],
+           gspF3DZEX2_PosLight_xbusDataEnd[];
+
+extern u64 gspF3DZEX2_NoN_PosLight_fifoTextStart[],
+           gspF3DZEX2_NoN_PosLight_fifoTextEnd[];
+extern u64 gspF3DZEX2_NoN_PosLight_fifoDataStart[],
+           gspF3DZEX2_NoN_PosLight_fifoDataEnd[];
+extern u64 gspF3DZEX2_NoN_PosLight_xbusTextStart[],
+           gspF3DZEX2_NoN_PosLight_xbusTextEnd[];
+extern u64 gspF3DZEX2_NoN_PosLight_xbusDataStart[],
+           gspF3DZEX2_NoN_PosLight_xbusDataEnd[];
+
+extern u64 gspL3DZEX2_PosLight_fifoTextStart[],
+           gspL3DZEX2_PosLight_fifoTextEnd[];
+extern u64 gspL3DZEX2_PosLight_fifoDataStart[],
+           gspL3DZEX2_PosLight_fifoDataEnd[];
+extern u64 gspL3DZEX2_PosLight_xbusTextStart[],
+           gspL3DZEX2_PosLight_xbusTextEnd[];
+extern u64 gspL3DZEX2_PosLight_xbusDataStart[],
+           gspL3DZEX2_PosLight_xbusDataEnd[];
+
+/* Mario Paint/Artist - F3DPEX2, F3DPEX2.NoN, F3DPEX2.Rej,
+ * F3DPLX2.Rej, L3DPEX2 */
+extern u64 gspF3DPEX2_PosLight_fifoTextStart[],
+           gspF3DPEX2_PosLight_fifoTextEnd[];
+extern u64 gspF3DPEX2_PosLight_fifoDataStart[],
+           gspF3DPEX2_PosLight_fifoDataEnd[];
+extern u64 gspF3DPEX2_PosLight_xbusTextStart[],
+           gspF3DPEX2_PosLight_xbusTextEnd[];
+extern u64 gspF3DPEX2_PosLight_xbusDataStart[],
+           gspF3DPEX2_PosLight_xbusDataEnd[];
+extern u64 gspF3DPEX2_NoN_PosLight_fifoTextStart[],
+           gspF3DPEX2_NoN_PosLight_fifoTextEnd[];
+extern u64 gspF3DPEX2_NoN_PosLight_fifoDataStart[],
+           gspF3DPEX2_NoN_PosLight_fifoDataEnd[];
+extern u64 gspF3DPEX2_NoN_PosLight_xbusTextStart[],
+           gspF3DPEX2_NoN_PosLight_xbusTextEnd[];
+extern u64 gspF3DPEX2_NoN_PosLight_xbusDataStart[],
+           gspF3DPEX2_NoN_PosLight_xbusDataEnd[];
+extern u64 gspF3DPEX2_Rej_PosLight_fifoTextStart[],
+           gspF3DPEX2_Rej_PosLight_fifoTextEnd[];
+extern u64 gspF3DPEX2_Rej_PosLight_fifoDataStart[],
+           gspF3DPEX2_Rej_PosLight_fifoDataEnd[];
+extern u64 gspF3DPEX2_Rej_PosLight_xbusTextStart[],
+           gspF3DPEX2_Rej_PosLight_xbusTextEnd[];
+extern u64 gspF3DPEX2_Rej_PosLight_xbusDataStart[],
+           gspF3DPEX2_Rej_PosLight_xbusDataEnd[];
+extern u64 gspF3DPLX2_Rej_PosLight_fifoTextStart[],
+           gspF3DPLX2_Rej_PosLight_fifoTextEnd[];
+extern u64 gspF3DPLX2_Rej_PosLight_fifoDataStart[],
+           gspF3DPLX2_Rej_PosLight_fifoDataEnd[];
+extern u64 gspF3DPLX2_Rej_PosLight_xbusTextStart[],
+           gspF3DPLX2_Rej_PosLight_xbusTextEnd[];
+extern u64 gspF3DPLX2_Rej_PosLight_xbusDataStart[],
+           gspF3DPLX2_Rej_PosLight_xbusDataEnd[];
+extern u64 gspL3DPEX2_PosLight_fifoTextStart[],
+           gspL3DPEX2_PosLight_fifoTextEnd[];
+extern u64 gspL3DPEX2_PosLight_fifoDataStart[],
+           gspL3DPEX2_PosLight_fifoDataEnd[];
+extern u64 gspL3DPEX2_PosLight_xbusTextStart[],
+           gspL3DPEX2_PosLight_xbusTextEnd[];
+extern u64 gspL3DPEX2_PosLight_xbusDataStart[],
+           gspL3DPEX2_PosLight_xbusDataEnd[];
+</pre>
+となりますので、適宜変更してください。
+
+<p>
+F3DEX2_PosLight には FIFO 版と XBUS 版があります。
+
+<p>
+<a name="noposlight">
+<h2>
+点光源を一回も使わない場合
+</h2>
+
+<p>
+点光源を一回も使わない場合、本マイクロコードの動作は F3DEX2 と完全に
+一致します。
+
+<p>
+ジオメトリモード G_LIGHTING_POSITIONAL はマイクロコード起動時にはクリ
+アされていますが、アプリケーションの都合などで、万が一 
+G_LIGHTING_POSITIONAL と同じ値を g*SPSetGeometryMode でセットしている
+場合、(G_LIGHTING かつ G_LIGHTING_POSITIONAL) の条件が成立すると点光源
+処理が始まってしまいます。 G_LIGHTING_POSITIONAL がクリアされている
+ことを確認してください。
+
+<p>
+そして、点光源を一回も使わない場合、(本マイクロコードも不要ですが…)平
+行光源の使用に関わらず、以降の文章はすべて無視してください。
+
+<p>
+<a name="mix">
+<h2>
+点光源と平行光源の混在
+</h2>
+
+<p>
+点光源を使ったり、点光源と平行光源を混在させたり、またそれらを切り替え
+て使用するときについて説明します。
+
+<p>
+シーンで使用するライトがすべて平行光源の場合、ジオメトリモード 
+G_LIGHTING_POSITIONAL さえクリアされていれば、g*SPVertex 処理時にすべ
+てのライトを平行光源として処理します。あとは F3DEX2 と同様に使用できます。
+もちろん、ジオメトリモード G_LIGHTING はセットされている必要があります。
+
+<p>
+パフォーマンス向上のためにも、ライトがすべて平行光源の場合は確実に 
+G_LIGHTING_POSITIONAL をクリアしておくことをおすすめします。
+G_LIGHTING_POSITIONAL がセットされていると、平行光源の処理も若干遅くな
+ります。
+
+<p>
+一つでも点光源が含まれる場合、g*SPVertex を処理する前にジオメトリモー
+ド G_LIGHTING_POSITIONAL と G_LIGHTING をセットしてください。それぞれ
+のライトが「点光源なのか、平行光源なのか」は、ライトデータのメンバ自身に
+個別に設定できます。
+
+<p>
+点光源の場合、PosLight (PosLights# ではありません) 構造体のメンバ kc を
+0 以外にします。
+
+<p>
+平行光源の場合、Light (Lights# ではありません) 構造体のメンバ pad1 を 
+0 にします。
+
+<p>
+PosLight 構造体のメンバ kc と Light 構造体のメンバ pad1 のバイトオフセッ
+トは同じです。RSP では、このバイトオフセットにあるバイトデータが 0 か
+どうかによって「点光源なのか、平行光源なのか」を g*SPVertex 処理の度に
+決定します。
+
+<p>
+静的な点光源、平行光源を混在させたライトデータを定義するマクロは、バリ
+エーションが多いので全部は用意していません。
+
+<p>
+ライトデータは「アンビエント(+ディフューズ...)」で構成されます。そこで
+「アンビエント」「ディフューズ(点光源)」「ディフューズ(平行光源)」を分
+けて定義できるマクロが gbi-poslight.h に用意されています。以下の例や 
+&lt;PR/gbi.h&gt; も参考にしてください。
+
+<pre>
+/* 点光源 4 つからなる 静的ライトデータの定義
+ * (メンバを書き換えるのでダブルバッファ) */
+static PosLights4 test_poslight[2] = {
+  gdSPDefPosLights4(0,0,0,
+		    255,255,255, 1500,3000,500, 8,16,0,
+		    255,000,000,    0,   0,  0, 8,16,0,
+		    000,255,000, -500, 500,100, 8,16,0,
+		    000,000,255,    0,-100,100, 8,16,0),
+
+  gdSPDefPosLights4(0,0,0,
+		    255,255,255, 1500,3000,500, 8,16,0,
+		    255,000,000,    0,   0,  0, 8,16,0,
+		    000,255,000, -500, 500,100, 8,16,0,
+		    000,000,255,    0,-100,100, 8,16,0),
+};
+</pre>
+<img src="poslight-4.gif">(データの内容と画面表示は多少異なります)
+
+<p>
+<pre>
+/* 点光源 3 つと平行光源 1 つからなる 静的ライトデータの定義
+ * (ダブルバッファ) */
+static PosLights4 test_poslight[2] = {
+  { _gdSPDefAmbient(0,0,0),
+    { _gdSPDefPosLight(255,255,255, 1500,3000,500, 8,16,0),
+      _gdSPDefPosLight(255,000,000,    0,   0,  0, 8,16,0),
+      _gdSPDefPosLight(000,255,000, -500, 500,100, 8,16,0),
+      _gdSPDefInfLight(128,128,000,0,0,127)}},
+
+  { _gdSPDefAmbient(0,0,0),
+    { _gdSPDefPosLight(255,255,255, 1500,3000,500, 8,16,0),
+      _gdSPDefPosLight(255,000,000,    0,   0,  0, 8,16,0),
+      _gdSPDefPosLight(000,255,000, -500, 500,100, 8,16,0),
+      _gdSPDefInfLight(128,128,000,0,0,127)}},
+};
+<img src="poslight-5.gif">(データの内容と画面表示は多少異なります)
+</pre>
+
+<p>
+これらライトデータを RSP へロードするには 
+gsSPSetLights4(test_poslight[dynamic_switch]) などとします。
+
+<p>
+_gdSPDefInfLight マクロが、従来の Light 構造体を PosLight 構造体の
+フォーマットに変換しています。こうすることで静的ライトデータは
+すべて PosLight 構造体であるかのように定義できます。
+
+<p>
+<a name="struct">
+<h2>
+PosLight 構造体について
+</h2>
+
+<p>
+PosLight 構造体は gbi-poslight.h で以下のように定義されています。
+
+<pre>
+typedef struct {
+  unsigned char col[3];         /* diffuse light value (rgba) */
+  unsigned char kc;             /* positional lighting enable flag & constant attenuation Kc */
+  unsigned char colc[3];        /* copy of diffuse light value (rgba) */
+  unsigned char kl;             /* linear attenuation Kl */
+  short pos[3];                 /* light position x, y, z */
+  unsigned char kq;             /* quadratic attenuation Kq */
+  char reserved1;
+} PosLight_t;
+
+typedef union {
+  PosLight_t p;
+  Light_t    l;
+  long long int force_structure_alignment[2];
+} PosLight;
+</pre>
+
+<p>
+メンバ l.** は従来の平行光源を定義するときに使いますが、l.pad1 のみ必
+ず 0 にしてください。付属マクロで静的に定義する場合は自動的にそうなり
+ます。
+
+<p>
+メンバ p.** が点光源を定義するときに使うものです。col, colc は光源の色
+(R,G,B)を0 から 255 の範囲で入れます。従来と同様に、col, colc には同じ
+色を入れるのが普通です。
+
+<p>
+ライトの色だけを直接変更する g*SPLightCol マクロは、従来は Alpha に該
+当する部分には何を入れても問題ありませんでしたが、実際には l.pad1(もし
+くは p.kc) および l.pad2(もしくは p.kq) に同じ値を入れています。平行光
+源のライト色変更なら Alpha 部分を 0 にしておけば問題ありませんが、点光
+源のライト色の直接変更には問題があります。
+
+<p>
+そのため _g*SPLightColor2 マクロを用意しました。
+このマクロの引数 col1, col2 の Alpha 部分を使って p.kc と p.kl の代入が
+可能です。
+
+<p>
+その他のメンバ (p.kc, p.kl, p.kq) は次項で説明します。
+
+<p>
+<a name="atten">
+<h2>
+減衰係数
+</h2>
+
+<p>
+点光源は、光源から頂点への距離が遠くなるほど暗くすることができます。
+元の明るさを 1.0 として、それに減衰係数をかけることで暗くします。
+
+<p>
+減衰係数は通常 1.0 までの数で、光源と頂点との距離が遠いほど小さくなり、
+0.0 に近づきます(暗くなります)。
+
+<p>
+ここで使用している減衰係数の算出式を、概念的に示すと以下のようになりま
+す。
+
+<pre>
+  減衰係数 = 1.0/(Kc + Kl*D + Kq*D*D)
+
+  Kc: 定数 (0.5 から約 16.5 まで)
+  Kl: 一次定数 (0.0 から 約 0.5 まで)
+  Kq: 二次定数 (0.0 から 約 0.000488 まで)
+  D: 光源と、モデルビュー行列で変換された頂点との距離 (ワールド座標系)
+</pre>
+
+<p>
+概念的には OpenGL での減衰係数と同じですが、「距離 1.0」は
+ここでは「ワールド座標系での距離 65536」として扱っています。
+
+<p>
+その他、実装上の都合で Kc, Kl, Kq を 1 バイトに収めているため、値の範
+囲が OpenGL のものよりもかなり小さいように見えますが、それなりに動作す
+るように調整したつもりです。(ご意見をお待ちしております)
+
+<p>
+PosLight 構造体のメンバ p.kc には (Kc - 0.5) を 4.4bit (整数部 4bit, 
+小数部 4bit の固定小数)に変換して unsigned char 型で与えます。
+
+<p>
+処理の都合上、Kc は 0.5 が最低値ですので、Kc を 1.0 にするためにはメン
+バ p.kc に 8 を与えます。Kc を 2.0 にするためには p.kc に (16+8) を与
+えます。
+
+<p>
+Kc は基本的に 1.0 (p.kc=8)以上にします。それより小さいと、減衰係数が 
+1.0 を越えてしまい減衰計算がオーバーフローする場合がありますのでご注意
+下さい。また p.kc は点光源フラグを兼ねていますので、平行光源として処理
+しないよう 0 以外の値を入れてください。
+
+<p>
+Kl は距離の一乗にかかる係数です。p.kl に Kl*512 を unsigned char 型に
+変換して与えます。p.kl は 0 から 255 までの値が使用可能です。
+
+<p>
+Kq は距離の二乗にかかる係数です。処理の都合上 (D*0x10)*(D*0x10) の上位 
+16bit を取り出しますので、D が 16 未満の場合 Kq*D*D は切り捨てられます。
+p.kq には Kq*(8*65536) を unsigned char 型に変換して与えます。p.kq は0 
+から 255 までの値が使用可能です。
+
+<p>
+p.kc=8, p.kl=0, p.kq=0 とすれば、減衰係数=1.0、つまり距離による減衰は
+なくなります。そして各頂点の法線ベクトルと、点光源から頂点への光線ベク
+トルの角度(の内積)だけに応じて明るさが変わるようになります。
+
+<p>
+光源のワールド座標系における座標(x,y,z)を p.pos[0], p.pos[1], p.pos[2] 
+に設定します。座標の範囲は -32768 .. +32767 ですが、頂点との距離を計算
+するときに (p.pos[0]-頂点x) (y,z も同様) が 32767 を越えるとオーバーフ
+ローしますのでご注意下さい。
+
+<p>
+<a name="game">
+<h2>
+ゲームに特化したマイクロコード
+</h2>
+
+<p>
+ゼルダ用とマリオペイント/アーティスト用のマイクロコードも点光源対応と
+してパッケージにしました。基本的な機能、バージョン情報はそれぞれの特化
+マイクロコードのドキュメント、及び F3DEX2-2.08 のドキュメントをご覧下
+さい。
+
+<a href="#kumi">組み込みかた・使いかた</a>もご参照下さい。
+
+<p>
+<a name="sorry">
+<h2>
+おことわり
+</h2>
+
+<p>
+勝手で申し訳ございませんが、こちらでは全マイクロコードの、全機能の十分
+な動作確認をしているわけではありません。何かございましたら川瀬までお知
+らせ下さい。
+
+<p>
+<a name="hist">
+<h2>
+version history
+</h2>
+
+<p><li>990706 -> 990712 (ヘッダのみ gbi-poslight-990705.h のまま)<br>
+点光源使用時に、G_TEXTURE_GEN, G_TEXTURE_GEN_LINEAR が使えなかった
+のを使用可能に。<br>
+
+<p><li>990705 -> 990706 (ヘッダのみ gbi-poslight-990705.h のまま)<br>
+点光源の当たり方が暗いのを調整。<br>
+減衰計算の計算方法を改良。<br>
+減衰係数の記述で、Kl: 0.0-約0.00195, Kq: 0.0-約0.0000019 とあったのを
+256 倍したもの(Kl: 0.0-約0.5, Kq: 0.0-約0.000488)に訂正。<br>
+ライトの個数(アンビエント1+ディフューズ7)訂正。<br>
+
+
+<p><li>990621 -> 990705 大改造。<br>
+
+F3DEX-2.06 ベースから 2.08 ベースに変更。<br>
+これまでのバージョンは内積計算に致命的なバグがあったので作り直し。<br>
+減衰計算に二次項も使用可能に。<br>
+PosLight 構造体を見直し、 Light 構造体とサイズ、色部分で互換に。<br>
+ゲームに特化したマイクロコードのリリース開始<br>
+ドキュメント修正
+
+<p><li>990621
+リリース開始
+
+<p>
+以上

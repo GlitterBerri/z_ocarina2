@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2dc0
+		.data                  0            1800 g_nintendo64_l.o
+		.data               1800             400 g_nintendo64_m.o
+		.data               1c00             dc0 n_cube.o
+		.data               29c0             400 n_cube_txt.o
+
+.strtab                                0              45
+		.strtab                0              45 *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             3cc
+		.mdebug                0             3cc *ld_internal*
+
+.rel.data                              0              48
+		.rel.data              0              48 n_cube.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

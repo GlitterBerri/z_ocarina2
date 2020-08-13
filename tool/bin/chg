@@ -1,0 +1,21 @@
+#!/bin/csh -f
+
+#************************************************************************
+#*									*
+#*	文字を置き換える						*
+#*									*
+#*		検索文字列 置換文字列 file の、順でセット		*
+#*									*
+#************************************************************************
+
+if ($#argv < 3) then
+	echo $argv[0] 検索文字列 置換文字列 file
+else
+	set names = ($argv)
+	shift names
+	shift names
+	foreach name ($names)
+		mv -f $name $name~
+		sed "s/$argv[1]/$argv[2]/g" $name~ > $name
+	end
+endif

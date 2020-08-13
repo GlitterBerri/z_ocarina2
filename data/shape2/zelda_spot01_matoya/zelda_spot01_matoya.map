@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3c90
+		.data                  0            17a0 c_matoate_house.o
+		.data               17a0             2d0 c_matoate_house_bgc.o
+		.data               1a70             4d0 c_s01_k_kanban.o
+		.data               1f40             8d0 c_s01_m_kanban.o
+		.data               2810             930 c_s01_n_kanban.o
+		.data               3140             ab0 c_s01idosoko.o
+		.data               3bf0              a0 c_s01idosoko_bgc.o
+
+.strtab                                0              d6
+		.strtab                0              d6 *ld_internal*
+
+.symtab                                0              c0
+		.symtab                0              c0 *ld_internal*
+
+.mdebug                                0             988
+		.mdebug                0             988 *ld_internal*
+
+.rel.data                              0              e0
+		.rel.data              0              58 c_matoate_house.o
+		.rel.data             58              20 c_matoate_house_bgc.o
+		.rel.data             78              10 c_s01_k_kanban.o
+		.rel.data             88              10 c_s01_m_kanban.o
+		.rel.data             98              18 c_s01_n_kanban.o
+		.rel.data             b0              10 c_s01idosoko.o
+		.rel.data             c0              20 c_s01idosoko_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

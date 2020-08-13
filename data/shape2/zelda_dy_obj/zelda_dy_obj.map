@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1d530
+		.data                  0             120 DY_FM.o
+		.data                120             820 DY_kieruu.o
+		.data                940            14c0 DY_n_wait.o
+		.data               1e00            13d0 DY_sanjyou.o
+		.data               31d0            1190 DY_t_wait.o
+		.data               4360            14c0 DY_tiryou.o
+		.data               5820             2d0 yousei_eff.o
+		.data               5af0             380 yousei_end.o
+		.data               5e70             b90 yousei_nagekiss.o
+		.data               6a00            12c0 yousei_nagekiss_wait.o
+		.data               7cc0             9f0 yousei_start.o
+		.data               86b0           13db0 yousei_start_mdl.o
+		.data              1c460            10d0 yousei_start_wait.o
+
+.strtab                                0             4f6
+		.strtab                0             4f6 *ld_internal*
+
+.symtab                                0             4b0
+		.symtab                0             4b0 *ld_internal*
+
+.mdebug                                0            1c68
+		.mdebug                0            1c68 *ld_internal*
+
+.rel.data                              0             b48
+		.rel.data              0              10 DY_FM.o
+		.rel.data             10              10 DY_kieruu.o
+		.rel.data             20              10 DY_n_wait.o
+		.rel.data             30              10 DY_sanjyou.o
+		.rel.data             40              10 DY_t_wait.o
+		.rel.data             50              10 DY_tiryou.o
+		.rel.data             60              10 yousei_eff.o
+		.rel.data             70              10 yousei_end.o
+		.rel.data             80              10 yousei_nagekiss.o
+		.rel.data             90              10 yousei_nagekiss_wait.o
+		.rel.data             a0              10 yousei_start.o
+		.rel.data             b0             a88 yousei_start_mdl.o
+		.rel.data            b38              10 yousei_start_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

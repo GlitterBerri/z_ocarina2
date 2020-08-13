@@ -1,0 +1,36 @@
+/*
+ * $Id: z_n64dd_function.decl,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $
+ *
+ * n64dd用オプション関数定義
+ *
+ * $Log: z_n64dd_function.decl,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:53  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
+ * Revision 2.1  1998-10-22 21:17:25+09  zelda
+ * ＲＯＭ出しバージョン(NTSC)
+ *
+ * Revision 1.3  1998/09/22 13:00:45  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.2  1998-09-21 23:16:13+09  hayakawa
+ * *** empty log message ***
+ *
+ * Revision 1.1  1998-09-19 22:59:45+09  hayakawa
+ * Initial revision
+ *
+ */
+#if 0
+decl( void, InitialOptionTable, (n64dd_keeptable_t *keeptable))
+decl( void, CleanupOptionTable, (void))
+decl( void, MapExpInit, 	(map_exp_data_tbl_t **map_exp_data_tbl_p))
+decl( void, MapExpCleanup, 	(map_exp_data_tbl_t **map_exp_data_tbl_p))
+decl( void, MapMarkInit, 	(MapMark (*(**markpos_p)[34])[ MAX_MARKKIND ]))
+decl( void, MapMarkCleanup, (MapMark (*(**markpos_p)[34])[ MAX_MARKKIND ]))
+decl( void, LargeMapMarkInit,    (const LargeMapMark (**lmarkpos_p)[34][ MAX_MARKKIND ]))
+decl( void, LargeMapMarkCleanup, (const LargeMapMark (**lmarkpos_p)[34][ MAX_MARKKIND ]))
+decl( void, map_dma_init, 		( void ))
+decl( void, map_dma_cleanup, 	( void ))
+decl( void, map_dma, 		( Game_play *game_play ))
+decl( Scene_Data_Status *, GetSceneTable, (int scene_no, int no))
+#endif

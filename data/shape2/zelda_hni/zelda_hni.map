@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            af70
+		.data                  0            2750 hni_ALLparts.o
+		.data               2750            22e0 hni_default_mdl.o
+		.data               4a30             650 hni_fastrun.o
+		.data               5080             620 hni_jump100.o
+		.data               56a0             790 hni_jump200.o
+		.data               5e30             8a0 hni_kuraG.o
+		.data               66d0             e20 hni_skin.o
+		.data               74f0             680 hni_slowrun.o
+		.data               7b70             a80 hni_stand.o
+		.data               85f0             a40 hni_stop.o
+		.data               9030             fb0 hni_wait.o
+		.data               9fe0             6f0 hni_wait02.o
+		.data               a6d0             8a0 hni_walk.o
+
+.strtab                                0             2f0
+		.strtab                0             2f0 *ld_internal*
+
+.symtab                                0             260
+		.symtab                0             260 *ld_internal*
+
+.mdebug                                0            3cfc
+		.mdebug                0            3cfc *ld_internal*
+
+.rel.data                              0             c08
+		.rel.data              0             128 hni_ALLparts.o
+		.rel.data            128             988 hni_default_mdl.o
+		.rel.data            ab0              10 hni_fastrun.o
+		.rel.data            ac0              10 hni_jump100.o
+		.rel.data            ad0              10 hni_jump200.o
+		.rel.data            ae0              38 hni_kuraG.o
+		.rel.data            b18              90 hni_skin.o
+		.rel.data            ba8              10 hni_slowrun.o
+		.rel.data            bb8              10 hni_stand.o
+		.rel.data            bc8              10 hni_stop.o
+		.rel.data            bd8              10 hni_wait.o
+		.rel.data            be8              10 hni_wait02.o
+		.rel.data            bf8              10 hni_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

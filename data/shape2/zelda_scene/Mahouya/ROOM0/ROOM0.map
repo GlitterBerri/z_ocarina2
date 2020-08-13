@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6a90
+		.data                  0              80 mahouya_0_info.o
+		.data                 80              20 mahouya_0_shape.o
+		.data                 a0            6520 mahouya_grp_g1.o
+		.data               65c0             4d0 mahouya_grp_g1T.o
+
+.strtab                                0             28c
+		.strtab                0             28c *ld_internal*
+
+.symtab                                0             240
+		.symtab                0             240 *ld_internal*
+
+.mdebug                                0            1aa8
+		.mdebug                0            1aa8 *ld_internal*
+
+.rel.data                              0             3a8
+		.rel.data              0              18 mahouya_0_info.o
+		.rel.data             18              20 mahouya_0_shape.o
+		.rel.data             38             340 mahouya_grp_g1.o
+		.rel.data            378              30 mahouya_grp_g1T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

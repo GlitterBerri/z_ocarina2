@@ -1,0 +1,31 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            60b0
+		.data                  0            4bc0 l_hineri2after.o
+		.data               4bc0            14f0 l_hineri2after_bgc.o
+
+.strtab                                0              96
+		.strtab                0              96 *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             3ac
+		.mdebug                0             3ac *ld_internal*
+
+.rel.data                              0             618
+		.rel.data              0             5f8 l_hineri2after.o
+		.rel.data            5f8              20 l_hineri2after_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

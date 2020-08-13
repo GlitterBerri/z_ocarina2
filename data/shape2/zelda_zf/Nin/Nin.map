@@ -1,0 +1,66 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5a80
+		.data                  0            2400 tex.o
+		.data               2400             270 zf_L_asi1.o
+		.data               2670             340 zf_L_asi2.o
+		.data               29b0             380 zf_L_asi3.o
+		.data               2d30             230 zf_L_te1.o
+		.data               2f60             220 zf_L_te2.o
+		.data               3180             4e0 zf_L_te3.o
+		.data               3660             280 zf_R_asi1.o
+		.data               38e0             340 zf_R_asi2.o
+		.data               3c20             380 zf_R_asi3.o
+		.data               3fa0             230 zf_R_te1.o
+		.data               41d0             220 zf_R_te2.o
+		.data               43f0             500 zf_R_te3b.o
+		.data               48f0             1f0 zf_ago.o
+		.data               4ae0             640 zf_atama.o
+		.data               5120             210 zf_kubi.o
+		.data               5330             1a0 zf_o1.o
+		.data               54d0             160 zf_o2.o
+		.data               5630             1a0 zf_saya.o
+		.data               57d0             2b0 zf_sayab.o
+
+.strtab                                0             263
+		.strtab                0             263 *ld_internal*
+
+.symtab                                0             310
+		.symtab                0             310 *ld_internal*
+
+.mdebug                                0            132c
+		.mdebug                0            132c *ld_internal*
+
+.rel.data                              0             2f0
+		.rel.data              0              20 zf_L_asi1.o
+		.rel.data             20              30 zf_L_asi2.o
+		.rel.data             50              20 zf_L_asi3.o
+		.rel.data             70              20 zf_L_te1.o
+		.rel.data             90              30 zf_L_te2.o
+		.rel.data             c0              38 zf_L_te3.o
+		.rel.data             f8              20 zf_R_asi1.o
+		.rel.data            118              30 zf_R_asi2.o
+		.rel.data            148              20 zf_R_asi3.o
+		.rel.data            168              20 zf_R_te1.o
+		.rel.data            188              30 zf_R_te2.o
+		.rel.data            1b8              40 zf_R_te3b.o
+		.rel.data            1f8              20 zf_ago.o
+		.rel.data            218              48 zf_atama.o
+		.rel.data            260              20 zf_kubi.o
+		.rel.data            280              10 zf_o1.o
+		.rel.data            290              10 zf_o2.o
+		.rel.data            2a0              20 zf_saya.o
+		.rel.data            2c0              30 zf_sayab.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

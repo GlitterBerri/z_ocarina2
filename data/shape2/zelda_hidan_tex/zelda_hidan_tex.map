@@ -1,0 +1,38 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            c8f0
+		.data                  0              b0 m_Fflame.o
+		.data                 b0            a840 tex.o
+		.data               a8f0             400 TEXTURE/g_flame1_1.o
+		.data               acf0             400 TEXTURE/g_flame1_2.o
+		.data               b0f0             400 TEXTURE/g_flame1_3.o
+		.data               b4f0             400 TEXTURE/g_flame1_4.o
+		.data               b8f0             400 TEXTURE/g_flame1_5.o
+		.data               bcf0             400 TEXTURE/g_flame1_6.o
+		.data               c0f0             400 TEXTURE/g_flame1_7.o
+		.data               c4f0             400 TEXTURE/g_flame1_8.o
+
+.strtab                                0             292
+		.strtab                0             292 *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0             c28
+		.mdebug                0             c28 *ld_internal*
+
+.rel.data                              0              18
+		.rel.data              0              18 m_Fflame.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

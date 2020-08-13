@@ -1,0 +1,60 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           217c0
+		.data                  0             690 ganontika_main_info.o
+		.data                690           19840 ganontika_bgc.o
+		.data              19ed0             a00 ganontika_demo00.o
+		.data              1a8d0             9d0 ganontika_demo01.o
+		.data              1b2a0             9d0 ganontika_demo02.o
+		.data              1bc70             a30 ganontika_demo03.o
+		.data              1c6a0             9d0 ganontika_demo04.o
+		.data              1d070             9d0 ganontika_demo05.o
+		.data              1da40             540 ganontika_demo06.o
+		.data              1df80             450 ganontika_hikari.o
+		.data              1e3d0             3b0 ganontika_honoo.o
+		.data              1e780             3b0 ganontika_kaze.o
+		.data              1eb30             430 ganontika_kori.o
+		.data              1ef60             410 ganontika_tamasi.o
+		.data              1f370            2000 ganontika_texture.o
+		.data              21370             450 ganontika_yami.o
+
+.bss                                   0              d0
+		.bss                   0              10 ganontika_demo00.o
+		.bss                  10              10 ganontika_demo01.o
+		.bss                  20              10 ganontika_demo02.o
+		.bss                  30              10 ganontika_demo03.o
+		.bss                  40              10 ganontika_demo04.o
+		.bss                  50              10 ganontika_demo05.o
+		.bss                  60              10 ganontika_demo06.o
+		.bss                  70              10 ganontika_hikari.o
+		.bss                  80              10 ganontika_honoo.o
+		.bss                  90              10 ganontika_kaze.o
+		.bss                  a0              10 ganontika_kori.o
+		.bss                  b0              10 ganontika_tamasi.o
+		.bss                  c0              10 ganontika_yami.o
+
+.strtab                                0             70d
+		.strtab                0             70d *ld_internal*
+
+.symtab                                0             400
+		.symtab                0             400 *ld_internal*
+
+.mdebug                                0            1930
+		.mdebug                0            1930 *ld_internal*
+
+.rel.data                              0             1d8
+		.rel.data              0             198 ganontika_main_info.o
+		.rel.data            198              40 ganontika_bgc.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

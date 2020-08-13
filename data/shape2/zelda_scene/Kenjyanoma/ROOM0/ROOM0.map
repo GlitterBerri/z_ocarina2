@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           13110
+		.data                  0              f0 kenjyanoma_0_info.o
+		.data                 f0              20 kenjyanoma_0_shape.o
+		.data                110              70 kenjyanoma_0_info_d0.o
+		.data                180              b0 kenjyanoma_0_info_d1.o
+		.data                230              e0 kenjyanoma_0_info_d2.o
+		.data                310            db10 kenjyanoma_grp_g55.o
+		.data               de20            52f0 kenjyanoma_grp_g55T.o
+
+.strtab                                0              fd
+		.strtab                0              fd *ld_internal*
+
+.symtab                                0              e0
+		.symtab                0              e0 *ld_internal*
+
+.mdebug                                0             e04
+		.mdebug                0             e04 *ld_internal*
+
+.rel.data                              0             2e8
+		.rel.data              0              38 kenjyanoma_0_info.o
+		.rel.data             38              20 kenjyanoma_0_shape.o
+		.rel.data             58              18 kenjyanoma_0_info_d0.o
+		.rel.data             70              18 kenjyanoma_0_info_d1.o
+		.rel.data             88              18 kenjyanoma_0_info_d2.o
+		.rel.data             a0             110 kenjyanoma_grp_g55.o
+		.rel.data            1b0             138 kenjyanoma_grp_g55T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           53540
+		.data                  0           40000 main_info.o
+		.data              40000             dd0 spot11_demo00.o
+		.data              40dd0             f30 spot11_demo01.o
+		.data              41d00           11840 spot11_texture.o
+
+.bss                                   0              20
+		.bss                   0              10 spot11_demo00.o
+		.bss                  10              10 spot11_demo01.o
+
+.strtab                                0             2d1
+		.strtab                0             2d1 *ld_internal*
+
+.symtab                                0             250
+		.symtab                0             250 *ld_internal*
+
+.mdebug                                0             870
+		.mdebug                0             870 *ld_internal*
+
+.shstrtab                              0              45
+		.shstrtab              0              45 *ld_internal*

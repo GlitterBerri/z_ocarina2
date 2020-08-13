@@ -1,0 +1,43 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1600
+		.data                  0             250 pu_box1.o
+		.data                250             130 pu_box1_bgc.o
+		.data                380             250 pu_box2.o
+		.data                5d0             130 pu_box2_bgc.o
+		.data                700             250 pu_box3.o
+		.data                950             130 pu_box3_bgc.o
+		.data                a80             a50 pu_box4.o
+		.data               14d0             130 pu_box4_bgc.o
+
+.strtab                                0              be
+		.strtab                0              be *ld_internal*
+
+.symtab                                0              f0
+		.symtab                0              f0 *ld_internal*
+
+.mdebug                                0             97c
+		.mdebug                0             97c *ld_internal*
+
+.rel.data                              0              c0
+		.rel.data              0              10 pu_box1.o
+		.rel.data             10              20 pu_box1_bgc.o
+		.rel.data             30              10 pu_box2.o
+		.rel.data             40              20 pu_box2_bgc.o
+		.rel.data             60              10 pu_box3.o
+		.rel.data             70              20 pu_box3_bgc.o
+		.rel.data             90              10 pu_box4.o
+		.rel.data             a0              20 pu_box4_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

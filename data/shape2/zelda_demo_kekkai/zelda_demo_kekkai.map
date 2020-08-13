@@ -1,0 +1,64 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            ed10
+		.data                  0            1000 kekkai_tex.o
+		.data               1000            1180 l_g_door.o
+		.data               2180             2d0 l_g_hikari.o
+		.data               2450            1250 l_g_hikarijimen.o
+		.data               36a0             e70 l_g_icebrock.o
+		.data               4510             140 l_g_icebrock_bgc.o
+		.data               4650             470 l_g_kekkai.o
+		.data               4ac0             510 l_g_kekkaihole.o
+		.data               4fd0             e60 l_g_kekkaipower.o
+		.data               5e30             310 l_g_kekkaipower_2.o
+		.data               6140            1c70 l_g_kumonosu.o
+		.data               7db0             c20 l_g_meganeyuka.o
+		.data               89d0             900 l_g_nisekabe.o
+		.data               92d0            1170 l_g_nisekabe2.o
+		.data               a440            1100 l_g_nisekabe3.o
+		.data               b540             a40 l_g_yamiasiba.o
+		.data               bf80             130 l_g_yamiasiba_bgc.o
+		.data               c0b0            2580 l_g_zubumeiro.o
+		.data               e630             6e0 l_g_zubumeiro_bgc.o
+
+.strtab                                0             2f0
+		.strtab                0             2f0 *ld_internal*
+
+.symtab                                0             2b0
+		.symtab                0             2b0 *ld_internal*
+
+.mdebug                                0            166c
+		.mdebug                0            166c *ld_internal*
+
+.rel.data                              0             288
+		.rel.data              0              10 l_g_door.o
+		.rel.data             10              18 l_g_hikari.o
+		.rel.data             28              10 l_g_hikarijimen.o
+		.rel.data             38              18 l_g_icebrock.o
+		.rel.data             50              20 l_g_icebrock_bgc.o
+		.rel.data             70              20 l_g_kekkai.o
+		.rel.data             90              20 l_g_kekkaihole.o
+		.rel.data             b0              58 l_g_kekkaipower.o
+		.rel.data            108              20 l_g_kekkaipower_2.o
+		.rel.data            128              38 l_g_kumonosu.o
+		.rel.data            160              18 l_g_meganeyuka.o
+		.rel.data            178              10 l_g_nisekabe.o
+		.rel.data            188              10 l_g_nisekabe2.o
+		.rel.data            198              10 l_g_nisekabe3.o
+		.rel.data            1a8              10 l_g_yamiasiba.o
+		.rel.data            1b8              20 l_g_yamiasiba_bgc.o
+		.rel.data            1d8              90 l_g_zubumeiro.o
+		.rel.data            268              20 l_g_zubumeiro_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

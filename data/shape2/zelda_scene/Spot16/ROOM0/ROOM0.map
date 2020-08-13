@@ -1,0 +1,49 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            ad10
+		.data                  0             3d0 spot16_0_info.o
+		.data                3d0              a0 spot16_0_shape.o
+		.data                470             3d0 spot16_0_info_ad.o
+		.data                840             100 spot16_0_info_cn.o
+		.data                940              70 spot16_0_info_d0.o
+		.data                9b0              e0 spot16_0_info_d1.o
+		.data                a90              e0 spot16_0_info_d2.o
+		.data                b70              90 spot16_0_info_d3.o
+		.data                c00             120 spot16_0_info_d4.o
+		.data                d20            9640 spot16_grp_spot18.o
+		.data               a360             9b0 spot16_grp_spot18T.o
+
+.strtab                                0             6cc
+		.strtab                0             6cc *ld_internal*
+
+.symtab                                0             5b0
+		.symtab                0             5b0 *ld_internal*
+
+.mdebug                                0            4b2c
+		.mdebug                0            4b2c *ld_internal*
+
+.rel.data                              0             b98
+		.rel.data              0              50 spot16_0_info.o
+		.rel.data             50              78 spot16_0_shape.o
+		.rel.data             c8              18 spot16_0_info_ad.o
+		.rel.data             e0              18 spot16_0_info_cn.o
+		.rel.data             f8              18 spot16_0_info_d0.o
+		.rel.data            110              18 spot16_0_info_d1.o
+		.rel.data            128              18 spot16_0_info_d2.o
+		.rel.data            140              18 spot16_0_info_d3.o
+		.rel.data            158              18 spot16_0_info_d4.o
+		.rel.data            170             958 spot16_grp_spot18.o
+		.rel.data            ac8              d0 spot16_grp_spot18T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

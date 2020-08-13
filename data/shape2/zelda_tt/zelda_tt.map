@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3a30
+		.data                  0             1f0 tt_dmg.o
+		.data                1f0             320 tt_jump.o
+		.data                510             1a0 tt_jump_end.o
+		.data                6b0             1a0 tt_jump_start.o
+		.data                850             1e0 tt_move.o
+		.data                a30             250 tt_smalljump.o
+		.data                c80             2e0 tt_stop.o
+		.data                f60             3a0 tt_wait.o
+		.data               1300            2730 tt_wait_mdl.o
+
+.strtab                                0             2b1
+		.strtab                0             2b1 *ld_internal*
+
+.symtab                                0             280
+		.symtab                0             280 *ld_internal*
+
+.mdebug                                0            1124
+		.mdebug                0            1124 *ld_internal*
+
+.rel.data                              0             280
+		.rel.data              0              10 tt_dmg.o
+		.rel.data             10              10 tt_jump.o
+		.rel.data             20              10 tt_jump_end.o
+		.rel.data             30              10 tt_jump_start.o
+		.rel.data             40              10 tt_move.o
+		.rel.data             50              10 tt_smalljump.o
+		.rel.data             60              10 tt_stop.o
+		.rel.data             70              10 tt_wait.o
+		.rel.data             80             200 tt_wait_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

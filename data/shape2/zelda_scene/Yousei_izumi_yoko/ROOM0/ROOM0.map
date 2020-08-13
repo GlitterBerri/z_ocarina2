@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4010
+		.data                  0              b0 yousei_izumi_yoko_0_info.o
+		.data                 b0              20 yousei_izumi_yoko_0_shape.o
+		.data                 d0              a0 yousei_izumi_yoko_0_info_d0.o
+		.data                170              a0 yousei_izumi_yoko_0_info_d1.o
+		.data                210              a0 yousei_izumi_yoko_0_info_d2.o
+		.data                2b0            28f0 yousei_izumi_yoko_grp_g2.o
+		.data               2ba0            1470 yousei_izumi_yoko_grp_g2T.o
+
+.strtab                                0             2bd
+		.strtab                0             2bd *ld_internal*
+
+.symtab                                0             1a0
+		.symtab                0             1a0 *ld_internal*
+
+.mdebug                                0             dec
+		.mdebug                0             dec *ld_internal*
+
+.rel.data                              0             288
+		.rel.data              0              38 yousei_izumi_yoko_0_info.o
+		.rel.data             38              20 yousei_izumi_yoko_0_shape.o
+		.rel.data             58              18 yousei_izumi_yoko_0_info_d0.o
+		.rel.data             70              18 yousei_izumi_yoko_0_info_d1.o
+		.rel.data             88              18 yousei_izumi_yoko_0_info_d2.o
+		.rel.data             a0             148 yousei_izumi_yoko_grp_g2.o
+		.rel.data            1e8              a0 yousei_izumi_yoko_grp_g2T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

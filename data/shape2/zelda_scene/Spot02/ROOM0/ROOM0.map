@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            26e0
+		.data                  0             1f0 spot02_0_info.o
+		.data                1f0              a0 spot02_0_shape.o
+		.data                290             1e0 spot02_0_info_ad.o
+		.data                470             1e0 spot02_0_info_an.o
+		.data                650             1e0 spot02_0_info_cn.o
+		.data                830              d0 spot02_0_info_d0.o
+		.data                900              d0 spot02_0_info_d1.o
+		.data                9d0            1960 spot02_grp_iriguti.o
+		.data               2330             3b0 spot02_grp_irigutiT.o
+
+.strtab                                0             26c
+		.strtab                0             26c *ld_internal*
+
+.symtab                                0             1f0
+		.symtab                0             1f0 *ld_internal*
+
+.mdebug                                0            15ec
+		.mdebug                0            15ec *ld_internal*
+
+.rel.data                              0             298
+		.rel.data              0              48 spot02_0_info.o
+		.rel.data             48              58 spot02_0_shape.o
+		.rel.data             a0              18 spot02_0_info_ad.o
+		.rel.data             b8              18 spot02_0_info_an.o
+		.rel.data             d0              18 spot02_0_info_cn.o
+		.rel.data             e8              18 spot02_0_info_d0.o
+		.rel.data            100              18 spot02_0_info_d1.o
+		.rel.data            118             158 spot02_grp_iriguti.o
+		.rel.data            270              28 spot02_grp_irigutiT.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

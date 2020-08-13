@@ -1,0 +1,58 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            9080
+		.data                  0            3800 tex.o
+		.data               3800              f0 ydan_kumohen.o
+		.data               38f0            1940 ydan_maruta.o
+		.data               5230             580 ydan_maruta_bgc.o
+		.data               57b0             730 ydan_mizu.o
+		.data               5ee0             100 ydan_spkabe.o
+		.data               5fe0              a0 ydan_spkabe_bgc.o
+		.data               6080             210 ydan_spyuka.o
+		.data               6290             200 ydan_spyuka_bgc.o
+		.data               6490             190 ydan_t_hasigo.o
+		.data               6620              c0 ydan_t_hasigo_bgc.o
+		.data               66e0             170 ydan_tdoor.o
+		.data               6850             170 ydan_tdoor_t.o
+		.data               69c0             cd0 ydan_trift.o
+		.data               7690             140 ydan_trift_bgc.o
+		.data               77d0            18b0 ydan_ytoge.o
+
+.strtab                                0             190
+		.strtab                0             190 *ld_internal*
+
+.symtab                                0             180
+		.symtab                0             180 *ld_internal*
+
+.mdebug                                0            1360
+		.mdebug                0            1360 *ld_internal*
+
+.rel.data                              0             1e8
+		.rel.data              0              10 ydan_kumohen.o
+		.rel.data             10              30 ydan_maruta.o
+		.rel.data             40              20 ydan_maruta_bgc.o
+		.rel.data             60              20 ydan_mizu.o
+		.rel.data             80              10 ydan_spkabe.o
+		.rel.data             90              20 ydan_spkabe_bgc.o
+		.rel.data             b0              10 ydan_spyuka.o
+		.rel.data             c0              20 ydan_spyuka_bgc.o
+		.rel.data             e0              10 ydan_t_hasigo.o
+		.rel.data             f0              20 ydan_t_hasigo_bgc.o
+		.rel.data            110              20 ydan_tdoor.o
+		.rel.data            130              20 ydan_tdoor_t.o
+		.rel.data            150              38 ydan_trift.o
+		.rel.data            188              20 ydan_trift_bgc.o
+		.rel.data            1a8              40 ydan_ytoge.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

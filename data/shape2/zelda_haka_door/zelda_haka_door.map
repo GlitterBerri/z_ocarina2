@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            3970
+		.data                  0            1490 m_Hnormaldoor.o
+		.data               1490            1270 m_Hshutter1.o
+		.data               2700            1270 m_Hshutter2.o
+
+.strtab                                0              a7
+		.strtab                0              a7 *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             3f8
+		.mdebug                0             3f8 *ld_internal*
+
+.rel.data                              0              70
+		.rel.data              0              30 m_Hnormaldoor.o
+		.rel.data             30              20 m_Hshutter1.o
+		.rel.data             50              20 m_Hshutter2.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

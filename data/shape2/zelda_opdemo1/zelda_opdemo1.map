@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5060
+		.data                  0             460 anim_fast_run.o
+		.data                460             fc0 anim_fast_run_okarina.o
+		.data               1420            1170 impa_anim_fast_run_okarina.o
+		.data               2590             450 impa_anim_fastrun.o
+		.data               29e0            1840 kozelda_furimuki.o
+		.data               4220             6f0 kozelda_okarina_wait.o
+		.data               4910             750 kozelda_ushiro_wait.o
+
+.strtab                                0             132
+		.strtab                0             132 *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             94c
+		.mdebug                0             94c *ld_internal*
+
+.rel.data                              0              70
+		.rel.data              0              10 anim_fast_run.o
+		.rel.data             10              10 anim_fast_run_okarina.o
+		.rel.data             20              10 impa_anim_fast_run_okarina.o
+		.rel.data             30              10 impa_anim_fastrun.o
+		.rel.data             40              10 kozelda_furimuki.o
+		.rel.data             50              10 kozelda_okarina_wait.o
+		.rel.data             60              10 kozelda_ushiro_wait.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

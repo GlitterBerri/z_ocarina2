@@ -1,0 +1,132 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1d6b0
+		.data                  0              d0 m_HADcoinshutter1.o
+		.data                 d0              80 m_HADcoinshutter1_bgc.o
+		.data                150            1300 m_HADinv03.o
+		.data               1450             6a0 m_HADinv09.o
+		.data               1af0            1800 m_HADinv0b.o
+		.data               32f0             c80 m_HADinv0f.o
+		.data               3f70             340 m_HADsec00.o
+		.data               42b0              b0 m_HADsec00_bgc.o
+		.data               4360              f0 m_HADsec02.o
+		.data               4450              b0 m_HADsec02_bgc.o
+		.data               4500             190 m_HADsec05.o
+		.data               4690             120 m_HADsec05_bgc.o
+		.data               47b0             110 m_HADsec06.o
+		.data               48c0              b0 m_HADsec06_bgc.o
+		.data               4970             110 m_HADsec0a.o
+		.data               4a80              b0 m_HADsec0a_bgc.o
+		.data               4b30             110 m_HADsec12.o
+		.data               4c40              b0 m_HADsec12_bgc.o
+		.data               4cf0             440 m_HRtubo.o
+		.data               5130             230 m_HRtubo_bgc.o
+		.data               5360             930 m_Hbell.o
+		.data               5c90             130 m_Hbomb05.o
+		.data               5dc0              a0 m_Hbomb05_bgc.o
+		.data               5e60             970 m_Hbombzou.o
+		.data               67d0             7d0 m_Hbombzou_bgc.o
+		.data               6fa0             510 m_Hfofo.o
+		.data               74b0             2c0 m_Hgiro.o
+		.data               7770             9e0 m_HhasamiN.o
+		.data               8150              b0 m_HhasamiN_bgc.o
+		.data               8200             a90 m_HhasamiS.o
+		.data               8c90              b0 m_HhasamiS_bgc.o
+		.data               8d40             300 m_Hinvslide.o
+		.data               9040             160 m_Hinvslide_bgc.o
+		.data               91a0             920 m_Hkenzan.o
+		.data               9ac0             240 m_Hkenzan_bgc.o
+		.data               9d00             760 m_Hlift.o
+		.data               a460             3c0 m_Hlift_bgc.o
+		.data               a820              d0 m_Hmon1c.o
+		.data               a8f0              80 m_Hmon1c_bgc.o
+		.data               a970            1a90 m_Hsgami.o
+		.data               c400            1690 m_Hship.o
+		.data               da90             9b0 m_Hship_bgc.o
+		.data               e440             600 m_Hsyarin.o
+		.data               ea40             370 m_Hsyarin_bgc.o
+		.data               edb0             610 m_Hsyoku1c.o
+		.data               f3c0             db0 m_Htubo.o
+		.data              10170             780 m_Htubo_bgc.o
+		.data              108f0             200 m_Hwipe1c_N.o
+		.data              10af0             200 m_Hwipe1c_S.o
+		.data              10cf0             150 m_Hwipe1c_bgc.o
+		.data              10e40            1c60 m_Hzou1c.o
+		.data              12aa0             750 m_Hzou1c_bgc.o
+		.data              131f0            a4c0 tex.o
+
+.strtab                                0             566
+		.strtab                0             566 *ld_internal*
+
+.symtab                                0             530
+		.symtab                0             530 *ld_internal*
+
+.mdebug                                0            3dc8
+		.mdebug                0            3dc8 *ld_internal*
+
+.rel.data                              0             b30
+		.rel.data              0              10 m_HADcoinshutter1.o
+		.rel.data             10              20 m_HADcoinshutter1_bgc.o
+		.rel.data             30              50 m_HADinv03.o
+		.rel.data             80              38 m_HADinv09.o
+		.rel.data             b8              80 m_HADinv0b.o
+		.rel.data            138              40 m_HADinv0f.o
+		.rel.data            178              38 m_HADsec00.o
+		.rel.data            1b0              20 m_HADsec00_bgc.o
+		.rel.data            1d0              10 m_HADsec02.o
+		.rel.data            1e0              20 m_HADsec02_bgc.o
+		.rel.data            200              18 m_HADsec05.o
+		.rel.data            218              20 m_HADsec05_bgc.o
+		.rel.data            238              18 m_HADsec06.o
+		.rel.data            250              20 m_HADsec06_bgc.o
+		.rel.data            270              18 m_HADsec0a.o
+		.rel.data            288              20 m_HADsec0a_bgc.o
+		.rel.data            2a8              18 m_HADsec12.o
+		.rel.data            2c0              20 m_HADsec12_bgc.o
+		.rel.data            2e0              20 m_HRtubo.o
+		.rel.data            300              20 m_HRtubo_bgc.o
+		.rel.data            320              28 m_Hbell.o
+		.rel.data            348              18 m_Hbomb05.o
+		.rel.data            360              20 m_Hbomb05_bgc.o
+		.rel.data            380              68 m_Hbombzou.o
+		.rel.data            3e8              20 m_Hbombzou_bgc.o
+		.rel.data            408              38 m_Hfofo.o
+		.rel.data            440              30 m_Hgiro.o
+		.rel.data            470              40 m_HhasamiN.o
+		.rel.data            4b0              20 m_HhasamiN_bgc.o
+		.rel.data            4d0              48 m_HhasamiS.o
+		.rel.data            518              20 m_HhasamiS_bgc.o
+		.rel.data            538              30 m_Hinvslide.o
+		.rel.data            568              20 m_Hinvslide_bgc.o
+		.rel.data            588              50 m_Hkenzan.o
+		.rel.data            5d8              20 m_Hkenzan_bgc.o
+		.rel.data            5f8              58 m_Hlift.o
+		.rel.data            650              20 m_Hlift_bgc.o
+		.rel.data            670              10 m_Hmon1c.o
+		.rel.data            680              20 m_Hmon1c_bgc.o
+		.rel.data            6a0              98 m_Hsgami.o
+		.rel.data            738             120 m_Hship.o
+		.rel.data            858              20 m_Hship_bgc.o
+		.rel.data            878              20 m_Hsyarin.o
+		.rel.data            898              20 m_Hsyarin_bgc.o
+		.rel.data            8b8              48 m_Hsyoku1c.o
+		.rel.data            900              58 m_Htubo.o
+		.rel.data            958              20 m_Htubo_bgc.o
+		.rel.data            978              18 m_Hwipe1c_N.o
+		.rel.data            990              18 m_Hwipe1c_S.o
+		.rel.data            9a8              20 m_Hwipe1c_bgc.o
+		.rel.data            9c8             148 m_Hzou1c.o
+		.rel.data            b10              20 m_Hzou1c_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

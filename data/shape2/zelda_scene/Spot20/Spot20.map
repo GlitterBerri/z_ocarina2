@@ -1,0 +1,76 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           11dc0
+		.data                  0             320 spot20_main_info.o
+		.data                320             530 okarina_epona.o
+		.data                850            2130 spot20_bgc.o
+		.data               2980             1c0 spot20_demo00.o
+		.data               2b40             440 spot20_demo01.o
+		.data               2f80             260 spot20_demo02.o
+		.data               31e0             270 spot20_demo03.o
+		.data               3450             2e0 spot20_demo04.o
+		.data               3730             250 spot20_demo05.o
+		.data               3980             ae0 spot20_demo06.o
+		.data               4460             590 spot20_demo07.o
+		.data               49f0             280 spot20_main_info_ad.o
+		.data               4c70             280 spot20_main_info_an.o
+		.data               4ef0             280 spot20_main_info_cn.o
+		.data               5170             120 spot20_main_info_d0.o
+		.data               5290             1c0 spot20_main_info_d1.o
+		.data               5450             120 spot20_main_info_d2.o
+		.data               5570             100 spot20_main_info_d3.o
+		.data               5670             190 spot20_main_info_d4.o
+		.data               5800             100 spot20_main_info_d5.o
+		.data               5900             180 spot20_main_info_d6.o
+		.data               5a80              f0 spot20_main_info_d7.o
+		.data               5b70             1e0 spot20_show.o
+		.data               5d50            c070 spot20_texture.o
+
+.bss                                   0              a0
+		.bss                   0              10 okarina_epona.o
+		.bss                  10              10 spot20_demo00.o
+		.bss                  20              10 spot20_demo01.o
+		.bss                  30              10 spot20_demo02.o
+		.bss                  40              10 spot20_demo03.o
+		.bss                  50              10 spot20_demo04.o
+		.bss                  60              10 spot20_demo05.o
+		.bss                  70              10 spot20_demo06.o
+		.bss                  80              10 spot20_demo07.o
+		.bss                  90              10 spot20_show.o
+
+.strtab                                0             438
+		.strtab                0             438 *ld_internal*
+
+.symtab                                0             340
+		.symtab                0             340 *ld_internal*
+
+.mdebug                                0            20fc
+		.mdebug                0            20fc *ld_internal*
+
+.rel.data                              0             428
+		.rel.data              0              b8 spot20_main_info.o
+		.rel.data             b8              30 spot20_bgc.o
+		.rel.data             e8              48 spot20_main_info_ad.o
+		.rel.data            130              48 spot20_main_info_an.o
+		.rel.data            178              48 spot20_main_info_cn.o
+		.rel.data            1c0              50 spot20_main_info_d0.o
+		.rel.data            210              50 spot20_main_info_d1.o
+		.rel.data            260              48 spot20_main_info_d2.o
+		.rel.data            2a8              48 spot20_main_info_d3.o
+		.rel.data            2f0              60 spot20_main_info_d4.o
+		.rel.data            350              48 spot20_main_info_d5.o
+		.rel.data            398              48 spot20_main_info_d6.o
+		.rel.data            3e0              48 spot20_main_info_d7.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

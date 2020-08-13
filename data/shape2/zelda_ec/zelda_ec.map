@@ -1,0 +1,71 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            c930
+		.data                  0             cf0 ane_dance.o
+		.data                cf0             970 daiku_utau.o
+		.data               1660             320 fu_mawasare.o
+		.data               1980             8f0 ge1_dance.o
+		.data               2270             d40 goron_dance.o
+		.data               2fb0             b00 goron_hara_daiko.o
+		.data               3ab0             e60 ingo_katakumi.o
+		.data               4910             840 km1_dance.o
+		.data               5150             530 km1_motsu.o
+		.data               5680             840 kyotsu_swing.o
+		.data               5ec0             370 kz_miage_wait.o
+		.data               6230             710 kz_miageru.o
+		.data               6940             310 kz_utsumuki_wait.o
+		.data               6c50            20e0 mido_stand_up.o
+		.data               8d30             520 mido_stand_wait.o
+		.data               9250             3a0 mido_utsumuki_wait.o
+		.data               95f0             5e0 nw_dance_A.o
+		.data               9bd0             4c0 nw_dance_B.o
+		.data               a090             400 nw_dance_C.o
+		.data               a490             b60 shop_swing.o
+		.data               aff0             d60 taron_katakumi.o
+		.data               bd50             be0 zola_dance.o
+
+.strtab                                0             2c1
+		.strtab                0             2c1 *ld_internal*
+
+.symtab                                0             180
+		.symtab                0             180 *ld_internal*
+
+.mdebug                                0            19d0
+		.mdebug                0            19d0 *ld_internal*
+
+.rel.data                              0             160
+		.rel.data              0              10 ane_dance.o
+		.rel.data             10              10 daiku_utau.o
+		.rel.data             20              10 fu_mawasare.o
+		.rel.data             30              10 ge1_dance.o
+		.rel.data             40              10 goron_dance.o
+		.rel.data             50              10 goron_hara_daiko.o
+		.rel.data             60              10 ingo_katakumi.o
+		.rel.data             70              10 km1_dance.o
+		.rel.data             80              10 km1_motsu.o
+		.rel.data             90              10 kyotsu_swing.o
+		.rel.data             a0              10 kz_miage_wait.o
+		.rel.data             b0              10 kz_miageru.o
+		.rel.data             c0              10 kz_utsumuki_wait.o
+		.rel.data             d0              10 mido_stand_up.o
+		.rel.data             e0              10 mido_stand_wait.o
+		.rel.data             f0              10 mido_utsumuki_wait.o
+		.rel.data            100              10 nw_dance_A.o
+		.rel.data            110              10 nw_dance_B.o
+		.rel.data            120              10 nw_dance_C.o
+		.rel.data            130              10 shop_swing.o
+		.rel.data            140              10 taron_katakumi.o
+		.rel.data            150              10 zola_dance.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            cdc0
+		.data                  0              80 ddanh_ddtes_1_info.o
+		.data                 80              d0 ddanh_ddtes_1_shape.o
+		.data                150            c260 ddanh_ddtes_grp_tesd01_00.o
+		.data               c3b0             a10 ddanh_ddtes_grp_tesd01_00T.o
+
+.strtab                                0             18b
+		.strtab                0             18b *ld_internal*
+
+.symtab                                0             130
+		.symtab                0             130 *ld_internal*
+
+.mdebug                                0            172c
+		.mdebug                0            172c *ld_internal*
+
+.rel.data                              0             480
+		.rel.data              0              18 ddanh_ddtes_1_info.o
+		.rel.data             18              70 ddanh_ddtes_1_shape.o
+		.rel.data             88             3d8 ddanh_ddtes_grp_tesd01_00.o
+		.rel.data            460              20 ddanh_ddtes_grp_tesd01_00T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

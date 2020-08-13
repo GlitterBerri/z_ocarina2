@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2fe0
+		.data                  0              f0 hata_bgc.o
+		.data                 f0             370 ht_hata.o
+		.data                460            2b80 ht_hata_mdl.o
+
+.strtab                                0             11e
+		.strtab                0             11e *ld_internal*
+
+.symtab                                0             130
+		.symtab                0             130 *ld_internal*
+
+.mdebug                                0            1244
+		.mdebug                0            1244 *ld_internal*
+
+.rel.data                              0             1c0
+		.rel.data              0              20 hata_bgc.o
+		.rel.data             20              10 ht_hata.o
+		.rel.data             30             190 ht_hata_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

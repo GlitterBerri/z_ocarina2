@@ -1,0 +1,82 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           17af0
+		.data                  0             500 candle/efc_candle.o
+		.data                500             ac0 dk_crashbox/crashbox_c.o
+		.data                fc0             1f0 key_shape/doorkagi.o
+		.data               11b0              d0 key_shape/doorkusari.o
+		.data               1280            2000 key_shape/tex.o
+		.data               3280              d0 objects/bombhukuro.o
+		.data               3350            1a40 objects/brick_15.o
+		.data               4d90             140 objects/brick_15_bgc.o
+		.data               4ed0             240 objects/floater_l.o
+		.data               5110             240 objects/kibako.o
+		.data               5350              c0 objects/kibako_hahen.o
+		.data               5410              d0 objects/knife.o
+		.data               54e0              d0 objects/mahou_bin.o
+		.data               55b0              d0 objects/patinko.o
+		.data               5680             2d0 objects/switch_1.o
+		.data               5950             280 objects/switch_10.o
+		.data               5bd0             2d0 objects/switch_11.o
+		.data               5ea0             150 objects/switch_1_bgc.o
+		.data               5ff0             280 objects/switch_2.o
+		.data               6270             280 objects/switch_3.o
+		.data               64f0             1f0 objects/switch_4.o
+		.data               66e0             200 objects/switch_5.o
+		.data               68e0             630 objects/switch_6.o
+		.data               6f10             630 objects/switch_7.o
+		.data               7540             360 objects/switch_9.o
+		.data               78a0            dc10 objects/tex_d.o
+		.data              154b0            2000 objects/tex_df.o
+		.data              174b0             580 objects/tubo.o
+		.data              17a30              c0 objects/tubo_hahen.o
+
+.strtab                                0             477
+		.strtab                0             477 *ld_internal*
+
+.symtab                                0             4f0
+		.symtab                0             4f0 *ld_internal*
+
+.mdebug                                0            2034
+		.mdebug                0            2034 *ld_internal*
+
+.rel.data                              0             2e0
+		.rel.data              0              20 candle/efc_candle.o
+		.rel.data             20              10 dk_crashbox/crashbox_c.o
+		.rel.data             30              10 key_shape/doorkagi.o
+		.rel.data             40              10 key_shape/doorkusari.o
+		.rel.data             50              10 objects/bombhukuro.o
+		.rel.data             60              10 objects/brick_15.o
+		.rel.data             70              20 objects/brick_15_bgc.o
+		.rel.data             90              10 objects/floater_l.o
+		.rel.data             a0              10 objects/kibako.o
+		.rel.data             b0              10 objects/kibako_hahen.o
+		.rel.data             c0              10 objects/knife.o
+		.rel.data             d0              10 objects/mahou_bin.o
+		.rel.data             e0              10 objects/patinko.o
+		.rel.data             f0              30 objects/switch_1.o
+		.rel.data            120              20 objects/switch_10.o
+		.rel.data            140              30 objects/switch_11.o
+		.rel.data            170              20 objects/switch_1_bgc.o
+		.rel.data            190              20 objects/switch_2.o
+		.rel.data            1b0              20 objects/switch_3.o
+		.rel.data            1d0              18 objects/switch_4.o
+		.rel.data            1e8              18 objects/switch_5.o
+		.rel.data            200              40 objects/switch_6.o
+		.rel.data            240              40 objects/switch_7.o
+		.rel.data            280              18 objects/switch_9.o
+		.rel.data            298              38 objects/tubo.o
+		.rel.data            2d0              10 objects/tubo_hahen.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

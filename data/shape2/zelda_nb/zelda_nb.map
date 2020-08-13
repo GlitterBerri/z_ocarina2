@@ -1,0 +1,73 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           181e0
+		.data                  0             420 km_nabo.o
+		.data                420             7b0 nabor_agura_wait.o
+		.data                bd0             550 nabor_arijigoku_otiru.o
+		.data               1120             240 nabor_arijigoku_otiru_wait.o
+		.data               1360             b30 nabor_arijigoku_wait.o
+		.data               1e90             8d0 nabor_banzai.o
+		.data               2760             400 nabor_banzai_wait.o
+		.data               2b60             270 nabor_furimuki_l.o
+		.data               2dd0             7f0 nabor_furimuki_l_wait.o
+		.data               35c0             3b0 nabor_furimuki_r.o
+		.data               3970             6d0 nabor_furimuki_r_wait.o
+		.data               4040             680 nabor_hiza_wait.o
+		.data               46c0             510 nabor_kihon_talk_wait.o
+		.data               4bd0             2a0 nabor_kihon_to_walk.o
+		.data               4e70             7c0 nabor_miage_wait.o
+		.data               5630             690 nabor_miageru.o
+		.data               5cc0             670 nabor_run_to_hit.o
+		.data               6330             450 nabor_shagami_to_kihon.o
+		.data               6780             710 nabor_shagami_wait.o
+		.data               6e90            1d50 nabor_taoreru.o
+		.data               8be0             670 nabor_walk_loop.o
+		.data               9250             460 nb_matsu.o
+		.data               96b0            eb30 nb_matsu_mdl.o
+
+.strtab                                0             5f9
+		.strtab                0             5f9 *ld_internal*
+
+.symtab                                0             460
+		.symtab                0             460 *ld_internal*
+
+.mdebug                                0            28d8
+		.mdebug                0            28d8 *ld_internal*
+
+.rel.data                              0             f20
+		.rel.data              0              10 km_nabo.o
+		.rel.data             10              10 nabor_agura_wait.o
+		.rel.data             20              10 nabor_arijigoku_otiru.o
+		.rel.data             30              10 nabor_arijigoku_otiru_wait.o
+		.rel.data             40              10 nabor_arijigoku_wait.o
+		.rel.data             50              10 nabor_banzai.o
+		.rel.data             60              10 nabor_banzai_wait.o
+		.rel.data             70              10 nabor_furimuki_l.o
+		.rel.data             80              10 nabor_furimuki_l_wait.o
+		.rel.data             90              10 nabor_furimuki_r.o
+		.rel.data             a0              10 nabor_furimuki_r_wait.o
+		.rel.data             b0              10 nabor_hiza_wait.o
+		.rel.data             c0              10 nabor_kihon_talk_wait.o
+		.rel.data             d0              10 nabor_kihon_to_walk.o
+		.rel.data             e0              10 nabor_miage_wait.o
+		.rel.data             f0              10 nabor_miageru.o
+		.rel.data            100              10 nabor_run_to_hit.o
+		.rel.data            110              10 nabor_shagami_to_kihon.o
+		.rel.data            120              10 nabor_shagami_wait.o
+		.rel.data            130              10 nabor_taoreru.o
+		.rel.data            140              10 nabor_walk_loop.o
+		.rel.data            150              10 nb_matsu.o
+		.rel.data            160             dc0 nb_matsu_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

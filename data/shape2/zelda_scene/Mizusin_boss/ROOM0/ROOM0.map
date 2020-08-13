@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            4470
+		.data                  0              50 MIZUsin_bs_0_info.o
+		.data                 50              20 MIZUsin_bs_0_shape.o
+		.data                 70            4400 MIZUsin_bs_grp_Wa0b.o
+
+.strtab                                0              64
+		.strtab                0              64 *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             570
+		.mdebug                0             570 *ld_internal*
+
+.rel.data                              0              c0
+		.rel.data              0              10 MIZUsin_bs_0_info.o
+		.rel.data             10              18 MIZUsin_bs_0_shape.o
+		.rel.data             28              98 MIZUsin_bs_grp_Wa0b.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,62 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1c150
+		.data                  0             3f0 spot01_main_info.o
+		.data                3f0            4660 spot01_bgc.o
+		.data               4a50            23a0 spot01_demo00.o
+		.data               6df0            12a0 spot01_demo01.o
+		.data               8090             5e0 spot01_demo02.o
+		.data               8670             870 spot01_demo03.o
+		.data               8ee0             1f0 spot01_demo04.o
+		.data               90d0             460 spot01_main_info_ad.o
+		.data               9530             450 spot01_main_info_an.o
+		.data               9980             360 spot01_main_info_cn.o
+		.data               9ce0             180 spot01_main_info_d0.o
+		.data               9e60             1e0 spot01_main_info_d1.o
+		.data               a040             1e0 spot01_main_info_d2.o
+		.data               a220             1e0 spot01_main_info_d3.o
+		.data               a400             140 spot01_main_info_d4.o
+		.data               a540             330 spot01_show.o
+		.data               a870           118e0 spot01_texture.o
+
+.bss                                   0              60
+		.bss                   0              10 spot01_demo00.o
+		.bss                  10              10 spot01_demo01.o
+		.bss                  20              10 spot01_demo02.o
+		.bss                  30              10 spot01_demo03.o
+		.bss                  40              10 spot01_demo04.o
+		.bss                  50              10 spot01_show.o
+
+.strtab                                0             547
+		.strtab                0             547 *ld_internal*
+
+.symtab                                0             3d0
+		.symtab                0             3d0 *ld_internal*
+
+.mdebug                                0            1cb8
+		.mdebug                0            1cb8 *ld_internal*
+
+.rel.data                              0             3a8
+		.rel.data              0              b0 spot01_main_info.o
+		.rel.data             b0              70 spot01_bgc.o
+		.rel.data            120              58 spot01_main_info_ad.o
+		.rel.data            178              48 spot01_main_info_an.o
+		.rel.data            1c0              58 spot01_main_info_cn.o
+		.rel.data            218              50 spot01_main_info_d0.o
+		.rel.data            268              50 spot01_main_info_d1.o
+		.rel.data            2b8              50 spot01_main_info_d2.o
+		.rel.data            308              50 spot01_main_info_d3.o
+		.rel.data            358              50 spot01_main_info_d4.o
+
+.shstrtab                              0              4f
+		.shstrtab              0              4f *ld_internal*

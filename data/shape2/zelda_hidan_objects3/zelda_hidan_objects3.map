@@ -1,0 +1,45 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2080
+		.data                  0             730 m_FMyaku.o
+		.data                730             360 m_FOdosi.o
+		.data                a90             8b0 m_FRound.o
+		.data               1340             430 m_FRound_bgc.o
+		.data               1770              a0 m_Ffirewall.o
+		.data               1810             110 m_FfirewallBIG.o
+		.data               1920              80 m_FfirewallBIG_bgc.o
+		.data               19a0             5b0 m_Fmboss.o
+		.data               1f50             130 m_Fmboss_bgc.o
+
+.strtab                                0             1b8
+		.strtab                0             1b8 *ld_internal*
+
+.symtab                                0             1c0
+		.symtab                0             1c0 *ld_internal*
+
+.mdebug                                0             c04
+		.mdebug                0             c04 *ld_internal*
+
+.rel.data                              0             1c8
+		.rel.data              0              50 m_FMyaku.o
+		.rel.data             50              20 m_FOdosi.o
+		.rel.data             70              60 m_FRound.o
+		.rel.data             d0              20 m_FRound_bgc.o
+		.rel.data             f0              10 m_Ffirewall.o
+		.rel.data            100              20 m_FfirewallBIG.o
+		.rel.data            120              20 m_FfirewallBIG_bgc.o
+		.rel.data            140              68 m_Fmboss.o
+		.rel.data            1a8              20 m_Fmboss_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

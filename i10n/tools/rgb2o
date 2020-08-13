@@ -1,0 +1,27 @@
+#!/bin/csh
+unalias *
+
+if ($#argv != 2) then
+        echo 'rgb2o [RGBA, YUV, CI, IA, I, A] [4, 8, 16, 32]'
+else
+        set files = `ls *.rgba *.rgb *.inta *.ia *.i`
+        foreach file ($files)
+		chmod u+w $file
+		$ZELDA_ROOT/i10n/tools/fix_rgb.pl $file
+                set name=`basename $file | sed -e s/'\..*$'//`
+                $ROOT/usr/sbin/rgb2c -F -f $argv[1] -s $argv[2] -m "$name"_txt $file > $name.c
+                mv -f $name.c $name~
+                sed "s/static Gfx/\/\/static Gfx/g" $name~ > $name.c
+                rm -f $name~
+        end
+
+set out=`pwd`
+set COPT = "-fno-pic -mcpu=4300 -nostdinc -c -O2 -G 0"
+set CC = /usr/bin/mips-linux-gcc
+set LD = /usr/mips-linux/bin/ld
+
+echo $CC $COPT -c *.c
+     $CC $COPT -c *.c
+echo $LD -r *.o -o $out:t.o
+     $LD -r *.o -o $out:t.o
+endif

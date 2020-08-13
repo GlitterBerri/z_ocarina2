@@ -1,0 +1,74 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            df10
+		.data                  0             380 demo.o
+		.data                380             4f0 demo_mdl.o
+		.data                870             250 hl_FLfoot.o
+		.data                ac0             1a0 hl_FLleg.o
+		.data                c60             250 hl_FRfoot.o
+		.data                eb0             1a0 hl_FRleg.o
+		.data               1050             230 hl_RLfoot.o
+		.data               1280             1a0 hl_RLleg.o
+		.data               1420             230 hl_RRfoot.o
+		.data               1650             1a0 hl_RRleg.o
+		.data               17f0             650 hl_anim_fastrun2.o
+		.data               1e40             640 hl_anim_jump1002.o
+		.data               2480             7d0 hl_anim_jump2002.o
+		.data               2c50             670 hl_anim_slowrun2.o
+		.data               32c0             a40 hl_anim_stand2.o
+		.data               3d00            1100 hl_anim_stop2.o
+		.data               4e00             7a0 hl_anim_wait022.o
+		.data               55a0            17c0 hl_anim_wait2.o
+		.data               6d60             8a0 hl_anim_walk2.o
+		.data               7600            2780 hl_default2_mdl.o
+		.data               9d80            1260 hl_head.o
+		.data               afe0             7e0 hl_kura.o
+		.data               b7c0             750 hl_skin.o
+		.data               bf10            2000 tex.o
+
+.strtab                                0             480
+		.strtab                0             480 *ld_internal*
+
+.symtab                                0             3d0
+		.symtab                0             3d0 *ld_internal*
+
+.mdebug                                0            4d08
+		.mdebug                0            4d08 *ld_internal*
+
+.rel.data                              0             df0
+		.rel.data              0              18 demo.o
+		.rel.data             18              c8 demo_mdl.o
+		.rel.data             e0              20 hl_FLfoot.o
+		.rel.data            100              10 hl_FLleg.o
+		.rel.data            110              20 hl_FRfoot.o
+		.rel.data            130              10 hl_FRleg.o
+		.rel.data            140              20 hl_RLfoot.o
+		.rel.data            160              10 hl_RLleg.o
+		.rel.data            170              20 hl_RRfoot.o
+		.rel.data            190              10 hl_RRleg.o
+		.rel.data            1a0              10 hl_anim_fastrun2.o
+		.rel.data            1b0              10 hl_anim_jump1002.o
+		.rel.data            1c0              10 hl_anim_jump2002.o
+		.rel.data            1d0              10 hl_anim_slowrun2.o
+		.rel.data            1e0              10 hl_anim_stand2.o
+		.rel.data            1f0              10 hl_anim_stop2.o
+		.rel.data            200              10 hl_anim_wait022.o
+		.rel.data            210              10 hl_anim_wait2.o
+		.rel.data            220              10 hl_anim_walk2.o
+		.rel.data            230             a48 hl_default2_mdl.o
+		.rel.data            c78              68 hl_head.o
+		.rel.data            ce0              40 hl_kura.o
+		.rel.data            d20              d0 hl_skin.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

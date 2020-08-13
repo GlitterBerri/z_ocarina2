@@ -1,0 +1,95 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           205d0
+		.data                  0             370 LshoulderA_drop.o
+		.data                370              20 LshoulderA_drop_mdl.o
+		.data                390             2c0 RshoulderB_drop.o
+		.data                650              20 RshoulderB_drop_mdl.o
+		.data                670             280 backarmer_damage_demo.o
+		.data                8f0              20 backarmer_damage_demo_mdl.o
+		.data                910             370 front_armer_drop.o
+		.data                c80              20 front_armer_drop_mdl.o
+		.data                ca0             280 frontarmer_damage_demo.o
+		.data                f20              20 frontarmer_damage_demo_mdl.o
+		.data                f40             d00 ironknack_attackA.o
+		.data               1c40             910 ironknack_attackA_end.o
+		.data               2550             4c0 ironknack_attackA_hit.o
+		.data               2a10             9d0 ironknack_attackB.o
+		.data               33e0             9f0 ironknack_attackB_end.o
+		.data               3dd0             800 ironknack_back_hit.o
+		.data               45d0             2a0 ironknack_defense.o
+		.data               4870            10f0 ironknack_down.o
+		.data               5960             850 ironknack_front_hit.o
+		.data               61b0             5a0 ironknack_run.o
+		.data               6750            59e0 ironknack_stand_demo.o
+		.data               c130             c50 ironknack_stand_up.o
+		.data               cd80             fe0 ironknack_wait.o
+		.data               dd60             540 ironknack_wait_hit.o
+		.data               e2a0             aa0 ironknack_walk.o
+		.data               ed40             8f0 ironknack_walk_start.o
+		.data               f630            eb60 ironknack_walk_start_mdl.o
+		.data              1e190             6a0 ironknack_walk_stop.o
+		.data              1e830             300 kabutoL_damage_demo.o
+		.data              1eb30              20 kabutoL_damage_demo_mdl.o
+		.data              1eb50             300 kabutoR_damage_demo.o
+		.data              1ee50              20 kabutoR_damage_demo_mdl.o
+		.data              1ee70            1580 naborknack_damage_demo.o
+		.data              203f0             1e0 naborknack_damage_demo_mdl.o
+
+.strtab                                0             97d
+		.strtab                0             97d *ld_internal*
+
+.symtab                                0             610
+		.symtab                0             610 *ld_internal*
+
+.mdebug                                0            45a0
+		.mdebug                0            45a0 *ld_internal*
+
+.rel.data                              0            1170
+		.rel.data              0              10 LshoulderA_drop.o
+		.rel.data             10              18 LshoulderA_drop_mdl.o
+		.rel.data             28              10 RshoulderB_drop.o
+		.rel.data             38              18 RshoulderB_drop_mdl.o
+		.rel.data             50              10 backarmer_damage_demo.o
+		.rel.data             60              18 backarmer_damage_demo_mdl.o
+		.rel.data             78              10 front_armer_drop.o
+		.rel.data             88              18 front_armer_drop_mdl.o
+		.rel.data             a0              10 frontarmer_damage_demo.o
+		.rel.data             b0              18 frontarmer_damage_demo_mdl.o
+		.rel.data             c8              10 ironknack_attackA.o
+		.rel.data             d8              10 ironknack_attackA_end.o
+		.rel.data             e8              10 ironknack_attackA_hit.o
+		.rel.data             f8              10 ironknack_attackB.o
+		.rel.data            108              10 ironknack_attackB_end.o
+		.rel.data            118              10 ironknack_back_hit.o
+		.rel.data            128              10 ironknack_defense.o
+		.rel.data            138              10 ironknack_down.o
+		.rel.data            148              10 ironknack_front_hit.o
+		.rel.data            158              10 ironknack_run.o
+		.rel.data            168              10 ironknack_stand_demo.o
+		.rel.data            178              10 ironknack_stand_up.o
+		.rel.data            188              10 ironknack_wait.o
+		.rel.data            198              10 ironknack_wait_hit.o
+		.rel.data            1a8              10 ironknack_walk.o
+		.rel.data            1b8              10 ironknack_walk_start.o
+		.rel.data            1c8             d88 ironknack_walk_start_mdl.o
+		.rel.data            f50              10 ironknack_walk_stop.o
+		.rel.data            f60              10 kabutoL_damage_demo.o
+		.rel.data            f70              18 kabutoL_damage_demo_mdl.o
+		.rel.data            f88              10 kabutoR_damage_demo.o
+		.rel.data            f98              18 kabutoR_damage_demo_mdl.o
+		.rel.data            fb0              10 naborknack_damage_demo.o
+		.rel.data            fc0             1b0 naborknack_damage_demo_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

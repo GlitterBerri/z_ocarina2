@@ -1,0 +1,37 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2b20
+		.data                  0             110 sasatest_main_info.o
+		.data                110            2760 sasatest_bgc.o
+		.data               2870              d0 sasatest_main_info_ad.o
+		.data               2940             120 sasatest_main_info_an.o
+		.data               2a60              c0 sasatest_main_info_cn.o
+
+.strtab                                0              9a
+		.strtab                0              9a *ld_internal*
+
+.symtab                                0              90
+		.symtab                0              90 *ld_internal*
+
+.mdebug                                0             748
+		.mdebug                0             748 *ld_internal*
+
+.rel.data                              0             120
+		.rel.data              0              58 sasatest_main_info.o
+		.rel.data             58              20 sasatest_bgc.o
+		.rel.data             78              38 sasatest_main_info_ad.o
+		.rel.data             b0              38 sasatest_main_info_an.o
+		.rel.data             e8              38 sasatest_main_info_cn.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

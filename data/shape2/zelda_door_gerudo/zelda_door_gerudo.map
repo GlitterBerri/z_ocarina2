@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             9a0
+		.data                  0              d0 gerudoway_shutter.o
+		.data                 d0              d0 gerudoway_shutter_bgc.o
+		.data                1a0             800 tex.o
+
+.strtab                                0              49
+		.strtab                0              49 *ld_internal*
+
+.symtab                                0              50
+		.symtab                0              50 *ld_internal*
+
+.mdebug                                0             3cc
+		.mdebug                0             3cc *ld_internal*
+
+.rel.data                              0              30
+		.rel.data              0              10 gerudoway_shutter.o
+		.rel.data             10              20 gerudoway_shutter_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

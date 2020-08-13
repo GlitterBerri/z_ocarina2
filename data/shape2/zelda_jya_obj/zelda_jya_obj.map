@@ -1,0 +1,80 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           1c140
+		.data                  0             310 l_j_1Flift.o
+		.data                310             1d0 l_j_1Flift_bgc.o
+		.data                4e0            5440 l_j_Mface.o
+		.data               5920             360 l_j_Mface_bgc.o
+		.data               5c80            4fd0 l_j_Mfacebom.o
+		.data               ac50             f00 l_j_Mfacebomsmall.o
+		.data               bb50             1f0 l_j_Mhikari.o
+		.data               bd40              d0 l_j_MhikariB.o
+		.data               be10             3d0 l_j_Mkanaami.o
+		.data               c1e0             320 l_j_Mkanaami_bgc.o
+		.data               c500             b90 l_j_Mlift.o
+		.data               d090             790 l_j_Mlift_bgc.o
+		.data               d820             500 l_j_anahikari.o
+		.data               dd20             670 l_j_bigkagami.o
+		.data               e390             1e0 l_j_bomiwa.o
+		.data               e570             1d0 l_j_bomiwa_bgc.o
+		.data               e740             2b0 l_j_bomtyuiwa.o
+		.data               e9f0             4c0 l_j_iwahahen.o
+		.data               eeb0             250 l_j_kanaami.o
+		.data               f100             140 l_j_kanaami_bgc.o
+		.data               f240            1af0 l_j_kobura.o
+		.data              10d30             980 l_j_kobura_bgc.o
+		.data              116b0             1e0 l_j_koburahikari.o
+		.data              11890             1d0 l_j_tyorohikari.o
+		.data              11a60             a00 l_j_zurerukabe0.o
+		.data              12460              e0 l_j_zurerukabe0_bgc.o
+		.data              12540            9c00 tex.o
+
+.strtab                                0             58a
+		.strtab                0             58a *ld_internal*
+
+.symtab                                0             4b0
+		.symtab                0             4b0 *ld_internal*
+
+.mdebug                                0            2538
+		.mdebug                0            2538 *ld_internal*
+
+.rel.data                              0             6d0
+		.rel.data              0              20 l_j_1Flift.o
+		.rel.data             20              20 l_j_1Flift_bgc.o
+		.rel.data             40              28 l_j_Mface.o
+		.rel.data             68              20 l_j_Mface_bgc.o
+		.rel.data             88             310 l_j_Mfacebom.o
+		.rel.data            398              30 l_j_Mfacebomsmall.o
+		.rel.data            3c8              10 l_j_Mhikari.o
+		.rel.data            3d8              10 l_j_MhikariB.o
+		.rel.data            3e8              20 l_j_Mkanaami.o
+		.rel.data            408              20 l_j_Mkanaami_bgc.o
+		.rel.data            428              70 l_j_Mlift.o
+		.rel.data            498              20 l_j_Mlift_bgc.o
+		.rel.data            4b8              28 l_j_anahikari.o
+		.rel.data            4e0              30 l_j_bigkagami.o
+		.rel.data            510              10 l_j_bomiwa.o
+		.rel.data            520              20 l_j_bomiwa_bgc.o
+		.rel.data            540              10 l_j_bomtyuiwa.o
+		.rel.data            550              18 l_j_iwahahen.o
+		.rel.data            568              20 l_j_kanaami.o
+		.rel.data            588              20 l_j_kanaami_bgc.o
+		.rel.data            5a8              a0 l_j_kobura.o
+		.rel.data            648              20 l_j_kobura_bgc.o
+		.rel.data            668              10 l_j_koburahikari.o
+		.rel.data            678              10 l_j_tyorohikari.o
+		.rel.data            688              28 l_j_zurerukabe0.o
+		.rel.data            6b0              20 l_j_zurerukabe0_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

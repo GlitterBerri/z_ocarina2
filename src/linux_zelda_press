@@ -1,0 +1,76 @@
+#!/bin/sh
+
+# split rom
+$ROOT/usr/sbin/rommap zelda rom > rom.map
+
+# compress files, skip over exceptions
+
+for dfile in `cut -d" " -f1 rom.map`; do
+    echo $dfile
+    szsfile=`basename $dfile .d`.szs
+    ddfile=`basename $dfile .d`.dd
+    gzfile=`basename $dfile .d`.gz
+    case ${dfile} in
+    makerom.d | boot.d | dmadata.d | Audiobank.d | Audioseq.d | Audiotable.d )
+	rm -f $szsfile
+	;;
+    kanji.d | link_animetion.d | icon_item_static.d | icon_item_24_static.d | item_name_static.d | map_name_static.d | do_action_static.d | message_static.d | message_data_static.d | message_texture_static.d | nes_font_static.d | nes_message_data_static.d | ger_message_data_static.d | fra_message_data_static.d | staff_message_data_static.d | map_grand_static.d | map_i_static.d | map_48x85_static.d  )
+	rm -f $szsfile
+	;;
+    test01_*.d )
+	rm -f $szsfile
+	;;
+    vr_*_pal_static.d)
+	rm -f $szsfile
+	;;
+    n64dd.d )
+	rm -f $szsfile
+	;;
+    parameter_static.d | vr_*_static.d | title_static.d | \
+    *_scene.d | *_room_*.d | object_*.d | g_pn_*.d | gameplay_*.d | \
+    icon_item_field_static.d | icon_item_dungeon_static.d | icon_item_jpn_static.d | icon_item_nes_static.d | \
+    nintendo_rogo_static.d | \
+    code.d | z_select_static.d | ovl_*.d )
+        gzip -c -9 -n $dfile > $gzfile 
+	dd bs=10 skip=1 if=$gzfile of=$szsfile
+	$ROOT/usr/sbin/romalign $szsfile 16
+	;;
+      * )
+        gzip -c -9 -n $dfile > $gzfile 
+	dd bs=10 skip=1 if=$gzfile of=$szsfile
+	$ROOT/usr/sbin/romalign $szsfile 16
+        ;;
+    esac
+    if [ -f $szsfile ]; then
+        #echo "check $szsfile"
+        gunzip -c -S "" $gzfile > ${ddfile}
+	cmp ${dfile} ${ddfile}
+	if [ $? != 0 ]; then 
+	    echo "bad decompression: $szsfile"
+	    rm -f $szsfile
+	fi
+	rm -f ${ddfile}
+	rm -f $gzfile
+    fi
+done
+
+# reconstruct rom from compressed files
+cp dmadata.d dmadata.d.bak
+$ROOT/usr/sbin/romaddress rom.map dmadata.d > dmadata.map
+
+: > romP
+for file in `cut -d" " -f1 rom.map`; do
+    f=`basename $file .d`
+    if [ -f $f.szs ]; then
+	cat $f.szs
+    elif [ -f $f.szp ]; then
+	cat $f.szp
+    else
+	cat $f.d
+    fi
+done >> romP
+
+# pad out rom
+#$ROOT/usr/sbin/romfill romP romPP 33554432
+cp romP romPP
+ls -l rom romP romPP

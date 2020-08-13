@@ -1,0 +1,35 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            9f20
+		.data                  0             130 ganontikasonogo_1_info.o
+		.data                130              20 ganontikasonogo_1_shape.o
+		.data                150            9310 ganontikasonogo_grp_gas01_00.o
+		.data               9460             ac0 ganontikasonogo_grp_gas01_00T.o
+
+.strtab                                0             248
+		.strtab                0             248 *ld_internal*
+
+.symtab                                0             170
+		.symtab                0             170 *ld_internal*
+
+.mdebug                                0            1a34
+		.mdebug                0            1a34 *ld_internal*
+
+.rel.data                              0             578
+		.rel.data              0              18 ganontikasonogo_1_info.o
+		.rel.data             18              20 ganontikasonogo_1_shape.o
+		.rel.data             38             520 ganontikasonogo_grp_gas01_00.o
+		.rel.data            558              20 ganontikasonogo_grp_gas01_00T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

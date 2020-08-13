@@ -1,0 +1,69 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           14a60
+		.data                  0             cc0 IronKnack_b_down.o
+		.data                cc0             3a0 IronKnack_b_wait.o
+		.data               1060             4e0 IronKnack_back_move.o
+		.data               1540             9a0 IronKnack_backgiri_dmg.o
+		.data               1ee0             380 IronKnack_defense_end.o
+		.data               2260             280 IronKnack_defense_start.o
+		.data               24e0             4e0 IronKnack_front_move.o
+		.data               29c0             ee0 IronKnack_gedan.o
+		.data               38a0             be0 IronKnack_hasso.o
+		.data               4480             a30 IronKnack_hineri.o
+		.data               4eb0             fd0 IronKnack_jyodan.o
+		.data               5e80             d10 IronKnack_m_down.o
+		.data               6b90             3e0 IronKnack_m_wait.o
+		.data               6f70             aa0 IronKnack_maegiri_dmg.o
+		.data               7a10             430 IronKnack_side_move.o
+		.data               7e40             a30 IronKnack_tuki.o
+		.data               8870             b80 IronKnack_wait.o
+		.data               93f0            a880 IronKnack_wait_mdl.o
+		.data              13c70             5e0 IronKnack_walk.o
+		.data              14250             430 IronKnack_walk_end.o
+		.data              14680             3e0 IronKnack_walk_start.o
+
+.strtab                                0             bb5
+		.strtab                0             bb5 *ld_internal*
+
+.symtab                                0             ac0
+		.symtab                0             ac0 *ld_internal*
+
+.mdebug                                0            4678
+		.mdebug                0            4678 *ld_internal*
+
+.rel.data                              0             d40
+		.rel.data              0              10 IronKnack_b_down.o
+		.rel.data             10              10 IronKnack_b_wait.o
+		.rel.data             20              10 IronKnack_back_move.o
+		.rel.data             30              10 IronKnack_backgiri_dmg.o
+		.rel.data             40              10 IronKnack_defense_end.o
+		.rel.data             50              10 IronKnack_defense_start.o
+		.rel.data             60              10 IronKnack_front_move.o
+		.rel.data             70              10 IronKnack_gedan.o
+		.rel.data             80              10 IronKnack_hasso.o
+		.rel.data             90              10 IronKnack_hineri.o
+		.rel.data             a0              10 IronKnack_jyodan.o
+		.rel.data             b0              10 IronKnack_m_down.o
+		.rel.data             c0              10 IronKnack_m_wait.o
+		.rel.data             d0              10 IronKnack_maegiri_dmg.o
+		.rel.data             e0              10 IronKnack_side_move.o
+		.rel.data             f0              10 IronKnack_tuki.o
+		.rel.data            100              10 IronKnack_wait.o
+		.rel.data            110             c00 IronKnack_wait_mdl.o
+		.rel.data            d10              10 IronKnack_walk.o
+		.rel.data            d20              10 IronKnack_walk_end.o
+		.rel.data            d30              10 IronKnack_walk_start.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

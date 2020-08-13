@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            10c0
+		.data                  0             a90 CIkibako.o
+		.data                a90             110 CIkibako_bgc.o
+		.data                ba0             520 CIkibako_hahen.o
+
+.strtab                                0              3f
+		.strtab                0              3f *ld_internal*
+
+.symtab                                0              50
+		.symtab                0              50 *ld_internal*
+
+.mdebug                                0             450
+		.mdebug                0             450 *ld_internal*
+
+.rel.data                              0              60
+		.rel.data              0              28 CIkibako.o
+		.rel.data             28              20 CIkibako_bgc.o
+		.rel.data             48              18 CIkibako_hahen.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

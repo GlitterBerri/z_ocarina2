@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            72a0
+		.data                  0             290 dog_bark.o
+		.data                290             6b0 dog_fuse.o
+		.data                940             300 dog_fusetamama.o
+		.data                c40             150 dog_run.o
+		.data                d90             3d0 dog_sit.o
+		.data               1160             220 dog_walk.o
+		.data               1380            5f20 dog_walk_mdl.o
+
+.strtab                                0             202
+		.strtab                0             202 *ld_internal*
+
+.symtab                                0             1d0
+		.symtab                0             1d0 *ld_internal*
+
+.mdebug                                0             e40
+		.mdebug                0             e40 *ld_internal*
+
+.rel.data                              0             350
+		.rel.data              0              10 dog_bark.o
+		.rel.data             10              10 dog_fuse.o
+		.rel.data             20              10 dog_fusetamama.o
+		.rel.data             30              10 dog_run.o
+		.rel.data             40              10 dog_sit.o
+		.rel.data             50              10 dog_walk.o
+		.rel.data             60             2f0 dog_walk_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

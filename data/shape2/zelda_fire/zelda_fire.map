@@ -1,0 +1,37 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            40a0
+		.data                  0              a0 fire.o
+		.data                 a0             800 ANIME_TEXTURE/g_torch0_1.o
+		.data                8a0             800 ANIME_TEXTURE/g_torch0_2.o
+		.data               10a0             800 ANIME_TEXTURE/g_torch0_3.o
+		.data               18a0             800 ANIME_TEXTURE/g_torch0_4.o
+		.data               20a0             800 ANIME_TEXTURE/g_torch0_5.o
+		.data               28a0             800 ANIME_TEXTURE/g_torch0_6.o
+		.data               30a0             800 ANIME_TEXTURE/g_torch0_7.o
+		.data               38a0             800 ANIME_TEXTURE/g_torch0_8.o
+
+.strtab                                0              90
+		.strtab                0              90 *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             7c8
+		.mdebug                0             7c8 *ld_internal*
+
+.rel.data                              0              10
+		.rel.data              0              10 fire.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

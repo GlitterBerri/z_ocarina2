@@ -1,0 +1,41 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            76f0
+		.data                  0              a0 syatekijyou_0_info.o
+		.data                 a0              20 syatekijyou_0_shape.o
+		.data                 c0              30 syatekijyou_0_info_d0.o
+		.data                 f0              b0 syatekijyou_0_info_d1.o
+		.data                1a0              60 syatekijyou_0_info_d2.o
+		.data                200            63f0 syatekijyou_grp_g1.o
+		.data               65f0            1100 syatekijyou_grp_g1T.o
+
+.strtab                                0             4c7
+		.strtab                0             4c7 *ld_internal*
+
+.symtab                                0             350
+		.symtab                0             350 *ld_internal*
+
+.mdebug                                0            29b8
+		.mdebug                0            29b8 *ld_internal*
+
+.rel.data                              0             790
+		.rel.data              0              38 syatekijyou_0_info.o
+		.rel.data             38              20 syatekijyou_0_shape.o
+		.rel.data             58               8 syatekijyou_0_info_d0.o
+		.rel.data             60              18 syatekijyou_0_info_d1.o
+		.rel.data             78              18 syatekijyou_0_info_d2.o
+		.rel.data             90             598 syatekijyou_grp_g1.o
+		.rel.data            628             168 syatekijyou_grp_g1T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

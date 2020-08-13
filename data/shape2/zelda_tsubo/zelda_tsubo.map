@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            19f0
+		.data                  0            1400 tex.o
+		.data               1400             530 tubo2.o
+		.data               1930              c0 tubo2_hahen.o
+
+.strtab                                0              57
+		.strtab                0              57 *ld_internal*
+
+.symtab                                0              70
+		.symtab                0              70 *ld_internal*
+
+.mdebug                                0             344
+		.mdebug                0             344 *ld_internal*
+
+.rel.data                              0              38
+		.rel.data              0              28 tubo2.o
+		.rel.data             28              10 tubo2_hahen.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

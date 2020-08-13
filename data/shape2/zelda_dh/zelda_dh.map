@@ -1,0 +1,53 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            90c0
+		.data                  0             bf0 dead_armR_basedata_mdl.o
+		.data                bf0             800 dead_armR_tex.o
+		.data               13f0             1d0 dead_armR_wait_20f.o
+		.data               15c0             490 dead_hand_attack_20f.o
+		.data               1a50             710 dead_hand_dig_20f.o
+		.data               2160            1170 dead_hand_down_20f.o
+		.data               32d0             4a0 dead_hand_down_wait_20f.o
+		.data               3770             330 dead_hand_greeting_20f.o
+		.data               3aa0             2e0 dead_hand_hit_20f.o
+		.data               3d80             8f0 dead_hand_meeting_20f.o
+		.data               4670             c00 dead_hand_tex.o
+		.data               5270             620 dead_hand_wait_20f.o
+		.data               5890            2610 dead_hand_wait_20f_mdl.o
+		.data               7ea0            1220 dh_dust.o
+
+.strtab                                0             483
+		.strtab                0             483 *ld_internal*
+
+.symtab                                0             350
+		.symtab                0             350 *ld_internal*
+
+.mdebug                                0            1920
+		.mdebug                0            1920 *ld_internal*
+
+.rel.data                              0             5a0
+		.rel.data              0              c8 dead_armR_basedata_mdl.o
+		.rel.data             c8              10 dead_armR_wait_20f.o
+		.rel.data             d8              10 dead_hand_attack_20f.o
+		.rel.data             e8              10 dead_hand_dig_20f.o
+		.rel.data             f8              10 dead_hand_down_20f.o
+		.rel.data            108              10 dead_hand_down_wait_20f.o
+		.rel.data            118              10 dead_hand_greeting_20f.o
+		.rel.data            128              10 dead_hand_hit_20f.o
+		.rel.data            138              10 dead_hand_meeting_20f.o
+		.rel.data            148              10 dead_hand_wait_20f.o
+		.rel.data            158             428 dead_hand_wait_20f_mdl.o
+		.rel.data            580              20 dh_dust.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

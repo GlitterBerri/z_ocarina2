@@ -1,0 +1,56 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             640
+		.data                  0              a0 hiral_demo_0_info.o
+		.data                 a0              20 hiral_demo_0_shape.o
+		.data                 c0              60 hiral_demo_0_info_ad.o
+		.data                120              60 hiral_demo_0_info_an.o
+		.data                180              60 hiral_demo_0_info_cn.o
+		.data                1e0              90 hiral_demo_0_info_d0.o
+		.data                270              70 hiral_demo_0_info_d1.o
+		.data                2e0              a0 hiral_demo_0_info_d2.o
+		.data                380              60 hiral_demo_0_info_d3.o
+		.data                3e0              70 hiral_demo_0_info_d4.o
+		.data                450              70 hiral_demo_0_info_d5.o
+		.data                4c0              70 hiral_demo_0_info_d6.o
+		.data                530              a0 hiral_demo_0_info_d7.o
+		.data                5d0              60 hiral_demo_0_info_d8.o
+		.data                630              10 hiral_demo_grp_g1T.o
+
+.strtab                                0             16d
+		.strtab                0             16d *ld_internal*
+
+.symtab                                0             110
+		.symtab                0             110 *ld_internal*
+
+.mdebug                                0            1054
+		.mdebug                0            1054 *ld_internal*
+
+.rel.data                              0             1a0
+		.rel.data              0              68 hiral_demo_0_info.o
+		.rel.data             68              18 hiral_demo_0_shape.o
+		.rel.data             80              18 hiral_demo_0_info_ad.o
+		.rel.data             98              18 hiral_demo_0_info_an.o
+		.rel.data             b0              18 hiral_demo_0_info_cn.o
+		.rel.data             c8              18 hiral_demo_0_info_d0.o
+		.rel.data             e0              18 hiral_demo_0_info_d1.o
+		.rel.data             f8              18 hiral_demo_0_info_d2.o
+		.rel.data            110              18 hiral_demo_0_info_d3.o
+		.rel.data            128              18 hiral_demo_0_info_d4.o
+		.rel.data            140              18 hiral_demo_0_info_d5.o
+		.rel.data            158              18 hiral_demo_0_info_d6.o
+		.rel.data            170              18 hiral_demo_0_info_d7.o
+		.rel.data            188              18 hiral_demo_0_info_d8.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

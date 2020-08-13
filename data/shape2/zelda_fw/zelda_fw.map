@@ -1,0 +1,47 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7de0
+		.data                  0            10d0 fire_dancer_first_greeting_20f.o
+		.data               10d0            4750 fire_dancer_first_greeting_20f_mdl.o
+		.data               5820             460 fire_dancer_jump_20f.o
+		.data               5c80             3e0 fire_dancer_landing_20f.o
+		.data               6060             9d0 fire_dancer_run_20f.o
+		.data               6a30             150 fire_dancer_turn_20f.o
+		.data               6b80             190 fire_walker_greeting_20f.o
+		.data               6d10             f30 fire_walker_greeting_20f_mdl.o
+		.data               7c40              a0 fire_walker_jump_20f.o
+		.data               7ce0             100 fire_walker_run_20f.o
+
+.strtab                                0             590
+		.strtab                0             590 *ld_internal*
+
+.symtab                                0             440
+		.symtab                0             440 *ld_internal*
+
+.mdebug                                0            1d08
+		.mdebug                0            1d08 *ld_internal*
+
+.rel.data                              0             718
+		.rel.data              0              10 fire_dancer_first_greeting_20f.o
+		.rel.data             10             530 fire_dancer_first_greeting_20f_mdl.o
+		.rel.data            540              10 fire_dancer_jump_20f.o
+		.rel.data            550              10 fire_dancer_landing_20f.o
+		.rel.data            560              10 fire_dancer_run_20f.o
+		.rel.data            570              10 fire_dancer_turn_20f.o
+		.rel.data            580              10 fire_walker_greeting_20f.o
+		.rel.data            590             168 fire_walker_greeting_20f_mdl.o
+		.rel.data            6f8              10 fire_walker_jump_20f.o
+		.rel.data            708              10 fire_walker_run_20f.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

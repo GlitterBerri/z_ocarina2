@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1b10
+		.data                  0             520 gi_arrow_1.o
+		.data                520             8c0 gi_arrow_2.o
+		.data                de0             d30 gi_arrow_3.o
+
+.strtab                                0              49
+		.strtab                0              49 *ld_internal*
+
+.symtab                                0              60
+		.symtab                0              60 *ld_internal*
+
+.mdebug                                0             350
+		.mdebug                0             350 *ld_internal*
+
+.rel.data                              0              d8
+		.rel.data              0              40 gi_arrow_1.o
+		.rel.data             40              40 gi_arrow_2.o
+		.rel.data             80              58 gi_arrow_3.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

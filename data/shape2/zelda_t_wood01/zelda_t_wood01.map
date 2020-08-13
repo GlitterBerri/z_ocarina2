@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             ed0
+		.data                  0             ed0 tunnelwood01.o
+
+.strtab                                0              65
+		.strtab                0              65 *ld_internal*
+
+.symtab                                0              70
+		.symtab                0              70 *ld_internal*
+
+.mdebug                                0             1d8
+		.mdebug                0             1d8 *ld_internal*
+
+.rel.data                              0             1c0
+		.rel.data              0             1c0 tunnelwood01.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

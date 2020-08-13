@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            5d80
+		.data                  0            2000 room_info.o
+		.data               2000              20 yousei_izumi_yoko_0_shape.o
+		.data               2020            28f0 yousei_izumi_yoko_grp_g2.o
+		.data               4910            1470 yousei_izumi_yoko_grp_g2T.o
+
+.strtab                                0             244
+		.strtab                0             244 *ld_internal*
+
+.symtab                                0             160
+		.symtab                0             160 *ld_internal*
+
+.mdebug                                0             a28
+		.mdebug                0             a28 *ld_internal*
+
+.rel.data                              0             208
+		.rel.data              0              20 yousei_izumi_yoko_0_shape.o
+		.rel.data             20             148 yousei_izumi_yoko_grp_g2.o
+		.rel.data            168              a0 yousei_izumi_yoko_grp_g2T.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

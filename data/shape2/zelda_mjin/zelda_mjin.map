@@ -1,0 +1,32 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1290
+		.data                  0             500 mjin_flash.o
+		.data                500             190 mjin_flash_bgc.o
+		.data                690             c00 tex.o
+
+.strtab                                0              61
+		.strtab                0              61 *ld_internal*
+
+.symtab                                0              80
+		.symtab                0              80 *ld_internal*
+
+.mdebug                                0             3cc
+		.mdebug                0             3cc *ld_internal*
+
+.rel.data                              0              58
+		.rel.data              0              38 mjin_flash.o
+		.rel.data             38              20 mjin_flash_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

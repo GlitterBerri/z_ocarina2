@@ -1,0 +1,29 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0             ca0
+		.data                  0             ca0 g_magma.o
+
+.strtab                                0              93
+		.strtab                0              93 *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             970
+		.mdebug                0             970 *ld_internal*
+
+.rel.data                              0              10
+		.rel.data              0              10 g_magma.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

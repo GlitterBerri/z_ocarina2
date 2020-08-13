@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            16f0
+		.data                  0              40 Z2_ReDead_5_info.o
+		.data                 40              20 Z2_ReDead_5_shape.o
+		.data                 60            1690 Z2_ReDead_grp_R05.o
+
+.strtab                                0              fa
+		.strtab                0              fa *ld_internal*
+
+.symtab                                0              c0
+		.symtab                0              c0 *ld_internal*
+
+.mdebug                                0             894
+		.mdebug                0             894 *ld_internal*
+
+.rel.data                              0              d8
+		.rel.data              0              10 Z2_ReDead_5_info.o
+		.rel.data             10              18 Z2_ReDead_5_shape.o
+		.rel.data             28              b0 Z2_ReDead_grp_R05.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

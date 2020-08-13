@@ -1,0 +1,33 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            6ca0
+		.data                  0             590 are_are.o
+		.data                590             590 fu_mawasu.o
+		.data                b20            6180 fu_mawasu_mdl.o
+
+.strtab                                0             241
+		.strtab                0             241 *ld_internal*
+
+.symtab                                0             270
+		.symtab                0             270 *ld_internal*
+
+.mdebug                                0             ad8
+		.mdebug                0             ad8 *ld_internal*
+
+.rel.data                              0             510
+		.rel.data              0              10 are_are.o
+		.rel.data             10              10 fu_mawasu.o
+		.rel.data             20             4f0 fu_mawasu_mdl.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

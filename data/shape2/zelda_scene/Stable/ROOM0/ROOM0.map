@@ -1,0 +1,34 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           2e250
+		.data                  0              e0 malon_stable_0_info.o
+		.data                 e0              30 malon_stable_0_shape.o
+		.data                110            8940 malon_stable.o
+		.data               8a50           25800 malon_stable1_txt.o
+
+.strtab                                0             10c
+		.strtab                0             10c *ld_internal*
+
+.symtab                                0              d0
+		.symtab                0              d0 *ld_internal*
+
+.mdebug                                0             54c
+		.mdebug                0             54c *ld_internal*
+
+.rel.data                              0             270
+		.rel.data              0              18 malon_stable_0_info.o
+		.rel.data             18              18 malon_stable_0_shape.o
+		.rel.data             30             240 malon_stable.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

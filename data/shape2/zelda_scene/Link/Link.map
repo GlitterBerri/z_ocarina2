@@ -1,0 +1,37 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            1b60
+		.data                  0              c0 link_home_main_info.o
+		.data                 c0             dc0 link_home_bgc.o
+		.data                e80              e0 link_home_main_info_d0.o
+		.data                f60              e0 link_home_main_info_d1.o
+		.data               1040             590 rinkie_demo.o
+		.data               15d0             590 rinkie_demo01.o
+
+.strtab                                0              c3
+		.strtab                0              c3 *ld_internal*
+
+.symtab                                0              a0
+		.symtab                0              a0 *ld_internal*
+
+.mdebug                                0             840
+		.mdebug                0             840 *ld_internal*
+
+.rel.data                              0             118
+		.rel.data              0              58 link_home_main_info.o
+		.rel.data             58              30 link_home_bgc.o
+		.rel.data             88              48 link_home_main_info_d0.o
+		.rel.data             d0              48 link_home_main_info_d1.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

@@ -1,0 +1,87 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           15230
+		.data                  0            1350 km_saria.o
+		.data               1350             a10 sa_hanasi_modoru.o
+		.data               1d60             490 sa_matsu.o
+		.data               21f0            8fc0 sa_matsu_mdl.o
+		.data               b1b0             950 sa_okarina.o
+		.data               bb00             a10 sa_okarina_hanasi.o
+		.data               c510             ae0 sa_umai.o
+		.data               cff0             810 sa_umai_okarina.o
+		.data               d800             790 saria_banzai.o
+		.data               df90             580 saria_banzai_wait.o
+		.data               e510             410 saria_demo_aogimi.o
+		.data               e920             2a0 saria_demo_run.o
+		.data               ebc0             630 saria_demo_yahho.o
+		.data               f1f0             3a0 saria_end_miorosi.o
+		.data               f590             760 saria_end_modoru.o
+		.data               fcf0             300 saria_end_wait.o
+		.data               fff0             c70 saria_furikaeru.o
+		.data              10c60             4f0 saria_hasi_wait.o
+		.data              11150             440 saria_kihon_to_matteru.o
+		.data              11590             2f0 saria_kihon_to_odoroki.o
+		.data              11880             3d0 saria_kihon_to_okoru.o
+		.data              11c50             4c0 saria_matteru_wait.o
+		.data              12110             820 saria_odoroki_to_kihon.o
+		.data              12930             6f0 saria_odoroki_wait.o
+		.data              13020             5e0 saria_ok_ageru.o
+		.data              13600             6f0 saria_ok_ageru_wait.o
+		.data              13cf0             3e0 saria_ok_motsu_wait.o
+		.data              140d0             3b0 saria_okoru_wait.o
+		.data              14480             3e0 saria_tomodachi.o
+		.data              14860             9d0 saria_uresi.o
+
+.strtab                                0             71e
+		.strtab                0             71e *ld_internal*
+
+.symtab                                0             4e0
+		.symtab                0             4e0 *ld_internal*
+
+.mdebug                                0            2fe4
+		.mdebug                0            2fe4 *ld_internal*
+
+.rel.data                              0             968
+		.rel.data              0              10 km_saria.o
+		.rel.data             10              10 sa_hanasi_modoru.o
+		.rel.data             20              10 sa_matsu.o
+		.rel.data             30             798 sa_matsu_mdl.o
+		.rel.data            7c8              10 sa_okarina.o
+		.rel.data            7d8              10 sa_okarina_hanasi.o
+		.rel.data            7e8              10 sa_umai.o
+		.rel.data            7f8              10 sa_umai_okarina.o
+		.rel.data            808              10 saria_banzai.o
+		.rel.data            818              10 saria_banzai_wait.o
+		.rel.data            828              10 saria_demo_aogimi.o
+		.rel.data            838              10 saria_demo_run.o
+		.rel.data            848              10 saria_demo_yahho.o
+		.rel.data            858              10 saria_end_miorosi.o
+		.rel.data            868              10 saria_end_modoru.o
+		.rel.data            878              10 saria_end_wait.o
+		.rel.data            888              10 saria_furikaeru.o
+		.rel.data            898              10 saria_hasi_wait.o
+		.rel.data            8a8              10 saria_kihon_to_matteru.o
+		.rel.data            8b8              10 saria_kihon_to_odoroki.o
+		.rel.data            8c8              10 saria_kihon_to_okoru.o
+		.rel.data            8d8              10 saria_matteru_wait.o
+		.rel.data            8e8              10 saria_odoroki_to_kihon.o
+		.rel.data            8f8              10 saria_odoroki_wait.o
+		.rel.data            908              10 saria_ok_ageru.o
+		.rel.data            918              10 saria_ok_ageru_wait.o
+		.rel.data            928              10 saria_ok_motsu_wait.o
+		.rel.data            938              10 saria_okoru_wait.o
+		.rel.data            948              10 saria_tomodachi.o
+		.rel.data            958              10 saria_uresi.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

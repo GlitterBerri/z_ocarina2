@@ -1,0 +1,39 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            7f20
+		.data                  0             d70 Attack/skelton_baby_pinta_attack.o
+		.data                d70             730 B_dmg/skelton_baby_back_hit.o
+		.data               14a0             740 F_dmg/skelton_baby_front_hit.o
+		.data               1be0            4220 Wait/skelton_baby_wait.o
+		.data               5e00            1030 Wake/skelton_baby_wake.o
+		.data               6e30            10f0 Walk/skelton_baby_walk.o
+
+.strtab                                0              b3
+		.strtab                0              b3 *ld_internal*
+
+.symtab                                0              90
+		.symtab                0              90 *ld_internal*
+
+.mdebug                                0            1178
+		.mdebug                0            1178 *ld_internal*
+
+.rel.data                              0             460
+		.rel.data              0              10 Attack/skelton_baby_pinta_attack.o
+		.rel.data             10              10 B_dmg/skelton_baby_back_hit.o
+		.rel.data             20              10 F_dmg/skelton_baby_front_hit.o
+		.rel.data             30             410 Wait/skelton_baby_wait.o
+		.rel.data            440              10 Wake/skelton_baby_wake.o
+		.rel.data            450              10 Walk/skelton_baby_walk.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

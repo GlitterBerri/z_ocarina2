@@ -1,0 +1,70 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0           25f80
+		.data                  0             d80 g_pn_01.o
+		.data                d80             d80 g_pn_02.o
+		.data               1b00             d80 g_pn_03.o
+		.data               2880             d80 g_pn_04.o
+		.data               3600             d80 g_pn_05.o
+		.data               4380             d80 g_pn_06.o
+		.data               5100             d80 g_pn_07.o
+		.data               5e80             d80 g_pn_08.o
+		.data               6c00             d80 g_pn_09.o
+		.data               7980             d80 g_pn_10.o
+		.data               8700             d80 g_pn_11.o
+		.data               9480             d80 g_pn_12.o
+		.data               a200             d80 g_pn_13.o
+		.data               af80             d80 g_pn_14.o
+		.data               bd00             d80 g_pn_15.o
+		.data               ca80             d80 g_pn_16.o
+		.data               d800             d80 g_pn_17.o
+		.data               e580             d80 g_pn_18.o
+		.data               f300             d80 g_pn_19.o
+		.data              10080             d80 g_pn_20.o
+		.data              10e00             d80 g_pn_21.o
+		.data              11b80             d80 g_pn_22.o
+		.data              12900             d80 g_pn_23.o
+		.data              13680             d80 g_pn_24.o
+		.data              14400             d80 g_pn_25.o
+		.data              15180             d80 g_pn_26.o
+		.data              15f00             d80 g_pn_27.o
+		.data              16c80             d80 g_pn_28.o
+		.data              17a00             d80 g_pn_29.o
+		.data              18780             d80 g_pn_30.o
+		.data              19500             d80 g_pn_31.o
+		.data              1a280             d80 g_pn_32.o
+		.data              1b000             d80 g_pn_33.o
+		.data              1bd80             d80 g_pn_34.o
+		.data              1cb00             d80 g_pn_35.o
+		.data              1d880             d80 g_pn_36.o
+		.data              1e600             d80 g_pn_37.o
+		.data              1f380             d80 g_pn_38.o
+		.data              20100             d80 g_pn_39.o
+		.data              20e80             d80 g_pn_40.o
+		.data              21c00             d80 g_pn_41.o
+		.data              22980             d80 g_pn_42.o
+		.data              23700             d80 g_pn_43.o
+		.data              24480             d80 g_pn_44.o
+		.data              25200             d80 g_pn_45.o
+
+.strtab                                0             223
+		.strtab                0             223 *ld_internal*
+
+.symtab                                0             2f0
+		.symtab                0             2f0 *ld_internal*
+
+.mdebug                                0            2374
+		.mdebug                0            2374 *ld_internal*
+
+.shstrtab                              0              40
+		.shstrtab              0              40 *ld_internal*

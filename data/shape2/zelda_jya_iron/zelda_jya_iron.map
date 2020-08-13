@@ -1,0 +1,42 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.MIPS.options                          0              28
+		.MIPS.options          0              28 *ld_internal*
+
+.reginfo                               0              18
+		.reginfo               0              18 *ld_internal*
+
+.data                                  0            2660
+		.data                  0             360 l_j_ironhasira.o
+		.data                360             3a0 l_j_ironhasiraB0.o
+		.data                700             240 l_j_ironhasiraB1.o
+		.data                940             270 l_j_ironhasiraB21.o
+		.data                bb0             1d0 l_j_ironhasira_bgc.o
+		.data                d80             3f0 l_j_ironisu.o
+		.data               1170             2f0 l_j_ironisu_bgc.o
+		.data               1460            1200 tex.o
+
+.strtab                                0              c7
+		.strtab                0              c7 *ld_internal*
+
+.symtab                                0              b0
+		.symtab                0              b0 *ld_internal*
+
+.mdebug                                0             920
+		.mdebug                0             920 *ld_internal*
+
+.rel.data                              0              b0
+		.rel.data              0              20 l_j_ironhasira.o
+		.rel.data             20              18 l_j_ironhasiraB0.o
+		.rel.data             38              10 l_j_ironhasiraB1.o
+		.rel.data             48              10 l_j_ironhasiraB21.o
+		.rel.data             58              20 l_j_ironhasira_bgc.o
+		.rel.data             78              18 l_j_ironisu.o
+		.rel.data             90              20 l_j_ironisu_bgc.o
+
+.shstrtab                              0              4a
+		.shstrtab              0              4a *ld_internal*

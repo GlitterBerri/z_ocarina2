@@ -1,0 +1,18 @@
+		LINK EDITOR MEMORY MAP
+
+
+output		input		virtual
+section		section		address		size
+
+.rdata  			      00	      00
+
+.data   			      00	    20b0
+		.data   	      00	      b0 dustA.o
+		.data   	      b0	     400 ANIME_TEXTURE/smoke1_1.o
+		.data   	     4b0	     400 ANIME_TEXTURE/smoke1_2.o
+		.data   	     8b0	     400 ANIME_TEXTURE/smoke1_3.o
+		.data   	     cb0	     400 ANIME_TEXTURE/smoke1_4.o
+		.data   	    10b0	     400 ANIME_TEXTURE/smoke1_5.o
+		.data   	    14b0	     400 ANIME_TEXTURE/smoke1_6.o
+		.data   	    18b0	     400 ANIME_TEXTURE/smoke1_7.o
+		.data   	    1cb0	     400 ANIME_TEXTURE/smoke1_8.o

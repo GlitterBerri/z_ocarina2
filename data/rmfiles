@@ -1,0 +1,135 @@
+#!/bin/sh
+#
+# 削除するファイルの登録
+# 登録は後ろに追加するようにし、
+# １ヶ月をめどに消去する
+#
+#$Log: rmfiles,v $
+#Revision 1.1.1.1  2003/03/10 22:58:31  tong
+#new OBJ tree for ocarina from Nintendo
+#
+# Revision 2.1  1998/10/22  12:42:44  hayakawa
+# ＲＯＭ出しバージョン(NTSC)
+#
+#Revision 1.7  1998-10-09 16:52:01+09  komatu
+#*** empty log message ***
+#
+#Revision 1.6  1998-06-18 13:07:56+09  komatu
+#OF1をけした
+#
+#Revision 1.5  1998-06-01 19:12:49+09  hayakawa
+#hidan_objects4.o
+#hidan_objects5.o
+#hidan_objects6.o
+#
+#Revision 1.4  1998-01-20 16:58:41+09  soejima
+#*** empty log message ***
+#
+# Revision 1.3  1997/10/13  13:21:41  soejima
+# *** empty log message ***
+#
+# Revision 1.2  1997/10/11  06:59:02  soejima
+# *** empty log message ***
+#
+# Revision 1.1  1997/09/03  06:03:11  soejima
+# Initial revision
+#
+#
+
+#set -x
+
+#
+#ファイルはここに登録
+#
+RMFILES="
+hidan_objects4.o
+hidan_objects5.o
+hidan_objects6.o
+opening
+opening.map
+opening.objs
+map_pal.o
+message
+message.objs
+map_make
+title
+title.map
+title.o
+title.objs
+parameter
+parameter.map
+parameter.o
+parameter.objs
+parameter.objs~
+parameter~
+nintendo_rogo
+OF1.o
+gjyo_objects.o
+"
+
+echo "使用しなくなったソースを削除します…"
+
+backup_depend() {
+  if [ -f $1 ]
+  then
+    echo $1 を /tmp/rmfiles_$1.$$ にバックアップします
+    cp $1 /tmp/rmfiles_$1.$$
+  fi
+}
+
+delete_depend() {
+  if [ -f $2 ]
+  then
+    echo $1 を $2 から抹消します
+    sed -e "s*\.\./$1**" $2 > /tmp/rmfiles.$$
+    cp /tmp/rmfiles.$$ $2
+    rm -f /tmp/rmfiles.$$
+  fi
+}
+
+delete_source() {
+  if [ -f $1 ]
+  then
+    delete_depend $1 Makedepend
+    delete_depend $1 rom_d/Makedepend
+    delete_depend $1 rom_rom/Makedepend
+    echo $1 を 削除します
+    mv $1 $1.deleted
+  fi
+  if [ -f RCS/$1,v ]
+  then
+    echo RCS/$1,v を 削除します
+    mv RCS/$1,v RCS/$1,v.deleted
+  fi
+}
+
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+
+for file in $RMFILES
+do
+    delete_source $file
+done
+
+
+echo '本当に削除するには、\\rm -f *.deleted を実行してください。'
+echo ""
+
+echo "ここで、rmfilesの説明をします"
+echo "ＲＣＳ管理していたファイルが不要になった場合"
+echo "管理ファイルだけを消しても不十分です。"
+echo "他の人がそのファイルをチェックアウトしようとして登録されてしまうのです。"
+echo "つまり、コピーされたファイルも含め、完全に消さないとだめなのです。"
+echo "で、どうするかというとrmfilesに消したいファイル名を登録して、"
+echo "rmfilesをチェックインすれば、他の人がcoallしたときに自動的に削除されます。"
+echo "わかった？（はい／うん）"
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
