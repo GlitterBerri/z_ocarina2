@@ -1318,7 +1318,7 @@ extern u8 *na_frog_tbl_ptr;
 #define NA_SE_VO_LI_PULL_OUT_SWORD  0x6804
 #define NA_SE_VO_LI_DIVE_WATER	    0x6804
 #define NA_SE_VO_LI_ROLL_ATTACK_HIT 0x6804
-#define NA_SE_VO_LI_CLIMB_UP	    0x6804	    /*0x6814  /* 0x6815  0x6803	*/
+#define NA_SE_VO_LI_CLIMB_UP	    0x6804	    /*0x6814  0x6815  0x6803	*/
 #define NA_SE_VO_LI_LAND_NO_DAMAGE  0x6804
 
 #define NA_SE_VO_LI_DAMAGE_S	    0x6805

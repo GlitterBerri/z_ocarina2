@@ -10,6 +10,9 @@
 
 /*
  * $Log: readrel.c,v $
+ * Revision 1.2  2003/05/24 04:20:34  blythe
+ * mips-linux cross port
+ *
  * Revision 1.1  2003/03/14 03:19:08  tong
  * moving linux_tools(nintendo) from old tree to new tree.
  *
@@ -125,10 +128,10 @@ StoreSectionSize(ulong **dataHandle)
 
     if (verbose) {
 	printf("\nrelocation table\n\n");
-	printf("size of .text   section = %08X\n",   textSize);
-	printf("size of .data   section = %08X\n",   dataSize);
-	printf("size of .rodata section = %08X\n", rodataSize);
-	printf("size of .bss    section = %08X\n",    bssSize);
+	printf("size of .text   section = %08lx\n",   textSize);
+	printf("size of .data   section = %08lx\n",   dataSize);
+	printf("size of .rodata section = %08lx\n", rodataSize);
+	printf("size of .bss    section = %08lx\n",    bssSize);
     }
     *dataHandle = dataPointer;
     return(5);
@@ -159,7 +162,7 @@ StoreRelocationData(ulong **dataHandle, ulong section, char *secname, Elf *elf, 
 	    counter++;
 
 	    if (verbose) {
-		printf("%s: 0x%02X  0x%08X    %s  %s\n", 
+		printf("%s: 0x%02lx  0x%08lx    %s  %s\n", 
 		    secname, reldata>>24, reldata&0x00ffffff, typename, symname
 		);
 	    }
@@ -193,7 +196,7 @@ StoreTableFooter(ulong **dataHandle, int nheaders, int nrelocs)
     if (verbose) {
 	putchar('\n');
 	printf("number of relocation datas = %d\n", nrelocs   );
-	printf("size of relocation table   = %d\n", totalsize*4);
+	printf("size of relocation table   = %ld\n", totalsize*4);
 	putchar('\n');
     }
     return(totalsize);

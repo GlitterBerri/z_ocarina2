@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 #set -x
 #
-# $Id: dd_obj_make,v 1.1 2003/03/10 22:58:54 tong Exp $
+# $Id: dd_obj_make,v 1.1.1.1 2003/03/10 22:58:54 tong Exp $
 
 cp2() {
   if [ ! -e $2 -o $1 -nt $2 ]; then

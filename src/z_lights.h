@@ -1,5 +1,8 @@
-/* $Id: z_lights.h,v 2.1 1998/10/22 12:17:25 zelda Exp $ */	
+/* $Id: z_lights.h,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $ */	
 /* $Log: z_lights.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:55  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998/10/22  12:17:25  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

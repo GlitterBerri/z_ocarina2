@@ -1,11 +1,11 @@
 /*
- * $Id: count.h,v 1.1 2003/03/10 22:42:25 tong Exp $
+ * $Id: count.h,v 1.1.1.1 2003/03/10 22:42:25 tong Exp $
  *
  * シェイプ中のポリゴン数を数える
  *
  * $Log: count.h,v $
- * Revision 1.1  2003/03/10 22:42:25  tong
- * Initial revision
+ * Revision 1.1.1.1  2003/03/10 22:42:25  tong
+ * new OBJ tree for ocarina from Nintendo
  *
  * Revision 1.5  1998-08-20 22:11:16+09  hayakawa
  * *** empty log message ***

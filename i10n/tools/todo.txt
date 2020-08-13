@@ -1,8 +1,10 @@
 1. message selection layout wrong, probably need code change to make 
    it right
+[RWW 09/16/03: modified z_message.c and all @08 messages in the rtf files]
 
 2. i10n/assets/zh/zelda_mag/g_title_sub_j.int contains Chinese subtitle 
    for Zelda's opening screen. hasnt' been integrated
+[RWW 09/16/03: used the new asset in z_en_mag.c]
 
 3. the follow textures were not present when running make_texture_zh: 
    (need to make sure if they need to be localized, and if they do, 
@@ -18,4 +20,6 @@
 /home/tong/mario/z_ocarina2/i10n/assets/zh/TEXTURE/DMA_MAKE/ITEM_NAME/items/g_sp_nes_key0.inta
 /home/tong/mario/z_ocarina2/i10n/assets/zh/TEXTURE/DMA_MAKE/ITEM_NAME/items/g_sp_nes_magic_pot_0.inta
 /home/tong/mario/z_ocarina2/i10n/assets/zh/TEXTURE/DMA_MAKE/ITEM_NAME/items/g_sp_nes_magic_pot_1.inta
+[RWW 09/17/03: These images are all in japanese and therefore are most likely
+not used]
 

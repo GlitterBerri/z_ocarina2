@@ -1,5 +1,8 @@
-/* $Id: z_collision_type.h,v 2.1 1998/10/22 11:45:49 zelda Exp $ */
+/* $Id: z_collision_type.h,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */
 /* $Log: z_collision_type.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998/10/22  11:45:49  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *
@@ -656,7 +659,7 @@ typedef struct cl_obj_tris_data {
  *
  *--------------------------------------------------------------------------*/
 typedef struct cl_obj_tris_data3 {
-    ClObjData3 cl_obj_data; /*  /* 基底情報データ */
+    ClObjData3 cl_obj_data; /*   基底情報データ */
      int num; /* 要素数 */
      ClObjTrisElemData *elem_data_tbl; /* データテーブル先 */
  } ClObjTrisData3;

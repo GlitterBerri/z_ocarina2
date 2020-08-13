@@ -716,6 +716,25 @@ static void display_64DD( Gfx **glistp, short cx, short cy, unsigned int alpha )
 #endif /* defined(USE_N64DD) */
 
 
+unsigned char press_txt[] = {
+    0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+    0x00,0x08,0x80,0x00,0x08,0x85,0x00,0x00,
+    0x00,0x0f,0xf0,0x00,0x0f,0xf8,0x00,0x00,
+    0x00,0x0f,0xf0,0xff,0x78,0x88,0xef,0x60,
+    0x02,0x8f,0xf8,0xff,0x50,0x01,0xaf,0x80,
+    0x00,0x0f,0xf0,0xaf,0xc0,0x05,0xfe,0x50,
+    0x00,0x0f,0xf0,0xaf,0xe8,0x8a,0xfe,0x70,
+    0x00,0x0f,0xf1,0x7f,0xc0,0x05,0xfc,0x00,
+    0x02,0x8f,0xf8,0x5f,0xc0,0x05,0xfc,0x00,
+    0x01,0x5f,0xf0,0x2f,0xf7,0x1d,0xf9,0x00,
+    0x00,0x0f,0xf0,0x07,0xff,0xef,0xd1,0x00,
+    0x00,0x0f,0xf0,0x00,0x7f,0xfc,0x10,0x00,
+    0x00,0x1f,0xf0,0x04,0xdf,0xff,0x70,0x00,
+    0x02,0xdf,0xf0,0x6f,0xf7,0x4f,0xf9,0x00,
+    0x00,0x58,0x62,0x87,0x20,0x02,0x78,0x50,
+    0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+};
+
 /*===============================================================
   =	文字テクスチャ─表示					=
  ===============================================================*/
@@ -768,9 +787,15 @@ static void En_Mag_Actor_draw_Sub( Actor *thisx, Game *game, Gfx **glistp )
     static unchar no_controller[] = {
 	AAN, AAO, AAC, AAO, AAN, AAT, AAR, AAO, AAL, AAL, AAE, AAR,
     };
+#ifdef CHINA
+    static unchar press_start[] = {
+	AAS, AAT, AAA, AAR, AAT,
+    };
+#else
     static unchar press_start[] = {
 	AAP, AAR, AAE, AAS, AAS, AAS, AAT, AAA, AAR, AAT,
     };
+#endif
     static unchar *g_title_efc_txt_data[] = {
 	g_title_efc_1_txt, g_title_efc_2_txt, g_title_efc_3_txt,
 	g_title_efc_4_txt, g_title_efc_5_txt, g_title_efc_6_txt,
@@ -880,7 +905,12 @@ static void En_Mag_Actor_draw_Sub( Actor *thisx, Game *game, Gfx **glistp )
     }
 #if defined(PAL_VERSION)
 #else
-    if ( !J_N ) {
+#ifdef CHINA
+    if (1)
+#else
+    if ( !J_N )
+#endif
+    {
 #define G_CC_INT552	TEXEL1, PRIMITIVE, PRIM_LOD_FRAC, TEXEL0, 0, 0, 0, TEXEL0
 #define G_CC_INT553	PRIMITIVE, ENVIRONMENT, COMBINED, ENVIRONMENT, COMBINED, 0, PRIMITIVE, 0
 	this->scroll_x += 1;
@@ -935,16 +965,31 @@ static void En_Mag_Actor_draw_Sub( Actor *thisx, Game *game, Gfx **glistp )
 			      G_TX_NOMASK, G_TX_NOMASK,
 			      G_TX_NOLOD, G_TX_NOLOD);
 #else /* defined(USE_NEW_DUNGEON) */
+#ifdef CHINA
+	gDPLoadTextureBlock ( gp++,
+			      g_title_cpr_txt, G_IM_FMT_IA, G_IM_SIZ_8b, 128, 32, 0,
+			      G_TX_CLAMP, G_TX_CLAMP,
+			      G_TX_NOMASK, G_TX_NOMASK,
+			      G_TX_NOLOD, G_TX_NOLOD);
+#else
 	gDPLoadTextureBlock ( gp++,
 			      g_title_cpr_txt, G_IM_FMT_IA, G_IM_SIZ_8b, 128, 16, 0,
 			      G_TX_CLAMP, G_TX_CLAMP,
 			      G_TX_NOMASK, G_TX_NOMASK,
 			      G_TX_NOLOD, G_TX_NOLOD);
+#endif
 #endif /* defined(USE_NEW_DUNGEON) */
+#ifdef CHINA
+	gSPTextureRectangle( gp++,
+			     94 << 2, 198 << 2,
+			 (94 + 128) << 2, (198 + 32) << 2,
+			     G_TX_RENDERTILE, 0, 0, 1 <<10, 1 << 10 );
+#else
 	gSPTextureRectangle( gp++,
 			     94 << 2, 198 << 2,
 			 (94 + 128) << 2, (198 + 16) << 2,
 			     G_TX_RENDERTILE, 0, 0, 1 <<10, 1 << 10 );
+#endif
     }
     
     if ( NO_CONTROLLER ) {
@@ -975,18 +1020,32 @@ static void En_Mag_Actor_draw_Sub( Actor *thisx, Game *game, Gfx **glistp )
 	    gDPSetCombineMode( gp++, G_CC_INT4, G_CC_INT4 );
 	    gDPSetPrimColor( gp++, 0, 0,   0,   0,   0, no_alpha );
 	    xpos = YREG(7) + 1;
-	    for ( i = 0; i < 10; i++ ) {
+#ifdef CHINA
+            xpos += YREG(8)*2;
+            moji_display(&gp, press_txt, xpos, YPOS+1+YREG(10));
+            xpos += YREG(9) + YREG(8);
+#endif
+	    for ( i = 0; i < sizeof(press_start)/sizeof(press_start[0]); i++ ) {
 		moji_display( &gp, ((unchar *)kanfont->kbuffer4)+(BUF_CT*press_start[i]), xpos, YPOS+1+YREG(10) );
 		xpos += YREG(8);
+#ifndef CHINA
 		if ( i == 4 ) xpos += YREG(9);
+#endif
 	    }
 	    gDPPipeSync( gp++ );
 	    gDPSetPrimColor( gp++, 0, 0, YREG(4), YREG(5), YREG(6), no_alpha );
 	    xpos = YREG(7);
-	    for ( i = 0; i < 10; i++ ) {
+#ifdef CHINA
+            xpos += YREG(8)*2;
+            moji_display(&gp, press_txt, xpos, YPOS+YREG(10));
+            xpos += YREG(9) + YREG(8);
+#endif
+	    for ( i = 0; i < sizeof(press_start)/sizeof(press_start[0]); i++ ) {
 		moji_display( &gp, ((unchar *)kanfont->kbuffer4)+(BUF_CT*press_start[i]), xpos, YPOS+YREG(10) );
 		xpos += YREG(8);
+#ifndef CHINA
 		if ( i == 4 ) xpos += YREG(9);
+#endif
 	    }
 	}
     }

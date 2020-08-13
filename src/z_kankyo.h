@@ -1,5 +1,8 @@
-/* $Id: z_kankyo.h,v 2.1 1998-10-22 21:17:25+09 zelda Exp $ */	
+/* $Id: z_kankyo.h,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $ */	
 /* $Log: z_kankyo.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:55  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998-10-22 21:17:25+09  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *
@@ -460,7 +463,7 @@ extern unsigned char	E_wether_apl;
 extern unsigned char	E_vr_box_ovl;
 extern unsigned short	E_day_time_plus;
 
-/* #define	TIME_SPEED	REG(15)		/* 時間経過速度		   */
+/* #define	TIME_SPEED	REG(15)*/		/* 時間経過速度		   */
 #define	TIME_SPEED	E_day_time_plus		/* 時間経過速度		   */
 
 #endif

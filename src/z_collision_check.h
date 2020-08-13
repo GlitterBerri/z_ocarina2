@@ -1,6 +1,9 @@
-/* $Id: z_collision_check.h,v 2.1 1998-10-22 20:45:49+09 zelda Exp $ */
+/* $Id: z_collision_check.h,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $ */
  
 /* $Log: z_collision_check.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:53  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998-10-22 20:45:49+09  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

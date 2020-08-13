@@ -1,4 +1,4 @@
-/* $Id: z_bgcheck_param.h,v 2.1 1998/10/22 11:45:49 zelda Exp $ */
+/* $Id: z_bgcheck_param.h,v 1.1.1.1 2003/03/10 22:42:56 tong Exp $ */
 /*===========================================================================
  *
  * z_bgcheck_param.h
@@ -7,6 +7,9 @@
  * Date:1997年 7月25日(金曜日) 11時44分55秒 JST
  *
  *$Log: z_bgcheck_param.h,v $
+ *Revision 1.1.1.1  2003/03/10 22:42:56  tong
+ *new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998/10/22  11:45:49  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *
@@ -104,7 +107,7 @@ extern "C" {
 #define V0_CHECK(v0, check) (((0x7 & (check)) << 13) & (v0))
 
 /*
-/*
+ *
  * チェックマスクを除去
  */
 #define V_INDEX(x) (0x1fff & (x))

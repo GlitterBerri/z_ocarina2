@@ -1,5 +1,11 @@
-/* $Id: z_common.h,v 2.1 1998/10/22 11:45:49 zelda Exp $ */
+/* $Id: z_common.h,v 1.2 2003/07/15 22:58:44 wheeler Exp $ */
 /* $Log: z_common.h,v $
+ * Revision 1.2  2003/07/15 22:58:44  wheeler
+ * Attempt to get rid of compiler warning
+ *
+ * Revision 1.1.1.1  2003/03/10 22:42:53  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998/10/22  11:45:49  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *

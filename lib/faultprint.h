@@ -1,10 +1,10 @@
 /*
- * $Id: faultprint.h,v 1.1 2003/03/10 22:42:25 tong Exp $
+ * $Id: faultprint.h,v 1.1.1.1 2003/03/10 22:42:25 tong Exp $
  *
  *
  * $Log: faultprint.h,v $
- * Revision 1.1  2003/03/10 22:42:25  tong
- * Initial revision
+ * Revision 1.1.1.1  2003/03/10 22:42:25  tong
+ * new OBJ tree for ocarina from Nintendo
  *
  * Revision 1.3  2001-02-05 21:52:34+09  hayakawa
  * *** empty log message ***

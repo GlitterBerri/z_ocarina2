@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.DISK,v 1.1 2003/03/10 22:42:45 tong Exp $
+# $Id: Makefile.DISK,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $
 #
 # DISK用Makefile  
 # Makefile から include して使用します
@@ -9,8 +9,8 @@
 # エミュレーション用ファイル作成:make isvfile
 #
 # $Log: Makefile.DISK,v $
-# Revision 1.1  2003/03/10 22:42:45  tong
-# Initial revision
+# Revision 1.1.1.1  2003/03/10 22:42:45  tong
+# new OBJ tree for ocarina from Nintendo
 #
 # Revision 2.5  2000-06-20 11:54:26+09  hayakawa
 # dを開発バージョンにした

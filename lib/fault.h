@@ -1,9 +1,9 @@
 /*
- * $Id: fault.h,v 1.1 2003/03/10 22:42:25 tong Exp $
+ * $Id: fault.h,v 1.1.1.1 2003/03/10 22:42:25 tong Exp $
  * ²þÂ¤ÈÇ
  * $Log: fault.h,v $
- * Revision 1.1  2003/03/10 22:42:25  tong
- * Initial revision
+ * Revision 1.1.1.1  2003/03/10 22:42:25  tong
+ * new OBJ tree for ocarina from Nintendo
  *
  * Revision 2.11  2001-02-05 21:51:54+09  hayakawa
  * *** empty log message ***

@@ -3,7 +3,7 @@
 # make clobber のあとや、co spec_ovl のあとに以下の make を実行してください
 # make genfiles
 #
-# $Id: GNUmakefile,v 1.1 2003/03/20 05:52:06 wheeler Exp $
+# $Id: GNUmakefile,v 1.5 2003/09/17 01:07:53 tong Exp $
 #
 # ６４ゼルダ用メイクファイル
 #
@@ -38,6 +38,9 @@
 # grep z_actor_h.h rom_d/Makedepend | cut -d: -f1
 #
 
+ifndef LOCALE
+LOCALE=CHINA
+endif
 
 ifndef PARALLEL
 .NOTPARALLEL:				# 並列動作を禁止
@@ -49,7 +52,8 @@ VPATH=..
 
 ## 標準関数ライブラリ
 N64KITDIR    = /usr/local/n64kit
-NUSTDINCDIR  = $(N64KITDIR)/nustd/include
+#NUSTDINCDIR  = $(N64KITDIR)/nustd/include
+NUSTDINCDIR  = $(ROOT)/usr/include/nustd
 #NUSTDLIBDIR  = $(N64KITDIR)/nustd/lib
 NUSTDLIBDIR  = $(ROOT)/usr/lib
 
@@ -140,7 +144,7 @@ LMAKEOPT += -DRAM8M
 endif
 
 ## HIRATSU Daisuke modified under lines.
-LMAKEOPT += -DUSE_CIC6105_NOCHECK=
+#LMAKEOPT += -DUSE_CIC6105_NOCHECK=1
 
 
 ifdef USE_N64DD
@@ -477,11 +481,11 @@ ifdef ROM_S
 ROM_F_OR_S=1
 endif
 
-ifeq (ROM_F_OR_S, 1)
+ifeq ($(ROM_F_OR_S), 1)
 OPTIMIZER = 	-O2 -g3				# 速く・小さく
 LMAKEOPT +=	-DROM_VERSION=1			# 実機用ＲＯＭの作成
 LMAKEOPT +=	-DNOUSE_PRINTF -DPRINTF_with_Warning_609 # PRINTFを使わない
-LMAKEOPT +=	-DDEBUG=0			# put8x8用
+#LMAKEOPT +=	-DDEBUG=0			# put8x8用
 LMAKEOPT +=	-DNDEBUG 			# assertを殺す
 LMAKEOPT +=	-DUSE_TIMER=0 			# 処理時間を計測しない
 LMAKEOPT +=	-D_ODEBUG 			# デバッグモード.とると z_camera.c がエラーになるので取りあえず入れてある（小川さん）
@@ -535,7 +539,7 @@ LLDLIBS_BOOT += -lgultra_d $(NUSLIB) $(GCCDIR)/mipse/lib/libkmc.a
 else
 LLDLIBS_BOOT += $(ULTRALIB) $(NUSLIB)
 endif
-LLDLIBS_BOOT += -u__umoddi3 -u__udivdi3 -u__divdi3 -lgcc
+LLDLIBS_BOOT += -u__moddi3 -u__fixdfdi -u__fixsfdi -u__fixunsdfdi -u__fixunssfdi -u__floatdidf -u__floatdisf -u__cmpdi2 -u__floatdidf -u__cmpdi2 -u__floatdisf -u__umoddi3 -u__divdi3 -u__udivdi3 -lgcc
 
 ###LLDLIBS_N64DD = $(ZELDA_LIB)/driveexist/driveexist.o.leo
 ifdef USE_N64DD
@@ -721,7 +725,11 @@ SPECFILE  = spec
 SPEC_INCLUDE  = spec.segment spec.audio
 LMAKEROMOPT = -I$(ZELDA_ROOT)
 
+ifeq ($(LOCALE),CHINA)
+MAKEROMOPT = $(GMAKEROMOPT) $(LMAKEROMOPT) $(VMAKEROMOPT) -DCHINA
+else
 MAKEROMOPT = $(GMAKEROMOPT) $(LMAKEROMOPT) $(VMAKEROMOPT)
+endif
 
 MAKEROMOBJECTS = $(OBJECTS) $(ZELDA_DATA)/*.o $(OVLOBJECTS) \
 	$(ZELDA_AUDIO)/ZeldaAudio_banks.o \
@@ -801,7 +809,9 @@ zelda_s.map:
 	@echo ": Leaving directory \`./rom_s/'"
 
 spec.i:../$(SPECFILE) ../spec.segment ../spec_seg_ovl.inc ../boot.h ../sys_segment.h
-	(LANG=C ZELDA_DATA=${ZELDA_DATA} $(CC) -E $(MAKEOPT) ../$(SPECFILE) > spec.i.tmp)
+	cp ../$(SPECFILE) ../$(SPECFILE).tmp.c
+	(LANG=C ZELDA_DATA=${ZELDA_DATA} $(CC) -E $(MAKEOPT) ../$(SPECFILE).tmp.c > spec.i.tmp)
+	rm -f ../$(SPECFILE).tmp.c
 	mv spec.i.tmp spec.i
 
 # ロムヘッダ定義（仮）
@@ -870,8 +880,8 @@ $(ULTRALIB2): $(ULTRALIB_FULLPATH) $(BOOTSEGMENT)
 	rm -f tmplibultra.a
 	cp $(ULTRALIB_FULLPATH) tmplibultra.a
 	chmod 644 tmplibultra.a
-	sed -n -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) > ultra.stdout
-	$(AR) d tmplibultra.a `sed -n -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
+	sed -n -e "s/.*libultra.*(\(.*\.\)).*/\1o/p" -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) > ultra.stdout
+	$(AR) d tmplibultra.a `sed -n -e "s/.*libultra.*(\(.*\.\)).*/\1o/p" -e "s/.*libultra.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	$(AR) d tmplibultra.a sprintf.o
 ifdef ISVIEWER
 	$(AR) d tmplibultra.a syncprintf.o
@@ -883,7 +893,7 @@ endif
 ###	$(AR) d tmplibultra.a driverominit.o
 ####endif
 	chmod 444 tmplibultra.a
-	mv tmplibultra.a $(ULTRALIB2)
+	mv -f tmplibultra.a $(ULTRALIB2)
 
 ## ブートセグメントで使わなかったオブジェクトでライブラリを再構築する
 $(U64LIB2): $(U64LIB_FULLPATH) $(BOOTSEGMENT)
@@ -893,7 +903,7 @@ $(U64LIB2): $(U64LIB_FULLPATH) $(BOOTSEGMENT)
 	sed -n -e "s/.*libu64.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) > u64.stdout
 	$(AR) d tmplibu64.a `sed -n -e "s/.*libu64.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	chmod 444 tmplibu64.a
-	mv tmplibu64.a $(U64LIB2)
+	mv -f tmplibu64.a $(U64LIB2)
 
 # ブートセグメントで使わなかったオブジェクトでライブラリを再構築する
 $(C64LIB2): $(C64LIB_FULLPATH) $(BOOTSEGMENT)
@@ -904,7 +914,7 @@ $(C64LIB2): $(C64LIB_FULLPATH) $(BOOTSEGMENT)
 	$(AR) d tmplibc64.a `sed -n -e "s/.*libc64.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	-$(AR) d tmplibc64.a assert64.o	# zelda のassertを使用するため
 	chmod 444 tmplibc64.a
-	mv tmplibc64.a $(C64LIB2)
+	mv -f tmplibc64.a $(C64LIB2)
 
 # ブートセグメントで使わなかったオブジェクトでライブラリを再構築する
 $(NUSLIB2): $(NUSLIB_FULLPATH) $(BOOTSEGMENT)
@@ -915,7 +925,7 @@ $(NUSLIB2): $(NUSLIB_FULLPATH) $(BOOTSEGMENT)
 	$(AR) d tmplibnus.a `sed -n -e "s/.*'lib$(NUSLIB_BASE)'.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	$(AR) d tmplibnus.a memcpy.o strchr.o strlen.o
 	chmod 444 tmplibnus.a
-	mv tmplibnus.a $(NUSLIB2)
+	mv -f tmplibnus.a $(NUSLIB2)
 
 # ブートセグメントで使わなかったオブジェクトでライブラリを再構築する
 $(LEOLIB2): $(LEOLIB_FULLPATH) $(BOOTSEGMENT)
@@ -926,7 +936,7 @@ $(LEOLIB2): $(LEOLIB_FULLPATH) $(BOOTSEGMENT)
 #	$(AR) d tmplibleo.a `sed -n -e "s/.*'lib$(LEOLIB_BASE)'.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	$(AR) d tmplibleo.a driverominit.o
 	chmod 444 tmplibleo.a
-	mv tmplibleo.a $(LEOLIB2)
+	mv -f tmplibleo.a $(LEOLIB2)
 
 # ブートセグメントで使わなかったオブジェクトでライブラリを再構築する
 $(LEOEMULIB2): $(LEOEMULIB_FULLPATH) $(BOOTSEGMENT)
@@ -936,7 +946,7 @@ $(LEOEMULIB2): $(LEOEMULIB_FULLPATH) $(BOOTSEGMENT)
 	sed -n -e "s/.*lib$(LEOEMULIB_BASE).*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) > leoemu.stdout
 	$(AR) d tmplibleoemu.a `sed -n -e "s/.*'lib$(LEOEMULIB_BASE)'.*(\(.*\.o\)).*/\1/p" $(BOOTSEGMENT:.o=.map) | sort | uniq`
 	chmod 444 tmplibleoemu.a
-	mv tmplibleoemu.a $(LEOEMULIB2)
+	mv -f tmplibleoemu.a $(LEOEMULIB2)
 
 ifdef __GCC__
 LDMAPOPT = -M
@@ -1222,19 +1232,13 @@ romPP_s::
 	@echo ": Leaving directory \`./rom_s/'"
 
 romPP:rom
-#	../zelda_press -p1
 	../linux_zelda_press -p2
-	@-if [ \( ${USER} = "###yoshida" -o ${USER} = "###hayakawa" \) -a -f /home/iwawaki/AIFC_FILES/capture.mv ]; then \
-	    movieplayer -l 0 -N -z 0.5 -b q -v /home/iwawaki/AIFC_FILES/capture.mv > /dev/null; \
-	else \
-	    if [ -x ../bell.sh ]; then \
-		    ../bell.sh; \
-	    else \
-	        if [ -x ./bell.sh ]; then \
-		        ./bell.sh; \
-	        fi; \
-	    fi; \
-	fi
+ifeq ($(LOCALE),CHINA)
+	$(ROOT)/usr/sbin/pubrom -d -p z_ocarina.prop -i ../metadata/thumb.rgba -T ../metadata/title.inta -n ../metadata/title_z.txt romPP zelda
+else
+	$(ROOT)/usr/sbin/pubrom -d -p z_ocarina.prop -i ../metadata/thumb.rgba -T ../metadata/title.inta -n ../metadata/title_e.txt romPP zelda_e
+endif
+	
 
 rom_d/rom::rom_d
 rom_x/rom::rom_x
@@ -1315,7 +1319,7 @@ touch_z_actor_dlftbls.decl:
 #endif
 
 ## 木村さんにロムを渡す
-z_en_oA2.o:z_en_oA2_inWater.c
+#z_en_oA2.o:z_en_oA2_inWater.c
 
 ikuiku_d:
 	cp rom_d/rom /auto/srd-server/home/mnt01/srd00/srd/GC-ZELDA/kimura/upload/rom_d
@@ -1323,3 +1327,7 @@ ikuiku_f:
 	cp rom_f/romPP /auto/srd-server/home/mnt01/srd00/srd/GC-ZELDA/kimura/upload/romPP_f
 ikuiku_x:
 	cp rom_x/romPP /auto/srd-server/home/mnt01/srd00/srd/GC-ZELDA/kimura/upload/romPP_x
+
+ifeq ($(LOCALE),CHINA)
+CFLAGS += -DCHINA
+endif

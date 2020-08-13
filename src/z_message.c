@@ -1,9 +1,15 @@
 /*
- * $Id: z_message.c,v 2.4 2001/04/04 07:21:47 zelda Exp $
+ * $Id: z_message.c,v 1.2 2003/05/06 21:43:41 tong Exp $
  *
  * メッセージ
  *
  * $Log: z_message.c,v $
+ * Revision 1.2  2003/05/06 21:43:41  tong
+ * added LOCALE==CHINA
+ *
+ * Revision 1.1.1.1  2003/03/10 22:42:56  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.4  2001/04/04  07:21:47  zelda
  * ドルフィンエミュレータ用仮ぐみ版 CICと64DD対応部分をはずしたバージョン
  *
@@ -320,24 +326,6 @@ arrow_select( Game_play *game_play, char number )
     
     pad_t		*pad = &game_play->g.pads[0];
 
-# if 0
-    static short	wct = 4;
-
-
-    if ( wct == 0 ) {
-	if ( ABS(Pad_stick_y()) >= KEY_ANGLE_3D ) {
-	    Na_StartSystemSe( NA_SE_SY_CURSOR );
-	    wct = 4;
-	    if ( Pad_stick_y() > 0 ) {
-		message->sel_pnt--;
-		if ( message->sel_pnt > 0x80 ) message->sel_pnt = number;
-	    } else {
-		message->sel_pnt++;
-		if ( message->sel_pnt > number ) message->sel_pnt = 0;
-	    }
-	}
-    } else wct--;
-# else
     static short	wct = 0;
 
     if ( Pad_stick_y() >= KEY_ANGLE_3D && !wct ) {
@@ -351,7 +339,6 @@ arrow_select( Game_play *game_play, char number )
 	if ( message->sel_pnt > number ) message->sel_pnt = number;
 	else Na_StartSystemSe( NA_SE_SY_CURSOR );
     } else if ( !(ABS(Pad_stick_y()) >= KEY_ANGLE_3D) ) wct = 0;
-# endif
     
     message->mxp = XREG(66);
     if ( number == 1 ) message->myp = XREG(68+message->sel_pnt);
@@ -811,6 +798,9 @@ last_mark_display( Game_play *game_play, Gfx **glistp, short xps, short yps )
 				G_TX_CLAMP, G_TX_CLAMP,
 				G_TX_NOMASK, G_TX_NOMASK,
 				G_TX_NOLOD, G_TX_NOLOD );
+#ifdef CHINA
+        XREG(57) = 80;
+#endif
 	size = (int)(16.0f*((float)XREG(57)/100.0f));
 	scale = (int)(1024.0f/((float)XREG(57)/100.0f));
 	gSPTextureRectangle( gp++,
@@ -841,7 +831,7 @@ dpitem_write( Game_play *game_play, unshort item, Gfx **glistp, unshort i )
     gDPPipeSync( gp++ );
     gDPSetCombineMode( gp++, G_CC_MODULATERGBA_PRIM, G_CC_MODULATERGBA_PRIM );
     gDPSetPrimColor( gp++, 0, 0, 255, 255, 255, message->color_a );
-////////	    if ( message->msg_b.msg_buff[i+1] >= H_holystone_1 && message->msg_b.msg_buff[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
+////////	    if ( ((unshort *)(message->msg_b.msg_buff))[i+1] >= H_holystone_1 && ((unshort *)(message->msg_b.msg_buff))[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
     if ( item >= H_seal_medal_1 ) {
 	gDPLoadTextureBlock( gp++,
 			     message->fukidashiSegment + BALSZ,
@@ -998,7 +988,7 @@ message_write( Game_play *game_play, Gfx **glistp )
     kanadr = 0;
 
     for ( i = 0; i < message->end; i++ ) {
-	rd_dt = message->msg_b.msg_buff[i];
+	rd_dt = ((unshort *)(message->msg_b.msg_buff))[i];
 	switch( rd_dt ) {
 	case KAIGYO:
 	    /* 改行 処理 */
@@ -1011,7 +1001,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 	case CHANGE:
 	    /* 切替 */
 	    /* 文字サイズ ＆ 文字カラー */
-	    moji_size_color( message, message->msg_b.msg_buff[++i] );
+	    moji_size_color( message, ((unshort *)(message->msg_b.msg_buff))[++i] );
 	    break;
 	    
 	case SPACE:
@@ -1037,7 +1027,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 	    return;
 	    
 	case Z_BLANK:
-	    message->mxp += message->msg_b.msg_buff[++i]; 	/* スペース */
+	    message->mxp += ((unshort *)(message->msg_b.msg_buff))[++i]; 	/* スペース */
 	    break;
 	    
 	case Z_NEXTMSG:
@@ -1055,7 +1045,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 		if ( message->msg_mode == M_DISPLAY ||
 		     (message->msg_mode >= M_OCARINA0 && message->msg_mode <= M_OCARINA_FREE) ) {
 		    for ( j = i; ; j++ ) {
-			rd_dt = message->msg_b.msg_buff[j];
+			rd_dt = ((unshort *)(message->msg_b.msg_buff))[j];
 			if ( rd_dt == Z_STOP || rd_dt == Z_DISPSTOP || rd_dt == Z_ENEMY || rd_dt == Z_TIMER || rd_dt == Z_PAUSE  || rd_dt == Z_KEYWAIT || rd_dt == D_SYURYOU ) break;
 		    }
 		    i = j - 1;
@@ -1079,7 +1069,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 	case Z_TIMER:
 	    if ( message->msg_mode == M_DISPLAY) {
 ////////		Na_StartSystemSe( NA_SE_SY_MESSAGE_PAUSE );
-		message->wct = message->msg_b.msg_buff[++i]; 	/* タイマー */
+		message->wct = ((unshort *)(message->msg_b.msg_buff))[++i]; 	/* タイマー */
 		message->msg_mode = M_TIMER;
 	    }
 	    *glistp = gp;
@@ -1089,7 +1079,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 # if 0
 	    /* サウンド（ＢＧＭ） */
 	    if ( message->msg_mode == M_DISPLAY) {
-		Na_StartSystemSe( message->msg_b.msg_buff[i+1] );
+		Na_StartSystemSe( ((unshort *)(message->msg_b.msg_buff))[i+1] );
 	    }
 	    i++;
 # endif
@@ -1100,7 +1090,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 	    if ( message->msg_mode == M_DISPLAY && !se_flag ) {
 		se_flag = 1;
 //		PRINTF("サウンド（ＳＥ）\n");
-		Na_StartSystemSe( message->msg_b.msg_buff[i+1] );
+		Na_StartSystemSe( ((unshort *)(message->msg_b.msg_buff))[i+1] );
 	    }
 	    i++;
 	    break;
@@ -1108,14 +1098,14 @@ message_write( Game_play *game_play, Gfx **glistp )
 	case Z_DPITEM:
 	    /* アイテム */
 # if 1
-	    i = dpitem_write( game_play, message->msg_b.msg_buff[i+1], &gp, i );
+	    i = dpitem_write( game_play, ((unshort *)(message->msg_b.msg_buff))[i+1], &gp, i );
 # else
 	    if ( message->msg_mode == M_DISPLAY) Na_StartSystemSe( NA_SE_SY_MESSAGE_NEUTRAL );
 	    gDPPipeSync( gp++ );
 	    gDPSetCombineMode( gp++, G_CC_MODULATERGBA_PRIM, G_CC_MODULATERGBA_PRIM );
 	    gDPSetPrimColor( gp++, 0, 0, 255, 255, 255, message->color_a );
-////////	    if ( message->msg_b.msg_buff[i+1] >= H_holystone_1 && message->msg_b.msg_buff[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
-	    if ( message->msg_b.msg_buff[i+1] >= H_seal_medal_1 ) {
+////////	    if ( ((unshort *)(message->msg_b.msg_buff))[i+1] >= H_holystone_1 && ((unshort *)(message->msg_b.msg_buff))[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
+	    if ( ((unshort *)(message->msg_b.msg_buff))[i+1] >= H_seal_medal_1 ) {
 		gDPLoadTextureBlock( gp++,
 				     message->fukidashiSegment + BALSZ,
 				     G_IM_FMT_RGBA, G_IM_SIZ_32b,
@@ -1216,7 +1206,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 	    break;
 	    
 	case Z_SPEED:
-	    message->tspd = message->msg_b.msg_buff[++i]; 	/* スペース */
+	    message->tspd = ((unshort *)(message->msg_b.msg_buff))[++i]; 	/* スペース */
 	    break;
 	    
 	case Z_NONONO:
@@ -1274,7 +1264,7 @@ message_write( Game_play *game_play, Gfx **glistp )
 ////////		Na_StartSystemSe( NA_SE_SY_MESSAGE_PAUSE );
 		message->msg_mode = M_END;
 		message->select = __TIMER;
-		message->wct = message->msg_b.msg_buff[++i]; 	/* タイマー */
+		message->wct = ((unshort *)(message->msg_b.msg_buff))[++i]; 	/* タイマー */
 		kanfont_get2( kanfont, 1 );
 		if ( !game_play->demo_play.mode ) { 
 		    DO_ACTION_POINT_SET( game_play, DO_Modoru );
@@ -1412,8 +1402,6 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f, 14.0f,
     };
 
-
-
     message->mxp = XREG(54);
     if( !staff_mode ) {
 	message->myp = XREG(55);
@@ -1443,7 +1431,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
     kanadr = 0;
 
     for ( i = 0; i < message->end; i++ ) {
-	rd_dt = message->msg_b.nes_msg_b[i];
+	rd_dt = ((unsigned char*)(message->msg_b.nes_msg_b))[i];
 	switch( rd_dt ) {
 	case NKAIGYO:
 	    /* 改行 処理 */
@@ -1456,7 +1444,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	case NCHANGE:
 	    /* 切替 */
 	    /* 文字サイズ ＆ 文字カラー */
-	    moji_size_color( message, (message->msg_b.nes_msg_b[++i] & 0x0f) );
+	    moji_size_color( message, (((unsigned char*)(message->msg_b.nes_msg_b))[++i] & 0x0f) );
 	    break;
 	    
 	case NSPACE:
@@ -1482,7 +1470,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	    return;
 	    
 	case NZ_BLANK:
-	    message->mxp += message->msg_b.nes_msg_b[++i]; 	/* スペース */
+	    message->mxp += ((unsigned char*)(message->msg_b.nes_msg_b))[++i]; 	/* スペース */
 	    break;
 	    
 	case NZ_NEXTMSG:
@@ -1500,7 +1488,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 		if ( message->msg_mode == M_DISPLAY ||
 		     (message->msg_mode >= M_OCARINA0 && message->msg_mode <= M_OCARINA_FREE) ) {
 		    for ( j = i; ; j++ ) {
-			rd_dt = message->msg_b.nes_msg_b[j];
+			rd_dt = ((unsigned char*)(message->msg_b.nes_msg_b))[j];
 			if ( rd_dt == NZ_BLANK ) {
 			    j++;
 			} else if ( rd_dt == NZ_STOP || rd_dt == NZ_DISPSTOP || rd_dt == NZ_ENEMY || rd_dt == NZ_TIMER || rd_dt == NZ_PAUSE  || rd_dt == NZ_KEYWAIT || rd_dt == ND_SYURYOU ) break;
@@ -1526,7 +1514,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	case NZ_TIMER:
 	    if ( message->msg_mode == M_DISPLAY) {
 ////////		Na_StartSystemSe( NA_SE_SY_MESSAGE_PAUSE );
-		message->wct = message->msg_b.nes_msg_b[++i]; 	/* タイマー */
+		message->wct = ((unsigned char*)(message->msg_b.nes_msg_b))[++i]; 	/* タイマー */
 		message->msg_mode = M_TIMER;
 	    }
 	    *glistp = gp;
@@ -1536,7 +1524,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 # if 0
 	    /* サウンド（ＢＧＭ） */
 	    if ( message->msg_mode == M_DISPLAY) {
-		Na_StartSystemSe( message->msg_b.nes_msg_b[i+1] );
+		Na_StartSystemSe( ((unsigned char*)(message->msg_b.nes_msg_b))[i+1] );
 	    }
 	    i++;
 	    break;
@@ -1546,9 +1534,9 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 ////////		Na_StartSystemSe( NA_SE_SY_MESSAGE_PAUSE );
 		message->msg_mode = M_END;
 		message->select = __TIMER;
-		PRINTF("タイマー (%x) (%x)",message->msg_b.nes_msg_b[i+1],message->msg_b.nes_msg_b[i+2]);
-		message->wct = message->msg_b.nes_msg_b[++i] << 8; 	/* タイマー */
-		message->wct |= message->msg_b.nes_msg_b[++i]; 	/* タイマー */
+		PRINTF("タイマー (%x) (%x)",((unsigned char*)(message->msg_b.nes_msg_b))[i+1],((unsigned char*)(message->msg_b.nes_msg_b))[i+2]);
+		message->wct = ((unsigned char*)(message->msg_b.nes_msg_b))[++i] << 8; 	/* タイマー */
+		message->wct |= ((unsigned char*)(message->msg_b.nes_msg_b))[++i]; 	/* タイマー */
 		PRINTF("合計wct=%x(%d)\n",message->wct,message->wct);
 	    }
 	    *glistp = gp;
@@ -1559,9 +1547,9 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	    if ( message->msg_mode == M_DISPLAY && !se_flag ) {
 		se_flag = 1;
 		PRINTF("サウンド（ＳＥ）\n");
-		kkk = message->msg_b.nes_msg_b[i+1];
+		kkk = ((unsigned char*)(message->msg_b.nes_msg_b))[i+1];
 		kkk <<= 8;
-		Na_StartSystemSe( kkk | message->msg_b.nes_msg_b[i+2] );
+		Na_StartSystemSe( kkk | ((unsigned char*)(message->msg_b.nes_msg_b))[i+2] );
 	    }
 	    i+=2;
 	    break;
@@ -1569,14 +1557,14 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	case NZ_DPITEM:
 	    /* アイテム */
 # if 1
-	    i = dpitem_write( game_play, (unshort)message->msg_b.nes_msg_b[i+1], &gp, i );
+	    i = dpitem_write( game_play, (unshort)((unsigned char*)(message->msg_b.nes_msg_b))[i+1], &gp, i );
 # else
 	    if ( message->msg_mode == M_DISPLAY) Na_StartSystemSe( NA_SE_SY_MESSAGE_NEUTRAL );
 	    gDPPipeSync( gp++ );
 	    gDPSetCombineMode( gp++, G_CC_MODULATERGBA_PRIM, G_CC_MODULATERGBA_PRIM );
 	    gDPSetPrimColor( gp++, 0, 0, 255, 255, 255, message->color_a );
-////////	    if ( message->msg_b.nes_msg_b[i+1] >= H_holystone_1 && message->msg_b.nes_msg_b[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
-	    if ( message->msg_b.nes_msg_b[i+1] >= H_seal_medal_1 ) {
+////////	    if ( ((unsigned char*)(message->msg_b.nes_msg_b))[i+1] >= H_holystone_1 && ((unsigned char*)(message->msg_b.nes_msg_b))[i+1] < H_seal_medal_1/*H_purse_1*/ ) {
+	    if ( ((unsigned char*)(message->msg_b.nes_msg_b))[i+1] >= H_seal_medal_1 ) {
 		gDPLoadTextureBlock( gp++,
 				     message->fukidashiSegment + BALSZ,
 				     G_IM_FMT_RGBA, G_IM_SIZ_32b,
@@ -1677,7 +1665,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	    break;
 	    
 	case NZ_SPEED:
-	    message->tspd = message->msg_b.nes_msg_b[++i]; 	/* スペース */
+	    message->tspd = ((unsigned char*)(message->msg_b.nes_msg_b))[++i]; 	/* スペース */
 	    break;
 	    
 	case NZ_NONONO:
@@ -1780,7 +1768,7 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 ////////		Na_StartSystemSe( NA_SE_SY_MESSAGE_PAUSE );
 		message->msg_mode = M_END;
 		message->select = __TIMER;
-		message->wct = message->msg_b.nes_msg_b[++i]; 	/* タイマー */
+		message->wct = ((unsigned char*)(message->msg_b.nes_msg_b))[++i]; 	/* タイマー */
 		kanfont_get2( kanfont, 1 );
 		if ( !game_play->demo_play.mode ) { 
 		    DO_ACTION_POINT_SET( game_play, DO_Modoru );
@@ -1811,6 +1799,10 @@ message_write_NES( Game_play *game_play, Gfx **glistp )
 	default:
 	    /* 文字 出力 */
 	    if ( message->msg_mode == M_DISPLAY && i == message->end - 1 && message->mspd == message->tspd ) Na_StartSystemSe( NA_SE_SY_MESSAGE_NEUTRAL );
+#ifdef CHINA
+	    if (!staff_mode)
+		XREG(57) = 100;
+#endif
 	    message_moji_display( game_play, &kanfont->kbuffer[kanadr], &gp );
 	    kanadr += BUF_CT;
 	    message->mxp += (int)(shift_data[rd_dt-0x20] * ((float)XREG(57)/100.0f));
@@ -1890,6 +1882,10 @@ message_read( Game_play *game_play )
     int			kanadr;
     unchar 		*uc;
     float 		r;
+#ifdef CHINA
+    unchar b;
+    unshort idx;
+#endif
 
 
     i = kanadr = jj = 0;
@@ -1901,7 +1897,7 @@ message_read( Game_play *game_play )
     if ( !J_N && !staff_mode ) {
 	/* 日本語バージョン */
 	do {
-	    rd_dt = message->msg_b.msg_buff[i] = kanfont->mbuff.message_buf[message->rdp];
+	    rd_dt = ((unshort *)(message->msg_b.msg_buff))[i] = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp];
 	    if ( rd_dt  == Z_KEYWAIT || rd_dt == Z_NEXTMSG || rd_dt == Z_TIMER || rd_dt == Z_ENEMY || rd_dt == D_SYURYOU ) {
 		message->msg_mode = M_DISPLAY;
 		message->end = 1;
@@ -1912,10 +1908,10 @@ message_read( Game_play *game_play )
 		}
 		if ( rd_dt == Z_NEXTMSG ) {
 		    next_msg_no =
-			message->msg_b.msg_buff[++i] = kanfont->mbuff.message_buf[message->rdp+1];
+			((unshort *)(message->msg_b.msg_buff))[++i] = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1];
 		}
 		if ( rd_dt == Z_TIMER ) {
-		    message->msg_b.msg_buff[++i] = kanfont->mbuff.message_buf[message->rdp+1];
+		    ((unshort *)(message->msg_b.msg_buff))[++i] = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1];
 		    message->rdp+=2;
 		}
 	    
@@ -1930,7 +1926,7 @@ message_read( Game_play *game_play )
 		for ( k = 0; k < j; k++ ) {
 		    rd_dt = Player_Name[k];
 		    PRINTF("(%x), ",rd_dt);
-		    message->msg_b.msg_buff[i+k] = Z_NAME;
+		    ((unshort *)(message->msg_b.msg_buff))[i+k] = Z_NAME;
 		    uc = (unchar *)(&kanfont->kbuffer4[Buf_Ct*rd_dt]);
 		    for ( p = 0; p < 128; p+=4 ) {
 			kanfont->kbuffer[kanadr+p+0] = uc[p+0];
@@ -1966,17 +1962,17 @@ message_read( Game_play *game_play )
 		    PRINTF("rpc[%d] = %x\n",k,rpc[k] + 0x824F);
 		    kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 		    kanadr += BUF_CT;
-		    message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+		    ((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 		    i++;
 		    if ( k == 1 ) {
 			kanfont_get( kanfont, 0x95AA, kanadr );	/* "分" */
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = 0x95AA;
+			((unshort *)(message->msg_b.msg_buff))[i] = 0x95AA;
 			i++;
 		    } else if ( k == 3 ) {
 			kanfont_get( kanfont, 0x9562, kanadr );	/* "秒" */
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = 0x9562;
+			((unshort *)(message->msg_b.msg_buff))[i] = 0x9562;
 		    }
 		}
 	    } else if ( rd_dt == Z_YABUSAME ) {
@@ -2000,7 +1996,7 @@ message_read( Game_play *game_play )
 		    if ( m ) {
 			kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+			((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 			i++;
 		    }
 		}
@@ -2022,7 +2018,7 @@ message_read( Game_play *game_play )
 		    if ( m ) {
 			kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+			((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 			i++;
 		    }
 		}
@@ -2039,25 +2035,25 @@ message_read( Game_play *game_play )
 		    if ( k == 1 || rpc[k] ) {
 			kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+			((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 			i++;
 		    }
 		}
 		i--;
 	    } else if ( rd_dt == Z_RANKING ) {
 		/* ランキング */
-		score = (unshort)HI_SCORE( kanfont->mbuff.message_buf[++message->rdp] & 0xff );
-		if ( (kanfont->mbuff.message_buf[message->rdp] & 0xff) == HS_FISH ) {
+		score = (unshort)HI_SCORE( ((unshort *)(kanfont->mbuff.message_buf))[++message->rdp] & 0xff );
+		if ( (((unshort *)(kanfont->mbuff.message_buf))[message->rdp] & 0xff) == HS_FISH ) {
 		    if ( ZCommon_LinkAgeIsChild() ) {
 			score &= 0x7f;
 		    } else {
-			PRINTF("HI_SCORE(kanfont->mbuff.message_buf[message->rdp]) = %x\n",HI_SCORE( kanfont->mbuff.message_buf[message->rdp]) );
-			PRINTF("HI_SCORE( kanfont->mbuff.message_buf[message->rdp]) & 0xff000000  = %x\n",HI_SCORE( kanfont->mbuff.message_buf[message->rdp] ) & 0xff000000 );
-			score = (unshort)((HI_SCORE(kanfont->mbuff.message_buf[message->rdp]) & 0xff000000) >> 24);
+			PRINTF("HI_SCORE(((unshort *)(kanfont->mbuff.message_buf))[message->rdp]) = %x\n",HI_SCORE( ((unshort *)(kanfont->mbuff.message_buf))[message->rdp]) );
+			PRINTF("HI_SCORE( ((unshort *)(kanfont->mbuff.message_buf))[message->rdp]) & 0xff000000  = %x\n",HI_SCORE( ((unshort *)(kanfont->mbuff.message_buf))[message->rdp] ) & 0xff000000 );
+			score = (unshort)((HI_SCORE(((unshort *)(kanfont->mbuff.message_buf))[message->rdp]) & 0xff000000) >> 24);
 			score &= 0x7f;
 		    }
 		}
-		switch ( kanfont->mbuff.message_buf[message->rdp] & 0xff ) {
+		switch ( ((unshort *)(kanfont->mbuff.message_buf))[message->rdp] & 0xff ) {
 		case HS_YABU:	/* 流鏑馬 ＨｉーＳｃｏｒｅ */
 		case HS_POW:	/* ポ─   ＨｉーＳｃｏｒｅ */
 		case HS_FISH:	/* つり   ＨｉーＳｃｏｒｅ */
@@ -2080,7 +2076,7 @@ message_read( Game_play *game_play )
 			if ( m ) {
 			    kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 			    kanadr += BUF_CT;
-			    message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+			    ((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 			    i++;
 			}
 		    }
@@ -2107,17 +2103,17 @@ message_read( Game_play *game_play )
 			PRINTF("rpc[%d] = %x\n",k,rpc[k] + 0x824F);
 			kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+			((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 			i++;
 			if ( k == 1 ) {
 			    kanfont_get( kanfont, 0x95AA, kanadr );	/* "分" */
 			    kanadr += BUF_CT;
-			    message->msg_b.msg_buff[i] = 0x95AA;
+			    ((unshort *)(message->msg_b.msg_buff))[i] = 0x95AA;
 			    i++;
 			} else if ( k == 3 ) {
 			    kanfont_get( kanfont, 0x9562, kanadr );	/* "秒" */
 			    kanadr += BUF_CT;
-			    message->msg_b.msg_buff[i] = 0x9562;
+			    ((unshort *)(message->msg_b.msg_buff))[i] = 0x9562;
 			}
 		    }
 		    break;
@@ -2142,30 +2138,30 @@ message_read( Game_play *game_play )
 		    PRINTF("rpc[%d] = %x\n",k,rpc[k] + 0x824F);
 		    kanfont_get( kanfont, rpc[k] + 0x824F, kanadr );
 		    kanadr += BUF_CT;
-		    message->msg_b.msg_buff[i] = rpc[k] + 0x824F;
+		    ((unshort *)(message->msg_b.msg_buff))[i] = rpc[k] + 0x824F;
 		    i++;
 		    if ( k == 1 ) {
 			kanfont_get( kanfont, 0x8E9E, kanadr );	/* "時" */
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = 0x8E9E;
+			((unshort *)(message->msg_b.msg_buff))[i] = 0x8E9E;
 			i++;
 		    } else if ( k == 3 ) {
 			kanfont_get( kanfont, 0x95AA, kanadr );	/* "分" */
 			kanadr += BUF_CT;
-			message->msg_b.msg_buff[i] = 0x95AA;
+			((unshort *)(message->msg_b.msg_buff))[i] = 0x95AA;
 		    }
 		}
 	    } else if ( rd_dt == Z_DPITEM ) {
-		message->msg_b.msg_buff[++i] = kanfont->mbuff.message_buf[message->rdp+1];
-		PRINTF("ITEM_NO=(%d) (%d)\n",message->msg_b.msg_buff[i],kanfont->mbuff.message_buf[message->rdp+1]);
-		dpitem_read( game_play, kanfont->mbuff.message_buf[message->rdp+1], VREG(1) + 10 );
+		((unshort *)(message->msg_b.msg_buff))[++i] = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1];
+		PRINTF("ITEM_NO=(%d) (%d)\n",((unshort *)(message->msg_b.msg_buff))[i],((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1]);
+		dpitem_read( game_play, ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1], VREG(1) + 10 );
 	    } else if ( rd_dt == Z_TEXTURE ) {
-		message->mes_board = kanfont->mbuff.message_buf[message->rdp+1] << 1;
+		message->mes_board = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+1] << 1;
 		PRINTF("mes_board=%d\n",message->mes_board);
-		message->mes_board_prim = (kanfont->mbuff.message_buf[message->rdp+2] & 0xF000) >> 12;
-		message->mes_board_shadow = (kanfont->mbuff.message_buf[message->rdp+2] & 0x0F00) >> 8;
-		message->mes_board_shift = (kanfont->mbuff.message_buf[message->rdp+2] & 0x00F0) >> 4;
-		message->mes_board_anime = kanfont->mbuff.message_buf[message->rdp+2] & 0x000F;
+		message->mes_board_prim = (((unshort *)(kanfont->mbuff.message_buf))[message->rdp+2] & 0xF000) >> 12;
+		message->mes_board_shadow = (((unshort *)(kanfont->mbuff.message_buf))[message->rdp+2] & 0x0F00) >> 8;
+		message->mes_board_shift = (((unshort *)(kanfont->mbuff.message_buf))[message->rdp+2] & 0x00F0) >> 4;
+		message->mes_board_anime = ((unshort *)(kanfont->mbuff.message_buf))[message->rdp+2] & 0x000F;
 		
 		dmacopy_fg( message->fukidashiSegment + BALSZ,
 			    (u32)_message_texture_staticSegmentRomStart + (((96*48)/2) * message->mes_board),
@@ -2177,19 +2173,19 @@ message_read( Game_play *game_play )
 		XREG(61) = VREG(1) + ((64-48)/2);
 		jj = 2;
 	    } else if ( rd_dt == CHANGE ) {
-		message->msg_b.msg_buff[++i] = (kanfont->mbuff.message_buf[++message->rdp] & 0x0f);
+		((unshort *)(message->msg_b.msg_buff))[++i] = (((unshort *)(kanfont->mbuff.message_buf))[++message->rdp] & 0x0f);
 	    } else if ( rd_dt == KAIGYO ) {
 		jj++;
 	    } else if ( rd_dt == Z_START || rd_dt == Z_STOP || rd_dt == Z_PAUSE || rd_dt == Z_OCARINA || rd_dt == Z_DISPSTOP || rd_dt == Z_NONONO ) {
 	    } else if ( rd_dt == Z_TIMER_END ) {
 		key_off_flag = 1;
 		PRINTF("Z_TIMER_END (key_off_flag=%d)\n",key_off_flag);
-		message->msg_b.msg_buff[++i] = (kanfont->mbuff.message_buf[++message->rdp] & 0xff);
+		((unshort *)(message->msg_b.msg_buff))[++i] = (((unshort *)(kanfont->mbuff.message_buf))[++message->rdp] & 0xff);
 	    } else if ( rd_dt == Z_BLANK || rd_dt == Z_SPEED ) {
-		message->msg_b.msg_buff[++i] = (kanfont->mbuff.message_buf[++message->rdp] & 0xff);
+		((unshort *)(message->msg_b.msg_buff))[++i] = (((unshort *)(kanfont->mbuff.message_buf))[++message->rdp] & 0xff);
 /*	    } else if ( rd_dt == Z_BGM || rd_dt == Z_SE ) {*/
 	    } else if ( rd_dt == Z_SE ) {
-		message->msg_b.msg_buff[++i] = (kanfont->mbuff.message_buf[++message->rdp]);
+		((unshort *)(message->msg_b.msg_buff))[++i] = (((unshort *)(kanfont->mbuff.message_buf))[++message->rdp]);
 	    } else if ( rd_dt == Z_SENTAKU_2 ) {
 		message->item_dp = 2;
 	    } else if ( rd_dt == Z_SENTAKU_3 ) {
@@ -2205,11 +2201,20 @@ message_read( Game_play *game_play )
     } else {
 	/* 英語バージョン */
 	do {
-	    nes_rd_dt = message->msg_b.nes_msg_b[i] = kanfont->mbuff.nes_mes_buf[message->rdp];
-////////	    PRINTF("msg_b.nes_msg_b[%d]=%x\n",i, message->msg_b.nes_msg_b[i] );
+	    nes_rd_dt = ((unsigned char*)(message->msg_b.nes_msg_b))[i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp];
+////////	    PRINTF("msg_b.nes_msg_b[%d]=%x\n",i, ((unsigned char*)(message->msg_b.nes_msg_b))[i] );
 	    if ( nes_rd_dt  == NZ_KEYWAIT || nes_rd_dt == NZ_NEXTMSG || nes_rd_dt == NZ_TIMER || nes_rd_dt == NZ_ENEMY || nes_rd_dt == ND_SYURYOU ) {
 		message->msg_mode = M_DISPLAY;
 		message->end = 1;
+#ifdef CHINA
+		XREG(55) = VREG(1) + 6;					// ４行メッセージ
+		PRINTF("ＪＪ＝%d\n",jj);
+		if ( message->msg_disp_type0 != 0x4 ) {
+		    if ( !jj ) XREG(55) =  VREG(1) + 10+ 8;		// １行メッセージ
+		    else if ( jj == 1 ) XREG(55) = VREG(1) + 12;	// ２行メッセージ
+		    else if ( jj == 2 ) XREG(55) = VREG(1) + 8;	// ３行メッセージ
+		}
+#else
 		XREG(55) = VREG(1) + 8;					// ４行メッセージ
 		PRINTF("ＪＪ＝%d\n",jj);
 		if ( message->msg_disp_type0 != 0x4 ) {
@@ -2217,17 +2222,18 @@ message_read( Game_play *game_play )
 		    else if ( jj == 1 ) XREG(55) = VREG(1) + 20;	// ２行メッセージ
 		    else if ( jj == 2 ) XREG(55) = VREG(1) + 16;	// ３行メッセージ
 		}
+#endif
 		if ( nes_rd_dt == NZ_NEXTMSG ) {
-		    PRINTF("NZ_NEXTMSG=%x, %x, %x\n",kanfont->mbuff.nes_mes_buf[message->rdp],kanfont->mbuff.nes_mes_buf[message->rdp+1],kanfont->mbuff.nes_mes_buf[message->rdp+2]);
+		    PRINTF("NZ_NEXTMSG=%x, %x, %x\n",((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp],((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1],((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2]);
 		    score =
-			message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[message->rdp+1];
+			((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1];
 		    score <<= 8;
-		    message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[message->rdp+2];
-		    next_msg_no = score | message->msg_b.nes_msg_b[i];
+		    ((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2];
+		    next_msg_no = score | ((unsigned char*)(message->msg_b.nes_msg_b))[i];
 		    
 		}
 		if ( nes_rd_dt == NZ_TIMER ) {
-		    message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[message->rdp+1];
+		    ((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1];
 		    message->rdp+=2;
 		}
 	    
@@ -2259,7 +2265,7 @@ message_read( Game_play *game_play )
 			kanadr += BUF_CT;
 		    }
 		    PRINTF("%x ",nes_rd_dt);
-		    message->msg_b.nes_msg_b[i] = nes_rd_dt;
+		    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = nes_rd_dt;
 		    i++;
 		}
 		i--;
@@ -2287,17 +2293,17 @@ message_read( Game_play *game_play )
 		for ( k = 0; k < 4; k++ ) {
 		    kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
 		    kanadr += BUF_CT;
-		    message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+		    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 		    i++;
 		    if ( k == 1 ) {
 			kanfont_get_NES( kanfont, 0x02, kanadr );	/* "分" */
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = 0x22;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = 0x22;
 			i++;
 		    } else if ( k == 3 ) {
 			kanfont_get_NES( kanfont, 0x02, kanadr );	/* "秒" */
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = 0x22;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = 0x22;
 		    }
 		}
 	    } else if ( nes_rd_dt == NZ_YABUSAME ) {
@@ -2320,7 +2326,7 @@ message_read( Game_play *game_play )
 		    if ( k == 3 || rpc[k] ) m = 1;
 		    if ( m ) {
 			kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
-			message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 			kanadr += BUF_CT;
 			i++;
 		    }
@@ -2343,7 +2349,7 @@ message_read( Game_play *game_play )
 		    if ( m ) {
 			kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 			PRINTF("%x(%x) ",rpc[k] + 0x10, rpc[k]);
 			i++;
 		    }
@@ -2361,7 +2367,7 @@ message_read( Game_play *game_play )
 		    if ( k == 1 || rpc[k] ) {
 			kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 			PRINTF("%x(%x) ",rpc[k] + 0x10, rpc[k]);
 			i++;
 		    }
@@ -2369,21 +2375,21 @@ message_read( Game_play *game_play )
 		i--;
 	    } else if ( nes_rd_dt == NZ_RANKING ) {
 		/* ランキング */
-		score = (unshort)HI_SCORE( kanfont->mbuff.nes_mes_buf[++message->rdp] );
-		PRINTF("ランキング＝%d\n",kanfont->mbuff.nes_mes_buf[message->rdp] & 0xff);
-		if ( (kanfont->mbuff.nes_mes_buf[message->rdp] & 0xff) == HS_FISH ) {
+		score = (unshort)HI_SCORE( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp] );
+		PRINTF("ランキング＝%d\n",((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp] & 0xff);
+		if ( (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp] & 0xff) == HS_FISH ) {
 		    if ( ZCommon_LinkAgeIsChild() ) {
 			score &= 0x7f;
 		    } else {
-			PRINTF("HI_SCORE( kanfont->mbuff.nes_mes_buf[message->rdp] & 0xff000000 ) = %x\n",HI_SCORE( kanfont->mbuff.message_buf[message->rdp] & 0xff000000 ) );
-			score = (unshort)((HI_SCORE(kanfont->mbuff.nes_mes_buf[message->rdp]) & 0xff000000) >> 24);
+			PRINTF("HI_SCORE( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp] & 0xff000000 ) = %x\n",HI_SCORE( ((unshort *)(kanfont->mbuff.message_buf))[message->rdp] & 0xff000000 ) );
+			score = (unshort)((HI_SCORE(((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp]) & 0xff000000) >> 24);
 			score &= 0x7f;
 		    }
 		    r = (float)score;
 		    score = (unshort)(r * r * 0.0036f + 0.5f);
 		    PRINTF("score=%d\n",score);
 		}
-		switch ( kanfont->mbuff.nes_mes_buf[message->rdp] & 0xff ) {
+		switch ( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp] & 0xff ) {
 		case HS_YABU:	/* 流鏑馬 ＨｉーＳｃｏｒｅ */
 		case HS_POW:	/* ポ─   ＨｉーＳｃｏｒｅ */
 		case HS_FISH:	/* つり   ＨｉーＳｃｏｒｅ */
@@ -2405,7 +2411,7 @@ message_read( Game_play *game_play )
 			if ( k == 3 || rpc[k] ) m = 1;
 			if ( m ) {
 			    kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
-			    message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+			    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 			    kanadr += BUF_CT;
 			    i++;
 			}
@@ -2432,17 +2438,17 @@ message_read( Game_play *game_play )
 		    for ( k = 0; k < 4; k++ ) {
 			kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 			i++;
 			if ( k == 1 ) {
 			    kanfont_get_NES( kanfont, 0x02, kanadr );	/* "分" */
 			    kanadr += BUF_CT;
-			    message->msg_b.nes_msg_b[i] = 0x22;
+			    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = 0x22;
 			    i++;
 			} else if ( k == 3 ) {
 			    kanfont_get_NES( kanfont, 0x02, kanadr );	/* "秒" */
 			    kanadr += BUF_CT;
-			    message->msg_b.nes_msg_b[i] = 0x22;
+			    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = 0x22;
 			}
 		    }
 		    break;
@@ -2466,57 +2472,57 @@ message_read( Game_play *game_play )
 		for ( k = 0; k < 4; k++ ) {
 		    kanfont_get_NES( kanfont, rpc[k] + 0x10, kanadr );
 		    kanadr += BUF_CT;
-		    message->msg_b.nes_msg_b[i] = rpc[k] + 0x30;
+		    ((unsigned char*)(message->msg_b.nes_msg_b))[i] = rpc[k] + 0x30;
 		    i++;
 		    if ( k == 1 ) {
 			kanfont_get_NES( kanfont, 0x1A, kanadr );	/* "時" */
 			kanadr += BUF_CT;
-			message->msg_b.nes_msg_b[i] = 0x3A;
+			((unsigned char*)(message->msg_b.nes_msg_b))[i] = 0x3A;
 			i++;
 		    }
 		}
 		i--;
 	    } else if ( nes_rd_dt == NZ_DPITEM ) {
-		message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[message->rdp+1];
-		PRINTF("ITEM_NO=(%d) (%d)\n",message->msg_b.nes_msg_b[i],kanfont->mbuff.nes_mes_buf[message->rdp+1]);
-		dpitem_read( game_play, (unshort)kanfont->mbuff.nes_mes_buf[message->rdp+1], VREG(1) + 10 );
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1];
+		PRINTF("ITEM_NO=(%d) (%d)\n",((unsigned char*)(message->msg_b.nes_msg_b))[i],((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1]);
+		dpitem_read( game_play, (unshort)((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1], VREG(1) + 10 );
 # if 0
-		if ( kanfont->mbuff.nes_mes_buf[message->rdp+1] == H_map ) {
+		if ( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] == H_map ) {
 		    parameter->map_palete[30] = 255;
 		    parameter->map_palete[31] = 255;
 		}
-////////		if ( kanfont->mbuff.nes_mes_buf[message->rdp+1] < H_holystone_1 ) {
-		if ( kanfont->mbuff.nes_mes_buf[message->rdp+1] < H_seal_medal_1 ) {
+////////		if ( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] < H_holystone_1 ) {
+		if ( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] < H_seal_medal_1 ) {
 		    dmacopy_fg( message->fukidashiSegment + BALSZ,
-				(u32)_icon_item_staticSegmentRomStart + (I_IT_PT * kanfont->mbuff.nes_mes_buf[message->rdp+1] ),
+				(u32)_icon_item_staticSegmentRomStart + (I_IT_PT * ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] ),
 				I_IT_PT );
 		    PRINTF("アイテム32-0\n");
-////////		} else if ( kanfont->mbuff.nes_mes_buf[message->rdp+1] < H_seal_medal_1/*H_purse_1*/ ) {
+////////		} else if ( ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] < H_seal_medal_1/*H_purse_1*/ ) {
 		} else {
 		    dmacopy_fg( message->fukidashiSegment + BALSZ,
-////////				(u32)_icon_item_24_staticSegmentRomStart + (I_IT_P1 * (kanfont->mbuff.nes_mes_buf[message->rdp+1] - H_holystone_1) ),
-				(u32)_icon_item_24_staticSegmentRomStart + (I_IT_P1 * (kanfont->mbuff.nes_mes_buf[message->rdp+1] - H_seal_medal_1) ),
+////////				(u32)_icon_item_24_staticSegmentRomStart + (I_IT_P1 * (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] - H_holystone_1) ),
+				(u32)_icon_item_24_staticSegmentRomStart + (I_IT_P1 * (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] - H_seal_medal_1) ),
 				I_IT_P1 );
-		    PRINTF("アイテム24＝%d (%d) {%d}\n",kanfont->mbuff.nes_mes_buf[message->rdp+1], kanfont->mbuff.nes_mes_buf[message->rdp+1] - H_holystone_1, H_scale_2);
+		    PRINTF("アイテム24＝%d (%d) {%d}\n",((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1], ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] - H_holystone_1, H_scale_2);
 # if 0
 		} else {
 		    dmacopy_fg( message->fukidashiSegment + BALSZ,
-				(u32)_icon_item_staticSegmentRomStart + (I_IT_PT * H_scale_2) + (I_IT_PT * (kanfont->mbuff.nes_mes_buf[message->rdp+1] - H_seal_medal_1/*H_purse_1*/)),
+				(u32)_icon_item_staticSegmentRomStart + (I_IT_PT * H_scale_2) + (I_IT_PT * (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] - H_seal_medal_1/*H_purse_1*/)),
 				I_IT_PT );
-		    PRINTF("アイテム32-1＝%d (%d)n",kanfont->mbuff.nes_mes_buf[message->rdp+1], kanfont->mbuff.nes_mes_buf[message->rdp+1] - H_seal_medal_1/*H_purse_1*/);
+		    PRINTF("アイテム32-1＝%d (%d)n",((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1], ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] - H_seal_medal_1/*H_purse_1*/);
 # endif
 		}
 		message->rdp+=1;
 		message->item_dp = 1;
 # endif
 	    } else if ( nes_rd_dt == NZ_TEXTURE ) {
-		message->mes_board = kanfont->mbuff.nes_mes_buf[message->rdp+1] << 1;
-////////		message->mes_board_prim = (kanfont->mbuff.nes_mes_buf[message->rdp+2] & 0xF000) >> 12;
-////////		message->mes_board_shadow = (kanfont->mbuff.nes_mes_buf[message->rdp+2] & 0x0F00) >> 8;
-		message->mes_board_prim = (kanfont->mbuff.nes_mes_buf[message->rdp+2] & 0x00F0) >> 4;
-		message->mes_board_shadow = kanfont->mbuff.nes_mes_buf[message->rdp+2] & 0x000F;
-		message->mes_board_shift = (kanfont->mbuff.nes_mes_buf[message->rdp+3] & 0x00F0) >> 4;
-		message->mes_board_anime = kanfont->mbuff.nes_mes_buf[message->rdp+3] & 0x000F;
+		message->mes_board = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+1] << 1;
+////////		message->mes_board_prim = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2] & 0xF000) >> 12;
+////////		message->mes_board_shadow = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2] & 0x0F00) >> 8;
+		message->mes_board_prim = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2] & 0x00F0) >> 4;
+		message->mes_board_shadow = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+2] & 0x000F;
+		message->mes_board_shift = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+3] & 0x00F0) >> 4;
+		message->mes_board_anime = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[message->rdp+3] & 0x000F;
 		
 		////////	    dmacopy_fg( message->fukidashiSegment + BALSZ + I_IT_PT,
 		dmacopy_fg( message->fukidashiSegment + BALSZ,
@@ -2530,33 +2536,47 @@ message_read( Game_play *game_play )
 		XREG(61) = VREG(1) + ((64-48)/2);
 		jj = 2;
 	    } else if ( nes_rd_dt == NCHANGE ) {
-		message->msg_b.nes_msg_b[++i] = (kanfont->mbuff.nes_mes_buf[++message->rdp]);
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp]);
 	    } else if ( nes_rd_dt == NKAIGYO ) {
 		jj++;
 	    } else if ( nes_rd_dt == NZ_START || nes_rd_dt == NZ_STOP || nes_rd_dt == NZ_PAUSE || nes_rd_dt == NZ_OCARINA || nes_rd_dt == NZ_DISPSTOP || nes_rd_dt == NZ_NONONO ) {
 	    } else if ( nes_rd_dt == NZ_TIMER_END ) {
 		key_off_flag = 1;
 		PRINTF("NZ_TIMER_END (key_off_flag=%d)\n",key_off_flag);
-		message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[++message->rdp];
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp];
 	    } else if ( nes_rd_dt == NZ_BGM ) {
 		key_off_flag = 1;
 		PRINTF("NZ_BGM (key_off_flag=%d)\n",key_off_flag);
-		message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[++message->rdp];
-		message->msg_b.nes_msg_b[++i] = kanfont->mbuff.nes_mes_buf[++message->rdp];
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp];
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp];
 	    } else if ( nes_rd_dt == NZ_BLANK || nes_rd_dt == NZ_SPEED ) {
-		message->msg_b.nes_msg_b[++i] = (kanfont->mbuff.nes_mes_buf[++message->rdp] & 0xff);
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp] & 0xff);
 /*	    } else if ( nes_rd_dt == NZ_BGM || nes_rd_dt == NZ_SE ) {*/
 	    } else if ( nes_rd_dt == NZ_SE ) {
-		message->msg_b.nes_msg_b[++i] = (kanfont->mbuff.nes_mes_buf[++message->rdp]);
-		message->msg_b.nes_msg_b[++i] = (kanfont->mbuff.nes_mes_buf[++message->rdp]);
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp]);
+		((unsigned char*)(message->msg_b.nes_msg_b))[++i] = (((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp]);
 	    } else if ( nes_rd_dt == NZ_SENTAKU_2 ) {
 		message->item_dp = 2;
 	    } else if ( nes_rd_dt == NZ_SENTAKU_3 ) {
 		message->item_dp = 3;
 ////////		XREG(54) += ITEMSIZE;
 	    } else if ( nes_rd_dt != NSPACE ) {
+#ifdef CHINA
+		if (nes_rd_dt == 0xAA) {     // special char: A,B,C,Z,L,R... signs
+			b = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp];
+			kanfont_get_NES( kanfont, (b - 0x20), kanadr );
+		} else if (nes_rd_dt >= 0xA0) {  // Chinese char
+			b = ((unsigned char*)(kanfont->mbuff.nes_mes_buf))[++message->rdp];
+			idx = (nes_rd_dt << 8) | b;
+			kanfont_get_ZH( kanfont, (idx - 0xA001), kanadr);
+		} else { // English char
+			kanfont_get_NES( kanfont, (nes_rd_dt - 0x20), kanadr );
+		}
+		kanadr += BUF_CT;
+#else
 		kanfont_get_NES( kanfont, (nes_rd_dt - 0x20), kanadr );
 		kanadr += BUF_CT;
+#endif
 	    }
 	    i++;
 	    message->rdp++;
@@ -2603,8 +2623,13 @@ fukidashi_dma( Game_play *game_play, unshort message_no )
     } else {
 	/* ＮＥＳ版 ／ ＳＴＡＦＦ用 */
 	XREG(57) = 75;
+#ifdef CHINA
+	XREG(56) = 16;		// １行サイズ
+	XREG(54) = 60;		// メッセージ表示位置Ｘ
+#else
 	XREG(56) = 12;		// １行サイズ
 	XREG(54) = 65;		// メッセージ表示位置Ｘ
+#endif
     }
     if ( message_no == 0x00c2 || message_no == 0x00fa ) {		/* ハートの欠片 */
 	message_no += GetCollect_Heart;
@@ -2649,7 +2674,7 @@ fukidashi_dma( Game_play *game_play, unshort message_no )
     	} else
 #endif /* defined(USE_N64DD) */
         {
-	    dmacopy_fg( &kanfont->mbuff.nes_mes_buf[0], (u32)_staff_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
+	    dmacopy_fg( &((unsigned char*)(kanfont->mbuff.nes_mes_buf))[0], (u32)_staff_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
 	}
     } else if ( !J_N ) {
 	get_msg_add_get( game_play, message_no );
@@ -2661,7 +2686,7 @@ fukidashi_dma( Game_play *game_play, unshort message_no )
     	} else
 #endif /* defined(USE_N64DD) */
         {
-	    dmacopy_fg( &kanfont->mbuff.message_buf[0], (u32)_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
+	    dmacopy_fg( &((unshort *)(kanfont->mbuff.message_buf))[0], (u32)_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
 	}
     } else {
 	get_msg_add_get_NES( game_play, message_no );
@@ -2673,7 +2698,7 @@ fukidashi_dma( Game_play *game_play, unshort message_no )
     	} else
 #endif /* defined(USE_N64DD) */
         {
-	    dmacopy_fg( &kanfont->mbuff.nes_mes_buf[0], (u32)_nes_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
+	    dmacopy_fg( &((unsigned char*)(kanfont->mbuff.nes_mes_buf))[0], (u32)_nes_message_data_staticSegmentRomStart+(u32)kanfont->msg_data, (u32)kanfont->msg_data0 );
 	}
     }
     /* ＴＹＰＥ */
@@ -3067,6 +3092,9 @@ fukidashi_display( Game_play *game_play, Gfx **glistp )
 				7, 0,
 				G_TX_NOLOD, G_TX_NOLOD );
     }
+#ifdef CHINA
+    YREG(17)=442;
+#endif
     gSPTextureRectangle( gp++,
 			 VREG(0) << 2, VREG(1) << 2,
 			 (VREG(0)+YREG(22)) << 2, (VREG(1)+YREG(23)) << 2,
@@ -4535,16 +4563,25 @@ message_move( Game_play *game_play )
 		    else if ( message->msg_disp_type1 == 2 )    XREG(73) = start_yposd2[i];
 		    else					XREG(73) = start_yposd0[i];
 		}
-		XREG(72) = start_xposd[i];
 		XREG(65) = last_mark_yposd[i] + XREG(73);
+#ifdef CHINA
+                XREG(73) -= 10;
+#endif
+		XREG(72) = start_xposd[i];
 		if ( !J_N && !staff_mode ) {
 		    XREG(67) = XREG(73) + 7;
 		    XREG(68) = XREG(73) + 7 + 18;
 		    XREG(69) = XREG(73) + 7 + 18 + 18;
 		} else {
+#ifdef CHINA
+		    XREG(67) = XREG(73) + 23;
+		    XREG(68) = XREG(73) + 23 + 16;
+		    XREG(69) = XREG(73) + 23 + 16 + 16;
+#else
 		    XREG(67) = XREG(73) + 20;
 		    XREG(68) = XREG(73) + 20 + 12;
 		    XREG(69) = XREG(73) + 20 + 12 + 12;
+#endif
 		}
 		PRINTF("message->msg_disp_type=%x\n",message->msg_disp_type & 0xf0);
 /*		if ( message->msg_disp_type0 == 0x2 || message->msg_disp_type0 == 0x4 || message->msg_disp_type0 == 0x5 ) {*/
@@ -4697,13 +4734,13 @@ message_move( Game_play *game_play )
 			if ( message->select == __Next_Message ) {
 			    Na_StartSystemSe( NA_SE_SY_MESSAGE_PASS );
 			    if ( !J_N && !staff_mode ) {
-				message_set2( game_play, message->msg_b.msg_buff[message->end] );
+				message_set2( game_play, ((unshort *)(message->msg_b.msg_buff))[message->end] );
 			    } else {
-/*				rd_dt = message->msg_b.nes_msg_b[message->end-1] << 8;
-				rd_dt |= message->msg_b.nes_msg_b[message->end];*/
-/*				rd_dt = message->msg_b.nes_msg_b[message->end] << 8;
-				rd_dt |= message->msg_b.nes_msg_b[message->end+1];
-				PRINTF("ＮＥＸＴ(%x, %x) = %x [%04x]\n",message->msg_b.nes_msg_b[message->end],message->msg_b.nes_msg_b[message->end+1], rd_dt, next_msg_no);*/
+/*				rd_dt = ((unsigned char*)(message->msg_b.nes_msg_b))[message->end-1] << 8;
+				rd_dt |= ((unsigned char*)(message->msg_b.nes_msg_b))[message->end];*/
+/*				rd_dt = ((unsigned char*)(message->msg_b.nes_msg_b))[message->end] << 8;
+				rd_dt |= ((unsigned char*)(message->msg_b.nes_msg_b))[message->end+1];
+				PRINTF("ＮＥＸＴ(%x, %x) = %x [%04x]\n",((unsigned char*)(message->msg_b.nes_msg_b))[message->end],((unsigned char*)(message->msg_b.nes_msg_b))[message->end+1], rd_dt, next_msg_no);*/
 				message_set2( game_play, next_msg_no );
 			    }
 			} else {

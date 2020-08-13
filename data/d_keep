@@ -1,11 +1,11 @@
 #!/bin/sh
 set -x
 #
-# $Id: d_keep,v 1.1 2003/03/10 22:59:36 tong Exp $
+# $Id: d_keep,v 1.1.1.1 2003/03/10 22:59:36 tong Exp $
 #
 # $Log: d_keep,v $
-# Revision 1.1  2003/03/10 22:59:36  tong
-# Initial revision
+# Revision 1.1.1.1  2003/03/10 22:59:36  tong
+# new OBJ tree for ocarina from Nintendo
 #
 # Revision 2.1  1998/10/22  12:42:44  hayakawa
 # ＲＯＭ出しバージョン(NTSC)

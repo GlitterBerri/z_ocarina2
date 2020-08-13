@@ -1,7 +1,10 @@
 /*
- * $Id: z_actor.c,v 2.8 2001/04/04 07:21:47 zelda Exp $
+ * $Id: z_actor.c,v 1.1.1.1 2003/03/10 22:42:46 tong Exp $
  * 
  * $Log: z_actor.c,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:46  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.8  2001/04/04  07:21:47  zelda
  * ドルフィンエミュレータ用仮ぐみ版 CICと64DD対応部分をはずしたバージョン
  *
@@ -1454,6 +1457,7 @@
 #include "z_save_area_h.h"
 #include "z_bgcheck_poly_param.h"
 #include "z_parameter_h.h"
+#include "mathdef.h"
 #ifdef ROM_D
 #include "count.h"		/* count_gDPNoOpHere */
 #endif
@@ -4999,50 +5003,6 @@ extern void Actor_player_power_damage_set2(
 				      speed_y,
 				      0);
 }
-#if 0
-/*-----------------------------------------------------------------------
- *
- *	立方体コリジョンチェック
- *
- *----------------------------------------------------------------------*/
-extern int Actor_box_collision_check(
-    Actor     *this,
-    xyz_t     *box_center,
-    float     box_h,
-    float     box_w,
-    float     box_d,
-    short     box_angle_y
-) 
-{
-    xyz_t	d;
-    float	abs_dz;
-    float	cos_data = cos_s(box_angle_y);
-    float	sin_data = sin_s(box_angle_y);
-    float	sx = this->world.position.x - box_center->x;
-    float	sz = this->world.position.z - box_center->z;
-    
-    d.x = (sz * sin_data) - (sx * cos_data);
-    d.z = -(sx * sin_data) - (sz * cos_data);
-    d.y = this->world.position.y - box_center->y;
-
-    /* if ( (d.y >= 0.0f ? (d.y <= box_h) : (-d.y <= this->collision.body_pipe.h)) &&	/* Ｙ方向ヒット？ */  */
-/* 	 (d.x = fabsf(d.x)) <= box_w &&							/* Ｘ方向ヒット？ */ */
-/* 	 (abs_dz = fabsf(d.z)) <= box_d ) {						/* Ｚ方向ヒット？ */ */
-	
-/* 	/* */
-/* 	 * 座標補正 */
-/* 	 */ */
-/* 	abs_dz = (box_d - abs_dz) * signf(d.z); */
-/* 	this->world.position.x -= abs_dz * sin_s(box_angle_y); */
-/* 	this->world.position.z -= abs_dz * cos_s(box_angle_y); */
-
-/* 	return TRUE; */
-/*     } */
-
-    return FALSE;
-}
-#endif
-
 /*----------------------------------------------------------------------------
  *
  *	プレイヤー用ＳＥセット
@@ -6042,10 +6002,13 @@ static void Actor_draw(
     /*
      * データセグメント設定
      */
-    gSPSegment(NEXT_DISP,
-	       GAMEPLAY_OBJECT_EXCHANGE_SEGMENT, game_play->object_exchange.status[this->bank_ID].Segment);
-    gSPSegment(NEXT_POLY_XLU_DISP,
-	       GAMEPLAY_OBJECT_EXCHANGE_SEGMENT, game_play->object_exchange.status[this->bank_ID].Segment);
+    {
+        Object_Exchange_Status *s = game_play->object_exchange.status;
+        gSPSegment(NEXT_DISP,
+                   GAMEPLAY_OBJECT_EXCHANGE_SEGMENT, s[this->bank_ID].Segment);
+        gSPSegment(NEXT_POLY_XLU_DISP,
+                   GAMEPLAY_OBJECT_EXCHANGE_SEGMENT, s[this->bank_ID].Segment);
+    }
 
     if(this->fog_timer){ /* フォグ かける？ */
 	rgba_t 	fog_color = {0,0,0,255};

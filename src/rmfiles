@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: rmfiles,v 1.1 2003/03/10 22:42:52 tong Exp $
+# $Id: rmfiles,v 1.1.1.1 2003/03/10 22:42:52 tong Exp $
 #
 # 削除するファイルの登録
 # 登録は後ろに追加するようにし、
@@ -7,8 +7,8 @@
 # めんどくさいので、数が増えすぎるまでやりません。
 #
 # $Log: rmfiles,v $
-# Revision 1.1  2003/03/10 22:42:52  tong
-# Initial revision
+# Revision 1.1.1.1  2003/03/10 22:42:52  tong
+# new OBJ tree for ocarina from Nintendo
 #
 # Revision 2.3  1998-11-12 13:51:10+09  hayakawa
 # z_n64dd_sjis.c

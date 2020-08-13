@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: bell.sh,v 1.1 2003/03/10 22:42:55 tong Exp $
+# $Id: bell.sh,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $
 #set -x
 (
 COMPILEENDSOUND=${COMPILEENDSOUND:-compileend.aifc}

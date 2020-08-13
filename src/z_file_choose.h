@@ -1,5 +1,8 @@
-/* $Id: z_file_choose.h,v 2.3 1998-11-02 17:59:13+09 soejima Exp $ */	
+/* $Id: z_file_choose.h,v 1.1.1.1 2003/03/10 22:42:55 tong Exp $ */	
 /* $Log: z_file_choose.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:55  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.3  1998-11-02 17:59:13+09  soejima
  * £Ð£Á£Ì
  *

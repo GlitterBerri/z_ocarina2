@@ -241,7 +241,9 @@ do {								\
  *	ラベル宣言		
  *									
  *----------------------------------------------------------------------*/
+#ifndef offsetof
 #define offsetof(s, m)	(size_t)(&(((s *)0)->m))
+#endif
 
 #define	FALSE		0
 #define	TRUE		1

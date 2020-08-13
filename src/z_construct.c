@@ -674,7 +674,11 @@ YREG_data_ct( void )
     XREG(72) = 54;
     XREG(73) = 48;
     XREG(74) = 128;
+#ifdef CHINA
+    XREG(75) = 64+10;
+#else
     XREG(75) = 64;
+#endif
     XREG(76) = 256*8;
     XREG(77) = 64*8;
     XREG(78) = 96;	

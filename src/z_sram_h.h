@@ -1,5 +1,8 @@
-/* $Id: z_sram_h.h,v 2.3 1999-01-07 13:28:27+09 soejima Exp $ */	
+/* $Id: z_sram_h.h,v 1.1.1.1 2003/03/10 22:42:53 tong Exp $ */	
 /* $Log: z_sram_h.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:53  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.3  1999-01-07 13:28:27+09  soejima
  * ฃวฃมฃิฃลฃืฃมฃูปลออ
  *

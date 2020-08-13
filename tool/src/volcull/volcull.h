@@ -1,5 +1,5 @@
 /*
- * $Id: volcull.h,v 1.1 2003/03/10 23:12:46 tong Exp $
+ * $Id: volcull.h,v 1.1.1.1 2003/03/10 23:12:46 tong Exp $
  *
  * 自動ボリュームカリング
  *
@@ -8,8 +8,8 @@
  *
  *
  * $Log: volcull.h,v $
- * Revision 1.1  2003/03/10 23:12:46  tong
- * Initial revision
+ * Revision 1.1.1.1  2003/03/10 23:12:46  tong
+ * new OBJ tree for ocarina from Nintendo
  *
  * Revision 1.1  1996/10/11  02:08:27  hayakawa
  * Initial revision

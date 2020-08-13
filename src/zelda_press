@@ -1,264 +1,12 @@
-#!/usr/local/bin/bash
-#
-# ツールのソースは /project/ZELDA/tool/src/Pressにある
-#
-# $Log: zelda_press,v $
-# Revision 1.1  2003/03/10 22:42:55  tong
-# Initial revision
-#
-# Revision 2.2  1998-10-29 16:31:56+09  soejima
-# ＰＡＬ変更
-#
-# Revision 2.1  1998-10-22 21:31:42+09  zelda
-# ＲＯＭ出しバージョン(NTSC)
-#
-# Revision 1.76  1998/10/01 03:29:44  hayakawa
-# *** empty log message ***
-#
-# Revision 1.75  1998-10-01 11:56:08+09  hayakawa
-# 32Mちょうどばーじょん
-#
-# Revision 1.74  1998-09-11 22:21:19+09  soejima
-# *** empty log message ***
-#
-# Revision 1.73  1998-09-11 22:19:03+09  zelda
-# *** empty log message ***
-#
-# Revision 1.72  1998-09-09 22:58:26+09  zelda
-# *** empty log message ***
-#
-# Revision 1.71  1998-08-24 21:34:14+09  hayakawa
-# *** empty log message ***
-#
-# Revision 1.70  1998-08-24 21:09:01+09  hayakawa
-# z_segment.declテスト
-#
-# Revision 1.69  1998-08-12 14:42:28+09  soejima
-# *** empty log message ***
-#
-# Revision 1.68  1998-08-12 14:10:14+09  zelda
-# n64dd.d圧縮するとなぜか動かない？？？
-#
-# Revision 1.67  1998-08-11 09:23:29+09  zelda
-# *** empty log message ***
-#
-# Revision 1.66  1998-08-08 21:17:02+09  zelda
-# *** empty log message ***
-#
-# Revision 1.65  1998-07-31 11:42:40+09  hayakawa
-# *** empty log message ***
-#
-# Revision 1.64  1998-07-30 20:35:27+09  zelda
-# 圧縮するファイルを増加
-#
-# Revision 1.63  1998-07-25 16:28:55+09  soejima
-# *** empty log message ***
-#
-# Revision 1.62  1998-07-16 12:04:19+09  hayakawa
-# 圧縮するファイルを増やした
-#
-# Revision 1.61  1998-07-03 17:16:17+09  soejima
-# *** empty log message ***
-#
-# Revision 1.60  1998-06-09 13:39:07+09  zelda
-# 圧縮ファイル追加
-#
-# Revision 1.59  1998-05-18 14:14:46+09  hayakawa
-# makemaskは省略します
-#
-# Revision 1.58  1998-05-14 13:20:01+09  soejima
-# *** empty log message ***
-#
-# Revision 1.57  1998-04-24 11:49:26+09  hayakawa
-# ＶＲボックスのパレットデータは圧縮効率が悪いので圧縮しないようにした
-#
-# Revision 1.56  1998-04-15 21:07:22+09  hayakawa
-# ツールのソースは /project/ZELDA/tool/src/Pressにある
-#
-# Revision 1.55  1998-04-15 21:02:25+09  hayakawa
-# ツールの復帰値をチェックするようにした
-#
-# Revision 1.54  1998-04-03 18:37:12+09  hayakawa
-# 分割ＤＭＡicon_item_24_static追加
-#
-# Revision 1.53  1998/04/02  07:20:19  hayakawa
-# vr_*_static.dを消してしまっていた
-#
-# Revision 1.52  1998/04/02  06:26:19  hayakawa
-# sceneをp1で圧縮するようにした
-#
-# Revision 1.51  1998/03/19  02:48:42  hayakawa
-# test01_*.d 圧縮しません（ツールテスト用）
-#
-# Revision 1.50  1998/03/18  08:05:55  hayakawa
-# メッセージ追加
-#
-# Revision 1.49  1998/03/17  02:01:54  nisiwaki
-# 圧縮ファイルを*_room*.dまで増加
-#
-# Revision 1.48  1998/03/16  05:37:45  soejima
-# *** empty log message ***
-#
-# Revision 1.47  1998/03/10  02:30:02  hayakawa
-# *** empty log message ***
-#
-# Revision 1.46  1998/03/10  02:27:49  hayakawa
-# 圧縮しないときに圧縮キャッシュをクリアするようにした
-#
-# Revision 1.45  1998/03/09  12:39:25  hayakawa
-# ベリファイフラグ新設
-#
-# Revision 1.44  1998/03/09  08:22:00  soejima
-# ???
-#
-# Revision 1.43  1998/03/07  10:07:08  soejima
-# *** empty log message ***
-#
-# Revision 1.42  1998/03/07  08:51:04  soejima
-# *** empty log message ***
-#
-# Revision 1.41  1998/03/06  07:38:01  hayakawa
-# 圧縮ファイル増やした
-#
-# Revision 1.40  1998/03/06  01:49:19  hayakawa
-# dmadata のマップ情報は dmadata.map に出力されます
-#
-# Revision 1.39  1998/02/26  12:05:04  sasaki
-# p1で32Mを超えたので圧縮するファイルを増やした
-#
-# Revision 1.38  1998/02/26  04:18:16  hayakawa
-# cmppass を cflags に変更
-# p1で32Mを超えたので圧縮するファイルを増やした
-#
-# Revision 1.37  1998/02/23  05:16:27  hayakawa
-# ディレクトリの指定がまずかったのを修正
-# いまのところ rom_d でぃれくとりでしか動かない
-#
-# Revision 1.36  1998/02/23  03:01:45  tarukado
-# Error をとった
-#
-# Revision 1.35  1998/02/23  02:54:53  hayakawa
-# 細々修正
-# p1で圧縮するファイルを増やした
-# カレントディレクトリで作業するように変更
-#
-# Revision 1.34  1998/02/21  08:42:03  hayakawa
-# もう一度 make し直してください
-# のときに exit 1 するようにした
-#
-# Revision 1.33  1998/02/20  01:43:49  hayakawa
-# 圧縮しないファイルをしていた
-#
-# Revision 1.32  1998/02/18  08:43:38  hayakawa
-# *** empty log message ***
-#
-# Revision 1.31  1998/02/17  09:29:00  hayakawa
-# *** empty log message ***
-#
-# Revision 1.30  1998/02/16  04:34:05  okajima
-# *** empty log message ***
-#
-# Revision 1.29  1998/02/16  02:41:29  okajima
-# *** empty log message ***
-#
-# Revision 1.28  1998/02/16  02:24:39  soejima
-# *** empty log message ***
-#
-# Revision 1.27  1998/02/16  01:55:14  hayakawa
-# 分割ＤＭＡmessage_data_static.d追加
-#
-# Revision 1.26  1998/01/29  02:22:47  hayakawa
-# リダイレクトファイルの拡張子を .out から .stdout に変更
-#
-# Revision 1.25  1998/01/27  07:04:01  hayakawa
-# z_segment_decl.cの先頭に Don't check in this file!! をつけるようにしてみた
-#
-# Revision 1.24  1997/10/30  00:48:22  hayakawa
-# *** empty log message ***
-#
-# Revision 1.23  1997/10/16  11:20:15  hayakawa
-# rom.map名前変更
-#
-# Revision 1.22  1997/10/07  14:15:38  hayakawa
-# -p3追加
-#
-# Revision 1.21  1997/10/02  07:06:57  hayakawa
-# 分割ＤＭＡmessage_static追加
-#
-# Revision 1.20  1997/09/24  00:38:03  hayakawa
-# -pオプション追加
-#
-# Revision 1.19  1997/09/10  11:00:59  hayakawa
-# rommap_new導入
-#
-# Revision 1.18  1997/09/05  11:03:37  hayakawa
-# *** empty log message ***
-#
-# Revision 1.17  1997/09/05  11:02:28  hayakawa
-# makemaskするようにした
-#
-# Revision 1.16  1997/09/05  04:49:23  hayakawa
-# 一部を除き全部のセグメントを圧縮するようにした
-#
-# Revision 1.15  1997/09/05  01:02:40  hayakawa
-# エラーチェックの強化など
-#
-# Revision 1.14  1997/09/02  00:52:14  hayakawa
-# $PATHに依存しないようにした
-#
-# Revision 1.13  1997/08/27  01:43:23  iwawaki
-# データ追加
-#
-# Revision 1.12  1997/08/23  08:09:45  hayakawa
-# *** empty log message ***
-#
-# Revision 1.11  1997/08/22  13:50:42  hayakawa
-# szs対応
-#
-# Revision 1.10  1997/08/20  09:22:56  hayakawa
-# *** empty log message ***
-#
-# Revision 1.9  1997/08/20  09:08:42  hayakawa
-# *** empty log message ***
-#
-# Revision 1.8  1997/08/20  01:43:26  hayakawa
-# ４Ｍラムでの圧縮解凍テスト
-#
-# Revision 1.7  1997/08/19  10:10:03  hayakawa
-# *** empty log message ***
-#
-# Revision 1.6  1997/08/19  09:40:58  hayakawa
-# *** empty log message ***
-#
-# Revision 1.5  1997/08/19  06:22:02  umemiya
-# *** empty log message ***
-#
-# Revision 1.4  1997/08/18  12:37:33  hayakawa
-# *** empty log message ***
-#
-# Revision 1.3  1997/08/18  12:27:41  hayakawa
-# *** empty log message ***
-#
-# Revision 1.2  1997/08/18  11:50:49  hayakawa
-# *** empty log message ***
-#
-# Revision 1.1  1997/08/18  11:49:05  hayakawa
-# Initial revision
-#
+#!/usr/bin/bash
 
 ZELDA_TOOL_BIN=$ZELDA_ROOT/tool/bin
-#PATH=$ZELDA_TOOL_BIN:$PATH
-PATH=/usr/bin
 
 ROMFILL=$ZELDA_TOOL_BIN/romfill
 ROMADDRESS=$ZELDA_TOOL_BIN/romaddress
 ROMALIGN=$ZELDA_TOOL_BIN/romalign
 ROMDIVIDE=$ZELDA_TOOL_BIN/romdivide
-ROMMAP=$ZELDA_TOOL_BIN/rommap
-ROMMAP_NEW=$ZELDA_TOOL_BIN/rommap_new
-SLICNV=$ZELDA_TOOL_BIN/slicnv
-SLIENC=$ZELDA_TOOL_BIN/sliencV11
-SLIDEC=$ZELDA_TOOL_BIN/slidec
+ROMMAP=$ZELDA_TOOL_BIN/rommap_new
 MAKEMASK=/usr/sbin/makemask
 
 echo -n "Tool checking ..."
@@ -272,30 +20,18 @@ do
 done
 echo "ok"
 
-#
-# 行を消去し、カーソルを復帰する
-#
 clearline() {
   echo -n -e "\r\033[K" >&2
 }
 
-#
-# *.d を連結する。
-# *.szpが存在すれば、*.dの代わりに連結する
-# *.szsが存在すれば、*.szpの代わりに連結する
-#
-szpcat() {
+segmentcat() {
   for dfile in $*
   do
-    szpfile=${dfile%.d}.szp
     szsfile=${dfile%.d}.szs
     clearline
     if [ -f $szsfile ]; then
       echo -n "$szsfile" >&2
       cat $szsfile
-    elif [ -f $szpfile ]; then
-      echo -n "$szpfile" >&2
-      cat $szpfile
     else
       echo -n "$dfile" >&2
       cat $dfile
@@ -304,9 +40,6 @@ szpcat() {
   echo >&2
 }
 
-#
-# 引数の拡張子を .d に変更し、_DECL_(ファイル名.d) として表示する
-#
 echodecl() {
   for segment in $*
   do
@@ -314,99 +47,17 @@ echodecl() {
   done
 }
 
-#
-# .d ファイルを圧縮し、 .szp ファイルを作成する
-# 既に正当な .szp ファイルが存在している場合は圧縮しません
-#  .szp ファイルは１６の倍数になります。
-# 引数は一つだけ
-#
-d2szp1() {
-
+d2gz() {
   dfile=$1
-  ddfile=${dfile%.d}.dd
-  szpfile=${dfile%.d}.szp
-  
+  szsfile=${dfile%.d}.szs
   if [ ! -f $dfile ]; then
     echo " $dfile は存在しません" >&2
     return 1;
   fi
-  if [ -f $szpfile ]; then
-    if [ $cflag = 1 ]; then return 0; fi
-    echo -n " 解凍 "
-    $SLIDEC $szpfile $ddfile
-    echo -n " 比較 "
-    cmp $dfile $ddfile
-    r=$?
-    rm -f ${ddfile}
-    if [ $r = 0 ]; then 
-      echo -n " 一致 "
-      return 0;
-    fi
-  fi
-  echo -n " 圧縮 "
-  $SLIENC $dfile > /dev/null 2>&1
-  $ROMALIGN 16 $szpfile
-}
-
-#
-# .d ファイルを圧縮し、 .szs ファイルを作成する
-# 既に正当な .szs .szp ファイルが存在している場合は圧縮しません
-#  .szs ファイルは１６の倍数になります。
-# 引数は一つだけ
-#
-d2szs1() {
-
-  dfile=$1
-  ddfile=${dfile%.d}.dd
-  szpfile=${dfile%.d}.szp
-  szsfile=${dfile%.d}.szs
-
-  if [ ! -f $dfile ]; then
-    echo "$dfile は存在しません" >&2
-    return 1;
-  fi
-  if [ -f $szsfile ]; then 
-    if [ $cflag = 1 ]; then
-      echo -n " 解凍比較省略 "
-      return 0
-    fi
-    echo -n " 解凍 "
-    $SLIDEC $szsfile $ddfile
-    echo -n " 比較 "
-    echo -e -n "\033[33m"
-    cmp $dfile $ddfile
-    r=$?
-    echo -e -n "\033[m"
-    rm -f ${ddfile}
-    if [ $r = 0 ]; then 
-      echo -n " 一致 "
-      return 0;
-    fi
-  fi
-  if [ -f $szpfile ]; then 
-    if [ $cflag = 1 ]; then
-      echo -n " 解凍比較省略 "
-      return 0
-    fi
-    echo -n " 解凍 "
-    $SLIDEC $szpfile $ddfile
-    echo -n " 比較 "
-    cmp $dfile $ddfile
-    r=$?
-    rm -f ${ddfile}
-    if [ $r != 0 ]; then 
-      echo -n " 圧縮 "
-      $SLIENC $dfile > /dev/null 2>&1
-    fi
-  else
-    echo -n " 圧縮 "
-    $SLIENC $dfile > /dev/null 2>&1
-  fi
-  echo -n " 変換 "
-  $SLICNV $szpfile $szsfile
-  rm -f $szpfile
+  gzip -c -9 -n $dfile | dd bs=10 skip=1 of=$szsfile
   $ROMALIGN 16 $szsfile
 }
+  
 
 rmv() {
   for file in $*
@@ -418,17 +69,14 @@ rmv() {
   done
 }
 
-#
-# *.d を圧縮する。
-#
 sli() {
   no=1
   for dfile in $*
   do
     clearline
-    echo -n "$no/$#:$dfile" >&2
-    szpfile=${dfile%.d}.szp
+    echo -n "$no/$#:$dfile" >& 2
     szsfile=${dfile%.d}.szs
+    szpfile=${dfile%.d}.szp
     ddfile=${dfile%.d}.dd
     case ${dfile} in
       makerom.d | boot.d | dmadata.d | Audiobank.d | Audioseq.d | Audiotable.d )
@@ -449,7 +97,7 @@ sli() {
         ;;
       n64dd.d )
         if [ $pflag = 2 ]; then
-          d2szs1 $dfile
+          d2gz $dfile
         else
           echo " 圧縮しません（高速化） " >&2
           rmv $szpfile $szsfile
@@ -461,7 +109,7 @@ sli() {
       nintendo_rogo_static.d | \
       code.d | z_select_static.d | ovl_*.d )
         if [ $pflag = 2 -o $pflag = 1 ]; then
-          d2szs1 $dfile
+          d2gz $dfile
         else
           echo " 圧縮しません（高速化） " >&2
           rmv $szpfile $szsfile
@@ -469,44 +117,16 @@ sli() {
         ;;
       * )
         if [ $pflag = 2 ]; then
-          d2szs1 $dfile
+          d2gz $dfile
         else
           echo " 圧縮しません（高速化） " >&2
           rmv $szpfile $szsfile
         fi
         ;;
     esac
-    if [ -f $szpfile -a ! -f $szsfile ]; then
-      echo "$szpfile があるのに $szsfile がない" >&2
-    fi
-    if [ $bflag != 1 -a -f $szsfile ]; then
-      echo -n " ベリファイ " >&2
-      $SLIDEC $szsfile ${ddfile}
-      cmp ${dfile} ${ddfile}
-      if [ $? != 0 ]; then 
-        echo " ＮＧ！？ $szsfile を削除します " >&2
-        rm -f $szsfile
-      else
-        echo " ＯＫ！ " >&2
-      fi
-      rm -f ${ddfile}
-    else
-        echo " ベリファイ省略！ " >&2
-    fi
     no=$((no+1))
   done
   echo >&2
-}
-
-#
-# *.d を連結する。
-# *.szpが存在すれば、*.dの代わりに連結する
-#
-sli_scene() {
-  for scene in $*
-  do
-    sli ${scene}_scene.d ${scene}_room_*.d
-  done
 }
 
 #
@@ -563,7 +183,7 @@ read_check $ZELDA_INFO
 work=$(grep "Creating segment symbol source file in" $ZELDA_INFO)
 work=${work#"Creating segment symbol source file in "}
 read_check $work
-$ROMMAP_NEW $work > rom.map
+$ROMMAP $work > rom.map
 if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
 
 SEGDCL=z_segment.decl
@@ -608,7 +228,7 @@ if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
 
 echo `date` '2 *.d *.szp を連結して 圧縮 $ROMIMG を作成'
 read_check makerom.d
-szpcat makerom.d $dfiles > $ROMPAK
+segmentcat makerom.d $dfiles > $ROMPAK
 
 echo " makemaskは省略します "
 ##echo " makemaskするとgloadできなくなる "
@@ -616,7 +236,8 @@ echo " makemaskは省略します "
 if [ $? != 0 ]; then echo "ERROR!!";exit 1; fi
 
 echo `date` "1 ロムサイズ調整＆結果表示 (32M=33554432)"
-$ROMFILL $ROMPAK $ROMPAK32 33554432
+#$ROMFILL $ROMPAK $ROMPAK32 33554432
+cp $ROMPAK $ROMPAK32
 ls -l $ROMIMG $ROMPAK $ROMPAK32
 
 echo `date` "0 後始末"

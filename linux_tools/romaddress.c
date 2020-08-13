@@ -5,6 +5,9 @@
  ************************************************************************/
 /*
  * $Log: romaddress.c,v $
+ * Revision 1.2  2003/03/20 00:33:59  wheeler
+ * Increase the size of dma_rom_tbl for animal forest
+ *
  * Revision 1.1  2003/03/14 03:19:08  tong
  * moving linux_tools(nintendo) from old tree to new tree.
  *
@@ -41,7 +44,7 @@
 #include	<stdlib.h>
 #include	<string.h>
 
-#define		MAX_FIL		0x00000800
+#define		MAX_FIL		0x00001000
 #define		MAX_STR		0x00000400 /* 最大ファイル名長 */
 
 typedef struct dma_rom_s {

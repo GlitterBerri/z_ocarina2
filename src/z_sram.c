@@ -1,9 +1,12 @@
 /*
- * $Id: z_sram.c,v 2.7 1999/01/07 04:28:35 soejima Exp $
+ * $Id: z_sram.c,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $
  *
  *	£Ó£Ò£Á£Í¤Ë¤Ä¤¤¤Æ
  *
  * $Log: z_sram.c,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.7  1999/01/07  04:28:35  soejima
  * £Ç£Á£Ô£Å£×£Á£Ù»ÅÍÍ
  *
@@ -52,11 +55,13 @@
 #include "os_internal.h"
 #include "z_basic.h"
 #include "sleep.h"             /* sleep */
+#if 0
 #include "z_play.h"
 #include "assert64.h"		/* assert */
 
 #include "z_common_data.h"	/* z_common_data_t */
 #include "z_scene_table.h"
+#endif
 #include "z_parameter_h.h"
 #include "z_kaleido_moji.h"
 #include "z_file_choose.h"
@@ -69,6 +74,22 @@
 #ifdef USE_OTSUKI
 /*nclude "ssSRAMrdwt.c"*/
 #include "ssSRAMrdwt.h"
+#endif
+#define BBPLAYER
+#ifdef BBPLAYER
+#undef ssSRAMRead
+#undef ssSRAMWrite
+#define ssSRAMRead(p,s,sz)    __osBbSramRW(s,p,sz,DOMAIN_READ)
+#define ssSRAMWrite(s,p,sz)   __osBbSramRW(s,p,sz,DOMAIN_WRITE)
+void __osBbSramRW(void* sramAddr, void* dramAddr, size_t size, int dir) {
+    extern u8* __osBbSramAddress;
+    u8 *addr = __osBbSramAddress + (sramAddr - SRAM_START_ADDR);
+    if (dir == OS_READ) {
+	bcopy(addr, dramAddr, size);
+    } else if (dir == OS_WRITE) {
+	bcopy(dramAddr, addr, size);
+    }
+}
 #endif
 
 
@@ -162,7 +183,7 @@ save_initialize( void )
 {
     static Privatef_t zelda_save_Privatef = {
 	/*-------------------- private --------------------*/
-	0, 0, 0, 0, 0, 0,			/* newf[6] */
+        {0, 0, 0, 0, 0, 0},			/* newf[6] */
 	0x0000,					/* savect */
 	SSS, SSS, SSS, SSS, SSS, SSS, SSS, SSS,	/* player_name[8] */
 	0,					/* f_64dd */
@@ -196,17 +217,17 @@ save_initialize( void )
     };
     static Used_t zelda_save_Used = {
 	/*-------------------- used --------------------*/
-	0xff, 0xff, 0xff, 0xff,			/* register_item[4] */
+        {0xff, 0xff, 0xff, 0xff},			/* register_item[4] */
 	0xff, 0xff, 0xff,			/* register_item_pt[3] */
 	0x1100,					/* equip_item */
     };
     static Table_t zelda_save_Table = {
 	/*-------------------- table --------------------*/
 	/*---------- £É£Ô£Å£Í ----------*/
+        {0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-	0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-	0xff, 0xff, 0xff, 0xff, 0xff, 0xff,	/* item_register[6*4] */
+	0xff, 0xff, 0xff, 0xff, 0xff, 0xff},	/* item_register[6*4] */
 
 	0,  0,  0,  0,  0,  0,			/* item_count[16] */
 	0,  0,  0,  0,  0,  0,
@@ -269,7 +290,7 @@ save_initialize999( void )
 {
     static Privatef_t zelda_save_Privatef999 = {
 	/*-------------------- private --------------------*/
-	REG0, REG1, REG2, REG3, REG4, REG5,	/* newf[6] */
+        {REG0, REG1, REG2, REG3, REG4, REG5},	/* newf[6] */
 	0x0000,					/* savect */
 # if 0
 	HDA, HII, HSI, HXE, HNN, HSI, HXE, HII,	/* name */
@@ -307,7 +328,7 @@ save_initialize999( void )
     };
     static Used_t zelda_save_Used999 = {
 	/*-------------------- used --------------------*/
-	H_sword_1, H_bow, H_bomb_1, H_ocarina_1,	/* register_item[4] */
+        {H_sword_1, H_bow, H_bomb_1, H_ocarina_1},	/* register_item[4] */
 	 3,  2, 7,				/* register_item_pt[3] */
 	0x1122,					/* equip_item */
     };
@@ -315,10 +336,10 @@ save_initialize999( void )
 	/*-------------------- table --------------------*/
 	/*---------- £É£Ô£Å£Í ----------*/
 	/* item_register[6*4] */
-	H_stick,     H_deku_nut,   H_bomb_1,   H_bow,        H_arrow_1,    H_goddess_1,
+        {H_stick,     H_deku_nut,   H_bomb_1,   H_bow,        H_arrow_1,    H_goddess_1,
 	H_pachinko,  H_ocarina_1,  H_bomb_2,   H_S_hookshot, H_arrow_2,    H_goddess_2,
 	H_boomerang, H_magicglass, H_bean,     H_hammer,     H_arrow_3,    H_goddess_3,
-	H_bottle,    H_bottle_1,   H_bottle_2, H_bottle_3,   H_reserve_20, H_reserve_00,
+	H_bottle,    H_bottle_1,   H_bottle_2, H_bottle_3,   H_reserve_20, H_reserve_00},
 	
 	50,  50,  10,  30,  1,  1,		/* item_count[16] */
 	30,   1,  50,   1,  1,  1, 
@@ -403,8 +424,8 @@ sram_load_check( Sram *sram )
     OSIoMesg 	dmaIoMesgBuf;
     OSMesg 	dummyMesg;
 #endif
-    unshort	i, j, m, mmm;
-    unshort	*k;
+    unshort	i, j;
+    //unshort	*k, m, mmm;
     unchar	*nnn;
 
     static short scene_table[] = {
@@ -650,7 +671,7 @@ sram_save( Sram *sram )
     unshort	i, j, m;
     unshort	*k;
 
-    sram;
+    //sram;
     
 # if 0
 #ifndef USE_OTSUKI // OLD : 1998/3/20 otsuki.
@@ -1002,7 +1023,9 @@ sram_start_save( Game_file_choose *this, Sram *sram  )
     if ( !this->no ) ZCommonSet( day_time, 0x0000 );
 # endif
     for ( i = 0; i < 8; i++ ) {
-	Player_Name[i] = this->name[this->no][i];
+        unchar *n;
+        n = this->name[this->no];
+	Player_Name[i] = n[i];
     }
     S_Private.newf[0] = REG0;
     S_Private.newf[1] = REG1;
@@ -1414,10 +1437,10 @@ sram_sound_save( Sram *sram )
 extern void
 sram_initialize( Game *game, Sram *sram )
 {
-    pad_t	*pad = &game->pads[2];
+    //pad_t	*pad = &game->pads[2];
 
-    unshort	i, j;
-    unshort	*k;
+    unshort	i/*, j*/;
+    //unshort	*k;
 
     PRINTF("sram_initialize( Game *game, Sram *sram )\n");
 
@@ -1574,19 +1597,21 @@ extern void
 sram_title_ct( Game *game, Sram *sram )
 {
     sram->read_buff = (unchar *)Game_alloc( SRAM_SIZE );
-    assert(sram->read_buff != NULL);
+    //assert(sram->read_buff != NULL);
 
 }
 
 extern void
 sram_ct( Game *game, Sram *sram )
 {
-    game;
-    sram;
+    //game;
+    //sram;
     
 ////////    sram->read_buff = (unchar *)Game_alloc( SAVE_SIZE );
 ////////    assert(sram->read_buff != NULL);
 
 }
     
+
+
 

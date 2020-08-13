@@ -1,5 +1,8 @@
-/* $Id: z_kaleido_moji.h,v 2.2 1998-10-28 18:36:00+09 soejima Exp $ */	
+/* $Id: z_kaleido_moji.h,v 1.1.1.1 2003/03/10 22:42:46 tong Exp $ */	
 /* $Log: z_kaleido_moji.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:46  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.2  1998-10-28 18:36:00+09  soejima
  * £–£¡£Ãª≈ÕÕ
  *

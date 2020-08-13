@@ -1,5 +1,5 @@
 #!/usr/local/bin/bash
-# $Id: make_spec_inc_ovl.sh,v 1.1 2003/03/10 22:42:52 tong Exp $
+# $Id: make_spec_inc_ovl.sh,v 1.1.1.1 2003/03/10 22:42:52 tong Exp $
 
 read after || exit 0
 

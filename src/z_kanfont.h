@@ -1,5 +1,8 @@
-/* $Id: z_kanfont.h,v 2.1 1998-10-22 21:17:25+09 zelda Exp $ */	
+/* $Id: z_kanfont.h,v 1.1.1.1 2003/03/10 22:42:45 tong Exp $ */	
 /* $Log: z_kanfont.h,v $
+ * Revision 1.1.1.1  2003/03/10 22:42:45  tong
+ * new OBJ tree for ocarina from Nintendo
+ *
  * Revision 2.1  1998-10-22 21:17:25+09  zelda
  * ＲＯＭ出しバージョン(NTSC)
  *
@@ -44,7 +47,11 @@ typedef struct zelda_kanfont_struct {
 
     union	buff {
 	unsigned short	message_buf[16*40];		/* メッセージ展開バッファ */
+#ifdef CHINA
+	unsigned char	nes_mes_buf[16*40*2];		/* メッセージ展開バッファ */
+#else
 	unsigned char	nes_mes_buf[16*40];		/* メッセージ展開バッファ */
+#endif
     } mbuff;
 } Kanfont;
 
@@ -58,6 +65,11 @@ kanfont_get( Kanfont *kanfont, unshort code, unshort kanadr );
 
 extern void
 kanfont_get_NES( Kanfont *kanfont, unchar code, unshort kanadr );
+
+#ifdef CHINA
+extern void
+kanfont_get_ZH( Kanfont *kanfont, unshort code, unshort kanadr );
+#endif
 
 extern void
 kanfont_get2( Kanfont *kanfont, unshort code );

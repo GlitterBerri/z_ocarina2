@@ -11,14 +11,20 @@ $obj_file = "mag";
 `chmod u+w $zroot/data/$obj_file.zh.o`;
 
 while (<MAG_LIST>) {
-    /zelda_mag\/(.*)\.int\s+(0x[0-9a-fA-F]+)\s+(\d+)/;
+    /zelda_mag\/(.*)\.(inta|rgba)\s+(0x[0-9a-fA-F]+)\s+(\d+)/;
     $dir = "zelda_mag";
     $name = $1;
-    $loc = $2;
-    $size = $3;
+    $suffix = $2;
+    $loc = $3;
+    $size = $4;
 
-    print "./rgb2bin.pl $texture_path$dir/$name.int IA 8\n";
-    `./rgb2bin.pl $texture_path$dir/$name.int IA 8`;
+    if ($suffix eq "rgba") {
+        print "./rgb2bin.pl $texture_path$dir/$name.rgba RGBA 32\n";
+        `./rgb2bin.pl $texture_path$dir/$name.rgba RGBA 32`;
+    } else {
+        print "./rgb2bin.pl $texture_path$dir/$name.inta IA 8\n";
+        `./rgb2bin.pl $texture_path$dir/$name.inta IA 8`;
+    }
 
     $offset = hex($data_offset) + hex($loc);
     print "./replace.pl $zroot/data/$obj_file.zh.o $texture_path$dir/$name.bin $offset $size\n\n";
