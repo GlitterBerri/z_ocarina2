@@ -1,5 +1,5 @@
 /*===============================================================
-  =	   IA¡¦¥Æ¥¯¥¹¥Á¥ã¨¡É½¼¨					=
+  =	   IAãƒ»Texture Display				       =
  ===============================================================*/
 static void
 texture_IA8( Graph *graph, void *timg, short size, short xpos, short ypos )
@@ -18,7 +18,7 @@ texture_IA8( Graph *graph, void *timg, short size, short xpos, short ypos )
     CLOSE_DISP( graph );
 }
 /********************************************************
- *	¥é¥¤¥Õ¥á¡¼¥¿¡¼ Áı¸º½èÍı				*
+ *	Life Meter Increase & Decrease Processing	*
  ********************************************************/
 extern char
 life_meter_play( Game_play *game_play, short count )
@@ -27,12 +27,12 @@ life_meter_play( Game_play *game_play, short count )
 
     unshort	i, j;
 
-    PRINTF("¡ö¡ö¡ö¡ö¡ö  Áı¸º=%d (now=%d, max=%d)  ¡ö¡ö¡ö",count,S_Private.now_life,S_Private.max_life);
+    PRINTF("ï¼Šï¼Šï¼Šï¼Šï¼Š  Increase & Decrease=%d (now=%d, max=%d)  ï¼Šï¼Šï¼Š",count,S_Private.now_life,S_Private.max_life);
     if ( count > 0 ) Na_StartSystemSe( NA_SE_SY_HP_RECOVER ) ;
     S_Private.now_life += count;
     if ( S_Private.now_life > S_Private.max_life )
 	S_Private.now_life = S_Private.max_life;
-    /* ¥É¥­¥É¥­¥Ï¡¼¥È¥Æ¥¯¥¹¥Á¥ã£Ä£Í£Á */
+    /* Dokidoki Heart Texture DMA */
     i = j = (unshort)(S_Private.now_life % LIFE_CT);
     if ( j != 0 ) {
 	if ( j >= 11 ) i = 3;
@@ -41,7 +41,7 @@ life_meter_play( Game_play *game_play, short count )
 	    else i = 1;
 	}
     }
-    PRINTF("  ¥é¥¤¥Õ=%d  ¡ö¡ö¡ö  %d  ¡ö¡ö¡ö¡ö¡ö¡ö\n",S_Private.now_life, i );
+    PRINTF("  Life=%d  ï¼Šï¼Šï¼Š  %d  ï¼Šï¼Šï¼Šï¼Šï¼Šï¼Š\n",S_Private.now_life, i );
     osCreateMesgQueue(&parameter->mq, &parameter->m, 1);
     dmacopy_bg( &parameter->dma,
 		parameter->dokidokiheartSegment,
@@ -55,22 +55,22 @@ life_meter_play( Game_play *game_play, short count )
 
     if ( S_Private.now_life <= 0 ) {
 	S_Private.now_life = 0;
-	return(0);	/* ¥×¥ì¥¤¥ä¡¼»àË´ */
-    } else return(1);	/* ¥×¥ì¥¤¥ä¡¼·òºß */
+	return(0);	/* Player Death */
+    } else return(1);	/* Player Healthy */
 }
 
 
 
-/*¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á £Ä£Ò£Á£× ¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á*/
+/*ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ ï¼¤ï¼²ï¼¡ï¼· ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼*/
     /*
-     * £Ì£é£æ£å £Í£å£ô£å£ò
+     * ï¼¬ï½‰ï½†ï½… ï¼­ï½…ï½”ï½…ï½’
      */
     overlay_rectangle_a_prim(game_play->g.graph);
     gDPSetCombineMode( NEXT_OVERLAY_DISP, G_CC_INT9, G_CC_INT9 );
 #define HT_XP	22
 #define HT_YP	18
     ht_xp = HT_XP;
-    ht_yp = HT_YP;	/* ¥ì¥¯¥¿¥ó¥°¥ëÉ½¼¨°ÌÃÖ */
+    ht_yp = HT_YP;	/* Rectangle Display Position */
     i = j = 0;
     h_max = S_Private.max_life;
     gDPSetPrimColor( NEXT_OVERLAY_DISP, 0, 0, 255, 70, 50, parameter->heart_alpha );
@@ -84,7 +84,7 @@ life_meter_play( Game_play *game_play, short count )
     if ( h_now >= LIFE_CT ) {
 	h_now -= LIFE_CT;
 	do {
-	    /* Max¥Ï¡¼¥È ¥»¥Ã¥È */
+	    /* Max Heart Set */
 	    texture_IA8( game_play->g.graph, heart4_txt, 16, ht_xp, ht_yp );
 	    j++;
 	    ht_xp += 10;
@@ -94,7 +94,7 @@ life_meter_play( Game_play *game_play, short count )
 	    }
 	} while ( i < h_now );
 
-	/* ¸½ºß¥Ï¡¼¥È°ÌÃÖ ¥»¥Ã¥È */
+	/* Current Heart Position Set */
 	now_p = j;
 	ht_xp += 10;
 	i += LIFE_CT;
@@ -105,7 +105,7 @@ life_meter_play( Game_play *game_play, short count )
 
 	if ( i != h_max ) {
 	    do {
-		/* Empty¥Ï¡¼¥È ¥»¥Ã¥È */
+		/* Empty Heart Set */
 		texture_IA8( game_play->g.graph, heart0_txt, 16, ht_xp, ht_yp );
 		ht_xp += 10.0f;
 		i += LIFE_CT;
@@ -116,13 +116,13 @@ life_meter_play( Game_play *game_play, short count )
 	    } while ( i < h_max );
 	}
     } else {
-	/* ¸½ºß¥Ï¡¼¥È°ÌÃÖ ¥»¥Ã¥È */
+	/* Current Heart Position Set */
 	now_p = j;
 	ht_xp += 10;
 	i += LIFE_CT;
 	
 	do {
-	    /* Empty¥Ï¡¼¥È ¥»¥Ã¥È */
+	    /* Empty Heart Set */
 	    texture_IA8( game_play->g.graph, heart0_txt, 16, ht_xp, ht_yp );
 	    ht_xp += 10;
 	    i += LIFE_CT;
@@ -134,10 +134,10 @@ life_meter_play( Game_play *game_play, short count )
     }
 
     if ( gover->gover_mode ) {
-	/* ¥²¡¼¥à¥ª¡¼¥Ğ¡¼ */
+	/* Game Over */
 	texture_IA8( game_play->g.graph, heart0_txt, 16, HT_XP, HT_YP );
     } else {
-	/* ¥É¥­¥É¥­¥Ï¡¼¥ÈÉ½¼¨ */
+	/* Dokidoki Heart Display */
 	overlay_kaleido_scope_prim( game_play->g.graph );
 	gDPSetCombineMode( NEXT_OVERLAY_DISP, G_CC_INT9, G_CC_INT9 );
 	Matrix_translate( (float)XREG(10)/100.0f, (float)XREG(11)/100.0f, 0.0f, SET_MTX );
@@ -152,11 +152,11 @@ life_meter_play( Game_play *game_play, short count )
 
 
 
-/*¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á £Í£Ï£Ö£Å ¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á¡á*/
+/*ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ ï¼­ï¼¯ï¼¶ï¼¥ ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼*/
     /*
-     * ¥É¥­¥É¥­¥Ï¡¼¥È
+     * Dokidoki Heart
      */
-    /* ¸½ºß°ÌÃÖ¸¡º÷ */
+    /* Current Position Search */
     j = 0;
     if ( !(player_condition_check( game_play )) ) {
 	h_now = S_Private.now_life;
@@ -169,10 +169,10 @@ life_meter_play( Game_play *game_play, short count )
 	    j++;
 	    i += LIFE_CT;
 	} while ( i < h_now );
-	/* ¸½ºß°ÌÃÖ ¥»¥Ã¥È */
+	/* Current Position Set */
 	now_p = j;
     } else {
-	/* ¸½ºß°ÌÃÖ ¥»¥Ã¥È */
+	/* Current Position Set */
 	now_p = j;
     }
     XREG(10) = (short)(-13000 + (1000*(now_p%10)));
@@ -186,7 +186,7 @@ life_meter_play( Game_play *game_play, short count )
     XREG(10) -= ((l0*10)/XREG(46));
     XREG(11) += ((l0*10)/XREG(47));
     XREG(12) += l0;
-    /* ¥×¥ì¥¤¥ä¡¼¿åÃæÈ½Äê : [¡ª¡á £°] ¤Î»ş¿åÃæ */
+    /* Player In Water Determination: [ï¼ï¼ ï¼] When in Water */
     GREG(55) = player_condition_check( game_play );
     LifeMeterColorAnimation( game_play );
     if ( GREG(55) ) {
